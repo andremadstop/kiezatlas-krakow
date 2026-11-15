@@ -1,0 +1,332 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Denkmale und Kamienice, Teil BDOT10k",
+ "description": "Zählungen der Gebäude (Funktion), Komplexe zabytkowo-historyczne (OT_KUZA_A) und Gebäude mit Namen „Kamienica“. Ein Name ist kein Denkmalstatus. Keine Kennung, keine Adresse, kein Name an Wohngebäuden.",
+ "x-datei": "denkmale_bdot.js",
+ "x-global": "^KIEZ_DENKMALE_BDOT$",
+ "type": "object",
+ "required": [
+  "stand",
+  "teilmenge",
+  "flaechenaussage",
+  "quelle",
+  "zaehlung",
+  "delegaturen",
+  "nicht_zugeordnet",
+  "komplexe",
+  "namensbezug"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "stand": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "fixture": {
+   "const": true
+  },
+  "teilmenge": {
+   "const": true
+  },
+  "flaechenaussage": {
+   "const": false
+  },
+  "quelle": {
+   "type": "object",
+   "required": [
+    "name",
+    "vermerk"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "vermerk": {
+     "type": "string",
+     "pattern": "BDOT10k"
+    }
+   }
+  },
+  "zaehlung": {
+   "type": "object",
+   "required": [
+    "gebaeude",
+    "kat_istnie",
+    "wohngebaeude",
+    "mehrfamilienhaeuser",
+    "namensbezug",
+    "mfh_in_zespol_zabudowy",
+    "komplexe"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "gebaeude": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "kat_istnie": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "integer",
+      "minimum": 0
+     }
+    },
+    "wohngebaeude": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "mehrfamilienhaeuser": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "namensbezug": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "mfh_in_zespol_zabudowy": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "komplexe": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "zabudowa": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "twierdza": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "muzeum": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "pamiec": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    }
+   }
+  },
+  "delegaturen": {
+   "type": "object",
+   "minProperties": 4,
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "wohngebaeude",
+     "mehrfamilienhaeuser",
+     "namensbezug"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "wohngebaeude": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "mehrfamilienhaeuser": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "namensbezug": {
+      "type": "integer",
+      "minimum": 0
+     }
+    }
+   }
+  },
+  "nicht_zugeordnet": {
+   "type": "object",
+   "required": [
+    "wohngebaeude",
+    "mehrfamilienhaeuser",
+    "namensbezug"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "wohngebaeude": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "mehrfamilienhaeuser": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "namensbezug": {
+     "type": "integer",
+     "minimum": 0
+    }
+   }
+  },
+  "komplexe": {
+   "type": "object",
+   "required": [
+    "type",
+    "features"
+   ],
+   "properties": {
+    "type": {
+     "const": "FeatureCollection"
+    },
+    "features": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "type",
+       "geometry",
+       "properties"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "type": {
+        "const": "Feature"
+       },
+       "geometry": {
+        "type": "object",
+        "required": [
+         "type",
+         "coordinates"
+        ],
+        "properties": {
+         "type": {
+          "enum": [
+           "Polygon",
+           "MultiPolygon"
+          ]
+         },
+         "coordinates": {
+          "type": "array",
+          "minItems": 1
+         }
+        }
+       },
+       "properties": {
+        "type": "object",
+        "required": [
+         "r",
+         "n",
+         "del"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "r": {
+          "enum": [
+           "zabudowa",
+           "twierdza",
+           "muzeum",
+           "pamiec"
+          ]
+         },
+         "n": {
+          "type": [
+           "string",
+           "null"
+          ],
+          "description": "Name des Komplexes (BDOT10k NAZWA), polnisch"
+         },
+         "del": {
+          "type": [
+           "string",
+           "null"
+          ],
+          "description": "Delegatura (OT_ADJA_A, Name polnisch), null = keiner zugeordnet"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "namensbezug": {
+   "type": "object",
+   "required": [
+    "type",
+    "features"
+   ],
+   "properties": {
+    "type": {
+     "const": "FeatureCollection"
+    },
+    "features": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "type",
+       "geometry",
+       "properties"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "type": {
+        "const": "Feature"
+       },
+       "geometry": {
+        "type": "object",
+        "required": [
+         "type",
+         "coordinates"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "type": {
+          "const": "Point"
+         },
+         "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+           "type": "number"
+          }
+         }
+        }
+       },
+       "properties": {
+        "type": "object",
+        "required": [
+         "w",
+         "mfh",
+         "gs",
+         "del"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "w": {
+          "type": "boolean"
+         },
+         "mfh": {
+          "type": "boolean"
+         },
+         "gs": {
+          "type": [
+           "integer",
+           "null"
+          ],
+          "description": "oberirdische Geschosse (LICZ_KONDY)"
+         },
+         "del": {
+          "type": [
+           "string",
+           "null"
+          ],
+          "description": "Delegatura (OT_ADJA_A, Name polnisch), null = keiner zugeordnet"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

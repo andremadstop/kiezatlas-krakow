@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erreichbarkeit und Takt · Kiezatlas Kraków</title>
+<meta name="description" content="Fußwege zu Haltestellen, Schulen, Kitas und Grün sowie der Takt des Nahverkehrs.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/planer.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/planer.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/planer.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/planer.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/de/planer.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Erreichbarkeit und Takt · Kiezatlas Kraków">
+<meta property="og:description" content="Fußwege zu Haltestellen, Schulen, Kitas und Grün sowie der Takt des Nahverkehrs.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenseite.css">
+</head>
+<body class="textseite" data-seite="planer">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Karte</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Stadtteile</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Mietshäuser</span></a></li>
+        <li><a class="nav" href="planer.html" aria-current="page"><span>Erreichbarkeit</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Themen</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Methode</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Sprache wählen">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../planer.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/planer.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/planer.html" aria-current="true">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Erreichbarkeit und Takt">
+    <ul>
+      <li><a class="nav" href="planer.html" aria-current="page"><span>Erreichbarkeit</span></a></li>
+      <li><a class="nav" href="planer-metoda.html"><span>Methode</span></a></li>
+      <li><a class="nav" href="planer-dane.html"><span>Daten</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../planer.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="../en/planer.html">Also available in English</a> <button type="button" aria-label="Schließen" title="Schließen"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Beispieldaten auf einem Teil der Seite: Auf Abruf geladene Daten zeigen unechte Werte, die nur zum Bauen des Atlas dienen, und sind dort gekennzeichnet, wo sie erscheinen. Die übrigen Daten dieser Seite sind keine Beispieldaten." hidden>Beispieldaten: Diese Seite zeigt unechte Werte, die nur zum Bauen des Atlas dienen. Es sind keine Daten über Krakau.</p>
+</div>
+<h1>Erreichbarkeit und Takt</h1>
+<p class="lede">Fußwege zu Haltestellen, Schulen, Kitas und Grün sowie der Takt des Nahverkehrs.</p>
+<p class="ks-wahlhinweis" id="wahl-hinweis">Die Karte zeigt vorerst nur die Stadtteilgrenzen. Wähle eine Frage oder ein Ziel, dann färben sich die Gitterzellen nach Entfernung. <a class="link" href="#fragen">Zu den Fragen</a></p>
+<section class="ks" aria-label="Erreichbarkeit: Karte und Seitenleiste">
+  <div class="ks__karte">
+    <div id="karte" role="region" aria-label="Karte der Erreichbarkeit in Krakau. Mit Pfeiltasten verschieben, mit Plus und Minus zoomen."></div>
+    <div class="ks-werkzeug" id="werkzeug"></div>
+    <div class="ks-legende" id="legende" tabindex="0" role="region" aria-label="Legende" hidden></div>
+    <p class="nur-sr" id="kartenstatus" aria-live="polite"></p>
+  </div>
+  <div class="ks-blatt">
+    <div class="ks-block">
+      <h2>Fragen</h2>
+      <ul class="ks-fragen" id="fragen"></ul>
+    </div>
+    <div class="ks-block">
+      <fieldset class="ks-chips" id="zu"></fieldset>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="halt-knopf" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Haltestellen nach Taktklasse</span></button></div>
+    </div>
+    <div class="ks-block" id="block-st">
+      <h2>Stadtteil</h2>
+      <label class="ks-wahl"><span>Stadtteil wählen</span><select id="st-wahl"></select></label>
+      <div id="st-inhalt" aria-live="polite"></div>
+    </div>
+    <div class="ks-block">
+      <h2>Alle Stadtteile</h2>
+      <p class="ks-fuss">Eine Kennzahl für jeden Stadtteil und die ganze Stadt, mit Zähler und Nenner.</p>
+      <button class="knopf knopf--rand" type="button" id="vg-laden"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Vergleich zeigen</span></button>
+      <div id="vg-auswahl" hidden><label class="ks-wahl"><span>Kennzahl</span><select id="vg-kennzahl"></select></label></div>
+      <div id="vg-inhalt" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<h2>Grenzen</h2>
+<ul class="ks-grenzen">
+  <li>Gemessen wird vom Mittelpunkt jeder 1-km-Gitterzelle zum nächsten Ziel. Alle Einwohner einer Zelle zählen, als wohnten sie in ihrer Mitte; innerhalb der Zelle ist der wahre Weg kürzer oder länger.</li>
+  <li>Der Fußweg folgt dem Wegenetz aus OpenStreetMap (feste Gehgeschwindigkeit); die Vollständigkeit des Netzes ist nicht geprüft. Ziele knapp hinter der Stadtgrenze zählen mit.</li>
+  <li>Schulen, Kindergärten, Krippen, Krankenhäuser und Parks stammen aus BDOT10k, das nur Einrichtungen mit eigenem Gelände enthält. Viele Kindergärten und Krippen fehlen; das Schul- und Kindergartenregister (RSPO) ist noch nicht eingebunden.</li>
+  <li>Ärzte, Apotheken, Supermärkte, Spielplätze und Pflegeheime stammen aus OpenStreetMap, ohne Namen; Vollständigkeit nicht geprüft.</li>
+  <li>Die Taktklasse ist eine eigene Einteilung nach dem Fahrplan eines Tages, keine polnische Norm. Der polnische Begriff (klasa częstotliwości kursowania) ist ein Vorschlag zur Abstimmung.</li>
+  <li>Die Richtwerte des Bildungsgesetzes meinen den Weg zur Schule des Einzugsbereichs. Gemessen ist der Weg zur nächsten Einrichtung jeder Art; deshalb trägt keine Kennzahl das Abzeichen „amtlicher Maßstab“.</li>
+</ul>
+<h2>Quellen</h2>
+<ul class="ks-quellen">
+  <li>Fahrplan: ZTP Kraków, GTFS, CC BY 4.0, dane zmienione (opracowanie własne).</li>
+  <li>Einrichtungen und Parks: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne).</li>
+  <li>Wegenetz, Ärzte, Apotheken, Supermärkte, Spielplätze, Pflegeheime und Stadtteilgrenzen: © OpenStreetMap-Mitwirkende, ODbL 1.0.</li>
+  <li>Einwohner je Zelle: Eurostat, Bevölkerungsgitter des Zensus 2021 (1 km), CC BY 4.0.</li>
+  <li>Richtwerte: Bildungsgesetz (Prawo oświatowe, konsolidierte Fassung im Dziennik Ustaw).</li>
+</ul>
+<p>Weiter: <a class="link" href="planer-metoda.html">Erreichbarkeit: Methode</a> · <a class="link" href="planer-dane.html">Erreichbarkeit: Daten</a> · <a class="link" href="modernizacja.html">Wohnungsbestand und Sanierung</a></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Startseite</a> <a class="link" hreflang="de" href="https://souverain-systems.de/impressum/">Impressum</a> <a class="link" hreflang="de" href="https://souverain-systems.de/datenschutz/">Datenschutz</a></p>
+  <p class="fuss-seite__stand">Stand <span data-kiez-version>—</span>. Herausgeber: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Grafiken: CC BY 4.0. Daten: Lizenzen nach Quelle. <span class="fuss-seite__odbl">Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Fehler gefunden? Schreib uns: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/de/kern.js"></script>
+<script defer src="../texte/de/seiten.js"></script>
+<script defer src="../texte/de/planer.js"></script>
+<script defer src="../daten/stadtteile_odbl.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenseite.js"></script>
+<script defer src="../erreichbarkeit.js"></script>
+</body>
+</html>

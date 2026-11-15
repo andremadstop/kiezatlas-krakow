@@ -1,0 +1,263 @@
+{
+ "hinweis": "Zweite Stichprobe zur Sichtprüfung der Denkmalpunkte (pruefen/DZ_protokoll.md, Nachtrag 3). Zu prüfen sind nur Lage und Ansicht am Luftbild. Erzeugt von skripte/dz_denkmale.py, nicht von Hand ändern; das Ergebnis der Prüfung kommt in eine eigene Datei.",
+ "startwert": 20261114,
+ "geprueft": true,
+ "pruefen": [
+  "lage",
+  "ansicht"
+ ],
+ "stand": {
+  "wd": "2026-11-14",
+  "osm": "2026-11-12"
+ },
+ "grundgesamtheit": {
+  "wd": 1214,
+  "osm": 184
+ },
+ "vermerk": {
+  "wd": "Wikidata, CC0 1.0",
+  "osm": "© OpenStreetMap-Mitwirkende, ODbL 1.0 (https://www.openstreetmap.org/copyright)"
+ },
+ "punkte": [
+  {
+   "lon": 19.92728,
+   "lat": 50.06703,
+   "quelle": "wd",
+   "id": "Q30168587"
+  },
+  {
+   "lon": 19.93768,
+   "lat": 50.05876,
+   "quelle": "wd",
+   "id": "Q30168712"
+  },
+  {
+   "lon": 19.95606,
+   "lat": 50.04476,
+   "quelle": "wd",
+   "id": "Q30162015"
+  },
+  {
+   "lon": 20.10074,
+   "lat": 50.11035,
+   "quelle": "wd",
+   "id": "Q8512319"
+  },
+  {
+   "lon": 19.94667,
+   "lat": 50.05167,
+   "quelle": "wd",
+   "id": "Q3109262"
+  },
+  {
+   "lon": 19.9482,
+   "lat": 50.0532,
+   "quelle": "wd",
+   "id": "Q11787595"
+  },
+  {
+   "lon": 19.93222,
+   "lat": 50.06021,
+   "quelle": "wd",
+   "id": "Q30171408"
+  },
+  {
+   "lon": 19.94757,
+   "lat": 50.06479,
+   "quelle": "wd",
+   "id": "Q11828765"
+  },
+  {
+   "lon": 19.90956,
+   "lat": 50.07573,
+   "quelle": "wd",
+   "id": "Q122187417"
+  },
+  {
+   "lon": 19.94337,
+   "lat": 50.06307,
+   "quelle": "wd",
+   "id": "Q30170057"
+  },
+  {
+   "lon": 19.93762,
+   "lat": 50.05622,
+   "quelle": "wd",
+   "id": "Q9294055"
+  },
+  {
+   "lon": 19.94306,
+   "lat": 50.06389,
+   "quelle": "wd",
+   "id": "Q3527492"
+  },
+  {
+   "lon": 19.93453,
+   "lat": 50.06049,
+   "quelle": "wd",
+   "id": "Q30172017"
+  },
+  {
+   "lon": 19.91091,
+   "lat": 50.05353,
+   "quelle": "wd",
+   "id": "Q125524675"
+  },
+  {
+   "lon": 19.94273,
+   "lat": 50.05056,
+   "quelle": "wd",
+   "id": "Q30169866"
+  },
+  {
+   "lon": 19.95345,
+   "lat": 50.04204,
+   "quelle": "wd",
+   "id": "Q30161657"
+  },
+  {
+   "lon": 19.94123,
+   "lat": 50.06311,
+   "quelle": "wd",
+   "id": "Q30171746"
+  },
+  {
+   "lon": 19.94186,
+   "lat": 50.04883,
+   "quelle": "wd",
+   "id": "Q30162679"
+  },
+  {
+   "lon": 19.93825,
+   "lat": 50.05775,
+   "quelle": "wd",
+   "id": "Q30168851"
+  },
+  {
+   "lon": 19.93733,
+   "lat": 50.05656,
+   "quelle": "wd",
+   "id": "Q30169476"
+  },
+  {
+   "lon": 19.90405,
+   "lat": 50.04144,
+   "quelle": "osm",
+   "id": "w136657671"
+  },
+  {
+   "lon": 19.93939,
+   "lat": 50.05928,
+   "quelle": "osm",
+   "id": "w243432610"
+  },
+  {
+   "lon": 19.99696,
+   "lat": 50.01047,
+   "quelle": "osm",
+   "id": "w911299568"
+  },
+  {
+   "lon": 20.05531,
+   "lat": 50.08185,
+   "quelle": "osm",
+   "id": "w128616563"
+  },
+  {
+   "lon": 19.96136,
+   "lat": 50.029,
+   "quelle": "osm",
+   "id": "n1500744003"
+  },
+  {
+   "lon": 19.96902,
+   "lat": 49.98891,
+   "quelle": "osm",
+   "id": "w111250379"
+  },
+  {
+   "lon": 19.93248,
+   "lat": 50.05957,
+   "quelle": "osm",
+   "id": "w143916299"
+  },
+  {
+   "lon": 19.96748,
+   "lat": 50.08644,
+   "quelle": "osm",
+   "id": "w276339026"
+  },
+  {
+   "lon": 19.88049,
+   "lat": 50.00329,
+   "quelle": "osm",
+   "id": "w140560836"
+  },
+  {
+   "lon": 19.95783,
+   "lat": 49.98712,
+   "quelle": "osm",
+   "id": "w347660889"
+  },
+  {
+   "lon": 19.93891,
+   "lat": 50.06313,
+   "quelle": "osm",
+   "id": "w39357573"
+  },
+  {
+   "lon": 19.95716,
+   "lat": 50.04331,
+   "quelle": "osm",
+   "id": "w137276375"
+  },
+  {
+   "lon": 19.9355,
+   "lat": 50.05467,
+   "quelle": "osm",
+   "id": "w85151350"
+  },
+  {
+   "lon": 19.95594,
+   "lat": 50.06365,
+   "quelle": "osm",
+   "id": "w348252385"
+  },
+  {
+   "lon": 20.10434,
+   "lat": 50.0684,
+   "quelle": "osm",
+   "id": "w123993275"
+  },
+  {
+   "lon": 20.10865,
+   "lat": 50.06809,
+   "quelle": "osm",
+   "id": "w219172195"
+  },
+  {
+   "lon": 19.99214,
+   "lat": 49.99484,
+   "quelle": "osm",
+   "id": "w244542996"
+  },
+  {
+   "lon": 19.94731,
+   "lat": 50.06065,
+   "quelle": "osm",
+   "id": "w152301900"
+  },
+  {
+   "lon": 19.9488,
+   "lat": 50.06207,
+   "quelle": "osm",
+   "id": "w152330075"
+  },
+  {
+   "lon": 20.14699,
+   "lat": 50.0878,
+   "quelle": "osm",
+   "id": "w227963540"
+  }
+ ]
+}

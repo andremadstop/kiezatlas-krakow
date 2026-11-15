@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="de" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daten, Quellen und Lizenzen · Kiezatlas Kraków</title>
+<meta name="description" content="Downloads (GeoPackage, CSV, QGIS), Lizenzen, Quellenvermerke und Zitierhinweis.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/dane.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/dane.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/dane.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/dane.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/de/dane.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daten, Quellen und Lizenzen · Kiezatlas Kraków">
+<meta property="og:description" content="Downloads (GeoPackage, CSV, QGIS), Lizenzen, Quellenvermerke und Zitierhinweis.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+</head>
+<body class="textseite" data-seite="dane">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Karte</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Stadtteile</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Mietshäuser</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Erreichbarkeit</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Themen</span></a></li>
+        <li><a class="nav" href="metoda.html" aria-current="true"><span>Methode</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Sprache wählen">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../dane.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/dane.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/dane.html" aria-current="true">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Methode und Grenzen">
+    <ul>
+      <li><a class="nav" href="metoda.html"><span>Methode</span></a></li>
+      <li><a class="nav" href="dane.html" aria-current="page"><span>Daten</span></a></li>
+      <li><a class="nav" href="porownanie.html"><span>Krakau und Potsdam</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../dane.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="../en/dane.html">Also available in English</a> <button type="button" aria-label="Schließen" title="Schließen"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Beispieldaten auf einem Teil der Seite: Auf Abruf geladene Daten zeigen unechte Werte, die nur zum Bauen des Atlas dienen, und sind dort gekennzeichnet, wo sie erscheinen. Die übrigen Daten dieser Seite sind keine Beispieldaten." hidden>Beispieldaten: Diese Seite zeigt unechte Werte, die nur zum Bauen des Atlas dienen. Es sind keine Daten über Krakau.</p>
+</div>
+<h1>Daten, Quellen und Lizenzen</h1>
+<p class="lede">Downloads (GeoPackage, CSV, QGIS), Lizenzen, Quellenvermerke und Zitierhinweis.</p>
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/dane.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="d-pobierz">
+<h2>Downloads</h2>
+<p>Alle Dateien erzeugt ein Skript aus denselben Datendateien, die die Seiten laden; kein Wert wird neu gerechnet. Luft und Wohnungspreise haben noch keine eigene Ebene (Liesmich, Abschnitt „Nicht im Export“).</p>
+<ul class="quellen">
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: GeoPackage ohne Daten aus OpenStreetMap (Stadt, delegatury, 1-km-Gitter, Bodenbedeckung, Einrichtungen aus der BDOT10k, Haltestellen, BDOT10k-Komplexe, ZBK-Liste je dzielnica).</li>
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a>: GeoPackage mit den Grenzen der dzielnice und allem, was von ihnen abhängt, mit Fußwegen, Ärzten und Apotheken, OSM-Objekten mit Denkmalangabe und den Punkten des ZBK-Bestands. Ganze Datei: Open Database License 1.0.</li>
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow.qgz" download>kiezatlas_krakow.qgz</a>: QGIS-Projekt mit Stilen; beide GeoPackages müssen im selben Ordner liegen.</li>
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: dieselben Ebenen als CSV, in zwei Fassungen.</li>
+<li><a class="link" href="../daten/pobierz/licencje.csv" download>licencje.csv</a>: Lizenz und wörtlicher Quellenvermerk je Ebene.</li>
+<li><a class="link" href="../daten/pobierz/pola.csv" download>pola.csv</a> und <a class="link" href="../daten/pobierz/wartosci.csv" download>wartosci.csv</a>: Bedeutung jedes Felds und jedes kodierten Werts auf Polnisch, Englisch und Deutsch.</li>
+<li><a class="link" href="../daten/pobierz/LIESMICH.md">LIESMICH.md</a>: Beschreibung der Ebenen und Felder, Zeilenzahlen, Grenzen (auch <a class="link" hreflang="pl" href="../daten/pobierz/CZYTAJ.md">auf Polnisch</a> und <a class="link" hreflang="en" href="../daten/pobierz/README.md">auf Englisch</a>).</li>
+</ul>
+<p><strong>Dezimalkomma.</strong> Die Ordner <code>csv_pl/</code> und <code>csv_odbl_pl/</code> im Archiv haben ein Dezimalkomma und keinen Tausendertrenner; Excel und LibreOffice mit polnischer (oder deutscher) Ländereinstellung lesen die Zahlen so gleich als Zahlen. Die Ordner <code>csv/</code> und <code>csv_odbl/</code> haben einen Dezimalpunkt (für Programme und englische Einstellungen). Alle Dateien: UTF-8 mit BOM, Trennzeichen Semikolon, Koordinaten in EPSG:2178.</p>
+</section>
+
+<section id="d-licencje">
+<h2>Lizenzen</h2>
+<ul class="quellen">
+<li><strong>Dateien mit <code>_odbl</code> im Namen</strong> (im Atlas und in den Downloads) enthalten Daten aus OpenStreetMap oder Werte, die über die Grenzen aus OpenStreetMap einer dzielnica zugeordnet sind. Es gilt die Open Database License 1.0 mit dem Vermerk „© OpenStreetMap-Mitwirkende“ (openstreetmap.org/copyright). Wer sie verändert und weitergibt, gibt sie unter derselben Lizenz weiter.</li>
+<li><strong>BDOT10k, LoD2-Modelle, Register der Immobilienpreise</strong> (GUGiK): ohne Lizenz, mit Pflicht zur Quellenangabe (art. 40c ust. 3 i 5 des polnischen Geodäsiegesetzes, Prawo geodezyjne i kartograficzne).</li>
+<li><strong>Eurostat-Bevölkerungsgitter, GTFS-Fahrplan der ZTP</strong>: CC BY 4.0, mit Quellenvermerk und Hinweis auf Veränderungen.</li>
+<li><strong>NSP 2021 (GUS)</strong>: Kopieren mit Quellenangabe erlaubt.</li>
+<li><strong>ZBK-Liste</strong>: Weiterverwendung von Informationen des öffentlichen Sektors nach den Regeln der Gmina Miejska Kraków, mit Vermerk und Haftungsklausel.</li>
+<li><strong>Code und eigene Texte</strong>: Apache-2.0; Grafiken des Atlas: CC BY 4.0 mit der Bildzeile auf der Grafik.</li>
+</ul>
+<p>Die Quellenvermerke stehen unten wörtlich, in der Originalsprache.</p>
+</section>
+
+<section id="d-zrodla">
+<h2>Datenquellen</h2>
+<ul class="quellen">
+<li><strong>Bevölkerung, NSP 2021:</strong> <span data-feld="steckbrief:quellen.nsp2021.quelle" lang="pl">Główny Urząd Statystyczny, Narodowy Spis Powszechny Ludności i Mieszkań 2021: „Ludność w rejonach statystycznych i obwodach spisowych według płci, ekonomicznych i 10-letnich grup wieku”</span>. Vermerk: „<span data-feld="steckbrief:quellen.nsp2021.vermerk" lang="pl">Główny Urząd Statystyczny: nie ma zastrzeżeń co do kopiowania plików i stron oraz dokonywania wydruków, w tym do własnych opracowań, pod warunkiem, że będzie podane ich źródło</span>“.</li>
+<li><strong>Bevölkerungsgitter:</strong> Eurostat, Census 2021 population grid, <span data-feld="steckbrief:quellen.eurostat2021.url">https://gisco-services.ec.europa.eu/census/2021/INSPIRE/Data/PL_PD_3035_GPKG.zip</span>. Vermerk: „<span data-feld="steckbrief:quellen.eurostat2021.vermerk">EU copyright rules apply, while the licence would be under CC-BY 4.0.</span>“</li>
+<li><strong>Gebäude und Grenzen der delegatury:</strong> <span data-feld="gebaeude_kennzahlen:quellen.bdot10k.vermerk" lang="pl">Źródło: Baza Danych Obiektów Topograficznych (BDOT10k), państwowy zasób geodezyjny i kartograficzny, Główny Urząd Geodezji i Kartografii; dane opracowane (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne, Dz.U. 2026 poz. 1389)</span> <span data-feld="gebaeude_kennzahlen:quellen.delegatury.vermerk" lang="pl">Granice delegatur: państwowy rejestr granic (PRG) w BDOT10k, Główny Urząd Geodezji i Kartografii</span>.</li>
+<li><strong>Gebäudehöhen:</strong> <span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk" lang="pl">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></li>
+<li><strong>Einrichtungen:</strong> <span data-feld="einrichtungen:quellen.bdot10k.vermerk" lang="pl">Źródło: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne)</span>.</li>
+<li><strong>Fahrplan:</strong> <span data-feld="haltestellen:quellen.ztp.vermerk" lang="pl">ZTP Kraków, GTFS, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), dane zmienione (opracowanie własne)</span>.</li>
+<li><strong>OpenStreetMap:</strong> © OpenStreetMap-Mitwirkende, ODbL 1.0 (openstreetmap.org/copyright); Auszug für die Wojewodschaft Kleinpolen, Stand <span data-feld="stadtteile_odbl:stand">12. November 2026</span>.</li>
+<li><strong>ZBK-Liste:</strong> <span data-feld="sanierung:quellen.zbk.vermerk" lang="pl">Źródło: Zarząd Budynków Komunalnych w Krakowie, „Wykaz budynków i obiektów w zarządzie ZBK na dzień 2025-12-01”, Biuletyn Informacji Publicznej (https://www.bip.krakow.pl/?bip_id=32&amp;mmi=10127), załącznik nr 635620 z dnia 2025-12-18; data wytworzenia: 2025-12-18 (plik PDF), data pozyskania: 2026-11-13. Informacja przetworzona: odczyt tabeli z PDF, ujednolicenie rodzaju budynku i własności, zliczenia; plik nie zawiera adresów.</span> Klausel: „<span data-feld="sanierung:quellen.zbk.odpowiedzialnosc" lang="pl">Gmina Miejska Kraków nie ponosi odpowiedzialności za: szkody spowodowane pozyskaniem informacji sektora publicznego lub ponownym wykorzystywaniem informacji sektora publicznego, zamieszczonej na stronach BIP MK lub w innym miejskim serwisie internetowym, udostępnianej na wniosek lub pozyskanej w inny sposób, wykorzystywanej ponownie z naruszeniem warunków udostępniania lub ponownego wykorzystywania informacji sektora publicznego; szkody spowodowane przez dalsze udostępnienie informacji sektora publicznego przez podmioty ponownie ją wykorzystujące z naruszeniem przepisów prawa powszechnie obowiązującego, w tym dalsze udostępnianie informacji sektora publicznego z naruszeniem przepisów regulujących ich ochronę m.in. przepisów ustawy o prawie autorskim i prawach pokrewnych, ustawy o ochronie baz danych, przepisów o ochronie danych osobowych, ustawy o ochronie informacji niejawnych itd.</span>“</li>
+<li><strong>Grundkarte:</strong> BDOT10k, Główny Urząd Geodezji i Kartografii; <span data-feld="grundkarte:stand">BDOT10k 1261 (Miasto Kraków), pliki z 2026-10-03</span>.</li>
+<li><strong>Schulwege:</strong> <span data-feld="planer_odbl:quellen.prawo_oswiatowe.vermerk" lang="pl">Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)</span>.</li>
+<li><strong>Grenzwerte der Luftqualität:</strong> <span data-feld="powietrze:grenzwerte.pm10_srednia.0.fundstelle" lang="pl">Dz.U. 2021 poz. 845, załącznik nr 1, lp. 7</span>. Beschluss gegen den Smog: <span data-feld="powietrze:kontekst.akt" lang="pl">Uchwała Nr XVIII/243/16 Sejmiku Województwa Małopolskiego z dnia 15 stycznia 2016 roku w sprawie wprowadzenia na obszarze Gminy Miejskiej Kraków ograniczeń w zakresie eksploatacji instalacji, w których następuje spalanie paliw</span>. Messwerte: <span data-feld="powietrze:quelle.nazwa">EEA, Air Quality e-Reporting: Air quality annual statistics calculated by the EEA</span>, Vermerk „EEA; Daten: GIOŚ“.</li>
+<li><strong>Wohnungspreise</strong>: <span data-feld="mieszkania_odbl:quelle.vermerk" lang="pl">Rejestr cen nieruchomości, Prezydent Miasta Krakowa (powiat 1261); dane udostępnione przez Główny Urząd Geodezji i Kartografii w serwisie www.geoportal.gov.pl; opracowanie własne (mediany, bez danych jednostkowych)</span>.</li>
+</ul>
+</section>
+
+<section id="d-cytuj">
+<h2>Zitieren</h2>
+<p><span data-feld="ort:zitierzeile.de">Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow</span>, mit dem Datenstand aus dem Seitenfuß. Für Downloads zusätzlich der Dateiname und die Quellenvermerke aus <code>licencje.csv</code>. Zitierangaben in maschinenlesbarer Form stehen in der Datei <code>CITATION.cff</code> im <a class="link" href="https://github.com/andremadstop/kiezatlas-krakow">Repository</a>; eine DOI ist noch nicht vergeben.</p>
+<p>Fehler in Daten oder Text gefunden? Bitte eine Nachricht an <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a>.</p>
+</section>
+
+<p class="odbl-vermerk"><small>Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Startseite</a> <a class="link" hreflang="de" href="https://souverain-systems.de/impressum/">Impressum</a> <a class="link" hreflang="de" href="https://souverain-systems.de/datenschutz/">Datenschutz</a></p>
+  <p class="fuss-seite__stand">Stand <span data-kiez-version>—</span>. Herausgeber: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Grafiken: CC BY 4.0. Daten: Lizenzen nach Quelle. <span class="fuss-seite__odbl">Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Fehler gefunden? Schreib uns: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/de/kern.js"></script>
+<script defer src="../texte/de/seiten.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+</body>
+</html>

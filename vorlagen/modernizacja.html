@@ -1,0 +1,86 @@
+<!--seite
+daten: daten/stadtteile_odbl.js daten/sanierung.js daten/sanierung_odbl.js
+texte: kern seiten planer denkmale sanierung
+robots: index
+css: vendor/maplibre-gl.css kartenseite.css
+skripte: vendor/maplibre-gl.js daten/grundkarte.js themen.js kartenseite.js sanierungsatlas.js
+-->
+<h1>{{t:seiten.modernizacja.h1}}</h1>
+<p class="lede">{{t:sanierung.lede}}</p>
+<p><span class="ks-abz">{{t:sanierung.abz_schaetzung}}</span><span class="ks-abz">{{t:sanierung.abz_baujahr}}</span><span class="ks-abz">{{t:sanierung.abz_energie}}</span><span class="ks-abz">{{t:sanierung.abz_denkmal}}</span></p>
+<section class="ks" aria-label="{{t:sanierung.werkzeug_aria}}">
+  <div class="ks__karte">
+    <div id="karte" role="region" aria-label="{{t:sanierung.karte_aria}}"></div>
+    <div class="ks-werkzeug" id="werkzeug"></div>
+    <div class="ks-legende" id="legende" tabindex="0" role="region" aria-label="{{t:planer.ks_legende}}" hidden></div>
+    <p class="nur-sr" id="kartenstatus" aria-live="polite"></p>
+  </div>
+  <div class="ks-blatt">
+    <div class="ks-block">
+      <h2>{{t:sanierung.st_titel}}</h2>
+      <label class="ks-wahl"><span>{{t:sanierung.st_wahl}}</span><select id="st-wahl"></select></label>
+      <div id="st-inhalt" aria-live="polite"></div>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:sanierung.om_titel}}</h2>
+      <div id="ortsmarke"></div>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="om-zeigen"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">{{t:sanierung.om_zeigen}}</span></button></div>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:sanierung.liste_titel}}</h2>
+      <p class="ks-fuss" id="liste-kopf"></p>
+      <ul class="ks-zahlen" id="liste"></ul>
+      <h3>{{t:sanierung.eigentum_titel}}</h3>
+      <ul class="ks-zahlen" id="eigentum"></ul>
+      <p class="ks-fuss" id="liste-fehlt"></p>
+      <p class="ks-fuss" id="punkte-regel"></p>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:sanierung.typ_titel}} <span class="ks-abz">{{t:sanierung.schaetzung}}</span></h2>
+      <p id="typ-regel"></p>
+      <p id="typ-osiedle"></p>
+      <ul class="ks-zahlen" id="typ-zahlen"></ul>
+      <p class="ks-fuss">{{t:sanierung.typ_grenze}}</p>
+      <p class="ks-fuss" id="literatur"></p>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:sanierung.denkmal_titel}}</h2>
+      <p>{{t:sanierung.denkmal_text}}</p>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="dz-knopf" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">{{t:sanierung.dz_knopf}}</span></button></div>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:sanierung.verortung_titel}}</h2>
+      <ul class="ks-zahlen" id="verortung"></ul>
+      <h3>{{t:sanierung.hoehen_titel}}</h3>
+      <ul class="ks-zahlen" id="hoehen"></ul>
+    </div>
+  </div>
+</section>
+<h2>{{t:sanierung.bezug_titel}}</h2>
+<p class="ks-grenzen">{{t:sanierung.bezug_text}}</p>
+<div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="bezug-laden"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">{{t:sanierung.bezug_laden}}</span></button></div>
+<div id="tab-dzielnice" aria-live="polite"></div>
+<ul class="ks-grenzen">
+  <li><a class="link" href="planer.html#zu=haltestelle_takt&amp;weg=fuss&amp;halt=1">{{t:sanierung.link_takt}}</a></li>
+  <li><a class="link" href="planer.html#zu=park&amp;weg=fuss">{{t:sanierung.link_gruen}}</a></li>
+  <li><a class="link" href="klimat.html">{{t:sanierung.link_klimat}}</a></li>
+  <li><a class="link" href="powietrze.html">{{t:sanierung.link_luft}}</a></li>
+  <li><a class="link" href="kamienice.html">{{t:sanierung.link_kamienice}}</a></li>
+</ul>
+<h2>{{t:sanierung.grenzen_titel}}</h2>
+<ul class="ks-grenzen">
+  <li>{{t:sanierung.grenze.baujahr}}</li>
+  <li>{{t:sanierung.grenze.typologie}}</li>
+  <li>{{t:sanierung.grenze.privat}}</li>
+  <li>{{t:sanierung.grenze.verortung}}</li>
+  <li>{{t:sanierung.grenze.hoehe}}</li>
+  <li>{{t:sanierung.grenze.denkmal}}</li>
+  <li>{{t:sanierung.grenze.liste}}</li>
+</ul>
+<h2>{{t:sanierung.quellen_titel}}</h2>
+<p class="ks-quellen">{{t:sanierung.quellen_wortlaut}}</p>
+<ul class="ks-quellen" id="quellen-zbk"></ul>
+<ul class="ks-quellen">
+  <li>{{t:sanierung.quelle.osm}}</li>
+  <li>{{t:sanierung.quelle.lod}}</li>
+</ul>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Climate: built-up land and green · Kiezatlas Kraków</title>
+<meta name="description" content="Built-up and transport land (an approximation of soil sealing) and green space by district, indicative.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/klimat.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/klimat.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/klimat.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/klimat.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/klimat.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Climate: built-up land and green · Kiezatlas Kraków">
+<meta property="og:description" content="Built-up and transport land (an approximation of soil sealing) and green space by district, indicative.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenfeld.css">
+<link rel="stylesheet" href="../themenseite.css">
+</head>
+<body class="textseite" data-seite="klimat">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy" aria-current="true"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../klimat.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/klimat.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/klimat.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Topics">
+    <ul>
+      <li><a class="nav" href="modernizacja.html"><span>Retrofit</span></a></li>
+      <li><a class="nav" href="klimat.html" aria-current="page"><span>Climate</span></a></li>
+      <li><a class="nav" href="powietrze.html"><span>Air</span></a></li>
+      <li><a class="nav" href="mieszkania.html"><span>Housing</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../klimat.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/klimat.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Climate: built-up land and green</h1>
+<p class="lede">Built-up and transport land (an approximation of soil sealing) and green space by district, indicative.</p>
+<p class="ts-abzeichen">indicative</p>
+<div class="ts-merke">
+  <p>Land surface temperature (heat) is not shown: no open source with a clear licence has been checked for this edition.</p>
+  <p>Built-up land also includes yards and gardens within built-up areas, and squares include unpaved ones. This is an approximation, not a measurement of sealed surfaces.</p>
+</div>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-miasto">Built-up land and green space in the whole city</h2>
+  <ul class="ts-zahlen" id="k-zahlen"></ul>
+  <div id="k-klassen"></div>
+  <p>Arable land is not counted as green space: it is not generally accessible and lies bare for part of the year.</p>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-mapa">Map: grid squares</h2>
+  <p id="k-mapa-opis"></p>
+  <div class="ts-knoepfe" id="k-wahl"></div>
+  <div class="kartenfeld"><div id="karte"></div></div>
+  <ul class="ts-kartenlegende" id="k-legende"></ul>
+  <p class="ts-kartenwahl" id="k-zelle" aria-live="polite"></p>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-dzielnice">Districts</h2>
+  <div class="ts-knoepfe" id="k-sort"></div>
+  <div id="k-dzielnice"></div>
+  <h3>Delegatury (former boroughs)</h3>
+  <div id="k-delegatury"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-granice">Limitations</h2>
+  <ul class="ts-grenzen" id="k-grenzen">
+    <li>Built-up land also includes yards and gardens within built-up areas, and squares include unpaved ones. This is an approximation, not a measurement of sealed surfaces.</li>
+    <li>Arable land is not counted as green space: it is not generally accessible and lies bare for part of the year.</li>
+    <li>Land surface temperature (heat) is not shown: no open source with a clear licence has been checked for this edition.</li>
+    <li>The accuracy of the BDOT10k land cover has not been checked against orthophotos or in the field.</li>
+    <li>Green space per resident is not calculated for grid squares, only for districts and the whole city.</li>
+    <li>District boundaries come from OpenStreetMap; district values are therefore published under the ODbL.</li>
+  </ul>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-zrodla">Data sources</h2>
+  <dl class="ts-quellen" id="k-quellen"></dl>
+</section>
+
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../texte/en/erzaehlung.js"></script>
+<script defer src="../texte/en/klimat.js"></script>
+<script defer src="../daten/stadtteile_odbl.js"></script>
+<script defer src="../daten/klimat.js"></script>
+<script defer src="../daten/klimat_zellen.js"></script>
+<script defer src="../daten/klimat_stadtteile_odbl.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenfeld.js"></script>
+<script defer src="../themenseite.js"></script>
+<script defer src="../seite_klimat.js"></script>
+</body>
+</html>

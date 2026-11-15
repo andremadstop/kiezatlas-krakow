@@ -1,0 +1,45 @@
+<!--seite
+daten: daten/porownanie.js
+texte: kern seiten erzaehlung
+robots: index
+css: stadtatlas.css
+skripte: vergleich.js
+-->
+<h1>{{t:seiten.porownanie.h1}}</h1>
+<p class="lede">{{t:seiten.porownanie.beschreibung}}</p>
+<p class="ka-vergleich-hinweis">{{t:erzaehlung.vg_einleitung}} <span id="ka-vg-methode"></span></p>
+
+<h2>{{t:erzaehlung.vg_tabelle}}</h2>
+<div class="ka-tabelle-rahmen" role="region" tabindex="0" aria-label="{{t:erzaehlung.vg_tabelle}}">
+<table id="ka-vergleich" class="ka-tabelle">
+  <caption id="ka-vg-quelle"></caption>
+  <thead><tr>
+    <th scope="col">{{t:erzaehlung.vg_kennzahl}}</th>
+    <th scope="col">{{t:erzaehlung.vg_krakow}}</th>
+    <th scope="col">{{t:erzaehlung.vg_potsdam}}</th>
+    <th scope="col">{{t:erzaehlung.vg_unterschied}}</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<h2>{{t:erzaehlung.vg_alter}}</h2>
+<ul class="ka-vg-legende" aria-hidden="true">
+  <li><span class="fl-farbe ka-vg-u15"></span>{{t:erzaehlung.vg_leg_u15}}</li>
+  <li><span class="fl-farbe ka-vg-m"></span>{{t:erzaehlung.vg_leg_m}}</li>
+  <li><span class="fl-farbe ka-vg-a"></span>{{t:erzaehlung.vg_leg_a}}</li>
+</ul>
+<div id="ka-vg-alter" class="ka-vg-alter"></div>
+
+<h2>{{t:erzaehlung.vg_nicht}}</h2>
+<p>{{t:erzaehlung.vg_nicht_einleitung}}</p>
+<ul class="ka-weggelassen">
+  <li>{{t:erzaehlung.vg_nicht_u18}}</li>
+  <li>{{t:erzaehlung.vg_nicht_gebaeude}}</li>
+  <li>{{t:erzaehlung.vg_nicht_bauzeit}}</li>
+  <li>{{t:erzaehlung.vg_nicht_takt}}</li>
+  <li>{{t:erzaehlung.vg_nicht_teile}}</li>
+  <li>{{t:erzaehlung.vg_nicht_einwohner}}</li>
+</ul>
+<p class="ka-quelle">{{t:erzaehlung.vg_grenze_potsdam}}</p>
+{{block:porownanie}}

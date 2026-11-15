@@ -1,0 +1,838 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Gebäudekennzahlen je Stadt und Delegatur (BDOT10k, PRG)",
+ "description": "Erzeugt von skripte/20_bdot10k.py. Nur Quellen ohne ODbL (BDOT10k und die Delegaturen aus PRG). Keine Gebäudekennung, keine Namen oder Zusatzinformationen einzelner Gebäude.",
+ "x-datei": "gebaeude_kennzahlen.js",
+ "x-global": "^KIEZ_GEB_KENNZAHLEN$",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "stand_daten",
+  "quellen",
+  "methode",
+  "stadt",
+  "delegatury",
+  "kontrolle"
+ ],
+ "properties": {
+  "fixture": {
+   "const": true
+  },
+  "hinweis": {
+   "type": "string"
+  },
+  "stand_daten": {
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "quellen": {
+   "type": "object",
+   "required": [
+    "bdot10k"
+   ],
+   "properties": {
+    "bdot10k": {
+     "type": "object",
+     "required": [
+      "datei",
+      "stand_juengste_wersja",
+      "dateidatum",
+      "vermerk"
+     ],
+     "properties": {
+      "vermerk": {
+       "type": "string",
+       "pattern": "art\\. 40c ust\\. 3"
+      }
+     }
+    },
+    "delegatury": {
+     "type": "object",
+     "required": [
+      "vermerk"
+     ]
+    },
+    "hoehen": {
+     "type": "object",
+     "required": [
+      "vermerk",
+      "dateien"
+     ]
+    }
+   }
+  },
+  "methode": {
+   "type": "object",
+   "required": [
+    "zuordnung",
+    "rechen_srid",
+    "mindestfallzahl",
+    "geschoss_hoehe_m"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "zuordnung": {
+     "const": "punkt_im_polygon"
+    },
+    "rechen_srid": {
+     "type": "integer"
+    },
+    "mindestfallzahl": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "geschoss_hoehe_m": {
+     "type": "number"
+    }
+   }
+  },
+  "stadt": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "name",
+    "anzahl",
+    "zustand",
+    "funktion",
+    "funktion_unbekannt",
+    "wohngebaeude",
+    "wohn_art",
+    "geschosse",
+    "geschosse_wohn",
+    "geschosse_median",
+    "geschosse_mittel",
+    "geschosse_median_wohn",
+    "geschosse_mittel_wohn",
+    "grundflaeche_m2",
+    "grundflaeche_wohn_m2",
+    "flaeche_m2",
+    "bebauungsdichte",
+    "geschossflaeche_naeherung"
+   ],
+   "properties": {
+    "name": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Eigenname (polnisch, unübersetzt)"
+    },
+    "anzahl": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Gebäude (OT_BUBD_A), innerer Punkt in der Einheit, alle Kategorien KAT_ISTNIE"
+    },
+    "zustand": {
+     "type": "object",
+     "required": [
+      "eksploatowany",
+      "w_budowie",
+      "nieczynny",
+      "zniszczony",
+      "leer"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "eksploatowany": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "w_budowie": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "nieczynny": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "zniszczony": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "leer": {
+       "type": "integer",
+       "minimum": 0
+      }
+     },
+     "description": "Anzahl je KAT_ISTNIE (kategoria istnienia)"
+    },
+    "funktion": {
+     "type": "object",
+     "required": [
+      "101",
+      "102",
+      "103",
+      "104",
+      "105",
+      "106",
+      "107",
+      "108",
+      "109",
+      "110"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "101": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "102": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "103": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "104": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "105": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "106": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "107": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "108": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "109": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "110": {
+       "type": "integer",
+       "minimum": 0
+      }
+     },
+     "description": "Anzahl je Kod KŚT (Tabela 26 Rozporządzenie BDOT10k, Dz.U. 2021 poz. 1412); 110 = budynki mieszkalne"
+    },
+    "funktion_unbekannt": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "wohngebaeude": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "KODKST 110"
+    },
+    "wohn_art": {
+     "type": "object",
+     "required": [
+      "ein",
+      "mehr",
+      "sonst"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "ein": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "mehr": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "sonst": {
+       "type": "integer",
+       "minimum": 0
+      }
+     },
+     "description": "Wohngebäude nach PFBUD (przeważająca funkcja): budynek jednorodzinny, budynek wielorodzinny, sonst"
+    },
+    "geschosse": {
+     "type": "object",
+     "required": [
+      "1",
+      "2",
+      "3_4",
+      "5_10",
+      "11p",
+      "unbekannt"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "1": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "2": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "3_4": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "5_10": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "11p": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "unbekannt": {
+       "type": "integer",
+       "minimum": 0
+      }
+     },
+     "description": "Gebäude je Klasse von LICZ_KONDY (liczba nadziemnych kondygnacji); unbekannt = leer oder 0"
+    },
+    "geschosse_wohn": {
+     "type": "object",
+     "required": [
+      "1",
+      "2",
+      "3_4",
+      "5_10",
+      "11p",
+      "unbekannt"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "1": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "2": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "3_4": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "5_10": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "11p": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "unbekannt": {
+       "type": "integer",
+       "minimum": 0
+      }
+     },
+     "description": "wie geschosse, nur Wohngebäude"
+    },
+    "geschosse_median": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "description": "null, wenn weniger als methode.mindestfallzahl Gebäude mit bekannter Geschosszahl"
+    },
+    "geschosse_mittel": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "geschosse_median_wohn": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "geschosse_mittel_wohn": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "grundflaeche_m2": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Σ Grundrissflächen ohne KAT_ISTNIE zniszczony, in methode.rechen_srid"
+    },
+    "grundflaeche_wohn_m2": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "flaeche_m2": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Fläche der Einheit in methode.rechen_srid"
+    },
+    "bebauungsdichte": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "wert",
+      "zaehler",
+      "nenner",
+      "anzeige"
+     ],
+     "properties": {
+      "wert": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0,
+       "maximum": 100,
+       "description": "100 × zaehler / nenner, eine Nachkommastelle"
+      },
+      "zaehler": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "nenner": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "anzeige": {
+       "const": "anteil"
+      }
+     }
+    },
+    "geschossflaeche_naeherung": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "wert",
+      "zaehler",
+      "nenner",
+      "abzeichen"
+     ],
+     "properties": {
+      "wert": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0,
+       "description": "Σ(Grundfläche × Geschosse) / Fläche; Näherung, keine amtliche GFZ"
+      },
+      "zaehler": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "nenner": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "abzeichen": {
+       "const": "orientacyjnie"
+      }
+     }
+    }
+   }
+  },
+  "delegatury": {
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "patternProperties": {
+    "^1261\\d{3}$": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "name",
+      "anzahl",
+      "zustand",
+      "funktion",
+      "funktion_unbekannt",
+      "wohngebaeude",
+      "wohn_art",
+      "geschosse",
+      "geschosse_wohn",
+      "geschosse_median",
+      "geschosse_mittel",
+      "geschosse_median_wohn",
+      "geschosse_mittel_wohn",
+      "grundflaeche_m2",
+      "grundflaeche_wohn_m2",
+      "flaeche_m2",
+      "bebauungsdichte",
+      "geschossflaeche_naeherung"
+     ],
+     "properties": {
+      "name": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "description": "Eigenname (polnisch, unübersetzt)"
+      },
+      "anzahl": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "Gebäude (OT_BUBD_A), innerer Punkt in der Einheit, alle Kategorien KAT_ISTNIE"
+      },
+      "zustand": {
+       "type": "object",
+       "required": [
+        "eksploatowany",
+        "w_budowie",
+        "nieczynny",
+        "zniszczony",
+        "leer"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "eksploatowany": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "w_budowie": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "nieczynny": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "zniszczony": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "leer": {
+         "type": "integer",
+         "minimum": 0
+        }
+       },
+       "description": "Anzahl je KAT_ISTNIE (kategoria istnienia)"
+      },
+      "funktion": {
+       "type": "object",
+       "required": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "105",
+        "106",
+        "107",
+        "108",
+        "109",
+        "110"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "101": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "102": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "103": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "104": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "105": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "106": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "107": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "108": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "109": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "110": {
+         "type": "integer",
+         "minimum": 0
+        }
+       },
+       "description": "Anzahl je Kod KŚT (Tabela 26 Rozporządzenie BDOT10k, Dz.U. 2021 poz. 1412); 110 = budynki mieszkalne"
+      },
+      "funktion_unbekannt": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "wohngebaeude": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "KODKST 110"
+      },
+      "wohn_art": {
+       "type": "object",
+       "required": [
+        "ein",
+        "mehr",
+        "sonst"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "ein": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "mehr": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "sonst": {
+         "type": "integer",
+         "minimum": 0
+        }
+       },
+       "description": "Wohngebäude nach PFBUD (przeważająca funkcja): budynek jednorodzinny, budynek wielorodzinny, sonst"
+      },
+      "geschosse": {
+       "type": "object",
+       "required": [
+        "1",
+        "2",
+        "3_4",
+        "5_10",
+        "11p",
+        "unbekannt"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "1": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "2": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "3_4": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "5_10": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "11p": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "unbekannt": {
+         "type": "integer",
+         "minimum": 0
+        }
+       },
+       "description": "Gebäude je Klasse von LICZ_KONDY (liczba nadziemnych kondygnacji); unbekannt = leer oder 0"
+      },
+      "geschosse_wohn": {
+       "type": "object",
+       "required": [
+        "1",
+        "2",
+        "3_4",
+        "5_10",
+        "11p",
+        "unbekannt"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "1": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "2": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "3_4": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "5_10": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "11p": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "unbekannt": {
+         "type": "integer",
+         "minimum": 0
+        }
+       },
+       "description": "wie geschosse, nur Wohngebäude"
+      },
+      "geschosse_median": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0,
+       "description": "null, wenn weniger als methode.mindestfallzahl Gebäude mit bekannter Geschosszahl"
+      },
+      "geschosse_mittel": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0
+      },
+      "geschosse_median_wohn": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0
+      },
+      "geschosse_mittel_wohn": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0
+      },
+      "grundflaeche_m2": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "Σ Grundrissflächen ohne KAT_ISTNIE zniszczony, in methode.rechen_srid"
+      },
+      "grundflaeche_wohn_m2": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "flaeche_m2": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "Fläche der Einheit in methode.rechen_srid"
+      },
+      "bebauungsdichte": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "wert",
+        "zaehler",
+        "nenner",
+        "anzeige"
+       ],
+       "properties": {
+        "wert": {
+         "type": [
+          "number",
+          "null"
+         ],
+         "minimum": 0,
+         "maximum": 100,
+         "description": "100 × zaehler / nenner, eine Nachkommastelle"
+        },
+        "zaehler": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "nenner": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "anzeige": {
+         "const": "anteil"
+        }
+       }
+      },
+      "geschossflaeche_naeherung": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "wert",
+        "zaehler",
+        "nenner",
+        "abzeichen"
+       ],
+       "properties": {
+        "wert": {
+         "type": [
+          "number",
+          "null"
+         ],
+         "minimum": 0,
+         "description": "Σ(Grundfläche × Geschosse) / Fläche; Näherung, keine amtliche GFZ"
+        },
+        "zaehler": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "nenner": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "abzeichen": {
+         "const": "orientacyjnie"
+        }
+       }
+      }
+     }
+    }
+   },
+   "description": "Schlüssel = Identyfikator TERYT der Delegatur (IDTERYTJED)"
+  },
+  "kontrolle": {
+   "type": "object",
+   "required": [
+    "datensaetze",
+    "in_stadt",
+    "ausserhalb_stadt",
+    "in_stadt_ohne_delegatur",
+    "ungueltig_repariert",
+    "duplikat_vermerk",
+    "deckung_delegatury"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "datensaetze": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "in_stadt": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "ausserhalb_stadt": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "in_stadt_ohne_delegatur": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "ungueltig_repariert": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "duplikat_vermerk": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "deckung_delegatury": {
+     "type": "number",
+     "minimum": 0.9999,
+     "maximum": 1.0001
+    }
+   }
+  }
+ }
+}

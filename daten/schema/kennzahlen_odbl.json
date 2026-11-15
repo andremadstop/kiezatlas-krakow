@@ -1,0 +1,46 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Kennzahlen (Bestand)",
+ "description": "Kennzahlen je dzielnica und Stadt. Die Werte je dzielnica beruhen auf den Grenzen aus OpenStreetMap; die Datei (und kennzahlen_odbl.json mit gleichem Inhalt) steht deshalb unter der ODbL 1.0 (Entscheidung vom 13.11.2026 zur Lizenzfolge, Variante a).",
+ "x-datei": "kennzahlen_odbl.js",
+ "x-odbl": true,
+ "x-global": "^KIEZ_KENNZAHLEN$",
+ "type": "object",
+ "required": [
+  "stand_auswertung",
+  "stadt",
+  "stadtteile",
+  "kontrolle"
+ ],
+ "properties": {
+  "stadt": {
+   "type": "object",
+   "required": [
+    "zellen",
+    "kacheln",
+    "verteilungen",
+    "gebaeude"
+   ]
+  },
+  "stadtteile": {
+   "type": "object",
+   "patternProperties": {
+    "^\\d{2}$": {
+     "type": "object",
+     "required": [
+      "name",
+      "zellen",
+      "kacheln"
+     ]
+    }
+   }
+  },
+  "kontrolle": {
+   "type": "object",
+   "required": [
+    "gebaeude_im_rechteck",
+    "gebaeude_in_stadt"
+   ]
+  }
+ }
+}

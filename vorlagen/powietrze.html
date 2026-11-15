@@ -1,0 +1,55 @@
+<!--seite
+daten: daten/powietrze.js
+texte: kern seiten powietrze
+robots: index
+css: themenseite.css
+skripte: themenseite.js seite_powietrze.js
+-->
+<h1>{{t:seiten.powietrze.h1}}</h1>
+<p class="lede">{{t:seiten.powietrze.beschreibung}}</p>
+<p class="ts-abzeichen">{{t:powietrze.abzeichen.orientacyjnie}}</p>
+<aside class="ts-beispiel" id="p-beispiel" role="note" hidden></aside>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-kontekst">{{t:powietrze.h.kontekst}}</h2>
+  <p id="p-stichtag"></p>
+  <blockquote class="ts-zitat" id="p-zitat"></blockquote>
+  <p id="p-zmiany"></p>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-przebieg">{{t:powietrze.h.przebieg}}</h2>
+  <div class="ts-knoepfe" id="p-wahl"></div>
+  <p><label for="p-stacja">{{t:powietrze.wybor.stacja}}</label> <select id="p-stacja" class="ts-knopf"></select></p>
+  <figure class="ts-abbildung" id="p-wykres"><div class="ts-zeichnung"></div><figcaption></figcaption></figure>
+  <div id="p-legende"></div>
+  <p id="p-bez"></p>
+  <div class="ts-beispielzone" id="p-jahre"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-przedpo">{{t:powietrze.h.przed_po}}</h2>
+  <div class="ts-merke"><p>{{t:powietrze.bez_przyczyny}}</p></div>
+  <div class="ts-beispielzone" id="p-przedpo"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-normy">{{t:powietrze.h.normy}}</h2>
+  <div id="p-normy"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-granice">{{t:powietrze.h.granice}}</h2>
+  <ul class="ts-grenzen" id="p-grenzen">
+    <li>{{t:powietrze.abzeichen.orientacyjnie}}. {{t:powietrze.g.eea}}</li>
+    <li>{{t:powietrze.g.miasto}}</li>
+    <li>{{t:powietrze.g.punkt}}</li>
+    <li>{{t:powietrze.bez_przyczyny}}</li>
+  </ul>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-zrodla">{{t:powietrze.h.zrodla}}</h2>
+  <dl class="ts-quellen" id="p-quellen"></dl>
+</section>
+{{block:powietrze}}

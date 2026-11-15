@@ -1,0 +1,684 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Sanierungsatlas Wohnungsbestand: verortete Einträge der ZBK-Liste und Typologie je dzielnica (ODbL)",
+ "description": "Verortung der ZBK-Einträge über OSM-Adressen, Verknüpfung mit BDOT10k und LoD2, Punkte nur für Einträge ohne Anteil von Privatpersonen, Typologie-Schätzung je dzielnica in OSM-Grenzen. Keine Adresse, keine L.p., keine Gebäudekennung.",
+ "x-datei": "sanierung_odbl.js",
+ "x-global": "^KIEZ_SANIERUNG_ODBL$",
+ "x-odbl": true,
+ "x-eigentuemer": "Paket Sanierungsatlas Wohnungsbestand",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "stand",
+  "stand_osm",
+  "quellen",
+  "verortung",
+  "gegenprobe_dzielnica",
+  "verknuepfung",
+  "punkte",
+  "typologie_dzielnice",
+  "ortsmarke"
+ ],
+ "properties": {
+  "stand": {
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "stand_osm": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "fixture": {
+   "const": true
+  },
+  "quellen": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "zbk",
+    "bdot",
+    "lod2",
+    "osm"
+   ],
+   "properties": {
+    "zbk": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "vermerk",
+      "odpowiedzialnosc"
+     ],
+     "properties": {
+      "vermerk": {
+       "type": "string",
+       "pattern": "^Źródło: Zarząd Budynków Komunalnych w Krakowie",
+       "description": "Quellenangabe und Hinweis auf die Verarbeitung für diese Datei (Geokodierung, Verknüpfung)"
+      },
+      "odpowiedzialnosc": {
+       "type": "string",
+       "pattern": "^Gmina Miejska Kraków nie ponosi odpowiedzialności za: .*ochronie informacji niejawnych itd\\.$"
+      },
+      "url": {
+       "type": "string",
+       "pattern": "^https://www\\.bip\\.krakow\\.pl/"
+      },
+      "plik": {
+       "type": "string",
+       "pattern": "^https://www\\.bip\\.krakow\\.pl/"
+      },
+      "sha256": {
+       "type": "string",
+       "pattern": "^[0-9a-f]{64}$"
+      }
+     }
+    },
+    "bdot": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "vermerk"
+     ],
+     "properties": {
+      "vermerk": {
+       "type": "string",
+       "minLength": 20
+      }
+     }
+    },
+    "lod2": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "vermerk"
+     ],
+     "properties": {
+      "vermerk": {
+       "type": "string",
+       "pattern": "^„Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania\\.”"
+      }
+     }
+    },
+    "osm": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "vermerk",
+      "vermerk_sprachen",
+      "datei"
+     ],
+     "properties": {
+      "vermerk": {
+       "type": "string",
+       "pattern": "OpenStreetMap.*ODbL"
+      },
+      "vermerk_sprachen": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "pl",
+        "en",
+        "de"
+       ],
+       "description": "OSM-Nennung je Sprache der Seite",
+       "properties": {
+        "pl": {
+         "type": "string",
+         "pattern": "OpenStreetMap.*ODbL"
+        },
+        "en": {
+         "type": "string",
+         "pattern": "OpenStreetMap.*ODbL"
+        },
+        "de": {
+         "type": "string",
+         "pattern": "OpenStreetMap.*ODbL"
+        }
+       }
+      },
+      "datei": {
+       "type": "string"
+      }
+     }
+    }
+   }
+  },
+  "verortung": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "eintraege",
+    "in_krakow",
+    "je_klasse",
+    "je_art",
+    "quote",
+    "wilson95",
+    "ohne_namensregeln"
+   ],
+   "properties": {
+    "eintraege": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "in_krakow": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "je_klasse": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "verortet",
+      "beschreibung",
+      "poza_krakowem",
+      "ulica_nie_znaleziona",
+      "numer_nie_znaleziony",
+      "mehrdeutig_ulica",
+      "mehrdeutig_punkt",
+      "abweichung_dzielnica"
+     ],
+     "properties": {
+      "verortet": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "beschreibung": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "poza_krakowem": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "ulica_nie_znaleziona": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "numer_nie_znaleziony": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "mehrdeutig_ulica": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "mehrdeutig_punkt": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "abweichung_dzielnica": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "Treffer, deren OSM-dzielnica nicht die der Liste ist: kein Punkt, keine Verknüpfung"
+      }
+     }
+    },
+    "je_art": {
+     "type": "object",
+     "additionalProperties": false,
+     "patternProperties": {
+      "^(M|U|P|MU|MP|UP|MUP)$": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "n",
+        "verortet"
+       ],
+       "properties": {
+        "n": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "verortet": {
+         "type": "integer",
+         "minimum": 0
+        }
+       }
+      }
+     }
+    },
+    "quote": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "wilson95": {
+     "type": [
+      "array",
+      "null"
+     ],
+     "items": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+     },
+     "minItems": 2,
+     "maxItems": 2
+    },
+    "ohne_namensregeln": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "verortet",
+      "treffer",
+      "ulica_nie_znaleziona"
+     ],
+     "description": "Vergleichslauf ohne die zusätzlichen Namensregeln (Nachname/Vorname, św., Plac am Ende), im selben Lauf gerechnet",
+     "properties": {
+      "verortet": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "treffer": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "ulica_nie_znaleziona": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    }
+   }
+  },
+  "gegenprobe_dzielnica": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "n",
+    "gleich",
+    "quote",
+    "wilson95"
+   ],
+   "properties": {
+    "n": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "gleich": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "quote": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "wilson95": {
+     "type": [
+      "array",
+      "null"
+     ],
+     "items": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+     },
+     "minItems": 2,
+     "maxItems": 2
+    }
+   },
+   "description": "über alle Treffer vor dem Filter auf abweichende dzielnica"
+  },
+  "verknuepfung": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "verortet",
+    "umriss",
+    "punkt",
+    "ohne",
+    "gebaeude_einzeln",
+    "hoehe_lod2",
+    "hoehe_geschosse",
+    "typ_blok",
+    "typ_osiedle"
+   ],
+   "properties": {
+    "verortet": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "umriss": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "punkt": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "ohne": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "gebaeude_einzeln": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "hoehe_lod2": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "hoehe_geschosse": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "typ_blok": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "typ_osiedle": {
+     "type": "integer",
+     "minimum": 0
+    }
+   }
+  },
+  "punkte": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "type",
+    "features",
+    "nur_eigentum",
+    "geschosse_min",
+    "ausgelassen_kleinhaus",
+    "ausgelassen_unter_3_geschosse"
+   ],
+   "properties": {
+    "type": {
+     "const": "FeatureCollection"
+    },
+    "features": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "type",
+       "geometry",
+       "properties"
+      ],
+      "properties": {
+       "type": {
+        "const": "Feature"
+       },
+       "geometry": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "type",
+         "coordinates"
+        ],
+        "properties": {
+         "type": {
+          "const": "Point"
+         },
+         "coordinates": {
+          "type": "array",
+          "items": {
+           "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+         }
+        }
+       },
+       "properties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "art",
+         "eig",
+         "st",
+         "gs",
+         "fn",
+         "h",
+         "hq",
+         "typ"
+        ],
+        "properties": {
+         "art": {
+          "enum": [
+           "M",
+           "U",
+           "P",
+           "MU",
+           "MP",
+           "UP",
+           "MUP"
+          ]
+         },
+         "eig": {
+          "enum": [
+           "gmina",
+           "skarb_panstwa",
+           "publiczne_mieszane"
+          ],
+          "description": "Punkte nur ohne Anteil von Privatpersonen; nicht an Einfamilienhäusern laut BDOT10k"
+         },
+         "st": {
+          "type": "string",
+          "pattern": "^(0[1-9]|1[0-8])$",
+          "description": "dzielnica laut ZBK-Liste"
+         },
+         "gs": {
+          "type": "integer",
+          "minimum": 3
+         },
+         "fn": {
+          "type": [
+           "string",
+           "null"
+          ]
+         },
+         "h": {
+          "type": [
+           "number",
+           "null"
+          ],
+          "minimum": 0,
+          "maximum": 300
+         },
+         "hq": {
+          "enum": [
+           "lod2",
+           "geschosse",
+           null
+          ],
+          "description": "Herkunft der Höhe h: LoD2 (Stand 2017) oder Geschosse × 3 m (geschätzt)"
+         },
+         "typ": {
+          "enum": [
+           "blok",
+           "osiedle",
+           null
+          ],
+          "description": "Typologie-Kandidat (Schätzung)"
+         }
+        }
+       }
+      }
+     }
+    },
+    "nur_eigentum": {
+     "const": [
+      "gmina",
+      "skarb_panstwa",
+      "publiczne_mieszane"
+     ]
+    },
+    "geschosse_min": {
+     "const": 3,
+     "description": "Punkte nur an Gebäuden mit mindestens so vielen Geschossen laut BDOT10k (LICZ_KONDY); Master-Entscheidung zu KR31 vom 14.11.2026, pruefen/DS_protokoll.md Nachtrag 4"
+    },
+    "ausgelassen_kleinhaus": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Einträge an Einfamilienhäusern laut BDOT10k und mit Wohnnutzung ohne Gebäudefunktion: kein Punkt, nur gezählt"
+    },
+    "ausgelassen_unter_3_geschosse": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Einträge, die sonst einen Punkt bekämen, deren Gebäude laut BDOT10k weniger als 3 Geschosse hat oder ohne Gebäude oder Geschosszahl ist (nur gezählt)"
+    }
+   }
+  },
+  "typologie_dzielnice": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "schaetzung",
+    "je_dzielnica",
+    "nicht_zugeordnet"
+   ],
+   "properties": {
+    "schaetzung": {
+     "const": true
+    },
+    "je_dzielnica": {
+     "type": "object",
+     "additionalProperties": false,
+     "minProperties": 18,
+     "patternProperties": {
+      "^(0[1-9]|1[0-8])$": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "mfh",
+        "blok",
+        "osiedle",
+        "blok_angebaut",
+        "osiedle_angebaut"
+       ],
+       "properties": {
+        "mfh": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "blok": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "osiedle": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "blok_angebaut": {
+         "type": "integer",
+         "minimum": 0,
+         "description": "Kandidat mit gemeinsamer Grenze von mindestens 3 m mit einem anderen Gebäude der BDOT10k (angebaut, Blockrand); Hinweis auf kamienice, keine Regel"
+        },
+        "osiedle_angebaut": {
+         "type": "integer",
+         "minimum": 0,
+         "description": "wie blok_angebaut, nur Kandidaten in Großsiedlungen"
+        }
+       }
+      }
+     }
+    },
+    "nicht_zugeordnet": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "mfh",
+      "blok",
+      "osiedle",
+      "blok_angebaut",
+      "osiedle_angebaut"
+     ],
+     "properties": {
+      "mfh": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "blok": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "osiedle": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "blok_angebaut": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "Kandidat mit gemeinsamer Grenze von mindestens 3 m mit einem anderen Gebäude der BDOT10k (angebaut, Blockrand); Hinweis auf kamienice, keine Regel"
+      },
+      "osiedle_angebaut": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "wie blok_angebaut, nur Kandidaten in Großsiedlungen"
+      }
+     }
+    }
+   }
+  },
+  "ortsmarke": {
+   "anyOf": [
+    {
+     "type": "null"
+    },
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "schluessel",
+      "geometry",
+      "lage_geprueft"
+     ],
+     "properties": {
+      "schluessel": {
+       "const": "kosciuszki_18"
+      },
+      "geometry": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "type",
+        "coordinates"
+       ],
+       "properties": {
+        "type": {
+         "const": "Point"
+        },
+        "coordinates": {
+         "type": "array",
+         "items": {
+          "type": "number"
+         },
+         "minItems": 2,
+         "maxItems": 2
+        }
+       }
+      },
+      "lage_geprueft": {
+       "const": false
+      },
+      "st_osm": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "pattern": "^(0[1-9]|1[0-8])$"
+      },
+      "hq": {
+       "enum": [
+        "lod2",
+        "geschosse",
+        null
+       ]
+      }
+     }
+    }
+   ]
+  }
+ }
+}

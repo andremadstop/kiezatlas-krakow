@@ -1,0 +1,31 @@
+/* texte/pl/kern.js: Namensraum kern.* (Bedienung aller Seiten). Vertrag: daten/schema/texte.md. */
+(function (T) {
+  T["kern.karte_locale"] = {"Map.Title": "Mapa", "GeolocateControl.FindMyLocation": "Pokaż moją lokalizację", "GeolocateControl.LocationNotAvailable": "Lokalizacja niedostępna", "NavigationControl.ZoomIn": "Powiększ", "NavigationControl.ZoomOut": "Pomniejsz", "NavigationControl.ResetBearing": "Obróć mapę na północ", "AttributionControl.ToggleAttribution": "Pokaż lub ukryj źródła", "CooperativeGesturesHandler.MobileHelpText": "Przesuwaj mapę dwoma palcami", "CooperativeGesturesHandler.WindowsHelpText": "Ctrl + kółko myszy, aby powiększyć", "CooperativeGesturesHandler.MacHelpText": "⌘ + kółko myszy, aby powiększyć"};
+  T["kern.sprung"] = "Przejdź do treści";
+  T["kern.navigation"] = "Nawigacja";
+  T["kern.sprachwahl"] = "Wybór języka";
+  T["kern.sprache_name"] = "Polski";
+  T["kern.sprache_auch"] = "Strona dostępna również po polsku";
+  T["kern.schliessen"] = "Zamknij";
+  T["kern.spis"] = "Spis treści";
+  T["kern.beispieldaten"] = "Dane przykładowe: ta strona pokazuje fikcyjne wartości, które służą wyłącznie do budowy atlasu. Nie są to dane o Krakowie.";
+  T["kern.beispieldaten_nachgeladen"] = "Dane przykładowe w części strony: dane wczytane na żądanie pokazują fikcyjne wartości, które służą wyłącznie do budowy atlasu, i są oznaczone tam, gdzie się pojawiają. Pozostałe dane na tej stronie nie są przykładowe.";
+  T["kern.in_arbeit"] = "Ta część atlasu jest w przygotowaniu. Treść pojawi się, gdy dane zostaną sprawdzone.";
+  T["kern.stand"] = "Stan";
+  T["kern.meldeweg"] = "Widzisz błąd? Napisz do nas:";
+  T["kern.herausgeber"] = "Wydawca";
+  T["kern.lizenz"] = "Kod: Apache-2.0. Grafiki: CC BY 4.0. Dane: licencje według źródeł.";
+  T["kern.odbl"] = "Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0:";
+  T["kern.zur_startseite"] = "Strona główna";
+  T["kern.impressum"] = "Nota prawna";
+  T["kern.datenschutz"] = "Polityka prywatności";
+  T["kern.dzielnice"] = {"one": "{n} dzielnica", "few": "{n} dzielnice", "many": "{n} dzielnic", "other": "{n} dzielnicy"};
+  T["kern.k_a"] = "brak danych";
+  T["kern.rund"] = "około {zahl}";
+  T["kern.laden_unvollstaendig"] = "Dane z pliku {datei} są niekompletne.";
+  T["kern.laden_fehler"] = "Nie udało się wczytać danych z pliku {datei}.";
+  T["kern.ebene_passt_nicht"] = "Wartości warstwy {ebene} nie pasują do komórek siatki na mapie.";
+  T["kern.hq_kataster"] = "Wysokość obiektu z katastru (ALKIS)";
+  T["kern.hq_geschosse"] = "szacunek: kondygnacje × 3 m";
+  T["kern.hq_ersatz"] = "wartość zastępcza 3 m, brak wysokości w katastrze";
+})(window.KIEZ_TEXTE = window.KIEZ_TEXTE || {});

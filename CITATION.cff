@@ -1,0 +1,113 @@
+cff-version: 1.2.0
+message: "Korzystając z Kiezatlas Kraków, jego danych lub grafik, prosimy o cytowanie z tymi danymi i ze stanem danych podanym w stopce strony. / If you use Kiezatlas Kraków, its data or graphics, please cite it with these details and the data state shown in the page footer."
+type: dataset
+title: "Kiezatlas Kraków: dzielnice z otwartych danych publicznych / Kraków districts from open public data"
+abstract: >-
+  Atlas 18 dzielnic Krakowa z otwartych danych publicznych (BDOT10k, modele 3D budynków LoD2 GUGiK, NSP 2021,
+  siatka ludności Eurostat 2021, GTFS ZTP, OpenStreetMap, wykaz budynków ZBK, statystyki jakości powietrza EEA,
+  Rejestr Cen Nieruchomości, Wikidane). Interfejs po polsku, z wersją angielską i niemiecką, z metodą, skryptami
+  kontrolnymi i notą o źródle przy każdej liczbie. Dane do pobrania jako GeoPackage, CSV (także z przecinkiem
+  dziesiętnym) i projekt QGIS, w tym warstwa rejestru zabytków (Wikidane); jakość powietrza i rynek mieszkaniowy są
+  na stronach, ale nie mają jeszcze własnej warstwy do pobrania. Licencja Apache-2.0 obejmuje tylko kod i własne
+  teksty. Dane w daten/ i daten/pobierz/ zachowują licencje swoich źródeł; części z OpenStreetMap są tylko w plikach
+  *_odbl (ODbL 1.0). Licencja i dosłowna nota o źródle dla każdej warstwy: daten/pobierz/licencje.csv. Kod i teksty
+  powstały przy wsparciu sztucznej inteligencji (Claude).
+  /
+  City atlas of the 18 districts of Kraków from open public data (BDOT10k, GUGiK LoD2 building models, NSP 2021,
+  Eurostat population grid 2021, ZTP GTFS, OpenStreetMap, ZBK building list, EEA air quality statistics, Polish
+  real estate price register RCN, Wikidata). Polish interface with English and German versions, with method, check
+  scripts and a source notice for every figure. Downloads as GeoPackage, CSV (also with decimal comma) and QGIS
+  project, including a monument register layer (Wikidata); air quality and the housing market are on the pages but
+  have no download layer yet. The Apache-2.0 licence covers only the code and our own texts. The data in daten/ and
+  daten/pobierz/ keep the licences of their sources; parts from OpenStreetMap are only in *_odbl files (ODbL 1.0).
+  Licence and verbatim source notice for each layer: daten/pobierz/licencje.csv. Code and texts were written with AI
+  assistance (Claude).
+authors:
+  - given-names: André
+    family-names: Stiebitz
+    affiliation: "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
+contact:
+  - name: "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
+    email: kontakt@souverain-systems.de
+url: "https://souverain-systems.de/kiezatlas/krakow/"
+repository-code: "https://github.com/andremadstop/kiezatlas-krakow"
+version: "1.0.0"
+date-released: "2026-11-15"
+license: Apache-2.0
+keywords:
+  - Kraków
+  - dzielnice
+  - atlas miasta
+  - otwarte dane
+  - city atlas
+  - open data
+  - NSP 2021
+  - BDOT10k
+  - OpenStreetMap
+  - GeoPackage
+  - reproducibility
+references:
+  - type: data
+    title: "Baza Danych Obiektów Topograficznych BDOT10k, powiat 1261"
+    authors:
+      - name: "Główny Urząd Geodezji i Kartografii"
+    url: "https://opendata.geoportal.gov.pl/bdot10k/schemat2021/SHP/12/1261_SHP.zip"
+  - type: data
+    title: "Modele 3D budynków (LoD2), stan 2017, powiat 1261"
+    authors:
+      - name: "Główny Urząd Geodezji i Kartografii"
+    url: "https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/"
+  - type: data
+    title: "Narodowy Spis Powszechny Ludności i Mieszkań 2021"
+    authors:
+      - name: "Główny Urząd Statystyczny"
+  - type: data
+    title: "Census 2021 population grid"
+    authors:
+      - name: "Eurostat"
+    url: "https://gisco-services.ec.europa.eu/census/2021/INSPIRE/Data/PL_PD_3035_GPKG.zip"
+    license: CC-BY-4.0
+  - type: data
+    title: "GTFS Kraków"
+    authors:
+      - name: "Zarząd Transportu Publicznego w Krakowie"
+    url: "https://gtfs.ztp.krakow.pl/"
+    license: CC-BY-4.0
+  - type: data
+    title: "OpenStreetMap"
+    authors:
+      - name: "OpenStreetMap contributors"
+    url: "https://www.openstreetmap.org/copyright"
+    license: ODbL-1.0
+  - type: data
+    title: "Wykaz budynków i obiektów w zarządzie ZBK"
+    authors:
+      - name: "Zarząd Budynków Komunalnych w Krakowie"
+    url: "https://www.bip.krakow.pl/?bip_id=32&mmi=10127"
+  - type: data
+    title: "Air quality annual statistics calculated by the EEA"
+    authors:
+      - name: "European Environment Agency (dane: GIOŚ)"
+    url: "https://sdi.eea.europa.eu/catalogue/srv/api/records/6e191a3b-258d-491e-b636-6cbb15cf473b"
+    license: CC-BY-4.0
+  - type: data
+    title: "Rejestr cen nieruchomości, powiat 1261 (udostępniony w serwisie geoportal.gov.pl)"
+    authors:
+      - name: "Prezydent Miasta Krakowa (powiat 1261)"
+    url: "https://www.geoportal.gov.pl/pl/dane/rejestr-cen-nieruchomosci-rcn/"
+  - type: data
+    title: "Wikidata: obiekty z numerem rejestru zabytków w Krakowie"
+    authors:
+      - name: "Wikidata contributors"
+    url: "https://www.wikidata.org/"
+    license: CC0-1.0
+  - type: software
+    title: "Geodaten-Import-Pipeline (WFS/CSV → PostgreSQL/PostGIS)"
+    authors:
+      - given-names: André
+        family-names: Stiebitz
+        affiliation: "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
+    repository-code: "https://github.com/andremadstop/geodaten-import-pipeline"
+    commit: "12bae5bc96cf34355c8c5a723eb444e66f776f2d"
+    doi: 10.5281/zenodo.24073612
+    license: Apache-2.0

@@ -1,0 +1,118 @@
+# Richtwerte und Annahmen der Planer-Ebene (Kiezatlas Kraków).
+# Eigentümer: Paket Versorgung und Takt (docs/rundgang.md, „Bau“). Kein Wert im Code.
+# Regeln vor dem ersten Lauf: pruefen/D6_protokoll.md. Gelesen von skripte/1[1345]_*_krakow.py.
+#
+# Felder je Wert (wie im Kiezatlas Potsdam):
+#   wert/werte  Zahl oder Liste (Einheit in `einheit`); null = noch nicht aus der Quelle gelesen
+#   status      amtlich (polnische Norm oder Krakauer Beschluss mit Fundstelle, Abzeichen „standard urzędowy“)
+#               | orientierung (ohne amtliche Fundstelle oder ohne amtliche Rechenweise, Abzeichen „orientacyjnie“)
+#               | offen
+#   quelle      Dokument; seite = Fundstelle; geprueft = Datum, an dem jemand die Fundstelle gelesen hat
+#   methode     luftlinie | fussweg | flaeche | quote
+# Ohne amtliche Fundstelle gilt jeder Wert als Orientierung, nie als amtlich. Eine amtliche Fundstelle macht einen
+# Wert nur dann „amtlich“, wenn auch so gerechnet wird, wie die Norm es meint (Bauvorlage, Checkliste Punkt 20).
+
+stand: 2026-11-13
+
+geheimhaltung:
+  # Bis die Geheimhaltungsregel des GUS belegt ist, gilt die strengere Potsdamer Eigenregel, offen vermerkt.
+  status: orientierung
+  quelle: "Eigenregel nach dem Kiezatlas Potsdam (keine GUS-Regel)"
+  min_ew_raumeinheit: 100
+  rundung_ew: 10
+  rundung_anteil_prozent: 1
+
+quellen:
+  # Schlüssel = q in daten/*.js. Vermerke wörtlich wie gefordert, Lizenzangaben in der Originalsprache.
+  ztp:
+    quelle: "ZTP Kraków, GTFS (GTFS_KRK_A, GTFS_KRK_T, GTFS_KRK_M)"
+    lizenz: "CC BY 4.0"
+    vermerk: "ZTP Kraków, GTFS, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), dane zmienione (opracowanie własne)"
+    url: "https://gtfs.ztp.krakow.pl/"
+    fundstelle: "„Licencja: Creative Commons (CC BY 4.0)“ (Indexseite https://gtfs.ztp.krakow.pl/, abgerufen 13.11.2026)"
+  bdot10k:
+    quelle: "GUGiK, Baza Danych Obiektów Topograficznych BDOT10k, powiat 1261 (Kraków)"
+    lizenz: "bez licencji (art. 40c ust. 5 Prawo geodezyjne i kartograficzne), z podaniem źródła"
+    vermerk: "Źródło: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne)"
+    url: "https://opendata.geoportal.gov.pl/bdot10k/schemat2021/SHP/12/1261_SHP.zip"
+    fundstelle: "art. 40c ust. 3 Prawo geodezyjne i kartograficzne (Dz.U. 2026 poz. 1389): „Podmioty, które wykorzystują materiały zasobu, zamieszczają w publikowanych opracowaniach informacje o źródle pochodzenia użytego materiału.“; Geoportal: „Baza BDOT10k jest dostępna bezpłatnie i możliwa do dowolnego wykorzystania.“"
+  prawo_oswiatowe:
+    quelle: "Ustawa z dnia 14 grudnia 2016 r. – Prawo oświatowe, tekst jednolity Dz.U. 2026 poz. 820"
+    lizenz: "tekst urzędowy (art. 4 pkt 2 ustawy o prawie autorskim i prawach pokrewnych)"
+    vermerk: "Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)"
+    url: "https://api.sejm.gov.pl/eli/acts/DU/2026/820/text.pdf"
+  osm:                          # nur in *_odbl-Dateien
+    quelle: "OpenStreetMap (auswertung.osm_poi)"
+    lizenz: "ODbL 1.0"
+    vermerk: "ODbL 1.0, © OpenStreetMap-Mitwirkende (https://opendatacommons.org/licenses/odbl/1-0/)"
+    url: "https://www.openstreetmap.org/copyright"
+    fundstelle: "„OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF).“ (https://www.openstreetmap.org/copyright, Abzug 2026-11-13/08_fussweg/osm_copyright.html)"
+
+# ---------------------------------------------------------------------------------- ÖPNV
+oepnv:
+  gtfs:                        # relativ zu $KIEZ_DATEN; Kürzel = Präfix der Kennungen
+    A: 2026-11-13/06_oepnv/GTFS_KRK_A.zip
+    T: 2026-11-13/06_oepnv/GTFS_KRK_T.zip
+    M: 2026-11-13/06_oepnv/GTFS_KRK_M.zip
+  fahrten_gegenprobe:          # Fahrten am Stichtag, unabhängig gezählt (2026-11-13/_auswertung/gtfs_stichtage.txt)
+    A: 10280
+    T: 3710
+    M: 2590
+  messung:
+    stichtag: 2026-11-18       # Mittwoch, Schulwoche (Schultag aus Wissen, Schulkalender nicht geprüft)
+    gegenprobe_tag: 2026-11-13 # Freitag; einziger Werktag in allen drei Feeds und im feed_version-Zeitraum des Bus-Feeds
+    hvz_fenster: ["06:00", "09:00"]
+    richtung: "Abfahrten (pickup_type ≠ 1, ohne letzten Halt der Fahrt), alle Linien zusammen, je direction_id; Wert = stärkere Richtung, Mittel je Stunde"
+    randpuffer_m: 1000         # Haltestellen bis 1 km außerhalb der Gemeinde bleiben (in_stadt: false)
+    streuung_warn_m: 300       # Steig weiter vom Mittelpunkt seiner Haltestelle: im Beleg gezählt
+  taktklassen:
+    status: orientierung
+    quelle: "eigene Klassifikation nach dem Muster des Kiezatlas Potsdam (dort Nahverkehrsplan Potsdam 2019, Tab. 4.3); keine polnische Fundstelle"
+    I: {fahrten_hvz_je_richtung_min: 6}
+    II: {fahrten_hvz_je_richtung_min: 2}
+    III: {fahrten_hvz_je_richtung_min: 1}
+
+# ---------------------------------------------------------------------------------- Bildung
+bildung:
+  szkola_podstawowa_droga:
+    status: amtlich            # die Norm; die Rechnung hier ist Luftlinie zur nächsten Schule → orientierung
+    quelle: prawo_oswiatowe
+    seite: "art. 39 ust. 2, s. 40"
+    geprueft: 2026-11-13
+    wortlaut: "Droga dziecka z domu do szkoły nie może przekraczać: 1) 3 km – w przypadku uczniów klas I–IV szkół podstawowych; 2) 4 km – w przypadku uczniów klas V–VIII szkół podstawowych."
+    werte_m: {klassen_1_4: 3000, klassen_5_8: 4000}
+    methode_norm: fussweg      # „droga“ = Weg, zur Schule des eigenen Schulbezirks (art. 39 ust. 3: „szkoły, w której obwodzie dziecko mieszka“)
+  przedszkole_droga:
+    status: amtlich
+    quelle: prawo_oswiatowe
+    seite: "art. 32 ust. 3, s. 36"
+    geprueft: 2026-11-13
+    wortlaut: "Droga dziecka spełniającego obowiązek, o którym mowa w art. 31 ust. 4, i dziecka pięcioletniego z domu do publicznego przedszkola, […] nie powinna przekraczać 3 km."
+    wert_m: 3000
+    methode_norm: fussweg
+
+# ---------------------------------------------------------------------------------- Planer (eigene Festlegungen)
+planer:
+  methode: luftlinie
+  oepnv_radius_m:
+    wert: 500
+    status: orientierung
+    quelle: "eigene Festlegung, keine polnische Fundstelle gesucht oder gefunden"
+  oepnv_klassen: [I, II]       # Haltestellen dieser Taktklassen zählen für oepnv_takt
+  rundung_entfernung_m: 10
+
+# ---------------------------------------------------------------------------------- Einrichtungen (11_einrichtungen_krakow.py)
+einrichtungen:
+  bdot10k:
+    zip: 2026-11-13/03_gebaeude/1261_SHP.zip      # relativ zu $KIEZ_DATEN
+    ebenen:                     # Ebene → RODZAJ → art (Regel 8, pruefen/D6_protokoll.md)
+      OT_KUOS_A: {"szkoła lub zespół szkół": szkola, "przedszkole": przedszkole}
+      OT_KUOZ_A: {"żłobek": zlobek, "zespół szpitalny lub sanatoryjny": szpital}
+      OT_KUSK_A: {"park lub skwer": park}
+    kat_istnie_gueltig: ["", "eksploatowany"]
+  rspo:                         # Handdownload unter $KIEZ_DATEN/eingang/ (quellen-D6.md); ohne geprüfte Lizenz nicht genutzt
+    datei: eingang/rspo_krakow.csv
+    lizenz_geprueft: false      # STOPP: Lizenz der RSPO-Daten nicht geprüft (Machbarkeitsbericht, Nr. 7)
+    spalten: null               # Zuordnung Spalte → Feld, erst mit der Datei (Spaltennamen des Exports nicht geprüft)
+  osm:                          # aus auswertung.osm_poi (Paket OSM und Fußwegnetz), nur in *_odbl-Dateien
+    arten: [arzt, apotheke]

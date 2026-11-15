@@ -1,0 +1,51 @@
+<section id="d-pobierz">
+<h2>Downloads</h2>
+<p>All files are built by a script from the same data files the pages load; no value is computed anew. Air and housing prices do not have a layer of their own yet (readme, section “Not in the export”).</p>
+<ul class="quellen">
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: GeoPackage without OpenStreetMap data (city, delegatury, 1 km grid, land cover, BDOT10k facilities, stops, BDOT10k complexes, ZBK list by district).</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a>: GeoPackage with the district boundaries and everything that depends on them, walking routes, doctors and pharmacies, OSM objects with a heritage tag and the points of the ZBK stock. Whole file: Open Database License 1.0.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.qgz" download>kiezatlas_krakow.qgz</a>: QGIS project with styles; keep both GeoPackage files in the same folder.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: the same layers as CSV, in two versions.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/licencje.csv" download>licencje.csv</a>: licence and verbatim source notice for every layer.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/pola.csv" download>pola.csv</a> and <a class="link" href="{{wurzel}}daten/pobierz/wartosci.csv" download>wartosci.csv</a>: meaning of every field and every coded value in Polish, English and German.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/README.md">README.md</a>: description of the layers and fields, row counts, limitations (also <a class="link" hreflang="pl" href="{{wurzel}}daten/pobierz/CZYTAJ.md">in Polish</a> and <a class="link" hreflang="de" href="{{wurzel}}daten/pobierz/LIESMICH.md">in German</a>).</li>
+</ul>
+<p><strong>Decimal comma.</strong> The folders <code>csv_pl/</code> and <code>csv_odbl_pl/</code> in the archive use a decimal comma and no thousands separator, so Excel and LibreOffice with Polish settings read numbers as numbers straight away. The folders <code>csv/</code> and <code>csv_odbl/</code> use a decimal point (for software and English settings). All files: UTF-8 with BOM, semicolon separator, coordinates in EPSG:2178.</p>
+</section>
+
+<section id="d-licencje">
+<h2>Licences</h2>
+<ul class="quellen">
+<li><strong>Files with <code>_odbl</code> in their name</strong> (in the atlas and in the downloads) contain OpenStreetMap data or values assigned to districts by the OpenStreetMap boundaries. The Open Database License 1.0 applies, with the notice “© OpenStreetMap contributors” (openstreetmap.org/copyright). Whoever changes and shares them shares them under the same licence.</li>
+<li><strong>BDOT10k, LoD2 models, register of property prices</strong> (GUGiK): no licence, the source must be named (art. 40c ust. 3 i 5 of the Polish geodesy and cartography act, Prawo geodezyjne i kartograficzne).</li>
+<li><strong>Eurostat population grid, ZTP GTFS timetable</strong>: CC BY 4.0, with source notice and a note on changes.</li>
+<li><strong>NSP 2021 (GUS)</strong>: copying allowed with the source named.</li>
+<li><strong>ZBK list</strong>: reuse of public sector information under the conditions of the Gmina Miejska Kraków, with notice and liability clause.</li>
+<li><strong>Code and own texts</strong>: Apache-2.0; atlas graphics: CC BY 4.0 with the credit on the graphic.</li>
+</ul>
+<p>The source notices are given verbatim below, in their original language.</p>
+</section>
+
+<section id="d-zrodla">
+<h2>Data sources</h2>
+<ul class="quellen">
+<li><strong>Population, NSP 2021:</strong> [[steckbrief:quellen.nsp2021.quelle|text]]. Notice: “[[steckbrief:quellen.nsp2021.vermerk|text]]”.</li>
+<li><strong>Population grid:</strong> Eurostat, Census 2021 population grid, [[steckbrief:quellen.eurostat2021.url|text]]. Notice: “[[steckbrief:quellen.eurostat2021.vermerk|text]]”</li>
+<li><strong>Buildings and delegatura boundaries:</strong> [[gebaeude_kennzahlen:quellen.bdot10k.vermerk|text]] [[gebaeude_kennzahlen:quellen.delegatury.vermerk|text]].</li>
+<li><strong>Building heights:</strong> [[gebaeude_kennzahlen:quellen.hoehen.vermerk|text]]</li>
+<li><strong>Facilities:</strong> [[einrichtungen:quellen.bdot10k.vermerk|text]].</li>
+<li><strong>Timetable:</strong> [[haltestellen:quellen.ztp.vermerk|text]].</li>
+<li><strong>OpenStreetMap:</strong> © OpenStreetMap contributors, ODbL 1.0 (openstreetmap.org/copyright); extract for the Małopolska region, as of [[stadtteile_odbl:stand|datum]].</li>
+<li><strong>ZBK list:</strong> [[sanierung:quellen.zbk.vermerk|text]] Clause: “[[sanierung:quellen.zbk.odpowiedzialnosc|text]]”</li>
+<li><strong>Base map:</strong> BDOT10k, Główny Urząd Geodezji i Kartografii; [[grundkarte:stand|text]].</li>
+<li><strong>School distance rules:</strong> [[planer_odbl:quellen.prawo_oswiatowe.vermerk|text]].</li>
+<li><strong>Air quality limit values:</strong> [[powietrze:grenzwerte.pm10_srednia.0.fundstelle|text]]. Anti-smog resolution: [[powietrze:kontekst.akt|text]]. Measurements: [[powietrze:quelle.nazwa|text]], notice “EEA; data: GIOŚ”.</li>
+<li><strong>Housing prices</strong>: [[mieszkania_odbl:quelle.vermerk|text]].</li>
+</ul>
+</section>
+
+<section id="d-cytuj">
+<h2>How to cite</h2>
+<p>[[ort:zitierzeile.en|text]], with the data state given in the page footer. For downloads, add the file name and the source notices from <code>licencje.csv</code>. Machine-readable citation data is in the file <code>CITATION.cff</code> in the [[wenn konfig:repository]]<a class="link" href="[[konfig:repository|adresse]]">repository</a>[[sonst]]repository (not public yet; until then on request, address below)[[ende]]; no DOI has been assigned yet.</p>
+<p>Found an error in the data or text? Please write to <a class="link" href="mailto:{{meldeweg}}">{{meldeweg}}</a>.</p>
+</section>

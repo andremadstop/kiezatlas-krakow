@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kraków in numbers · Kiezatlas Kraków</title>
+<meta name="description" content="An atlas of Kraków&#x27;s districts built from open public data: figures, maps and a source for every value.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kraków in numbers · Kiezatlas Kraków">
+<meta property="og:description" content="An atlas of Kraków&#x27;s districts built from open public data: figures, maps and a source for every value.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenfeld.css">
+<link rel="stylesheet" href="../stadtatlas.css">
+</head>
+<body class="textseite" data-seite="index">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html" aria-current="page"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../index.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/index.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/index.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../index.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/index.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Kraków in numbers</h1>
+<p class="lede">An atlas of Kraków&#x27;s districts from open public data. Questions lead through the city, the map shows the answer, and every number comes with its source.</p>
+<dl id="ka-stadtzahlen" class="ka-stadtzahlen" aria-label="Kraków in numbers"></dl>
+<p class="ka-quelle">All numbers come from the atlas data files; the source is given under each one.</p>
+
+<div class="ka-buehne">
+  <div class="ka-fragen">
+    <article class="ka-frage" data-ansicht="teile" id="ka-f-teile">
+      <h2>What is Kraków made of?</h2>
+      <p class="ka-antwort" id="ka-a-teile"></p>
+      <p>Each district has its own council (Rada Dzielnicy). The colour on the map marks the historic borough; the Roman numerals are official.</p>
+      <p class="ka-quelle">District boundaries: © OpenStreetMap contributors, ODbL 1.0. City area: PRG in BDOT10k, Główny Urząd Geodezji i Kartografii.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="einwohner" id="ka-f-einwohner">
+      <h2>How many people live in Kraków?</h2>
+      <p class="ka-antwort" id="ka-a-einwohner"></p>
+      <p>The grid cells are 1 km wide and do not follow district boundaries. Values per district are therefore approximate; the district profile also gives a second way of counting.</p>
+      <p class="ka-quelle">Source: Główny Urząd Statystyczny, Narodowy Spis Powszechny Ludności i Mieszkań 2021; Eurostat, Census 2021 population grid (CC BY 4.0); own analysis.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="dichte" id="ka-f-dichte">
+      <h2>Where do people live most densely?</h2>
+      <p class="ka-antwort" id="ka-a-dichte"></p>
+      <p class="ka-quelle">Source: Eurostat, Census 2021 population grid (CC BY 4.0); each cell assigned to a district by its centre; own analysis. District area from OpenStreetMap boundaries (© OpenStreetMap contributors, ODbL 1.0).</p>
+    </article>
+    <article class="ka-frage" data-ansicht="alter" id="ka-f-alter">
+      <h2>Where do most older people live?</h2>
+      <p class="ka-antwort" id="ka-a-alter"></p>
+      <p>The map shows grid cells; grey cells have too few residents for a reliable share.</p>
+      <p class="ka-quelle">Source: Eurostat, Census 2021 population grid (CC BY 4.0); each cell assigned to a district by its centre; own analysis.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="gebaeude" id="ka-f-gebaeude">
+      <h2>How built-up is Kraków?</h2>
+      <p class="ka-antwort" id="ka-a-gebaeude"></p>
+      <p>Buildings in 3D (height from the LoD2 models or estimated from storeys) are switched on with the “3D buildings” button on these pages: <a class="link" href="kamienice.html">Tenements</a>, <a class="link" href="planer.html">Access</a>, <a class="link" href="modernizacja.html">Retrofit</a></p>
+      <p class="ka-quelle">Source: Baza Danych Obiektów Topograficznych (BDOT10k), Główny Urząd Geodezji i Kartografii; own analysis.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="takt" id="ka-f-takt">
+      <h2>How far is it to a stop with at least two departures per hour?</h2>
+      <p class="ka-antwort" id="ka-a-takt">Loading data …</p>
+      <p>Class I or II stop: at least two departures per hour in the morning peak, in the busier direction (own classification, class I from six). Measured along the walking network from the centre of the 1 km cell, not from each address; more detail on the accessibility page. <a class="link" href="planer.html">Accessibility</a></p>
+      <p class="ka-quelle">Walking route from the cell centre along the OpenStreetMap network (© OpenStreetMap contributors, ODbL 1.0); destinations: BDOT10k (GUGiK), OpenStreetMap, ZTP Kraków timetable (GTFS, CC BY 4.0); own analysis.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="luft" id="ka-f-luft">
+      <h2>What does Kraków breathe?</h2>
+      <p class="ka-antwort">Air quality is measured by the official stations of the State Environmental Monitoring (GIOŚ). The air page compares annual means before and after Kraków&#x27;s anti-smog resolution took effect.</p>
+      <p class="ka-teaser">The annual values come from the EEA statistics for the stations in Kraków and are indicative. <a class="link" href="powietrze.html">Air quality</a></p>
+    </article>
+    <article class="ka-frage" data-ansicht="zbk" id="ka-f-zbk">
+      <h2>Which buildings does the ZBK manage?</h2>
+      <p class="ka-antwort" id="ka-a-zbk"></p>
+      <p id="ka-a-zbk-grenzen"></p>
+      <p class="ka-teaser">The typology is an estimate without year of construction and without energy data. The list, ownership and typology are shown in detail on this page: <a class="link" href="modernizacja.html">Housing stock and retrofit</a></p>
+      <p class="ka-quelle">Source: Zarząd Budynków Komunalnych w Krakowie, list of buildings and facilities managed by ZBK (BIP Kraków); typology: BDOT10k, Główny Urząd Geodezji i Kartografii; own analysis.</p>
+    </article>
+  </div>
+  <div class="ka-buehne__karte">
+    <div class="kartenfeld"><div id="karte" role="region" aria-label="Map of Kraków for the questions"></div></div>
+    <div id="ka-buehne-legende" class="ka-buehne__legende fl-legende" aria-live="polite"></div>
+  </div>
+</div>
+
+<h2 id="dzielnice">18 districts</h2>
+<p>All districts in one table. Click a heading to sort; the name leads to the district profile.</p>
+<div class="ka-tabelle-rahmen" role="region" tabindex="0" aria-label="18 districts">
+<table id="ka-register" class="ka-tabelle">
+  <caption>Residents, density and share 65+: Eurostat grid, cells assigned by centre. Buildings and building coverage: BDOT10k (GUGiK). ZBK: entries by the district given in the list; in the city row, entries in Kraków. District boundaries: © OpenStreetMap contributors, ODbL 1.0. Resident numbers rounded: from 1,000 to full hundreds, below that to tens.</caption>
+  <thead><tr>
+    <th scope="col"><button type="button" data-sort="nr">District</button></th>
+    <th scope="col"><button type="button" data-sort="ew">Residents</button></th>
+    <th scope="col"><button type="button" data-sort="dichte">per km²</button></th>
+    <th scope="col"><button type="button" data-sort="65p">65+ (%)</button></th>
+    <th scope="col"><button type="button" data-sort="geb">Buildings</button></th>
+    <th scope="col"><button type="button" data-sort="bebauung">Coverage (%)</button></th>
+    <th scope="col"><button type="button" data-sort="zbk">ZBK</button></th>
+  </tr></thead>
+  <tbody></tbody>
+  <tfoot></tfoot>
+</table>
+</div>
+<noscript><ul class="teile-liste">
+  <li><a class="link" href="dzielnica.html#st=01">District I Stare Miasto</a></li>
+  <li><a class="link" href="dzielnica.html#st=02">District II Grzegórzki</a></li>
+  <li><a class="link" href="dzielnica.html#st=03">District III Prądnik Czerwony</a></li>
+  <li><a class="link" href="dzielnica.html#st=04">District IV Prądnik Biały</a></li>
+  <li><a class="link" href="dzielnica.html#st=05">District V Krowodrza</a></li>
+  <li><a class="link" href="dzielnica.html#st=06">District VI Bronowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=07">District VII Zwierzyniec</a></li>
+  <li><a class="link" href="dzielnica.html#st=08">District VIII Dębniki</a></li>
+  <li><a class="link" href="dzielnica.html#st=09">District IX Łagiewniki-Borek Fałęcki</a></li>
+  <li><a class="link" href="dzielnica.html#st=10">District X Swoszowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=11">District XI Podgórze Duchackie</a></li>
+  <li><a class="link" href="dzielnica.html#st=12">District XII Bieżanów-Prokocim</a></li>
+  <li><a class="link" href="dzielnica.html#st=13">District XIII Podgórze</a></li>
+  <li><a class="link" href="dzielnica.html#st=14">District XIV Czyżyny</a></li>
+  <li><a class="link" href="dzielnica.html#st=15">District XV Mistrzejowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=16">District XVI Bieńczyce</a></li>
+  <li><a class="link" href="dzielnica.html#st=17">District XVII Wzgórza Krzesławickie</a></li>
+  <li><a class="link" href="dzielnica.html#st=18">District XVIII Nowa Huta</a></li>
+</ul></noscript>
+
+<h2 id="tematy">Topics</h2>
+<ul class="themenkarten">
+  <li><a href="kamienice.html"><span class="themenkarte__titel">Tenement houses and monuments</span><span class="themenkarte__satz">Tenement houses and monuments as a subset: objects tagged in OpenStreetMap, complexes from BDOT10k and objects with a register number from Wikidata; the NID register is not yet included.</span></a></li>
+  <li><a href="planer.html"><span class="themenkarte__titel">Access and public transport</span><span class="themenkarte__satz">Walking access to stops, schools, kindergartens and green space, and service frequency.</span></a></li>
+  <li><a href="modernizacja.html"><span class="themenkarte__titel">Housing stock and retrofit</span><span class="themenkarte__satz">Buildings managed by the municipal ZBK, prefabricated block candidates (an estimate), heights from 3D models, linked to access and green space.</span></a></li>
+  <li><a href="klimat.html"><span class="themenkarte__titel">Climate: built-up land and green</span><span class="themenkarte__satz">Built-up and transport land (an approximation of soil sealing) and green space by district, indicative.</span></a></li>
+  <li><a href="powietrze.html"><span class="themenkarte__titel">Air quality</span><span class="themenkarte__satz">Annual values from air quality monitoring stations in Kraków, calculated by the EEA (indicative).</span></a></li>
+  <li><a href="mieszkania.html"><span class="themenkarte__titel">Housing market</span><span class="themenkarte__satz">Transaction prices of flats, published in aggregated form only.</span></a></li>
+  <li><a href="porownanie.html"><span class="themenkarte__titel">Kraków and Potsdam</span><span class="themenkarte__satz">Two cities compared with the same method, only where the definitions are truly identical.</span></a></li>
+</ul>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../texte/en/karte.js"></script>
+<script defer src="../texte/en/erzaehlung.js"></script>
+<script defer src="../daten/stadtteile_uebersicht_odbl.js"></script>
+<script defer src="../daten/steckbrief.js"></script>
+<script defer src="../daten/steckbrief_dzielnice_odbl.js"></script>
+<script defer src="../daten/gebaeude_kennzahlen.js"></script>
+<script defer src="../daten/gebaeude_dzielnice_odbl.js"></script>
+<script defer src="../daten/sanierung.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenfeld.js"></script>
+<script defer src="../erzaehlung.js"></script>
+</body>
+</html>

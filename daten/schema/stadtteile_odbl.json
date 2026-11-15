@@ -1,0 +1,48 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Stadtteile (dzielnice), Grenzen aus OpenStreetMap",
+ "description": "Grenzen der 18 dzielnice aus OpenStreetMap (ODbL 1.0) als Arbeitsgrundlage, bis die Lizenz der städtischen Grenzen (MSIP) schriftlich geklärt ist. Deshalb Datei mit _odbl im Namen. bezirk = Gruppen-id aus der Ortskonfiguration (dzielnica historyczna), steuert den Farbton.",
+ "x-datei": "stadtteile_odbl.js",
+ "x-global": "^KIEZ_STADTTEILE$",
+ "x-odbl": true,
+ "type": "object",
+ "required": [
+  "type",
+  "features"
+ ],
+ "properties": {
+  "type": {
+   "const": "FeatureCollection"
+  },
+  "features": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "geometry",
+     "properties"
+    ],
+    "properties": {
+     "properties": {
+      "type": "object",
+      "required": [
+       "nr",
+       "name",
+       "flaeche_km2",
+       "bezirk",
+       "lx",
+       "ly"
+      ]
+     }
+    }
+   }
+  },
+  "fixture": {
+   "type": "boolean"
+  },
+  "hinweis": {
+   "type": "string"
+  }
+ }
+}

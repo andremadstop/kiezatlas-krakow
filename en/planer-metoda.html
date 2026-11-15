@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Access: method · Kiezatlas Kraków</title>
+<meta name="description" content="How access is calculated: footpath network, timetable, reference values.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/planer-metoda.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/planer-metoda.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/planer-metoda.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/planer-metoda.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/planer-metoda.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Access: method · Kiezatlas Kraków">
+<meta property="og:description" content="How access is calculated: footpath network, timetable, reference values.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+</head>
+<body class="textseite" data-seite="planer-metoda">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html" aria-current="true"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../planer-metoda.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/planer-metoda.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/planer-metoda.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Access and public transport">
+    <ul>
+      <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+      <li><a class="nav" href="planer-metoda.html" aria-current="page"><span>Method</span></a></li>
+      <li><a class="nav" href="planer-dane.html"><span>Data</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../planer-metoda.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/planer-metoda.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Access: method</h1>
+<p class="lede">How access is calculated: footpath network, timetable, reference values.</p>
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/planer_metoda.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="p-jednostki">
+<h2>Units and residents</h2>
+<p>The planner works on the cells of Eurostat's population grid (1 km); residents within the city: <span data-feld="planer_fuss_odbl:gesamt.ew">793,390</span>. The residents of a cell are placed at its centre; this is a simplification, because residents can be spread unevenly within a cell. District values come from the cells whose centre lies in the district (boundaries from OpenStreetMap); resident numbers are rounded to <span data-feld="planer_odbl:rundung.ew">10</span>. All indicators are <em>guide values</em>.</p>
+</section>
+
+<section id="p-placowki">
+<h2>Facilities</h2>
+<p>Schools, kindergartens, nurseries, hospitals and parks come from the BDOT10k database as complexes with their own area (here a point inside the area). Within the city: schools <span data-feld="einrichtungen:features[properties.art=szkola,properties.in_stadt=true]">170</span>, kindergartens <span data-feld="einrichtungen:features[properties.art=przedszkole,properties.in_stadt=true]">35</span>, nurseries <span data-feld="einrichtungen:features[properties.art=zlobek,properties.in_stadt=true]">2</span>, hospitals <span data-feld="einrichtungen:features[properties.art=szpital,properties.in_stadt=true]">24</span>, parks <span data-feld="einrichtungen:features[properties.art=park,properties.in_stadt=true]">90</span>. BDOT10k does not distinguish school types and gives neither places nor pupil numbers; kindergartens and nurseries in buildings without their own plot do not appear at all. Values for nurseries and kindergartens therefore do not reflect the real network. The RSPO school register is not included yet because its licence has not been checked.</p>
+<p>Doctors and pharmacies come from OpenStreetMap (doctors: <span data-feld="einrichtungen_odbl:features[properties.art=arzt]">283</span>, pharmacies: <span data-feld="einrichtungen_odbl:features[properties.art=apotheke]">321</span>), without names; their completeness has not been checked. Facilities just outside the city boundary count towards the distances, because from the outskirts they are often the nearest.</p>
+</section>
+
+<section id="p-odleglosc">
+<h2>Straight line and walking route</h2>
+<p>For each cell the atlas gives the distance in metres from its centre to the nearest facility of each kind: as a straight line (files without OpenStreetMap) and as a walking route along the OpenStreetMap path network (<code>_odbl</code> files). The walking route is always longer and closer to everyday experience; the questions on the pages always show it where it is available.</p>
+</section>
+
+<section id="p-szkoly">
+<h2>School and kindergarten within reach</h2>
+<p>The Polish education act (Prawo oświatowe) sets the longest way for a child to school and kindergarten: <span data-feld="richtwerte:bildung.szkola_podstawowa_droga.wortlaut" lang="pl">Droga dziecka z domu do szkoły nie może przekraczać: 1) 3 km – w przypadku uczniów klas I–IV szkół podstawowych; 2) 4 km – w przypadku uczniów klas V–VIII szkół podstawowych.</span> (<span data-feld="richtwerte:bildung.szkola_podstawowa_droga.seite">art. 39 ust. 2, s. 40</span>). For kindergartens: <span data-feld="richtwerte:bildung.przedszkole_droga.seite">art. 32 ust. 3, s. 36</span>, <span data-feld="richtwerte:bildung.przedszkole_droga.wert_m">3,000</span> m. Source: <span data-feld="planer_odbl:quellen.prawo_oswiatowe.vermerk" lang="pl">Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)</span>.</p>
+<p>The act means the way to the school of the catchment area where the child lives; the atlas computes the way to the nearest facility of any kind. This is therefore a <em>guide value</em>, not an <em>official standard</em>. Result for the whole city (walking route):</p>
+<ul>
+<li>school within <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].richtwert.wert">3,000</span> m: <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].wert">99%</span> of residents (<span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].zaehler">784,590</span> of <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].nenner">793,390</span>);</li>
+<li>kindergarten within <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].richtwert.wert">3,000</span> m: <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].wert">90%</span> (<span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].zaehler">710,470</span> of <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].nenner">793,390</span>).</li>
+</ul>
+</section>
+
+<section id="p-takt">
+<h2>Service frequency class</h2>
+<p>Stops and departures come from the ZTP GTFS timetable. A stop is the common stem of the platform codes; its location is the mean of the platform locations. We count departures on the working day <span data-feld="haltestellen:stichtag">18 November 2026</span> between <span data-feld="haltestellen:fenster.0">06:00</span> and <span data-feld="haltestellen:fenster.1">09:00</span>, all lines together, in the busier direction, as an hourly mean. Minimum departures per hour: class I <span data-feld="haltestellen:klassen.grenzen.I">6</span>, class II <span data-feld="haltestellen:klassen.grenzen.II">2</span>, class III <span data-feld="haltestellen:klassen.grenzen.III">1</span>. The thresholds were taken over from the Potsdam atlas so that both cities are comparable; no Polish standard was found for them, so the classes are guide values.</p>
+<p>Stops within the city: <span data-feld="haltestellen:features[properties.in_stadt=true]">813</span>, of which class I: <span data-feld="haltestellen:features[properties.taktklasse=I,properties.in_stadt=true]">498</span>, class II: <span data-feld="haltestellen:features[properties.taktklasse=II,properties.in_stadt=true]">232</span>, class III: <span data-feld="haltestellen:features[properties.taktklasse=III,properties.in_stadt=true]">67</span>, below class III: <span data-feld="haltestellen:features[properties.taktklasse=unter III,properties.in_stadt=true]">16</span>. Stops up to <span data-feld="richtwerte:oepnv.messung.randpuffer_m">1,000</span> m beyond the city boundary also count (<span data-feld="haltestellen:features[properties.in_stadt=false]">131</span>).</p>
+<p>A stop of class I or II within <span data-feld="richtwerte:planer.oepnv_radius_m.wert">500</span> m (our own choice, no standard) is available to <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=oepnv_takt].wert">78%</span> of residents on foot and <span data-feld="planer_odbl:gesamt.werte[kennzahl=oepnv_takt].wert">96%</span> in a straight line.</p>
+</section>
+
+<section id="p-zielen">
+<h2>Green space nearby</h2>
+<p>Parks are BDOT10k complexes “park lub skwer”, without forests and allotment gardens. Within walking reach (the radius is the default of the calculation script, no standard; verification records: <code>belege/README.md</code>) a park is available to <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=gruen_in_radius].wert">37%</span> of residents; park area per resident across the city is <span data-feld="planer_odbl:gesamt.werte[kennzahl=gruen_m2_je_ew].wert">6.8</span> m².</p>
+</section>
+
+<section id="p-granice">
+<h2>Limitations</h2>
+<ul>
+<li>The distance to the nearest facility says nothing about places, school catchment areas or opening hours.</li>
+<li>A 1 km cell with its residents at the centre over- or underestimates the way for those living at its edge.</li>
+<li>Frequency classes refer to one working day and the morning peak.</li>
+<li>The walking network and doctors from OpenStreetMap are as complete as the map on the day of download.</li>
+</ul>
+</section>
+
+<p class="odbl-vermerk"><small>District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../texte/en/planer.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# npm-Angaben der Fontsource-Pakete über die versionsgenaue Adresse: Lauf vom 14.11.2026 (Behebung Bereich offen)
+# Aufruf aus der Wurzel des Repos, KIEZ_DATEN auf einen leeren Arbeitsordner gesetzt (kiezatlas-daten/ wird nur gelesen;
+# dieser Abruf steht darum nicht im gemeinsamen Abrufprotokoll $KIEZ_DATEN/abrufprotokoll.tsv):
+#   KIEZ_DATEN=<Arbeitsordner> python -I skripte/abruf.py --abstand 30 https://registry.npmjs.org/@fontsource%2fbarlow/5.3.0 <Arbeitsordner>/npm-barlow-5.3.0.json
+#   KIEZ_DATEN=<Arbeitsordner> python -I skripte/abruf.py --abstand 30 https://registry.npmjs.org/@fontsource%2fbarlow-semi-condensed/5.3.0 <Arbeitsordner>/npm-barlow-semi-condensed-5.3.0.json
+# Ausgabe:
+robots.txt registry.npmjs.org: 200 ausgewertet (2026-11-14T11:24:47.916396+00:00, https://registry.npmjs.org/robots.txt, application/json, SHA256 c64a5b4be2b97300c4a8036084ba082046f9f4c562febfe66c95419f193882d9)
+warte 29 s (Abstand 30 s zu registry.npmjs.org)
+200 2383 Bytes sha256=534c5006cbc970c3b497925f38d58f60146417db739fbebecc5cee7abcff6c03 -> <Arbeitsordner>/npm-barlow-5.3.0.json
+rc=0
+warte 30 s (Abstand 30 s zu registry.npmjs.org)
+200 2549 Bytes sha256=96a07a94948cdfd04d80d9c756bb6a65ae1d2f3942c3d74da362e156510dd78b -> <Arbeitsordner>/npm-barlow-semi-condensed-5.3.0.json
+rc=0
+# Vergleich mit belege/rohdaten-DF-schriften.sha256 (Zeilen 3 und 4, Dateien schriften/2026-11-13/npm-*-latest.json):
+# 534c5006cbc970c3b497925f38d58f60146417db739fbebecc5cee7abcff6c03 und 96a07a94948cdfd04d80d9c756bb6a65ae1d2f3942c3d74da362e156510dd78b, gleich.

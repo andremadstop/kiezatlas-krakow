@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tenement houses and monuments · Kiezatlas Kraków</title>
+<meta name="description" content="Tenement houses and monuments as a subset: objects tagged in OpenStreetMap, complexes from BDOT10k and objects with a register number from Wikidata; the NID register is not yet included.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/kamienice.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/kamienice.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/kamienice.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/kamienice.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/kamienice.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tenement houses and monuments · Kiezatlas Kraków">
+<meta property="og:description" content="Tenement houses and monuments as a subset: objects tagged in OpenStreetMap, complexes from BDOT10k and objects with a register number from Wikidata; the NID register is not yet included.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenseite.css">
+</head>
+<body class="textseite" data-seite="kamienice">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html" aria-current="page"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../kamienice.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/kamienice.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/kamienice.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Tenement houses and monuments">
+    <ul>
+      <li><a class="nav" href="kamienice.html" aria-current="page"><span>Tenements</span></a></li>
+      <li><a class="nav" href="kamienice-metoda.html"><span>Method</span></a></li>
+      <li><a class="nav" href="kamienice-dane.html"><span>Data</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../kamienice.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/kamienice.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Tenement houses and monuments</h1>
+<p class="lede">Tenement houses and monuments as a subset: objects tagged in OpenStreetMap, complexes from BDOT10k and objects with a register number from Wikidata; the NID register is not yet included.</p>
+<p><span class="ks-abz ks-abz--fest">subset</span><span class="ks-abz" id="abz-lage" hidden></span><span class="ks-abz">register from Wikidata only</span></p>
+<section class="ks" aria-label="Tenements and monuments: map and panel">
+  <div class="ks__karte">
+    <div id="karte" role="region" aria-label="Map of monuments and tenement houses in Kraków. Pan with the arrow keys, zoom with plus and minus."></div>
+    <div class="ks-werkzeug" id="werkzeug"></div>
+    <div class="ks-legende" id="legende" data-start="zu" tabindex="0" role="region" aria-label="Legend" hidden></div>
+    <p class="nur-sr" id="kartenstatus" aria-live="polite"></p>
+  </div>
+  <div class="ks-blatt">
+    <div class="ks-block">
+      <h2>Monuments and tenement houses</h2>
+      <p>A subset of monuments: only objects that a source lists as a monument. Not all buildings of a given age.</p>
+      <p>The map does not show the age of all buildings. The sources used give no construction year for all buildings.</p>
+      <p class="ks-fuss">Kamienica in this atlas: a multi-family building that a source lists as a monument.</p>
+    </div>
+    <div class="ks-block">
+      <h2>What to show</h2>
+      <fieldset class="ks-chips" id="ep"></fieldset>
+      <div class="ks-knoepfe">
+        <button class="knopf knopf--rand" type="button" id="nur-kamienice" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Tenements only (OSM)</span></button>
+        <button class="knopf knopf--rand" type="button" id="alle-objekte" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Also objects without heritage tag</span></button>
+        <button class="knopf knopf--rand" type="button" id="komplexe" aria-pressed="true"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Complexes from BDOT10k</span></button>
+      </div>
+      <p class="ks-fuss">Objects without a heritage tag only have a construction date in OpenStreetMap; they are not monuments and are shown only on request.</p>
+    </div>
+    <div class="ks-block">
+      <h2>Reference point</h2>
+      <div id="ortsmarke"></div>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="om-zeigen"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Show on map</span></button></div>
+      <p class="ks-fuss"><a class="link" href="modernizacja.html">Housing stock and retrofit</a></p>
+    </div>
+    <div class="ks-block">
+      <h2>Sources and date</h2>
+      <ul class="ks-zahlen" id="quellen-stand"></ul>
+    </div>
+    <div class="ks-block">
+      <h2>Heritage register, Wikidata part</h2>
+      <ul class="ks-zahlen" id="zahlen-register"></ul>
+      <p class="ks-fuss">The points are on the free map, separate from the tagging in OpenStreetMap. <a class="link" href="karta.html#pkt=rejestr">Register points on the map</a></p>
+    </div>
+    <div class="ks-block">
+      <h2>OpenStreetMap</h2>
+      <ul class="ks-zahlen" id="zahlen-osm"></ul>
+    </div>
+    <div class="ks-block">
+      <h2>BDOT10k</h2>
+      <ul class="ks-zahlen" id="zahlen-bdot"></ul>
+      <p class="ks-fuss" id="komplex-hinweis"></p>
+      <h3>By former boroughs (delegatury)</h3>
+      <div class="ks-tabelle" id="tab-delegatur" tabindex="0" role="region" aria-label="Multi-family buildings, buildings named “Kamienica …”, register points from Wikidata, monuments from OpenStreetMap and multi-family buildings tagged as heritage by delegatura"></div>
+    </div>
+  </div>
+</section>
+<h2>Limitations</h2>
+<ul class="ks-grenzen">
+  <li>Register data so far comes only from Wikidata: objects that carry a number of the Polish heritage register in Wikidata. This is a subset of the register; whatever is missing in Wikidata or has no coordinates is missing here too. The heritage register (NID) and the municipal heritage record (gminna ewidencja zabytków) are not yet in the atlas, because their manual download is outstanding. The map on this page shows only what is tagged as heritage in OpenStreetMap; the register points are on the free map.</li>
+  <li>A register point merges the Wikidata objects with the same register number (for example an ensemble of many single objects) and sits at the coordinates of the first of them. The figure therefore counts points, not monuments and not buildings.</li>
+  <li>Tags in OpenStreetMap are added by volunteers; completeness has not been checked. A missing point does not mean that a building is not a monument.</li>
+  <li id="grenze-lage"></li>
+  <li>Only construction periods are given, never an exact year, and only for objects with a date in the source. The map says nothing about the age of other buildings.</li>
+  <li>In this atlas a kamienica is a multi-family building according to BDOT10k with a heritage tag inside its outline or within 10 m. This is a working definition, narrower than the everyday meaning of the word. On the map on this page the marking is based on OpenStreetMap only; register points in multi-family buildings are in the table.</li>
+  <li>Complexes from BDOT10k are topographic objects (such as a historic building ensemble or a fort), not entries in the heritage register.</li>
+  <li>Counts from BDOT10k and OpenStreetMap are given for the former boroughs (BDOT10k delegatury), not for the districts.</li>
+</ul>
+<h2>Sources</h2>
+<ul class="ks-quellen">
+  <li>Register data: Wikidata, CC0 1.0 (objects with a Polish register number, property P3424; query run by hand, date in the data file).</li>
+  <li>Monuments and construction dates: © OpenStreetMap contributors, ODbL 1.0 (Geofabrik extract, date in the data file).</li>
+  <li>Buildings and complexes: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne).</li>
+  <li>3D buildings: LoD2 3D building models, as of 2017, GUGiK: „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.”</li>
+</ul>
+<p>More: <a class="link" href="kamienice-metoda.html">Tenements: method</a> · <a class="link" href="kamienice-dane.html">Tenements: data</a> · <a class="link" href="modernizacja.html">Housing stock and retrofit</a> · <a class="link" href="planer.html">Access and public transport</a></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../texte/en/planer.js"></script>
+<script defer src="../texte/en/denkmale.js"></script>
+<script defer src="../texte/en/kamienice.js"></script>
+<script defer src="../daten/stadtteile_odbl.js"></script>
+<script defer src="../daten/denkmale_bdot.js"></script>
+<script defer src="../daten/denkmale_odbl.js"></script>
+<script defer src="../daten/denkmale.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenseite.js"></script>
+<script defer src="../kamienice.js"></script>
+</body>
+</html>

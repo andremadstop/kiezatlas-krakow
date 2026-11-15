@@ -1,0 +1,53 @@
+Kiezatlas Kraków
+Copyright 2026 Stiebitz Souverain Systems UG (haftungsbeschränkt), Potsdam
+
+Code und eigene Texte stehen unter der Apache License, Version 2.0 (siehe LICENSE). Der Code geht auf den
+Kiezatlas Potsdam derselben Herausgeberin zurück (gleiche Lizenz). Die Lizenz gilt nicht für die Daten und nicht für
+die unten genannten Fremdbestandteile.
+
+Daten
+-----
+Die Dateien unter daten/ und daten/pobierz/ sind aus Quellen Dritter abgeleitet und behalten deren Lizenzen; je Datei
+siehe daten/LIZENZ.md, je Ebene der Downloads daten/pobierz/licencje.csv, je Quelle QUELLEN.md. Kurz:
+- Dateien mit _odbl im Namen enthalten Anteile aus OpenStreetMap: Open Database License 1.0,
+  © OpenStreetMap-Mitwirkende (https://www.openstreetmap.org/copyright).
+- BDOT10k, PRG und Modele 3D budynków (Główny Urząd Geodezji i Kartografii): kostenfrei, ohne Lizenz nach
+  art. 40c ust. 5, Quellenangabe nach art. 40c ust. 3 Prawo geodezyjne i kartograficzne.
+- Eurostat Census 2021 population grid und GTFS der ZTP Kraków: CC BY 4.0.
+- NSP 2021 (Główny Urząd Statystyczny): Kopieren erlaubt mit Quellenangabe (Bedingungen des GUS).
+- Wykaz budynków ZBK (Gmina Miejska Kraków): Weiterverwendung nach den Regeln der Gemeinde, Vermerk und
+  Haftungsklausel wörtlich im Feld quellen.zbk von daten/sanierung.js.
+- Luftmessungen in powietrze.js (European Environment Agency, Statistik der Messnetze): CC BY 4.0, Nennung
+  „EEA; Daten: GIOŚ“.
+- Rejestr cen nieruchomości (Prezydent Miasta Krakowa, powiat 1261; bereitgestellt vom Główny Urząd Geodezji i
+  Kartografii) in mieszkania_odbl.js: ohne Lizenz, Quellenangabe nach art. 40c ust. 3 Prawo geodezyjne i
+  kartograficzne; nur Mediane ab 10 Käufen, keine Einzeltransaktionen.
+- Denkmalregister aus Wikidata in denkmale.js: CC0 1.0 (strukturierte Daten).
+- Seit dem 14.11.2026 trägt keine Datei unter daten/ mehr Beispieldaten (fixture: true).
+
+Mitgelieferte Fremdbestandteile (vendor/, fonts/; Kartenschrift nur in der Auslieferung)
+--------------------------------------------------------------------------------------
+- MapLibre GL JS 4.7.1, BSD-3-Clause, Copyright (c) 2023, MapLibre contributors (vendor/MAPLIBRE-LICENSE.txt).
+- GSAP 3.15.1 mit ScrollTrigger (GreenSock Standard „No Charge“ License, https://gsap.com/standard-license) ist
+  NICHT Teil dieses öffentlichen Repositorys: keine Open-Source-Lizenz, Weitergabe nicht geprüft. Keine Krakauer
+  Seite lädt GSAP; gebraucht wird es nur vom unveränderten Potsdamer Modul atlas.js für die Gegenprobe Potsdam
+  (pruefen/gegenprobe_potsdam.sh). Wer sie laufen lässt, holt es selbst: npm pack gsap@3.15.1, aus dem Paket
+  dist/gsap.min.js und dist/ScrollTrigger.min.js nach vendor/ legen. skripte/deploy_kopie.py liefert beide nie aus.
+- Barlow und Barlow Semi Condensed, Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow),
+  SIL Open Font License 1.1 (fonts/OFL.txt). Bezogen als npm-Pakete @fontsource/barlow und
+  @fontsource/barlow-semi-condensed 5.3.0; je Schnitt die Teilmengen latin und latin-ext zu einer Datei
+  zusammengefügt (skripte/schriften.py), Glyphen unverändert. Verändert ist das Kerning: skripte/schriften.py
+  überträgt die Kerning-Paare der Grundbuchstaben auf die polnischen Sonderzeichen (Ą Ć Ę Ł Ń Ó Ś Ź Ż, klein
+  analog). Die Dateien unter fonts/ sind damit eine abgeleitete Fassung (Modified Version) nach OFL 1.1; die Lizenz
+  nennt für Barlow keinen Reserved Font Name. Auch eingebettet in fonts/einbettung.js.
+- Kartenschrift der Grundkarte (nur in der Auslieferung unter daten/grundkarte/schrift/, nicht im Repo):
+  SDF-Glyphen aus Noto Sans, Copyright 2022 The Noto Project Authors, SIL Open Font License 1.1
+  (daten/grundkarte/schrift/OFL.txt).
+- Ausgangsdateien dieser Kartenschrift im Repo unter schriften/noto/: NotoSans-Regular.ttf, NotoSans-Medium.ttf,
+  NotoSans-Italic.ttf, unverändert (byte-gleich mit dem Arch-Paket noto-fonts 1:2026.10.01-1), Copyright 2022 The
+  Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic), SIL Open Font License 1.1
+  (schriften/noto/OFL.txt). Nur Eingang von skripte/27_grundkarte.py; skripte/deploy_kopie.py liefert sie nicht aus.
+
+Werkzeuge, die nicht mitgeliefert werden (eigene Lizenzen): Geodaten-Import-Pipeline (Apache-2.0 laut ihrer
+LICENSE, eigenes Repository), PostGIS-Image postgis/postgis, Python- und npm-Pakete laut requirements*.txt und
+package-lock.json.

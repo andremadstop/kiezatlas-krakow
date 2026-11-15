@@ -1,0 +1,7 @@
+# Zusätzlich für Erzeugung und Prüfung der Schriften (skripte/schriften.py, pruefen/DF_schriften.py), Kiezatlas Kraków.
+# fontTools liest und fügt die Teilmengen zusammen, brotli schreibt und liest WOFF2. Versionen wie im lokalen
+# uv-Zwischenspeicher bei der Erzeugung der Dateien unter fonts/ (13.11.2026).
+# Neu erzeugen (ohne Netz, nur aus dem Zwischenspeicher):
+#   uv pip compile --offline --generate-hashes --python-version 3.13 requirements-schriften.in -o requirements-schriften.txt
+fonttools==4.68.0
+brotli==1.2.1

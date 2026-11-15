@@ -1,0 +1,59 @@
+WEBVTT
+
+NOTE English translation of the Polish subtitles burned into the film.
+
+1
+00:00:00.001 --> 00:00:04.461
+Data, not opinions. Air, housing prices, methodology: what the figures say and what they do not
+
+2
+00:00:04.461 --> 00:00:09.082
+Air quality: annual values of the monitoring stations, calculated by the EEA.
+
+3
+00:00:09.082 --> 00:00:13.691
+The chart: every station and the limit value.
+
+4
+00:00:13.691 --> 00:00:18.903
+Before: mean 2016–2018. After: mean 2020–2022. 2019 left out.
+
+5
+00:00:18.903 --> 00:00:23.710
+This is a comparison over time, not proof of cause.
+
+6
+00:00:23.710 --> 00:00:28.520
+Weather, the pandemic year and other measures were not taken out.
+
+7
+00:00:28.900 --> 00:00:33.701
+Housing market: transaction prices from the register, not asking prices.
+
+8
+00:00:33.701 --> 00:00:38.708
+Only medians from at least 10 transactions, no single prices or addresses.
+
+9
+00:00:38.708 --> 00:00:43.920
+District medians cover different flats; they do not compare like with like.
+
+10
+00:00:43.920 --> 00:00:48.526
+The limitations are on the same page as the figures.
+
+11
+00:00:48.907 --> 00:00:53.709
+Methodology: principles, limitations and what was not checked.
+
+12
+00:00:54.090 --> 00:00:58.696
+Downloads: GeoPackage, CSV and a QGIS project.
+
+13
+00:00:58.696 --> 00:01:03.299
+Licences and source notes verbatim, in the original language.
+
+14
+00:01:03.299 --> 00:01:08.314
+Sources: Air: EEA; data: GIOŚ (CC BY 4.0); Housing prices: Rejestr cen nieruchomości, Prezydent Miasta Krakowa (powiat 1261); dane udostępnione przez Główny Urząd Geodezji i Kartografii w serwisie www.geoportal.gov.pl; opracowanie własne (mediany, bez danych jednostkowych); District boundaries: © OpenStreetMap contributors (ODbL). Full source notes and licences: the „Dane” page.

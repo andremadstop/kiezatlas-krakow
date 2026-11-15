@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Access: data · Kiezatlas Kraków</title>
+<meta name="description" content="Downloads and licences of the access layer.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/planer-dane.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/planer-dane.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/planer-dane.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/planer-dane.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/planer-dane.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Access: data · Kiezatlas Kraków">
+<meta property="og:description" content="Downloads and licences of the access layer.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+</head>
+<body class="textseite" data-seite="planer-dane">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html" aria-current="true"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../planer-dane.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/planer-dane.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/planer-dane.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Access and public transport">
+    <ul>
+      <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+      <li><a class="nav" href="planer-metoda.html"><span>Method</span></a></li>
+      <li><a class="nav" href="planer-dane.html" aria-current="page"><span>Data</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../planer-dane.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/planer-dane.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Access: data</h1>
+<p class="lede">Downloads and licences of the access layer.</p>
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/planer_dane.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="pd-pliki">
+<h2>Data files of the planner</h2>
+<p>The atlas pages load data files from the atlas data folder; the same values are in the downloads below. Each file has a description of its fields as a JSON schema in the repository. Calculated on <span data-feld="planer_odbl:stand">13 November 2026</span>.</p>
+<ul class="quellen">
+<li><code>haltestellen.js</code>: stops with frequency class, without district assignment (CC BY 4.0, ZTP).</li>
+<li><code>einrichtungen.js</code>: schools, kindergartens, nurseries, hospitals and parks from BDOT10k, without district assignment.</li>
+<li><code>einrichtungen_odbl.js</code>: doctors and pharmacies from OpenStreetMap, without names (ODbL).</li>
+<li><code>erreichbar.js</code>: straight-line distance from the centre of each cell to the nearest facility.</li>
+<li><code>erreichbar_fuss_odbl.js</code>: the same as a walking route along the OpenStreetMap path network (ODbL).</li>
+<li><code>planer_odbl.js</code>, <code>planer_fuss_odbl.js</code>: indicators by district and for the whole city with numerator and denominator, as straight line and walking route (ODbL, because the assignment uses the OpenStreetMap boundaries).</li>
+</ul>
+</section>
+
+<section id="pd-pobierz">
+<h2>Downloads</h2>
+<ul class="quellen">
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: layers <code>siatka_1km</code> (residents and straight-line distances), <code>placowki_bdot</code>, <code>przystanki</code>.</li>
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a> (ODbL 1.0): layers <code>siatka_1km_odbl</code> (with district and walking route), <code>dostepnosc</code> (indicators by district), <code>placowki_osm</code>, <code>dzielnice</code>.</li>
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: the same layers as CSV; in <code>csv_pl/</code> with a decimal comma for Polish-locale Excel.</li>
+<li><a class="link" href="../daten/pobierz/licencje.csv" download>licencje.csv</a>: licence and source notice for every layer.</li>
+</ul>
+</section>
+
+<section id="pd-noty">
+<h2>Source notices</h2>
+<ul class="quellen">
+<li><span data-feld="haltestellen:quellen.ztp.vermerk" lang="pl">ZTP Kraków, GTFS, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), dane zmienione (opracowanie własne)</span></li>
+<li><span data-feld="einrichtungen:quellen.bdot10k.vermerk" lang="pl">Źródło: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne)</span></li>
+<li>© OpenStreetMap contributors, ODbL 1.0 (openstreetmap.org/copyright).</li>
+<li><span data-feld="planer_odbl:quellen.prawo_oswiatowe.vermerk" lang="pl">Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)</span></li>
+</ul>
+</section>
+
+<p class="odbl-vermerk"><small>District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+</body>
+</html>

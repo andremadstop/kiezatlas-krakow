@@ -1,0 +1,81 @@
+<!--seite
+daten: daten/stadtteile_odbl.js daten/denkmale_bdot.js daten/denkmale_odbl.js daten/denkmale.js
+texte: kern seiten planer denkmale kamienice
+robots: index
+css: vendor/maplibre-gl.css kartenseite.css
+skripte: vendor/maplibre-gl.js daten/grundkarte.js themen.js kartenseite.js kamienice.js
+-->
+<h1>{{t:seiten.kamienice.h1}}</h1>
+<p class="lede">{{t:seiten.kamienice.beschreibung}}</p>
+<p><span class="ks-abz ks-abz--fest">{{t:kamienice.abz_teilmenge}}</span><span class="ks-abz" id="abz-lage" hidden></span><span class="ks-abz">{{t:kamienice.abz_register}}</span></p>
+<section class="ks" aria-label="{{t:kamienice.werkzeug_aria}}">
+  <div class="ks__karte">
+    <div id="karte" role="region" aria-label="{{t:kamienice.karte_aria}}"></div>
+    <div class="ks-werkzeug" id="werkzeug"></div>
+    <div class="ks-legende" id="legende" data-start="zu" tabindex="0" role="region" aria-label="{{t:planer.ks_legende}}" hidden></div>
+    <p class="nur-sr" id="kartenstatus" aria-live="polite"></p>
+  </div>
+  <div class="ks-blatt">
+    <div class="ks-block">
+      <h2>{{t:denkmale.titel}}</h2>
+      <p>{{t:denkmale.teilmenge}}</p>
+      <p>{{t:denkmale.keine_flaechenaussage}}</p>
+      <p class="ks-fuss">{{t:denkmale.kamienica_definition}}</p>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:kamienice.filter_titel}}</h2>
+      <fieldset class="ks-chips" id="ep"></fieldset>
+      <div class="ks-knoepfe">
+        <button class="knopf knopf--rand" type="button" id="nur-kamienice" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">{{t:kamienice.nur_kamienice}}</span></button>
+        <button class="knopf knopf--rand" type="button" id="alle-objekte" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">{{t:kamienice.alle_objekte}}</span></button>
+        <button class="knopf knopf--rand" type="button" id="komplexe" aria-pressed="true"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">{{t:kamienice.komplexe}}</span></button>
+      </div>
+      <p class="ks-fuss">{{t:kamienice.alle_hinweis}}</p>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:kamienice.om_titel}}</h2>
+      <div id="ortsmarke"></div>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="om-zeigen"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">{{t:kamienice.om_zeigen}}</span></button></div>
+      <p class="ks-fuss"><a class="link" href="modernizacja.html">{{t:planer.e.link_modernizacja}}</a></p>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:kamienice.quellen_stand}}</h2>
+      <ul class="ks-zahlen" id="quellen-stand"></ul>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:kamienice.zahlen_register}}</h2>
+      <ul class="ks-zahlen" id="zahlen-register"></ul>
+      <p class="ks-fuss">{{t:kamienice.reg_hinweis}} <a class="link" href="karta.html#pkt=rejestr">{{t:kamienice.reg_karte}}</a></p>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:kamienice.zahlen_osm}}</h2>
+      <ul class="ks-zahlen" id="zahlen-osm"></ul>
+    </div>
+    <div class="ks-block">
+      <h2>{{t:kamienice.zahlen_bdot}}</h2>
+      <ul class="ks-zahlen" id="zahlen-bdot"></ul>
+      <p class="ks-fuss" id="komplex-hinweis"></p>
+      <h3>{{t:kamienice.delegatur_titel}}</h3>
+      <div class="ks-tabelle" id="tab-delegatur" tabindex="0" role="region" aria-label="{{t:kamienice.tab_caption}}"></div>
+    </div>
+  </div>
+</section>
+<h2>{{t:kamienice.grenzen_titel}}</h2>
+<ul class="ks-grenzen">
+  <li>{{t:kamienice.grenze.register}}</li>
+  <li>{{t:kamienice.grenze.wd}}</li>
+  <li>{{t:kamienice.grenze.osm}}</li>
+  <li id="grenze-lage"></li>
+  <li>{{t:kamienice.grenze.bauzeit}}</li>
+  <li>{{t:kamienice.grenze.kamienica}}</li>
+  <li>{{t:kamienice.grenze.komplexe}}</li>
+  <li>{{t:kamienice.grenze.delegatur}}</li>
+</ul>
+<h2>{{t:kamienice.quellen_titel}}</h2>
+<ul class="ks-quellen">
+  <li>{{t:kamienice.quelle.wd}}</li>
+  <li>{{t:kamienice.quelle.osm}}</li>
+  <li>{{t:kamienice.quelle.bdot}}</li>
+  <li>{{t:kamienice.quelle.lod}}</li>
+</ul>
+<p>{{t:planer.e.mehr}} <a class="link" href="kamienice-metoda.html">{{t:seiten.kamienice_metoda.h1}}</a> · <a class="link" href="kamienice-dane.html">{{t:seiten.kamienice_dane.h1}}</a> · <a class="link" href="modernizacja.html">{{t:planer.e.link_modernizacja}}</a> · <a class="link" href="planer.html">{{t:seiten.planer.h1}}</a></p>

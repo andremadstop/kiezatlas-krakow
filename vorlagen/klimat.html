@@ -1,0 +1,56 @@
+<!--seite
+daten: daten/stadtteile_odbl.js daten/klimat.js daten/klimat_zellen.js daten/klimat_stadtteile_odbl.js
+texte: kern seiten erzaehlung klimat
+robots: index
+css: vendor/maplibre-gl.css kartenfeld.css themenseite.css
+skripte: vendor/maplibre-gl.js daten/grundkarte.js themen.js kartenfeld.js themenseite.js seite_klimat.js
+-->
+<h1>{{t:seiten.klimat.h1}}</h1>
+<p class="lede">{{t:seiten.klimat.beschreibung}}</p>
+<p class="ts-abzeichen">{{t:klimat.abzeichen.orientierung}}</p>
+<div class="ts-merke">
+  <p>{{t:klimat.grenze.hitze}}</p>
+  <p>{{t:klimat.hinweis.versiegelung}}</p>
+</div>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-miasto">{{t:klimat.titel}}</h2>
+  <ul class="ts-zahlen" id="k-zahlen"></ul>
+  <div id="k-klassen"></div>
+  <p>{{t:klimat.hinweis.acker}}</p>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-mapa">{{t:klimat.h.mapa}}</h2>
+  <p id="k-mapa-opis"></p>
+  <div class="ts-knoepfe" id="k-wahl"></div>
+  <div class="kartenfeld"><div id="karte"></div></div>
+  <ul class="ts-kartenlegende" id="k-legende"></ul>
+  <p class="ts-kartenwahl" id="k-zelle" aria-live="polite"></p>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-dzielnice">{{t:klimat.h.dzielnice}}</h2>
+  <div class="ts-knoepfe" id="k-sort"></div>
+  <div id="k-dzielnice"></div>
+  <h3>{{t:klimat.h.delegatury}}</h3>
+  <div id="k-delegatury"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-granice">{{t:klimat.h.granice}}</h2>
+  <ul class="ts-grenzen" id="k-grenzen">
+    <li>{{t:klimat.hinweis.versiegelung}}</li>
+    <li>{{t:klimat.hinweis.acker}}</li>
+    <li>{{t:klimat.grenze.hitze}}</li>
+    <li>{{t:klimat.g.dokladnosc}}</li>
+    <li>{{t:klimat.g.zielen_kwadrat}}</li>
+    <li>{{t:klimat.g.granice}}</li>
+  </ul>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="k-h-zrodla">{{t:klimat.h.zrodla}}</h2>
+  <dl class="ts-quellen" id="k-quellen"></dl>
+</section>
+{{block:klimat}}

@@ -1,0 +1,248 @@
+﻿st;nazwa;ew;kennzahl;art;methode;einheit;status;vorlaeufig;q;richtwert_wert;richtwert_einheit;richtwert_q;richtwert_seite;radius_m;wert;zaehler;nenner;stand
+01;Stare Miasto;38590;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;38590;38590;2026-11-13
+01;Stare Miasto;38590;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;38590;38590;2026-11-13
+01;Stare Miasto;38590;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;38590;38590;2026-11-13
+01;Stare Miasto;38590;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;6431,0;38590;6;2026-11-13
+01;Stare Miasto;38590;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;38590;0;2026-11-13
+01;Stare Miasto;38590;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;38590;0;2026-11-13
+01;Stare Miasto;38590;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;38590;38590;2026-11-13
+01;Stare Miasto;38590;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;11,8;456892;38590;2026-11-13
+02;Grzegórzki;40270;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;40270;40270;2026-11-13
+02;Grzegórzki;40270;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;40270;40270;2026-11-13
+02;Grzegórzki;40270;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;40270;40270;2026-11-13
+02;Grzegórzki;40270;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;4475,0;40270;9;2026-11-13
+02;Grzegórzki;40270;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;40270;0;2026-11-13
+02;Grzegórzki;40270;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;40270;0;2026-11-13
+02;Grzegórzki;40270;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;40270;40270;2026-11-13
+02;Grzegórzki;40270;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;1,6;63048;40270;2026-11-13
+03;Prądnik Czerwony;40700;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;4522,0;40700;9;2026-11-13
+03;Prądnik Czerwony;40700;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;20351,0;40700;2;2026-11-13
+03;Prądnik Czerwony;40700;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;40700;0;2026-11-13
+03;Prądnik Czerwony;40700;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;6,5;264342;40700;2026-11-13
+04;Prądnik Biały;82610;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;82610;82610;2026-11-13
+04;Prądnik Biały;82610;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;82610;82610;2026-11-13
+04;Prądnik Biały;82610;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;98,0;81020;82610;2026-11-13
+04;Prądnik Biały;82610;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;6884,0;82610;12;2026-11-13
+04;Prądnik Biały;82610;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;13768,0;82610;6;2026-11-13
+04;Prądnik Biały;82610;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;82610;0;2026-11-13
+04;Prądnik Biały;82610;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;96,0;79350;82610;2026-11-13
+04;Prądnik Biały;82610;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;3,7;309388;82610;2026-11-13
+05;Krowodrza;32470;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;32470;32470;2026-11-13
+05;Krowodrza;32470;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;32470;32470;2026-11-13
+05;Krowodrza;32470;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;32470;32470;2026-11-13
+05;Krowodrza;32470;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;3608,0;32470;9;2026-11-13
+05;Krowodrza;32470;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;32470;0;2026-11-13
+05;Krowodrza;32470;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;32470;0;2026-11-13
+05;Krowodrza;32470;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;32470;32470;2026-11-13
+05;Krowodrza;32470;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;8,8;286929;32470;2026-11-13
+06;Bronowice;30270;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;30270;30270;2026-11-13
+06;Bronowice;30270;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;30270;30270;2026-11-13
+06;Bronowice;30270;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;84,0;25420;30270;2026-11-13
+06;Bronowice;30270;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;3027,0;30270;10;2026-11-13
+06;Bronowice;30270;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;30270;0;2026-11-13
+06;Bronowice;30270;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;30270;0;2026-11-13
+06;Bronowice;30270;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;91,0;27500;30270;2026-11-13
+06;Bronowice;30270;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;0,0;0;30270;2026-11-13
+07;Zwierzyniec;26530;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;26530;26530;2026-11-13
+07;Zwierzyniec;26530;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;26530;26530;2026-11-13
+07;Zwierzyniec;26530;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;35,0;9270;26530;2026-11-13
+07;Zwierzyniec;26530;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;2653,0;26530;10;2026-11-13
+07;Zwierzyniec;26530;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;26530;0;2026-11-13
+07;Zwierzyniec;26530;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;26530;0;2026-11-13
+07;Zwierzyniec;26530;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;98,0;25940;26530;2026-11-13
+07;Zwierzyniec;26530;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;5,8;154071;26530;2026-11-13
+08;Dębniki;83180;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;97,0;80290;83180;2026-11-13
+08;Dębniki;83180;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;99,0;82410;83180;2026-11-13
+08;Dębniki;83180;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;88,0;73250;83180;2026-11-13
+08;Dębniki;83180;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;6932,0;83180;12;2026-11-13
+08;Dębniki;83180;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;27726,0;83180;3;2026-11-13
+08;Dębniki;83180;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;83180;0;2026-11-13
+08;Dębniki;83180;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;90,0;75010;83180;2026-11-13
+08;Dębniki;83180;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;9,3;774738;83180;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;14890;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;14890;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;14890;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;7444,0;14890;2;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;14888,0;14890;1;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;14890;0;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;14890;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;22,6;336534;14890;2026-11-13
+10;Swoszowice;29540;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;29540;29540;2026-11-13
+10;Swoszowice;29540;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;29540;29540;2026-11-13
+10;Swoszowice;29540;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;77,0;22810;29540;2026-11-13
+10;Swoszowice;29540;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;5908,0;29540;5;2026-11-13
+10;Swoszowice;29540;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;29540;0;2026-11-13
+10;Swoszowice;29540;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;29540;0;2026-11-13
+10;Swoszowice;29540;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;85,0;25060;29540;2026-11-13
+10;Swoszowice;29540;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;3,4;101396;29540;2026-11-13
+11;Podgórze Duchackie;67760;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;4840,0;67760;14;2026-11-13
+11;Podgórze Duchackie;67760;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;9680,0;67760;7;2026-11-13
+11;Podgórze Duchackie;67760;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;67758,0;67760;1;2026-11-13
+11;Podgórze Duchackie;67760;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;0,3;19640;67760;2026-11-13
+12;Bieżanów-Prokocim;58050;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;58050;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;58050;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;58050;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;4466,0;58050;13;2026-11-13
+12;Bieżanów-Prokocim;58050;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;9675,0;58050;6;2026-11-13
+12;Bieżanów-Prokocim;58050;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;58052,0;58050;1;2026-11-13
+12;Bieżanów-Prokocim;58050;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;95,0;55130;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;5,7;331643;58050;2026-11-13
+13;Podgórze;46940;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;99,0;46660;46940;2026-11-13
+13;Podgórze;46940;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;46880;46940;2026-11-13
+13;Podgórze;46940;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;98,0;45960;46940;2026-11-13
+13;Podgórze;46940;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;4694,0;46940;10;2026-11-13
+13;Podgórze;46940;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;15645,0;46940;3;2026-11-13
+13;Podgórze;46940;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;46940;0;2026-11-13
+13;Podgórze;46940;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;88,0;41480;46940;2026-11-13
+13;Podgórze;46940;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;10,4;487171;46940;2026-11-13
+14;Czyżyny;33490;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;33490;33490;2026-11-13
+14;Czyżyny;33490;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;33490;33490;2026-11-13
+14;Czyżyny;33490;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;33490;33490;2026-11-13
+14;Czyżyny;33490;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;11162,0;33490;3;2026-11-13
+14;Czyżyny;33490;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;11162,0;33490;3;2026-11-13
+14;Czyżyny;33490;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;33490;0;2026-11-13
+14;Czyżyny;33490;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;99,0;33040;33490;2026-11-13
+14;Czyżyny;33490;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;9,0;301065;33490;2026-11-13
+15;Mistrzejowice;55620;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;55620;55620;2026-11-13
+15;Mistrzejowice;55620;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;55620;55620;2026-11-13
+15;Mistrzejowice;55620;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;55620;55620;2026-11-13
+15;Mistrzejowice;55620;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;6180,0;55620;9;2026-11-13
+15;Mistrzejowice;55620;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;55623,0;55620;1;2026-11-13
+15;Mistrzejowice;55620;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;55620;0;2026-11-13
+15;Mistrzejowice;55620;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;55620;55620;2026-11-13
+15;Mistrzejowice;55620;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;8,1;451502;55620;2026-11-13
+16;Bieńczyce;35780;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;3578,0;35780;10;2026-11-13
+16;Bieńczyce;35780;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;35780;0;2026-11-13
+16;Bieńczyce;35780;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;35780;0;2026-11-13
+16;Bieńczyce;35780;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;2,3;81436;35780;2026-11-13
+17;Wzgórza Krzesławickie;19580;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;19580;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;19580;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;88,0;17270;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;3917,0;19580;5;2026-11-13
+17;Wzgórza Krzesławickie;19580;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;19584,0;19580;1;2026-11-13
+17;Wzgórza Krzesławickie;19580;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;19580;0;2026-11-13
+17;Wzgórza Krzesławickie;19580;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;96,0;18850;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;7,7;150806;19580;2026-11-13
+18;Nowa Huta;57120;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;97,0;55630;57120;2026-11-13
+18;Nowa Huta;57120;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;99,0;56640;57120;2026-11-13
+18;Nowa Huta;57120;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;88,0;50180;57120;2026-11-13
+18;Nowa Huta;57120;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;2596,0;57120;22;2026-11-13
+18;Nowa Huta;57120;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;28560,0;57120;2;2026-11-13
+18;Nowa Huta;57120;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;;57120;0;2026-11-13
+18;Nowa Huta;57120;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;93,0;52850;57120;2026-11-13
+18;Nowa Huta;57120;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;14,0;800366;57120;2026-11-13
+;Kraków;793390;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;99,0;788730;793390;2026-11-13
+;Kraków;793390;anteil_in_radius;szkola;luftlinie;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;792080;793390;2026-11-13
+;Kraków;793390;anteil_in_radius;przedszkole;luftlinie;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;94,0;742800;793390;2026-11-13
+;Kraków;793390;ew_je_einrichtung;szkola;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;4667,0;793390;170;2026-11-13
+;Kraków;793390;ew_je_einrichtung;przedszkole;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;22668,0;793390;35;2026-11-13
+;Kraków;793390;ew_je_einrichtung;zlobek;luftlinie;ew_je_einrichtung;orientierung;;bdot10k;;;;;;396695,0;793390;2;2026-11-13
+;Kraków;793390;oepnv_takt;haltestelle_takt;luftlinie;%;orientierung;;ztp;;;;;500;96,0;760290;793390;2026-11-13
+;Kraków;793390;gruen_m2_je_ew;park;luftlinie;m2_je_ew;orientierung;;bdot10k;;;;;;6,8;5370967;793390;2026-11-13
+01;Stare Miasto;38590;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;38590;38590;2026-11-13
+01;Stare Miasto;38590;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;38590;38590;2026-11-13
+01;Stare Miasto;38590;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;87,0;33500;38590;2026-11-13
+01;Stare Miasto;38590;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;87,0;33500;38590;2026-11-13
+01;Stare Miasto;38590;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;89,0;34330;38590;2026-11-13
+02;Grzegórzki;40270;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;40270;40270;2026-11-13
+02;Grzegórzki;40270;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;40270;40270;2026-11-13
+02;Grzegórzki;40270;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;40270;40270;2026-11-13
+02;Grzegórzki;40270;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;86,0;34680;40270;2026-11-13
+02;Grzegórzki;40270;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;15,0;5920;40270;2026-11-13
+03;Prądnik Czerwony;40700;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;100,0;40700;40700;2026-11-13
+03;Prądnik Czerwony;40700;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;26,0;10660;40700;2026-11-13
+04;Prądnik Biały;82610;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;82610;82610;2026-11-13
+04;Prądnik Biały;82610;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;82610;82610;2026-11-13
+04;Prądnik Biały;82610;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;92,0;76280;82610;2026-11-13
+04;Prądnik Biały;82610;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;82,0;67840;82610;2026-11-13
+04;Prądnik Biały;82610;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;26,0;21340;82610;2026-11-13
+05;Krowodrza;32470;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;32470;32470;2026-11-13
+05;Krowodrza;32470;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;32470;32470;2026-11-13
+05;Krowodrza;32470;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;97,0;31370;32470;2026-11-13
+05;Krowodrza;32470;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;74,0;24030;32470;2026-11-13
+05;Krowodrza;32470;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;46,0;14830;32470;2026-11-13
+06;Bronowice;30270;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;30270;30270;2026-11-13
+06;Bronowice;30270;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;30270;30270;2026-11-13
+06;Bronowice;30270;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;68,0;20560;30270;2026-11-13
+06;Bronowice;30270;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;72,0;21740;30270;2026-11-13
+06;Bronowice;30270;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;0,0;0;30270;2026-11-13
+07;Zwierzyniec;26530;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;99,0;26290;26530;2026-11-13
+07;Zwierzyniec;26530;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;26530;26530;2026-11-13
+07;Zwierzyniec;26530;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;26,0;7020;26530;2026-11-13
+07;Zwierzyniec;26530;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;91,0;24190;26530;2026-11-13
+07;Zwierzyniec;26530;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;34,0;9000;26530;2026-11-13
+08;Dębniki;83180;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;95,0;79300;83180;2026-11-13
+08;Dębniki;83180;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;97,0;80780;83180;2026-11-13
+08;Dębniki;83180;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;86,0;71280;83180;2026-11-13
+08;Dębniki;83180;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;51,0;42370;83180;2026-11-13
+08;Dębniki;83180;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;15,0;12290;83180;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;14890;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;14890;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;14890;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;54,0;8090;14890;2026-11-13
+09;Łagiewniki-Borek Fałęcki;14890;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;28,0;4230;14890;2026-11-13
+10;Swoszowice;29540;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;96,0;28350;29540;2026-11-13
+10;Swoszowice;29540;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;29490;29540;2026-11-13
+10;Swoszowice;29540;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;45,0;13190;29540;2026-11-13
+10;Swoszowice;29540;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;76,0;22350;29540;2026-11-13
+10;Swoszowice;29540;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;7,0;2010;29540;2026-11-13
+11;Podgórze Duchackie;67760;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;100,0;67760;67760;2026-11-13
+11;Podgórze Duchackie;67760;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;0,0;0;67760;2026-11-13
+12;Bieżanów-Prokocim;58050;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;58050;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;58050;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;99,0;57560;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;69,0;40340;58050;2026-11-13
+12;Bieżanów-Prokocim;58050;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;55,0;32030;58050;2026-11-13
+13;Podgórze;46940;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;99,0;46500;46940;2026-11-13
+13;Podgórze;46940;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;46720;46940;2026-11-13
+13;Podgórze;46940;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;95,0;44410;46940;2026-11-13
+13;Podgórze;46940;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;48,0;22690;46940;2026-11-13
+13;Podgórze;46940;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;31,0;14600;46940;2026-11-13
+14;Czyżyny;33490;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;33410;33490;2026-11-13
+14;Czyżyny;33490;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;33490;33490;2026-11-13
+14;Czyżyny;33490;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;99,0;33200;33490;2026-11-13
+14;Czyżyny;33490;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;87,0;29050;33490;2026-11-13
+14;Czyżyny;33490;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;48,0;16020;33490;2026-11-13
+15;Mistrzejowice;55620;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;55620;55620;2026-11-13
+15;Mistrzejowice;55620;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;55620;55620;2026-11-13
+15;Mistrzejowice;55620;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;55620;55620;2026-11-13
+15;Mistrzejowice;55620;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;74,0;41250;55620;2026-11-13
+15;Mistrzejowice;55620;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;72,0;39890;55620;2026-11-13
+16;Bieńczyce;35780;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;100,0;35780;35780;2026-11-13
+16;Bieńczyce;35780;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;53,0;18880;35780;2026-11-13
+17;Wzgórza Krzesławickie;19580;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;98,0;19200;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;100,0;19580;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;86,0;16920;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;79,0;15400;19580;2026-11-13
+17;Wzgórza Krzesławickie;19580;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;39,0;7650;19580;2026-11-13
+18;Nowa Huta;57120;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;95,0;54530;57120;2026-11-13
+18;Nowa Huta;57120;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;98,0;55720;57120;2026-11-13
+18;Nowa Huta;57120;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;88,0;50160;57120;2026-11-13
+18;Nowa Huta;57120;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;89,0;50930;57120;2026-11-13
+18;Nowa Huta;57120;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;84,0;47900;57120;2026-11-13
+;Kraków;793390;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;3000;99,0;784590;793390;2026-11-13
+;Kraków;793390;anteil_in_radius;szkola;fussweg;%;orientierung;1;bdot10k;4000;m;prawo_oswiatowe;art. 39 ust. 2, s. 40;4000;99,0;789320;793390;2026-11-13
+;Kraków;793390;anteil_in_radius;przedszkole;fussweg;%;orientierung;1;bdot10k;3000;m;prawo_oswiatowe;art. 32 ust. 3, s. 36;3000;90,0;710470;793390;2026-11-13
+;Kraków;793390;oepnv_takt;haltestelle_takt;fussweg;%;orientierung;;ztp;;;;;500;78,0;622690;793390;2026-11-13
+;Kraków;793390;gruen_in_radius;park;fussweg;%;orientierung;;bdot10k;;;;;500;37,0;291580;793390;2026-11-13

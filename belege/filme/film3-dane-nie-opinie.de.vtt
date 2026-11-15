@@ -1,0 +1,59 @@
+WEBVTT
+
+NOTE Deutsche Übersetzung der polnischen Untertitel, die im Film eingeblendet sind.
+
+1
+00:00:00.001 --> 00:00:04.461
+Daten, keine Meinungen. Luft, Wohnungspreise, Methode: was die Zahlen sagen und was nicht
+
+2
+00:00:04.461 --> 00:00:09.082
+Luftqualität: Jahreswerte der Messstationen, berechnet von der EEA.
+
+3
+00:00:09.082 --> 00:00:13.691
+Im Diagramm: jede Station und der Grenzwert.
+
+4
+00:00:13.691 --> 00:00:18.903
+Vorher: Mittel 2016–2018. Nachher: Mittel 2020–2022. 2019 ausgelassen.
+
+5
+00:00:18.903 --> 00:00:23.710
+Das ist ein zeitlicher Vergleich, kein Beleg für eine Ursache.
+
+6
+00:00:23.710 --> 00:00:28.520
+Wetter, das Pandemiejahr und andere Maßnahmen sind nicht herausgerechnet.
+
+7
+00:00:28.900 --> 00:00:33.701
+Wohnungsmarkt: Kaufpreise aus dem Register, keine Angebotspreise.
+
+8
+00:00:33.701 --> 00:00:38.708
+Nur Mediane aus mindestens 10 Käufen, keine Einzelpreise und Adressen.
+
+9
+00:00:38.708 --> 00:00:43.920
+Die Mediane der Stadtteile betreffen verschiedene Wohnungen, kein Vergleich gleicher Wohnungen.
+
+10
+00:00:43.920 --> 00:00:48.526
+Die Grenzen stehen auf derselben Seite wie die Zahlen.
+
+11
+00:00:48.907 --> 00:00:53.709
+Methode: Grundsätze, Grenzen und was nicht geprüft wurde.
+
+12
+00:00:54.090 --> 00:00:58.696
+Downloads: GeoPackage, CSV und ein QGIS-Projekt.
+
+13
+00:00:58.696 --> 00:01:03.299
+Lizenzen und Quellenvermerke wörtlich, in der Originalsprache.
+
+14
+00:01:03.299 --> 00:01:08.314
+Quellen: Luft: EEA; Daten: GIOŚ (CC BY 4.0); Wohnungspreise: Rejestr cen nieruchomości, Prezydent Miasta Krakowa (powiat 1261); dane udostępnione przez Główny Urząd Geodezji i Kartografii w serwisie www.geoportal.gov.pl; opracowanie własne (mediany, bez danych jednostkowych); Stadtteilgrenzen: © OpenStreetMap-Mitwirkende (ODbL). Vollständige Quellenvermerke und Lizenzen: Seite „Dane“.

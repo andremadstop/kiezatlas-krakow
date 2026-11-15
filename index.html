@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kraków w liczbach · Kiezatlas Kraków</title>
+<meta name="description" content="Atlas dzielnic Krakowa z otwartych danych publicznych: liczby, mapy i źródło przy każdej wartości.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kraków w liczbach · Kiezatlas Kraków">
+<meta property="og:description" content="Atlas dzielnic Krakowa z otwartych danych publicznych: liczby, mapy i źródło przy każdej wartości.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="atlas.css">
+<link rel="stylesheet" href="rahmen.css">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<link rel="stylesheet" href="kartenfeld.css">
+<link rel="stylesheet" href="stadtatlas.css">
+</head>
+<body class="textseite" data-seite="index">
+<a class="sprung" href="#inhalt">Przejdź do treści</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Nawigacja">
+      <ul>
+        <li><a class="nav" href="index.html" aria-current="page"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Mapa</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Dzielnice</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Kamienice</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Dostępność</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Tematy</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Metodologia</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Wybór języka">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="index.html" aria-current="true">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="en/index.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="de/index.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="en/index.html">Also available in English</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="de/index.html">Auch auf Deutsch</a> <button type="button" aria-label="Zamknij" title="Zamknij"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Dane przykładowe w części strony: dane wczytane na żądanie pokazują fikcyjne wartości, które służą wyłącznie do budowy atlasu, i są oznaczone tam, gdzie się pojawiają. Pozostałe dane na tej stronie nie są przykładowe." hidden>Dane przykładowe: ta strona pokazuje fikcyjne wartości, które służą wyłącznie do budowy atlasu. Nie są to dane o Krakowie.</p>
+</div>
+<h1>Kraków w liczbach</h1>
+<p class="lede">Atlas dzielnic Krakowa z otwartych danych publicznych. Pytania prowadzą przez miasto, mapa pokazuje odpowiedź, a przy każdej liczbie podano źródło.</p>
+<dl id="ka-stadtzahlen" class="ka-stadtzahlen" aria-label="Kraków w liczbach"></dl>
+<p class="ka-quelle">Wszystkie liczby pochodzą z plików danych atlasu; źródło podano pod każdą z nich.</p>
+
+<div class="ka-buehne">
+  <div class="ka-fragen">
+    <article class="ka-frage" data-ansicht="teile" id="ka-f-teile">
+      <h2>Z czego składa się Kraków?</h2>
+      <p class="ka-antwort" id="ka-a-teile"></p>
+      <p>Każda dzielnica ma własną radę (Rada Dzielnicy). Kolor na mapie oznacza delegaturę; numery rzymskie są urzędowe.</p>
+      <p class="ka-quelle">Granice dzielnic: © autorzy OpenStreetMap, ODbL 1.0. Powierzchnia miasta: PRG w BDOT10k, Główny Urząd Geodezji i Kartografii.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="einwohner" id="ka-f-einwohner">
+      <h2>Ilu mieszkańców ma Kraków?</h2>
+      <p class="ka-antwort" id="ka-a-einwohner"></p>
+      <p>Komórki siatki mają bok 1 km i nie pokrywają się z granicami dzielnic. Dlatego wartości dla dzielnic są przybliżone; profil dzielnicy podaje też drugi sposób liczenia.</p>
+      <p class="ka-quelle">Źródło: Główny Urząd Statystyczny, Narodowy Spis Powszechny Ludności i Mieszkań 2021; Eurostat, Census 2021 population grid (CC BY 4.0); opracowanie własne.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="dichte" id="ka-f-dichte">
+      <h2>Gdzie mieszka się najgęściej?</h2>
+      <p class="ka-antwort" id="ka-a-dichte"></p>
+      <p class="ka-quelle">Źródło: Eurostat, Census 2021 population grid (CC BY 4.0); komórka przypisana do dzielnicy według środka; opracowanie własne. Powierzchnia dzielnicy z granic OpenStreetMap (© autorzy OpenStreetMap, ODbL 1.0).</p>
+    </article>
+    <article class="ka-frage" data-ansicht="alter" id="ka-f-alter">
+      <h2>Gdzie udział starszych osób jest największy?</h2>
+      <p class="ka-antwort" id="ka-a-alter"></p>
+      <p>Na mapie komórki siatki; szare komórki mają za mało mieszkańców, by udział był wiarygodny.</p>
+      <p class="ka-quelle">Źródło: Eurostat, Census 2021 population grid (CC BY 4.0); komórka przypisana do dzielnicy według środka; opracowanie własne.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="gebaeude" id="ka-f-gebaeude">
+      <h2>Jak zabudowany jest Kraków?</h2>
+      <p class="ka-antwort" id="ka-a-gebaeude"></p>
+      <p>Budynki w 3D (wysokość z modeli LoD2 lub szacunek z kondygnacji) włącza przycisk „Budynki 3D” na stronach: <a class="link" href="kamienice.html">Kamienice</a>, <a class="link" href="planer.html">Dostępność</a>, <a class="link" href="modernizacja.html">Modernizacja</a></p>
+      <p class="ka-quelle">Źródło: Baza Danych Obiektów Topograficznych (BDOT10k), Główny Urząd Geodezji i Kartografii; opracowanie własne.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="takt" id="ka-f-takt">
+      <h2>Jak daleko do przystanku z co najmniej dwoma odjazdami na godzinę?</h2>
+      <p class="ka-antwort" id="ka-a-takt">Wczytywanie danych…</p>
+      <p>Przystanek klasy I lub II: co najmniej dwa odjazdy na godzinę w porannym szczycie, w kierunku z większą liczbą odjazdów (klasyfikacja własna, klasa I od sześciu). Liczone siecią dróg pieszych od środka komórki 1 km, nie od każdego adresu; dokładniej na stronie o dostępności. <a class="link" href="planer.html">Dostępność</a></p>
+      <p class="ka-quelle">Dojście piesze od środka komórki siecią dróg z OpenStreetMap (© autorzy OpenStreetMap, ODbL 1.0); cele: BDOT10k (GUGiK), OpenStreetMap, rozkład jazdy ZTP Kraków (GTFS, CC BY 4.0); opracowanie własne.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="luft" id="ka-f-luft">
+      <h2>Czym oddycha Kraków?</h2>
+      <p class="ka-antwort">Jakość powietrza mierzą urzędowe stacje Państwowego Monitoringu Środowiska (GIOŚ). Strona o powietrzu zestawia średnie roczne z lat przed wejściem w życie uchwały antysmogowej dla Krakowa i po nim.</p>
+      <p class="ka-teaser">Wartości roczne pochodzą ze statystyki EEA dla stacji w Krakowie i służą orientacji. <a class="link" href="powietrze.html">Jakość powietrza</a></p>
+    </article>
+    <article class="ka-frage" data-ansicht="zbk" id="ka-f-zbk">
+      <h2>Którymi budynkami zarządza ZBK?</h2>
+      <p class="ka-antwort" id="ka-a-zbk"></p>
+      <p id="ka-a-zbk-grenzen"></p>
+      <p class="ka-teaser">Typologia to szacunek bez roku budowy i bez danych o zużyciu energii. Wykaz, własność i typologię szczegółowo pokazuje strona: <a class="link" href="modernizacja.html">Zasób mieszkaniowy i modernizacja</a></p>
+      <p class="ka-quelle">Źródło: Zarząd Budynków Komunalnych w Krakowie, wykaz budynków i obiektów w zarządzie ZBK (BIP Kraków); typologia: BDOT10k, Główny Urząd Geodezji i Kartografii; opracowanie własne.</p>
+    </article>
+  </div>
+  <div class="ka-buehne__karte">
+    <div class="kartenfeld"><div id="karte" role="region" aria-label="Mapa Krakowa do pytań"></div></div>
+    <div id="ka-buehne-legende" class="ka-buehne__legende fl-legende" aria-live="polite"></div>
+  </div>
+</div>
+
+<h2 id="dzielnice">18 dzielnic</h2>
+<p>Wszystkie dzielnice w jednej tabeli. Kliknij nagłówek, aby posortować; nazwa prowadzi do profilu dzielnicy.</p>
+<div class="ka-tabelle-rahmen" role="region" tabindex="0" aria-label="18 dzielnic">
+<table id="ka-register" class="ka-tabelle">
+  <caption>Mieszkańcy, gęstość i udział 65+: siatka Eurostatu, komórki przypisane według środka. Budynki i udział powierzchni zabudowy: BDOT10k (GUGiK). ZBK: wpisy według dzielnicy z wykazu; w wierszu miasta wpisy w Krakowie. Granice dzielnic: © autorzy OpenStreetMap, ODbL 1.0. Liczby mieszkańców zaokrąglone: od 1000 do pełnych setek, poniżej do dziesiątek.</caption>
+  <thead><tr>
+    <th scope="col"><button type="button" data-sort="nr">Dzielnica</button></th>
+    <th scope="col"><button type="button" data-sort="ew">Mieszkańcy</button></th>
+    <th scope="col"><button type="button" data-sort="dichte">os./km²</button></th>
+    <th scope="col"><button type="button" data-sort="65p">65+ (%)</button></th>
+    <th scope="col"><button type="button" data-sort="geb">Budynki</button></th>
+    <th scope="col"><button type="button" data-sort="bebauung">Zabudowa (%)</button></th>
+    <th scope="col"><button type="button" data-sort="zbk">ZBK</button></th>
+  </tr></thead>
+  <tbody></tbody>
+  <tfoot></tfoot>
+</table>
+</div>
+<noscript><ul class="teile-liste">
+  <li><a class="link" href="dzielnica.html#st=01">Dzielnica I Stare Miasto</a></li>
+  <li><a class="link" href="dzielnica.html#st=02">Dzielnica II Grzegórzki</a></li>
+  <li><a class="link" href="dzielnica.html#st=03">Dzielnica III Prądnik Czerwony</a></li>
+  <li><a class="link" href="dzielnica.html#st=04">Dzielnica IV Prądnik Biały</a></li>
+  <li><a class="link" href="dzielnica.html#st=05">Dzielnica V Krowodrza</a></li>
+  <li><a class="link" href="dzielnica.html#st=06">Dzielnica VI Bronowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=07">Dzielnica VII Zwierzyniec</a></li>
+  <li><a class="link" href="dzielnica.html#st=08">Dzielnica VIII Dębniki</a></li>
+  <li><a class="link" href="dzielnica.html#st=09">Dzielnica IX Łagiewniki-Borek Fałęcki</a></li>
+  <li><a class="link" href="dzielnica.html#st=10">Dzielnica X Swoszowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=11">Dzielnica XI Podgórze Duchackie</a></li>
+  <li><a class="link" href="dzielnica.html#st=12">Dzielnica XII Bieżanów-Prokocim</a></li>
+  <li><a class="link" href="dzielnica.html#st=13">Dzielnica XIII Podgórze</a></li>
+  <li><a class="link" href="dzielnica.html#st=14">Dzielnica XIV Czyżyny</a></li>
+  <li><a class="link" href="dzielnica.html#st=15">Dzielnica XV Mistrzejowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=16">Dzielnica XVI Bieńczyce</a></li>
+  <li><a class="link" href="dzielnica.html#st=17">Dzielnica XVII Wzgórza Krzesławickie</a></li>
+  <li><a class="link" href="dzielnica.html#st=18">Dzielnica XVIII Nowa Huta</a></li>
+</ul></noscript>
+
+<h2 id="tematy">Tematy</h2>
+<ul class="themenkarten">
+  <li><a href="kamienice.html"><span class="themenkarte__titel">Kamienice i zabytki</span><span class="themenkarte__satz">Wybór kamienic i zabytków w dzielnicach: obiekty oznaczone w OpenStreetMap, kompleksy z BDOT10k i obiekty z numerem rejestru z Wikidanych; rejestru NID jeszcze nie ma.</span></a></li>
+  <li><a href="planer.html"><span class="themenkarte__titel">Dostępność i komunikacja</span><span class="themenkarte__satz">Dojście pieszo do przystanków, szkół, przedszkoli i zieleni oraz częstotliwość kursowania.</span></a></li>
+  <li><a href="modernizacja.html"><span class="themenkarte__titel">Zasób mieszkaniowy i modernizacja</span><span class="themenkarte__satz">Budynki w zarządzie ZBK, kandydaci na bloki z wielkiej płyty (szacunek), wysokości z modeli 3D i powiązanie z dostępnością oraz zielenią.</span></a></li>
+  <li><a href="klimat.html"><span class="themenkarte__titel">Klimat: zabudowa i zieleń</span><span class="themenkarte__satz">Zabudowa i tereny komunikacyjne (przybliżenie uszczelnienia gruntu) oraz zieleń w dzielnicach, orientacyjnie.</span></a></li>
+  <li><a href="powietrze.html"><span class="themenkarte__titel">Jakość powietrza</span><span class="themenkarte__satz">Wartości roczne ze stacji monitoringu powietrza w Krakowie, obliczone przez EEA (orientacyjnie).</span></a></li>
+  <li><a href="mieszkania.html"><span class="themenkarte__titel">Rynek mieszkaniowy</span><span class="themenkarte__satz">Ceny transakcyjne mieszkań, wyłącznie w ujęciu zagregowanym.</span></a></li>
+  <li><a href="porownanie.html"><span class="themenkarte__titel">Kraków i Poczdam</span><span class="themenkarte__satz">Porównanie dwóch miast tą samą metodą, tylko tam, gdzie definicje są naprawdę takie same.</span></a></li>
+</ul>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Strona główna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/nota-prawna/">Nota prawna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/polityka-prywatnosci/">Polityka prywatności</a></p>
+  <p class="fuss-seite__stand">Stan <span data-kiez-version>—</span>. Wydawca: Stiebitz Souverain Systems UG (haftungsbeschränkt). Kod: Apache-2.0. Grafiki: CC BY 4.0. Dane: licencje według źródeł. <span class="fuss-seite__odbl">Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Widzisz błąd? Napisz do nas: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="daten/ort.js"></script>
+<script defer src="i18n.js"></script>
+<script defer src="texte/pl/kern.js"></script>
+<script defer src="texte/pl/seiten.js"></script>
+<script defer src="texte/pl/karte.js"></script>
+<script defer src="texte/pl/erzaehlung.js"></script>
+<script defer src="daten/stadtteile_uebersicht_odbl.js"></script>
+<script defer src="daten/steckbrief.js"></script>
+<script defer src="daten/steckbrief_dzielnice_odbl.js"></script>
+<script defer src="daten/gebaeude_kennzahlen.js"></script>
+<script defer src="daten/gebaeude_dzielnice_odbl.js"></script>
+<script defer src="daten/sanierung.js"></script>
+<script defer src="kopf.js"></script>
+<script defer src="rahmen.js"></script>
+<script defer src="vendor/maplibre-gl.js"></script>
+<script defer src="daten/grundkarte.js"></script>
+<script defer src="themen.js"></script>
+<script defer src="kartenfeld.js"></script>
+<script defer src="erzaehlung.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+WEBVTT
+
+NOTE Napisy do filmu Kiezatlas Kraków (wersja wyświetlana w filmie). Tekst nie był sprawdzony przez rodzimego użytkownika języka.
+
+1
+00:00:00.001 --> 00:00:04.461
+Dane, nie opinie. Powietrze, ceny mieszkań, metodologia: co mówią liczby, a czego nie
+
+2
+00:00:04.461 --> 00:00:09.082
+Jakość powietrza: wartości roczne stacji pomiarowych, obliczone przez EEA.
+
+3
+00:00:09.082 --> 00:00:13.691
+Na wykresie: każda stacja i poziom dopuszczalny.
+
+4
+00:00:13.691 --> 00:00:18.903
+Przed: średnia 2016–2018. Po: średnia 2020–2022. Rok 2019 pominięty.
+
+5
+00:00:18.903 --> 00:00:23.710
+To porównanie w czasie, nie dowód przyczyny.
+
+6
+00:00:23.710 --> 00:00:28.520
+Nie uwzględniono wpływu pogody, roku pandemii ani innych działań.
+
+7
+00:00:28.900 --> 00:00:33.701
+Rynek mieszkaniowy: ceny transakcyjne z rejestru, nie ceny ofertowe.
+
+8
+00:00:33.701 --> 00:00:38.708
+Tylko mediany z co najmniej 10 transakcji, bez pojedynczych cen i adresów.
+
+9
+00:00:38.708 --> 00:00:43.920
+Mediany dzielnic dotyczą różnych mieszkań; to nie porównanie takich samych mieszkań.
+
+10
+00:00:43.920 --> 00:00:48.526
+Ograniczenia podano na tej samej stronie co liczby.
+
+11
+00:00:48.907 --> 00:00:53.709
+Metodologia: zasady, ograniczenia i to, czego nie sprawdzono.
+
+12
+00:00:54.090 --> 00:00:58.696
+Pliki do pobrania: GeoPackage, CSV i projekt QGIS.
+
+13
+00:00:58.696 --> 00:01:03.299
+Licencje i noty o źródłach dosłownie, w języku oryginału.
+
+14
+00:01:03.299 --> 00:01:08.314
+Źródła: Powietrze: EEA; dane: GIOŚ (CC BY 4.0); Ceny mieszkań: Rejestr cen nieruchomości, Prezydent Miasta Krakowa (powiat 1261); dane udostępnione przez Główny Urząd Geodezji i Kartografii w serwisie www.geoportal.gov.pl; opracowanie własne (mediany, bez danych jednostkowych); Granice dzielnic: © autorzy OpenStreetMap (ODbL). Pełne noty o źródłach i licencje: strona „Dane”.

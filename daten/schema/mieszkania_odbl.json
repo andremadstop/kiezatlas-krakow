@@ -1,0 +1,117 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Wohnungsmarkt: Median Preis je m² Wohnfläche je dzielnica, Jahr und Markt (Rejestr cen nieruchomości; ODbL wegen der Zuordnung über die OSM-Grenzen)",
+ "description": "Nur zusammengefasste Werte (Median und Fallzahl). Kein Median und keine Fallzahl bei n unter der Mindestfallzahl (pruefen/N1_protokoll.md, Regel 4), keine Extremwerte, keine Zeile je Transaktion, keine Kennungen oder Adressen. Regeln: pruefen/DW_protokoll.md; Prüfung: pruefen/DW_mieszkania.py; erzeugt von skripte/40_mieszkania.py.",
+ "x-datei": "mieszkania_odbl.js",
+ "x-odbl": true,
+ "x-global": "^KIEZ_MIESZKANIA$",
+ "type": "object",
+ "required": ["stand_auswertung", "quelle", "eingabe", "regeln", "jahre", "maerkte", "einheit", "stadt", "stadtteile", "kontrolle"],
+ "additionalProperties": false,
+ "properties": {
+  "fixture": {"const": true},
+  "stand_auswertung": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+  "quelle": {
+   "type": "object",
+   "required": ["vermerk", "rechtsgrundlage", "url"],
+   "additionalProperties": false,
+   "properties": {
+    "vermerk": {"type": "string", "minLength": 10},
+    "rechtsgrundlage": {"type": "string", "minLength": 10},
+    "url": {"type": "string", "pattern": "^https://"}
+   }
+  },
+  "eingabe": {
+   "type": "object",
+   "required": ["art", "datei", "sha256", "datenstand", "jahr_teilweise"],
+   "additionalProperties": false,
+   "properties": {
+    "art": {"enum": ["rcn_gpkg", "beispiel"]},
+    "datei": {"type": ["string", "null"], "description": "Eingabedatei unter eingang/rcn/; null bei Beispieldaten (nicht abgelegt)"},
+    "erzeuger": {"type": ["string", "null"], "description": "bei Beispieldaten: Aufruf, der die Eingabe erzeugt hat"},
+    "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "datenstand": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "jahr_teilweise": {"type": ["integer", "null"]},
+    "grenzen": {"type": "string"},
+    "saat": {"type": "integer"}
+   }
+  },
+  "regeln": {
+   "type": "object",
+   "required": ["mindestfallzahl", "kennzahl", "protokoll", "erstes_jahr"],
+   "additionalProperties": false,
+   "properties": {
+    "mindestfallzahl": {"type": "integer", "minimum": 10},
+    "kennzahl": {"const": "median_preis_je_m2_brutto"},
+    "protokoll": {"const": "pruefen/DW_protokoll.md"},
+    "flaeche_m2": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+    "preis_je_m2": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+    "erstes_jahr": {"type": "integer", "minimum": 1900, "maximum": 2100, "description": "erstes veröffentlichtes Jahr (F11); frühere Jahre stehen nicht in der Datei (pruefen/DW_protokoll.md, Änderung KR55)"}
+   }
+  },
+  "jahre": {"type": "array", "description": "Kalenderjahre der Dokumentdaten nach F11, also nie vor regeln.erstes_jahr (pruefen/DW_protokoll.md, Änderung KR55; Prüfung in pruefen/DW_mieszkania.py)", "items": {"type": "integer", "minimum": 1900, "maximum": 2100}},
+  "maerkte": {"const": ["ogolem", "pierwotny", "wtorny"]},
+  "einheit": {"const": "zl_m2"},
+  "stadt": {"$ref": "#/$defs/jahresreihe"},
+  "stadtteile": {
+   "type": "object",
+   "additionalProperties": false,
+   "patternProperties": {"^\\d{2}$": {"$ref": "#/$defs/jahresreihe"}}
+  },
+  "kontrolle": {
+   "type": "object",
+   "required": ["schritte", "ausserhalb", "ohne_markt", "preis_aus_lokal", "preis_aus_transaktion"],
+   "additionalProperties": false,
+   "properties": {
+    "schritte": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": ["nr", "schritt", "n"],
+      "additionalProperties": false,
+      "properties": {
+       "nr": {"type": "string", "pattern": "^F\\d+$"},
+       "schritt": {"enum": ["lokale", "ohne_dubletten", "funktion_wohnung", "freier_markt", "volles_recht", "eine_wohnung_je_transaktion", "preis_vorhanden", "flaeche_vorhanden", "plausibel", "datum_vorhanden", "dzielnica_zugeordnet", "ab_erstem_jahr"], "description": "Filterschritt F0 bis F11 aus pruefen/DW_protokoll.md als Schlüssel"},
+       "n": {"type": "integer", "minimum": 0}
+      }
+     }
+    },
+    "ausserhalb": {"type": "integer", "minimum": 0},
+    "ohne_markt": {"type": "integer", "minimum": 0},
+    "preis_aus_lokal": {"type": "integer", "minimum": 0},
+    "preis_aus_transaktion": {"type": "integer", "minimum": 0}
+   }
+  }
+ },
+ "$defs": {
+  "jahresreihe": {
+   "type": "object",
+   "additionalProperties": false,
+   "patternProperties": {"^\\d{4}$": {"$ref": "#/$defs/maerkte"}}
+  },
+  "maerkte": {
+   "type": "object",
+   "required": ["ogolem", "pierwotny", "wtorny"],
+   "additionalProperties": false,
+   "properties": {
+    "ogolem": {"$ref": "#/$defs/wert"},
+    "pierwotny": {"$ref": "#/$defs/wert"},
+    "wtorny": {"$ref": "#/$defs/wert"}
+   }
+  },
+  "wert": {
+   "type": "object",
+   "required": ["median", "n"],
+   "additionalProperties": false,
+   "properties": {
+    "median": {"type": ["integer", "null"], "minimum": 1},
+    "n": {"type": ["integer", "null"], "minimum": 0, "description": "Fallzahl; null bei grund = n_unter_minimum (die Zahl wird nie veröffentlicht) und bei n_verdeckt"},
+    "grund": {"enum": ["n_unter_minimum", "keine_transaktionen"]},
+    "n_verdeckt": {"const": true, "description": "Fallzahl verdeckt (n null, Median bleibt), weil sich sonst eine Fallzahl unter der Mindestzahl aus veröffentlichten Summen zurückrechnen ließe (sekundäre Unterdrückung)"}
+   },
+   "if": {"properties": {"grund": {"const": "n_unter_minimum"}}, "required": ["grund"]},
+   "then": {"properties": {"n": {"const": null}, "median": {"const": null}}},
+   "else": {"if": {"properties": {"n_verdeckt": {"const": true}}, "required": ["n_verdeckt"]}, "then": {"properties": {"n": {"const": null}}}, "else": {"properties": {"n": {"type": "integer"}}}}
+  }
+ }
+}

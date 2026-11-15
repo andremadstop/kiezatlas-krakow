@@ -1,0 +1,46 @@
+<!--seite
+daten: daten/kennzahlen_odbl.js daten/stadtteile_odbl.js daten/zellen_odbl.js
+texte: kern seiten karte erzaehlung denkmale
+robots: index
+css: vendor/maplibre-gl.css kartenfeld.css stadtatlas.css
+skripte: vendor/maplibre-gl.js daten/grundkarte.js themen.js kartenfeld.js karta.js
+-->
+<h1>{{t:seiten.karta.h1}}</h1>
+<p class="lede">{{t:seiten.karta.beschreibung}}</p>
+<div class="ka-kartenseite">
+  <div class="kartenfeld ka-kartenfeld"><div id="karte" role="region" aria-label="{{t:erzaehlung.karta_aria}}"></div></div>
+  <div class="ka-bedienung">
+    <p class="ka-wahl"><label for="ka-teil">{{t:erzaehlung.karta_teil}}</label>
+      <select id="ka-teil"><option value="">{{ort:ganze_stadt}}</option></select></p>
+    <p class="ka-wahl"><label for="ka-zelle">{{t:erzaehlung.karta_zellebene}}</label>
+      <select id="ka-zelle">
+        <option value="">{{t:erzaehlung.karta_keine}}</option>
+        <optgroup data-gruppe="gitter" label="{{t:erzaehlung.karta_gruppe_gitter}}"></optgroup>
+        <optgroup data-gruppe="fuss" label="{{t:erzaehlung.karta_gruppe_fuss}}"></optgroup>
+        <optgroup data-gruppe="klima" label="{{t:erzaehlung.karta_gruppe_klima}}"></optgroup>
+      </select></p>
+    <fieldset id="ka-dz" class="ka-feld">
+      <legend>{{t:erzaehlung.karta_dz}}</legend>
+      <label><input type="radio" name="dz" value="gruppen"> {{t:erzaehlung.dz_gruppen}}</label>
+      <label><input type="radio" name="dz" value="bebauung"> {{t:erzaehlung.dz_bebauung}}</label>
+      <label><input type="radio" name="dz" value="versiegelung"> {{t:erzaehlung.dz_versiegelung}}</label>
+      <label><input type="radio" name="dz" value="zbk"> {{t:erzaehlung.dz_zbk}}</label>
+    </fieldset>
+    <fieldset class="ka-feld">
+      <legend>{{t:erzaehlung.karta_punkte}}</legend>
+      <label><input type="checkbox" name="pkt" value="haltestellen"> {{t:erzaehlung.pkt_haltestellen}}</label>
+      <label><input type="checkbox" name="pkt" value="einrichtungen"> {{t:erzaehlung.pkt_einrichtungen}}</label>
+      <label><input type="checkbox" name="pkt" value="zbk"> {{t:erzaehlung.pkt_zbk}}</label>
+      <label><input type="checkbox" name="pkt" value="rejestr"> {{t:erzaehlung.pkt_rejestr}}</label>
+      <label><input type="checkbox" name="pkt" value="zabytki"> {{t:erzaehlung.pkt_zabytki}}</label>
+      <label><input type="checkbox" name="pkt" value="powietrze"> {{t:erzaehlung.pkt_powietrze}}</label>
+    </fieldset>
+    <div class="ka-legenden" aria-live="polite">
+      <div id="ka-leg-zelle" class="fl-legende" hidden></div>
+      <div id="ka-leg-teile" class="fl-legende"></div>
+      <div id="ka-leg-punkte" class="fl-legende" hidden></div>
+    </div>
+    <p class="ka-hinweis">{{t:erzaehlung.karta_3d_hinweis}} <a class="link" href="kamienice.html">{{t:seiten.kamienice.nav}}</a>, <a class="link" href="planer.html">{{t:seiten.planer.nav}}</a>, <a class="link" href="modernizacja.html">{{t:seiten.modernizacja.nav}}</a></p>
+  </div>
+</div>
+{{block:karta}}

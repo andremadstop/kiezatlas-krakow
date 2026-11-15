@@ -1,0 +1,32 @@
+<section id="pd-pliki">
+<h2>Pliki danych tematu Dostępność</h2>
+<p>Strony atlasu wczytują pliki danych z katalogu danych atlasu; te same wartości są w plikach do pobrania niżej. Każdy plik ma w repozytorium opis pól jako schemat JSON. Stan obliczeń: [[planer_odbl:stand|datum]].</p>
+<ul class="quellen">
+<li><code>haltestellen.js</code>: przystanki z klasą częstotliwości, bez przypisania do dzielnicy (CC BY 4.0, ZTP).</li>
+<li><code>einrichtungen.js</code>: szkoły, przedszkola, żłobki, szpitale i parki z BDOT10k, bez przypisania do dzielnicy.</li>
+<li><code>einrichtungen_odbl.js</code>: lekarze i apteki z OpenStreetMap, bez nazw (ODbL).</li>
+<li><code>erreichbar.js</code>: odległość w linii prostej od środka każdej komórki do najbliższej placówki.</li>
+<li><code>erreichbar_fuss_odbl.js</code>: to samo dojściem pieszym siecią dróg z OpenStreetMap (ODbL).</li>
+<li><code>planer_odbl.js</code>, <code>planer_fuss_odbl.js</code>: wskaźniki dla dzielnic i całego miasta z licznikiem i mianownikiem, w linii prostej i dojściem pieszym (ODbL, bo przypisanie według granic z OpenStreetMap).</li>
+</ul>
+</section>
+
+<section id="pd-pobierz">
+<h2>Do pobrania</h2>
+<ul class="quellen">
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: warstwy <code>siatka_1km</code> (mieszkańcy i odległości w linii prostej), <code>placowki_bdot</code>, <code>przystanki</code>.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a> (ODbL 1.0): warstwy <code>siatka_1km_odbl</code> (z dzielnicą i drogą pieszą), <code>dostepnosc</code> (wskaźniki dla dzielnic), <code>placowki_osm</code>, <code>dzielnice</code>.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: te same warstwy jako CSV; w <code>csv_pl/</code> z przecinkiem dziesiętnym dla polskiego Excela.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/licencje.csv" download>licencje.csv</a>: licencja i nota o źródle dla każdej warstwy.</li>
+</ul>
+</section>
+
+<section id="pd-noty">
+<h2>Noty o źródłach</h2>
+<ul class="quellen">
+<li>[[haltestellen:quellen.ztp.vermerk|text]]</li>
+<li>[[einrichtungen:quellen.bdot10k.vermerk|text]]</li>
+<li>© OpenStreetMap contributors, ODbL 1.0 (openstreetmap.org/copyright).</li>
+<li>[[planer_odbl:quellen.prawo_oswiatowe.vermerk|text]]</li>
+</ul>
+</section>

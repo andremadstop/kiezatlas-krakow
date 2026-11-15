@@ -1,0 +1,3 @@
+# Zusätzlich für die pytest-Prüfungen unter pruefen/ (Kiezatlas Kraków).
+#   uv pip compile --offline --generate-hashes --python-version 3.13 requirements-pruefen.in -o requirements-pruefen.txt
+pytest==9.2.0

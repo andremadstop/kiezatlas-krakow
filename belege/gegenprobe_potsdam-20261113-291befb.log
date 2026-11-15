@@ -1,0 +1,16 @@
+RC=0
+Gegenprobe Potsdam: stand-2026-11-07b-4-g7b6eb08 gegen 291befb
+Wegwerf-Ordner: /tmp/kiezatlas-gegenprobe.BFE1H4
+/tmp/kiezatlas-gegenprobe.BFE1H4/umgebaut/daten/ort.js  3633 Byte
+Anpassung: Skriptzeile in 7 Seiten, in_potsdam → in_stadt in 10 Dateien und 2 GeoPackage-Tabellen
+Vergleich Potsdam (basis) gegen umgebauten Code
+  ok    A6_test_pfade: Rückgabe 0, 56 × ok, 0 × FEHLT, wie Potsdam
+  ok    A8_test_pfade: Rückgabe 1, 19 × ok, 21 × FEHLT, wie Potsdam
+  ok    seiten: Rückgabe 0, 120 × ok, 0 × FEHLT, wie Potsdam
+  ok    A7_planer: Ausnahme KR10 (Startgewicht), Rückgabe 1, 119 × ok; gleich wie Potsdam bis auf 2 × „Startgewicht mit echten Daten“ (323, 323 KB gz, Grenze Potsdam 320). Gemeinsamer Code (kopf.js, themen.js, planer.js) 23449 B gz gegen Potsdam 23886 B gz (-437 B), Textschicht (daten/ort.js, i18n.js, texte/de/kern.js) 3368 B gz zusätzlich
+  ok    B5_jahre: Rückgabe 0, 251 × ok, 0 × FEHLT, wie Potsdam
+  ok    Textabzug: 9 Seiten, sichtbarer Text gleich (89664 Byte)
+
+0 Abweichungen
+
+[exited with code 0]

@@ -1,0 +1,24 @@
+{
+ "hinweis": "Ergebnis der Sichtprüfung der Typologie-Stichprobe (belege/DS_sanierung_lauf.md, Startwert 20261113) am Luftbild. Eingabe für skripte/36_sanierung.py; nicht von einem Skript erzeugt. Einzelergebnisse je Punkt sind nicht abgelegt, nur die Zählungen.",
+ "datum": "2026-11-14",
+ "pruefer": "Andre",
+ "grundlage": "Ortofotomapa, Geoportal (geoportal.gov.pl)",
+ "gruppen_verdeckt": true,
+ "startwert": 20261113,
+ "osiedle": {
+  "n": 30,
+  "ja": 21,
+  "nein": 5,
+  "unklar": 4
+ },
+ "kein_kandidat": {
+  "n": 10,
+  "ja": 4,
+  "nein": 4,
+  "unklar": 2
+ },
+ "bemerkungen": [
+  "Alle 5 Kandidaten mit „nein“ haben 4 oder 5 Geschosse und liegen in Krowodrza.",
+  "Unter den Kontrollen mit „ja“ sind Bauten in Nowa Huta mit 9 und 11 Geschossen (vermutlich Ziegelblöcke der 1950er)."
+ ]
+}

@@ -1,0 +1,10 @@
+# 3D-Dateien reproduzierbar: Lauf vom 14.11.2026 im Paket Oberfläche und Auslieferung (Zweig Arbeitszweig n2, Stand acba5f7)
+# Aufruf aus der Wurzel des Repos, mit Speichergrenze, schreibt nichts:
+#   systemd-run --user --scope -p MemoryMax=8G uv run -q --offline --python 3.13 --no-project \
+#     --with-requirements requirements.txt python -I skripte/20_bdot10k.py --pruefen \
+#     --geometrie $KIEZ_DATEN/abgeleitet/gebaeude/2026-11-13-odbl
+# Ausgabe (ohne die Zeile von systemd-run):
+byte-gleich: gebaeude_kennzahlen.js, gebaeude_dzielnice_odbl.js, D5_gebaeude_lauf.md, 01_odbl.js, 02_odbl.js, 03_odbl.js, 04_odbl.js, 05_odbl.js, 06_odbl.js, 07_odbl.js, 08_odbl.js, 09_odbl.js, 10_odbl.js, 11_odbl.js, 12_odbl.js, 13_odbl.js, 14_odbl.js, 15_odbl.js, 16_odbl.js, 17_odbl.js, 18_odbl.js
+rc=0
+# Prüfsumme des Manifests SHA256SUMS dieses Ordners (sha256sum): 54887665fc0aa43dd3487f12212825010ea45d10ab5708ce97c7fcb5fd8eef67
+# sha256sum -c SHA256SUMS im Ordner: 18 von 18 Dateien OK

@@ -1,0 +1,5 @@
+{
+  "stand": "2026-11-13-odbl",
+  "manifest_sha256": "54887665fc0aa43dd3487f12212825010ea45d10ab5708ce97c7fcb5fd8eef67",
+  "hinweis": "Stand der 3D-Dateien (Ordner unter $KIEZ_DATEN/abgeleitet/gebaeude/) und SHA256 seines Manifests (im Ordner vom 13.11.2026 SHA256SUMS, neue Läufe schreiben MANIFEST.sha256 mit gleichem Inhalt), gemessen am 14.11.2026 mit sha256sum. Gelesen von skripte/entwicklung_server.mjs, skripte/deploy_kopie.py, pruefen.sh und den Browserprüfungen. Fehlt der Ordner, gilt der jüngste Ordner *-odbl mit Manifest (so findet ein neuer Lauf von skripte/kette.py seine Dateien); die Deploy-Kopie verlangt auch dann genau diese Prüfsumme. Erzeugen: python -I skripte/20_bdot10k.py --geometrie <Ordner> (schreibt auch MANIFEST.sha256)."
+}

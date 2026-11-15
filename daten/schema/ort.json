@@ -1,0 +1,335 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Ortskonfiguration der Seiten",
+ "description": "Erzeugt von skripte/31_ort.py aus config/<ort>.yaml; nie von Hand. Sprachabhängige Werte sind Objekte {pl, en, de} (oder eine Zeichenkette für alle Sprachen); die Seiten wählen über KIEZ_I18N.sprachwert(). Darf Bildzeilen (z. B. „© OpenStreetMap (ODbL)“) als Text enthalten, aber keine Daten (x-nur-vermerke).",
+ "x-datei": "ort.js",
+ "x-global": "^KIEZ_ORT$",
+ "x-eigentuemer": "skripte/31_ort.py",
+ "$defs": {
+  "sprachwert": {
+   "anyOf": [
+    {
+     "type": "string"
+    },
+    {
+     "type": "object",
+     "minProperties": 1,
+     "patternProperties": {
+      "^(pl|en|de)$": {
+       "type": "string",
+       "minLength": 1
+      }
+     },
+     "additionalProperties": false
+    }
+   ]
+  },
+  "quelle": {
+   "anyOf": [
+    {
+     "type": "null"
+    },
+    {
+     "type": "object",
+     "required": [
+      "type",
+      "attribution"
+     ]
+    }
+   ]
+  },
+  "punkt": {
+   "type": "array",
+   "minItems": 2,
+   "maxItems": 2,
+   "items": {
+    "type": "number"
+   }
+  }
+ },
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "ort",
+  "sprachen",
+  "standardsprache",
+  "basis_url",
+  "name",
+  "stadt",
+  "stadt_lokativ",
+  "ganze_stadt",
+  "stadt_amtlich",
+  "stadt_art",
+  "zitierzeile",
+  "herausgeber",
+  "meldeweg",
+  "karte",
+  "gliederung",
+  "themen",
+  "seiten",
+  "herkunft"
+ ],
+ "properties": {
+  "ort": {
+   "type": "string",
+   "pattern": "^[a-z]+$"
+  },
+  "sprachen": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "enum": [
+     "pl",
+     "en",
+     "de"
+    ]
+   }
+  },
+  "standardsprache": {
+   "enum": [
+    "pl",
+    "en",
+    "de"
+   ]
+  },
+  "basis_url": {
+   "type": "string",
+   "pattern": "^https://.+/$"
+  },
+  "name": {
+   "$ref": "#/$defs/sprachwert"
+  },
+  "stadt": {
+   "$ref": "#/$defs/sprachwert"
+  },
+  "stadt_lokativ": {
+   "$ref": "#/$defs/sprachwert"
+  },
+  "ganze_stadt": {
+   "$ref": "#/$defs/sprachwert"
+  },
+  "stadt_amtlich": {
+   "$ref": "#/$defs/sprachwert"
+  },
+  "stadt_art": {
+   "$ref": "#/$defs/sprachwert"
+  },
+  "zitierzeile": {
+   "$ref": "#/$defs/sprachwert"
+  },
+  "herausgeber": {
+   "type": "string"
+  },
+  "meldeweg": {
+   "type": "string",
+   "pattern": "^[^@\\s]+@[^@\\s]+$"
+  },
+  "karte": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "mitte",
+    "rahmen",
+    "haus_ziel",
+    "grundkarte",
+    "luftbild",
+    "teile_attribution",
+    "teile_bildzeile"
+   ],
+   "properties": {
+    "mitte": {
+     "$ref": "#/$defs/punkt"
+    },
+    "haus_ziel": {
+     "$ref": "#/$defs/punkt"
+    },
+    "rahmen": {
+     "type": "array",
+     "minItems": 4,
+     "maxItems": 4,
+     "items": {
+      "type": "number"
+     }
+    },
+    "grundkarte": {
+     "$ref": "#/$defs/quelle"
+    },
+    "luftbild": {
+     "$ref": "#/$defs/quelle"
+    },
+    "teile_attribution": {
+     "$ref": "#/$defs/sprachwert"
+    },
+    "teile_bildzeile": {
+     "$ref": "#/$defs/sprachwert"
+    }
+   }
+  },
+  "gliederung": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "einheit",
+    "einheit_mehrzahl",
+    "gruppe",
+    "zuordnung_geprueft",
+    "anzeige_muster",
+    "lokativ_muster",
+    "gruppen",
+    "teile"
+   ],
+   "properties": {
+    "einheit": {
+     "$ref": "#/$defs/sprachwert"
+    },
+    "einheit_mehrzahl": {
+     "$ref": "#/$defs/sprachwert"
+    },
+    "gruppe": {
+     "$ref": "#/$defs/sprachwert"
+    },
+    "zuordnung_geprueft": {
+     "type": "boolean"
+    },
+    "anzeige_muster": {
+     "$ref": "#/$defs/sprachwert"
+    },
+    "lokativ_muster": {
+     "$ref": "#/$defs/sprachwert"
+    },
+    "gruppen": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "ton",
+       "name"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "ton": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 359
+       },
+       "name": {
+        "type": "string"
+       }
+      }
+     }
+    },
+    "teile": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "nr",
+       "roemisch",
+       "name",
+       "gruppe",
+       "anzeige",
+       "lokativ"
+      ],
+      "properties": {
+       "nr": {
+        "type": "string",
+        "pattern": "^\\d{2}$"
+       },
+       "roemisch": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "name": {
+        "type": "string"
+       },
+       "gruppe": {
+        "type": "string"
+       },
+       "anzeige": {
+        "$ref": "#/$defs/sprachwert"
+       },
+       "lokativ": {
+        "$ref": "#/$defs/sprachwert"
+       }
+      }
+     }
+    }
+   }
+  },
+  "themen": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "h",
+     "kurz",
+     "name"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+     },
+     "h": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+     },
+     "kurz": {
+      "$ref": "#/$defs/sprachwert"
+     },
+     "name": {
+      "$ref": "#/$defs/sprachwert"
+     },
+     "einheit": {
+      "$ref": "#/$defs/sprachwert"
+     },
+     "quelle": {
+      "$ref": "#/$defs/sprachwert"
+     },
+     "nenner": {
+      "type": "string"
+     },
+     "mindestfallzahl": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "kleinster Wert des Nenners, ab dem der Anteil gezeigt wird; fehlt er, gilt 10"
+     }
+    }
+   }
+  },
+  "seiten": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string",
+    "pattern": "^[a-z0-9-]+$"
+   }
+  },
+  "herkunft": {
+   "type": "object",
+   "required": [
+    "datei",
+    "sha256",
+    "skript"
+   ],
+   "properties": {
+    "sha256": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{64}$"
+    }
+   }
+  }
+ },
+ "x-nur-vermerke": true
+}

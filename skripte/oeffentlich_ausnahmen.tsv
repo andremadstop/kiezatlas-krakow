@@ -1,0 +1,34 @@
+# Ausnahmen für skripte/oeffentlich_pruefen.py. Spalten durch Tabulator getrennt. pfadmuster nach fnmatch (* passt
+# auch auf /), wertmuster regulärer Ausdruck auf den gefundenen Wert (* = jeder). art: ausnahme (begründet, bleibt),
+# vor_veroeffentlichung (andere Eigentümer, vor einer Veröffentlichung beheben) oder befund (immer Befund). Erste passende Zeile gilt.
+kategorie	pfadmuster	wertmuster	art	begruendung
+email	*	^kontakt@souverain-systems\.de$	ausnahme	Rollenadresse der Herausgeberin (Meldeweg, keine Person); ein neuer Betreiber ersetzt sie (docs/przekazanie.md)
+email	*	^msip@um\.krakow\.pl$	ausnahme	Behördenadresse der Stadt Kraków, Adressat der offenen Lizenzfrage (keine Person)
+email	vendor/*	^jack@greensock\.com$	ausnahme	Urhebervermerk im Lizenzkopf eines unveränderten Fremdbestandteils; darf nicht entfernt werden
+geheimnis	pruefen/d1_test_abruf.py	Anmeldedaten in URL	ausnahme	Negativtest: das Abrufwerkzeug muss eine URL mit Anmeldedaten ablehnen; Platzhalterwert, kein Zugang
+plankennung	skripte/oeffentlich_pruefen.py	*	ausnahme	Beispiele der gesuchten Muster in der Beschreibung des Prüfwerkzeugs
+plankennung	pruefen/geruest.py	*	ausnahme	Beispiele der gesuchten Muster in der Beschreibung der Gerüstprüfung
+plankennung	pruefen/S4_bloecke.py	^Tor [M]$	ausnahme	Suchmuster der Blockprüfung (Kennungen in ausgelieferten Langtexten), wie in pruefen/geruest.py
+plankennung	belege/*.log	^(P\d|Tor [A-Z])$	ausnahme	Ausgabezeile der Gerüstprüfung mit den Beispielen ihrer Muster im Prüfprotokoll
+*	atlas.sh	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	skripte/atlas.sh	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	skripte/kette.py	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	skripte/schnappschuss.py	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	skripte/oeffentlich_ausnahmen.tsv	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	docs/uruchomienie.md	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	docs/running.md	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	docs/nowe-miasto.md	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	docs/new-city.md	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	docs/przekazanie.md	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	docs/handover.md	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	.zenodo.json	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	CITATION.cff	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	NOTICE	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	README.md	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+*	.github/*	*	befund	Datei des Pakets Offene Wissenschaft; muss selbst sauber sein
+plankennung	belege/D4_bevoelkerung.md	^P\d$	ausnahme	Zellbezug der GUS-Tabelle (Spalte P, Zeile 4), keine Kennung
+plankennung	skripte/raum_bevoelkerung.py	^P\d$	ausnahme	Zellbezug der GUS-Tabelle (Spalte P, Zeile 4), keine Kennung
+plankennung	pruefen/A6_test_pfade.py	^P\d$	ausnahme	Variablenname im Potsdamer Test (unverändert für die Gegenprobe)
+lizenz	belege/*.png	*	ausnahme	Bildschirmfotos und Vorschaubilder eigener Seiten: CC BY 4.0 mit den Vermerken BDOT10k und OpenStreetMap (ODbL, Produced Work), Zeile oben in belege/README.md (KR50)
+lizenz	belege/filme/*.mp4	*	ausnahme	Filme aus eigenen Seiten (skripte/filme.mjs): CC BY 4.0 wie die Bildschirmfotos, mit den Vermerken der Quellentafel (OpenStreetMap als Produced Work der ODbL); Zeile in belege/README.md und belege/filme/README.md (KR63, Vorschlag)
+lizenz	belege/filme/*.webm	*	ausnahme	Filme aus eigenen Seiten (skripte/filme.mjs): CC BY 4.0 wie die Bildschirmfotos, mit den Vermerken der Quellentafel (OpenStreetMap als Produced Work der ODbL); Zeile in belege/README.md und belege/filme/README.md (KR63, Vorschlag)

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="de" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erreichbarkeit: Methode · Kiezatlas Kraków</title>
+<meta name="description" content="Wie die Erreichbarkeit gerechnet wird: Fußwegnetz, Fahrplan, Richtwerte.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/planer-metoda.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/planer-metoda.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/planer-metoda.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/planer-metoda.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/de/planer-metoda.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Erreichbarkeit: Methode · Kiezatlas Kraków">
+<meta property="og:description" content="Wie die Erreichbarkeit gerechnet wird: Fußwegnetz, Fahrplan, Richtwerte.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+</head>
+<body class="textseite" data-seite="planer-metoda">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Karte</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Stadtteile</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Mietshäuser</span></a></li>
+        <li><a class="nav" href="planer.html" aria-current="true"><span>Erreichbarkeit</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Themen</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Methode</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Sprache wählen">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../planer-metoda.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/planer-metoda.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/planer-metoda.html" aria-current="true">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Erreichbarkeit und Takt">
+    <ul>
+      <li><a class="nav" href="planer.html"><span>Erreichbarkeit</span></a></li>
+      <li><a class="nav" href="planer-metoda.html" aria-current="page"><span>Methode</span></a></li>
+      <li><a class="nav" href="planer-dane.html"><span>Daten</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../planer-metoda.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="../en/planer-metoda.html">Also available in English</a> <button type="button" aria-label="Schließen" title="Schließen"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Beispieldaten auf einem Teil der Seite: Auf Abruf geladene Daten zeigen unechte Werte, die nur zum Bauen des Atlas dienen, und sind dort gekennzeichnet, wo sie erscheinen. Die übrigen Daten dieser Seite sind keine Beispieldaten." hidden>Beispieldaten: Diese Seite zeigt unechte Werte, die nur zum Bauen des Atlas dienen. Es sind keine Daten über Krakau.</p>
+</div>
+<h1>Erreichbarkeit: Methode</h1>
+<p class="lede">Wie die Erreichbarkeit gerechnet wird: Fußwegnetz, Fahrplan, Richtwerte.</p>
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/planer_metoda.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="p-jednostki">
+<h2>Einheiten und Einwohner</h2>
+<p>Der Planer rechnet auf den Zellen des Eurostat-Bevölkerungsgitters (1 km); Einwohner in der Stadt: <span data-feld="planer_fuss_odbl:gesamt.ew">793.390</span>. Die Einwohner einer Zelle sitzen in ihrem Mittelpunkt; das ist eine Vereinfachung, weil sie in der Zelle ungleich verteilt sein können. Werte je dzielnica entstehen aus den Zellen, deren Mittelpunkt in der dzielnica liegt (Grenzen aus OpenStreetMap); Einwohnerzahlen sind auf <span data-feld="planer_odbl:rundung.ew">10</span> gerundet. Alle Kennzahlen sind <em>Orientierung</em>.</p>
+</section>
+
+<section id="p-placowki">
+<h2>Einrichtungen</h2>
+<p>Schulen, Kindergärten, Krippen, Krankenhäuser und Parks stammen aus der BDOT10k als Komplexe mit eigener Fläche (hier ein Punkt in der Fläche). In der Stadt: Schulen <span data-feld="einrichtungen:features[properties.art=szkola,properties.in_stadt=true]">170</span>, Kindergärten <span data-feld="einrichtungen:features[properties.art=przedszkole,properties.in_stadt=true]">35</span>, Krippen <span data-feld="einrichtungen:features[properties.art=zlobek,properties.in_stadt=true]">2</span>, Krankenhäuser <span data-feld="einrichtungen:features[properties.art=szpital,properties.in_stadt=true]">24</span>, Parks <span data-feld="einrichtungen:features[properties.art=park,properties.in_stadt=true]">90</span>. Die BDOT10k trennt keine Schularten und nennt weder Plätze noch Schülerzahlen; Kindergärten und Krippen in Gebäuden ohne eigenes Grundstück fehlen ganz. Die Werte für Krippen und Kindergärten bilden das wirkliche Netz deshalb nicht ab. Das Schulregister RSPO ist noch nicht eingebunden, weil seine Lizenz nicht geprüft ist.</p>
+<p>Ärzte und Apotheken stammen aus OpenStreetMap (Ärzte: <span data-feld="einrichtungen_odbl:features[properties.art=arzt]">283</span>, Apotheken: <span data-feld="einrichtungen_odbl:features[properties.art=apotheke]">321</span>), ohne Namen; ihre Vollständigkeit ist nicht geprüft. Einrichtungen knapp jenseits der Stadtgrenze zählen für die Entfernungen mit, weil sie vom Stadtrand aus oft die nächsten sind.</p>
+</section>
+
+<section id="p-odleglosc">
+<h2>Luftlinie und Fußweg</h2>
+<p>Für jede Zelle nennt der Atlas die Entfernung von ihrem Mittelpunkt zur nächsten Einrichtung jeder Art in Metern: als Luftlinie (Dateien ohne OpenStreetMap) und als Fußweg über das Wegenetz aus OpenStreetMap (Dateien <code>_odbl</code>). Der Fußweg ist immer länger und näher an der Erfahrung im Alltag; die Fragen auf den Seiten zeigen ihn immer, wenn es ihn gibt.</p>
+</section>
+
+<section id="p-szkoly">
+<h2>Schule und Kindergarten in Reichweite</h2>
+<p>Das polnische Schulgesetz (Prawo oświatowe) begrenzt den Weg eines Kindes zur Schule und zum Kindergarten: <span data-feld="richtwerte:bildung.szkola_podstawowa_droga.wortlaut" lang="pl">Droga dziecka z domu do szkoły nie może przekraczać: 1) 3 km – w przypadku uczniów klas I–IV szkół podstawowych; 2) 4 km – w przypadku uczniów klas V–VIII szkół podstawowych.</span> (<span data-feld="richtwerte:bildung.szkola_podstawowa_droga.seite">art. 39 ust. 2, s. 40</span>). Für den Kindergarten: <span data-feld="richtwerte:bildung.przedszkole_droga.seite">art. 32 ust. 3, s. 36</span>, <span data-feld="richtwerte:bildung.przedszkole_droga.wert_m">3.000</span> m. Quelle: <span data-feld="planer_odbl:quellen.prawo_oswiatowe.vermerk" lang="pl">Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)</span>.</p>
+<p>Das Gesetz meint den Weg zur Schule des Schulbezirks, in dem das Kind wohnt; der Atlas rechnet den Weg zur nächsten Einrichtung jeder Art. Das ist deshalb <em>Orientierung</em>, kein <em>amtlicher Maßstab</em>. Ergebnis für die ganze Stadt (Fußweg):</p>
+<ul>
+<li>Schule in <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].richtwert.wert">3.000</span> m: <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].wert">99 %</span> der Einwohner (<span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].zaehler">784.590</span> von <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].nenner">793.390</span>);</li>
+<li>Kindergarten in <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].richtwert.wert">3.000</span> m: <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].wert">90 %</span> (<span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].zaehler">710.470</span> von <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].nenner">793.390</span>).</li>
+</ul>
+</section>
+
+<section id="p-takt">
+<h2>Taktklasse</h2>
+<p>Haltestellen und Abfahrten stammen aus dem GTFS-Fahrplan der ZTP. Eine Haltestelle ist der gemeinsame Stamm der Steig-Codes, ihre Lage das Mittel der Steige. Gezählt werden die Abfahrten am Werktag <span data-feld="haltestellen:stichtag">18. November 2026</span> zwischen <span data-feld="haltestellen:fenster.0">06:00</span> und <span data-feld="haltestellen:fenster.1">09:00</span>, alle Linien zusammen, in der stärkeren Richtung, als Mittel je Stunde. Mindestzahl der Abfahrten je Stunde: Klasse I <span data-feld="haltestellen:klassen.grenzen.I">6</span>, Klasse II <span data-feld="haltestellen:klassen.grenzen.II">2</span>, Klasse III <span data-feld="haltestellen:klassen.grenzen.III">1</span>. Die Schwellen stammen aus dem Kiezatlas Potsdam, damit beide Städte vergleichbar sind; eine polnische Norm dafür wurde nicht gefunden, deshalb sind die Klassen Orientierung.</p>
+<p>Haltestellen in der Stadt: <span data-feld="haltestellen:features[properties.in_stadt=true]">813</span>, davon Klasse I: <span data-feld="haltestellen:features[properties.taktklasse=I,properties.in_stadt=true]">498</span>, Klasse II: <span data-feld="haltestellen:features[properties.taktklasse=II,properties.in_stadt=true]">232</span>, Klasse III: <span data-feld="haltestellen:features[properties.taktklasse=III,properties.in_stadt=true]">67</span>, unter Klasse III: <span data-feld="haltestellen:features[properties.taktklasse=unter III,properties.in_stadt=true]">16</span>. Haltestellen bis <span data-feld="richtwerte:oepnv.messung.randpuffer_m">1.000</span> m jenseits der Stadtgrenze zählen mit (<span data-feld="haltestellen:features[properties.in_stadt=false]">131</span>).</p>
+<p>Eine Haltestelle der Klasse I oder II in <span data-feld="richtwerte:planer.oepnv_radius_m.wert">500</span> m (eigene Festlegung, keine Norm) haben <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=oepnv_takt].wert">78 %</span> der Einwohner zu Fuß und <span data-feld="planer_odbl:gesamt.werte[kennzahl=oepnv_takt].wert">96 %</span> in Luftlinie.</p>
+</section>
+
+<section id="p-zielen">
+<h2>Grün in der Nähe</h2>
+<p>Parks sind BDOT10k-Komplexe „park lub skwer“, ohne Wald und Kleingärten. In Fußweg-Reichweite (der Radius ist der Standard des Rechenskripts, keine Norm; Belege: <code>belege/README.md</code>) haben <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=gruen_in_radius].wert">37 %</span> der Einwohner einen Park; Parkfläche je Einwohner in der ganzen Stadt: <span data-feld="planer_odbl:gesamt.werte[kennzahl=gruen_m2_je_ew].wert">6,8</span> m².</p>
+</section>
+
+<section id="p-granice">
+<h2>Grenzen</h2>
+<ul>
+<li>Die Entfernung zur nächsten Einrichtung sagt nichts über Plätze, Schulbezirke oder Öffnungszeiten.</li>
+<li>Eine 1-km-Zelle mit den Einwohnern im Mittelpunkt über- oder unterschätzt den Weg derer, die am Rand der Zelle wohnen.</li>
+<li>Die Taktklassen beziehen sich auf einen Werktag und die Morgenspitze.</li>
+<li>Wegenetz und Ärzte aus OpenStreetMap sind so vollständig wie die Karte am Tag des Abrufs.</li>
+</ul>
+</section>
+
+<p class="odbl-vermerk"><small>Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Startseite</a> <a class="link" hreflang="de" href="https://souverain-systems.de/impressum/">Impressum</a> <a class="link" hreflang="de" href="https://souverain-systems.de/datenschutz/">Datenschutz</a></p>
+  <p class="fuss-seite__stand">Stand <span data-kiez-version>—</span>. Herausgeber: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Grafiken: CC BY 4.0. Daten: Lizenzen nach Quelle. <span class="fuss-seite__odbl">Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Fehler gefunden? Schreib uns: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/de/kern.js"></script>
+<script defer src="../texte/de/seiten.js"></script>
+<script defer src="../texte/de/planer.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+</body>
+</html>

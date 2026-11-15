@@ -1,0 +1,156 @@
+/* Kiezatlas Kraków: Seiten Erzählung (index), Karte (karta), Steckbrief (dzielnica), Vergleich (porownanie).
+   Baut auf atlas.css und rahmen.css auf (Farben, Schriften, Kopfleiste, Fuß). Alle Regeln hängen an
+   body[data-seite=…] oder an eigenen Klassen (ka-, fl-), damit andere Seiten unberührt bleiben.
+   Raster: Radius 0, Linien 1 px, Akzent Grenzviolett nur für Auswahl, Grenzen und Fokus (DESIGN.md). */
+.ka-quelle,.fl-quelle,.ka-pop-q{color:var(--muted);font-size:.8125rem;line-height:1.4;overflow-wrap:anywhere}
+.fl-beispiel{display:inline-block;margin-left:.35em;padding:0 .4em;border:1px dashed var(--ink);background:repeating-linear-gradient(-45deg,#fff 0 6px,#f4f1ea 6px 12px);font-size:.75rem;font-weight:600;line-height:1.6;vertical-align:.05em}
+.fl-abzeichen{display:inline-block;margin:.4em 0 0;padding:0 .45em;border:1px solid var(--muted);color:var(--muted);font-size:.75rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.fl-hinweis{font-size:.8125rem;color:var(--muted);margin:.3em 0}
+.ka-hinweis{font-size:.875rem;color:var(--muted)}
+
+/* ---------- Kartenfläche und Legenden (kartenfeld.js) */
+.fl-legende{border-top:1px solid var(--line);padding:.6em 0 .2em}
+.fl-legende[hidden]{display:none}
+.fl-titel{margin:0 0 .35em;font-weight:600}
+.fl-stufen{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.fl-stufen li{display:flex;align-items:center;gap:.55em;font-size:.875rem;line-height:1.3}
+.fl-farbe{flex:none;width:18px;height:14px;border:1px solid rgba(19,33,42,.25)}
+.fl-punkt{display:flex;align-items:center;flex-wrap:wrap;gap:.45em;margin:.3em 0 0;font-weight:600;font-size:.875rem}
+.fl-kreis{flex:none;width:12px;height:12px;border-radius:50%;border:1px solid #fff;outline:1px solid rgba(19,33,42,.3)}
+.maplibregl-popup-content{border-radius:0;padding:12px 30px 10px 14px;font:400 .875rem/1.4 var(--f-text);color:var(--ink)}
+.maplibregl-popup-close-button{width:32px;height:32px;font-size:20px}
+.ka-pop-t{margin:0 0 .35em;font-weight:600;font-size:.9375rem}
+.ka-pop-z{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line-soft);padding:2px 0}
+.ka-pop-z b{font-weight:600;text-align:right}
+.ka-pop-h{margin:.3em 0;color:var(--muted);font-size:.8125rem}
+.ka-pop-q{margin:.4em 0 0}
+
+/* ---------- Freie Karte */
+.ka-kartenseite{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:clamp(16px,2vw,28px);align-items:start;margin:1rem 0 2rem}
+.ka-kartenfeld{margin:0;height:min(78vh,720px)}
+.ka-bedienung{min-width:0}
+.ka-wahl{margin:0 0 .8em;display:grid;gap:4px}
+.ka-wahl label,.ka-feld legend{font-weight:600;font-size:.9375rem}
+.ka-wahl select,.ka-teilwahl select{min-height:44px;width:100%;max-width:100%;padding:0 10px;border:1px solid var(--ink);border-radius:0;background:var(--surface);font:inherit;color:var(--ink)}
+.ka-feld{border:0;border-top:1px solid var(--line);margin:0;padding:.6em 0}
+.ka-feld legend{padding:0;margin-bottom:.3em}
+.ka-feld label{display:grid;grid-template-columns:18px minmax(0,1fr);align-items:center;column-gap:.55em;min-height:36px;padding:3px 0;font-size:.9375rem;line-height:1.3;cursor:pointer}
+.ka-feld label .fl-beispiel{grid-column:2;justify-self:start;margin:2px 0 0}
+.ka-feld input{width:18px;height:18px;margin:0;accent-color:var(--accent)}
+@media (pointer:coarse){.ka-feld label{min-height:44px}}
+@media (max-width:860px){
+  .ka-kartenseite{grid-template-columns:minmax(0,1fr)}
+  .ka-kartenfeld{height:62svh;min-height:300px}
+}
+
+/* ---------- Erzählung (index) */
+/* Linien über überlappende Ränder statt grauem Rastergrund: eine unvollständige letzte Zeile lässt keine graue Lücke */
+.ka-stadtzahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;padding:0 1px 1px 0;margin:1.4rem 0 .4rem}
+/* Platz, bis erzaehlung.js die Stadtzahlen einsetzt (gemessene Höhe danach, 14.11.2026; gegen den Layoutsprung der Bühne) */
+.ka-stadtzahlen:empty{min-height:121px}
+@media (max-width:1100px){.ka-stadtzahlen:empty{min-height:134px}}
+@media (max-width:599px){.ka-stadtzahlen:empty{min-height:329px}}
+.ka-stadtzahlen > div{background:var(--surface);border:1px solid var(--line);margin:0 -1px -1px 0;padding:12px 14px;min-width:0}
+.ka-stadtzahlen dt{font-size:.875rem;color:var(--muted);line-height:1.3}
+.ka-stadtzahlen dd{margin:.2em 0 0;font:600 var(--t-l)/1.05 var(--f-display);overflow-wrap:anywhere}
+.ka-stadtzahlen dd small{font-size:.55em;font-weight:500;margin-left:.15em}
+/* Haftungsklausel der Gmina Miejska Kraków: wörtlich und sichtbar, aber als benannter Nebenblock abgesetzt */
+.ka-zastrzezenie{margin:.8em 0 0;padding:2px 0 2px 12px;border-left:1px solid var(--line)}
+.ka-zastrzezenie__titel{margin:0 0 .3em;font:600 .75rem/1.35 var(--f-text);color:var(--muted)}
+.ka-zastrzezenie .ka-quelle{margin:0}
+.ka-stadtzahlen .ka-quelle{display:block;margin-top:.35em;font:400 .75rem/1.35 var(--f-text);color:var(--muted)}
+.ka-buehne{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,3vw,40px);margin:2rem 0}
+.ka-fragen{min-width:0}
+.ka-frage{min-height:72vh;padding:1.2rem 0 2rem;border-top:1px solid var(--line)}
+.ka-frage:last-child{min-height:auto}
+.ka-frage h2{font:600 var(--t-l)/1.1 var(--f-display);margin:0 0 .4em}
+.ka-frage .ka-antwort{font-size:var(--t-m);line-height:1.45;margin:0 0 .6em}
+.ka-frage .ka-antwort b{font-weight:600}
+.ka-frage.ist-aktiv h2{box-shadow:inset 4px 0 0 var(--accent);padding-left:12px;transition:padding .35s var(--ease)}
+.ka-buehne__karte{position:sticky;top:calc(var(--kopf) + 12px);height:calc(100svh - var(--kopf) - 24px);min-width:0}
+.ka-buehne__karte .kartenfeld{height:100%;margin:0}
+.ka-buehne__legende{position:absolute;left:8px;top:8px;z-index:2;max-width:min(260px,calc(100% - 70px));background:rgba(250,251,248,.94);border:1px solid var(--line);padding:6px 10px 4px}
+.ka-buehne__legende:empty{display:none}
+.ka-buehne__legende .fl-legende{border:0;padding:0}
+.ka-buehne__legende .fl-quelle{display:none}
+.ka-teaser{border:1px solid var(--line);background:var(--surface);padding:12px 14px;margin:.8em 0}
+@media (max-width:599px),(max-width:699px) and (orientation:portrait){
+  .ka-buehne{grid-template-columns:minmax(0,1fr);gap:0}
+  .ka-buehne__karte{order:-1;top:var(--kopf);height:52svh;z-index:3;background:var(--ground);padding-bottom:6px}
+  .ka-frage{min-height:auto;padding:1rem 0 1.4rem}
+  .ka-buehne__legende{font-size:.8125rem;max-width:calc(100% - 64px)}
+  .ka-buehne__legende .fl-stufen li{font-size:.75rem}
+}
+
+/* ---------- Register der dzielnice (index) und Vergleichstabellen */
+.ka-tabelle-rahmen{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border:1px solid var(--line);background:var(--surface)}
+.ka-tabelle-rahmen:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* Vergleich: vier Spalten passen auch schmal ins Bild (kein verdecktes Potsdam, Unterschrift nicht abgeschnitten) */
+@media (max-width:599px){#ka-vergleich{min-width:0;font-size:.8125rem}#ka-vergleich th,#ka-vergleich td{padding:6px 5px}#ka-vergleich td{white-space:nowrap}#ka-vergleich td:last-child{white-space:normal}#ka-vergleich thead th{font-size:.75rem}}
+.ka-tabelle{border-collapse:collapse;width:100%;min-width:560px;font-size:.9375rem}
+.ka-tabelle th,.ka-tabelle td{padding:7px 10px;border-bottom:1px solid var(--line-soft);text-align:right;vertical-align:top}
+.ka-tabelle th:first-child,.ka-tabelle td:first-child{text-align:left}
+.ka-tabelle thead th{font-weight:600;font-size:.8125rem;color:var(--muted);background:var(--ground);position:sticky;top:0}
+.ka-tabelle tbody th{font-weight:500}
+.ka-tabelle button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.25em;min-height:32px}
+.ka-tabelle button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ka-tabelle button[aria-pressed="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+.ka-tabelle .ka-balken{display:block;height:4px;background:var(--k3);margin-top:3px;margin-left:auto}
+.ka-tabelle tr.ka-stadt td,.ka-tabelle tr.ka-stadt th{font-weight:600;border-top:2px solid var(--ink)}
+.ka-tabelle caption{caption-side:bottom;text-align:left;padding:8px 10px;color:var(--muted);font-size:.8125rem}
+
+/* ---------- Steckbrief (dzielnica) */
+.ka-teilwahl{display:flex;flex-wrap:wrap;align-items:end;gap:10px 16px;margin:1rem 0 1.2rem}
+.ka-teilwahl label{font-weight:600;display:grid;gap:4px;flex:1 1 260px;max-width:420px}
+.ka-steckbrief{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(16px,3vw,40px);align-items:start}
+.ka-steckbrief__kopf h2{margin:.2em 0 .15em}
+.ka-steckbrief__kopf .ka-ziffer{font:600 var(--t-mega)/.9 var(--f-display);color:var(--accent);letter-spacing:-.02em;display:block}
+.ka-steckbrief .kartenfeld{height:min(56vh,460px);min-height:280px;margin:0}
+.ka-werte{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:1rem 0}
+.ka-wert{background:var(--surface);border:1px solid var(--line);padding:12px 14px;min-width:0}
+.ka-wert h4::first-letter,.fl-titel::first-letter{text-transform:uppercase}
+.ka-wert h4{margin:0;font:500 .875rem/1.3 var(--f-text);color:var(--muted)}
+.ka-wert .ka-zahl{display:block;margin:.15em 0;font:600 var(--t-l)/1.05 var(--f-display);overflow-wrap:anywhere}
+.ka-wert .ka-zahl small{font-size:.55em;font-weight:500;margin-left:.15em}
+.ka-wert .ka-vergleich{margin:.2em 0;font-size:.875rem}
+.ka-wert .ka-rang{display:flex;gap:2px;margin:.35em 0}
+.ka-wert .ka-rang i{flex:1;height:6px;background:var(--line-soft)}
+.ka-wert .ka-rang i.ist{background:var(--accent)}
+.ka-wert .ka-quelle{margin:.35em 0 0}
+.ka-gruppe-titel{margin:2rem 0 .2rem}
+.ka-knoepfe{display:flex;flex-wrap:wrap;gap:10px;margin:1rem 0}
+
+/* ---------- Vergleich (porownanie) */
+.ka-vergleich-hinweis{border-left:3px solid var(--accent);padding:.2em 0 .2em 14px;margin:1rem 0}
+.ka-weggelassen li{margin:.35em 0}
+.ka-block{display:block;font-weight:400}
+.ka-vg-alter{display:grid;gap:10px;margin:1rem 0;max-width:760px}
+.ka-vg-zeile{display:grid;grid-template-columns:minmax(70px,9rem) minmax(0,1fr);gap:10px;align-items:center}
+.ka-vg-name{font-weight:600}
+.ka-vg-balken{display:flex;height:34px;border:1px solid var(--line);background:var(--surface);min-width:0}
+.ka-vg-balken span{display:block}
+.ka-vg-werte{grid-column:2;margin:-4px 0 0;display:flex;flex-wrap:wrap;gap:2px 14px;font-size:.8125rem;color:var(--muted)}.ka-vg-werte b{color:var(--ink);font-weight:600}
+.ka-vg-u15{background:var(--k2);color:var(--ink)!important}.ka-vg-m{background:var(--k4)}.ka-vg-a{background:var(--accent)}
+.ka-vg-legende{display:flex;flex-wrap:wrap;gap:6px 16px;list-style:none;padding:0;margin:.4rem 0;font-size:.875rem}
+.ka-vg-legende li{display:flex;align-items:center;gap:6px}
+@media (max-width:860px){.ka-steckbrief{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Druck (Steckbrief und alle vier Seiten): A4, ohne Bedienung; Fuß mit Stand, Lizenz und Meldeweg bleibt */
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  html,body{background:#fff}
+  .kopfleiste,.sprung,.ka-nicht-drucken,.sprachhinweis,.fuss-seite__links,.maplibregl-ctrl-top-right,.ka-bedienung select{display:none!important}
+  body.textseite main{padding:0;max-width:none}
+  [data-seite] h1{font-size:20pt}
+  .ka-steckbrief{grid-template-columns:1fr 1fr;gap:8mm;break-inside:avoid}
+  .ka-steckbrief .kartenfeld{height:85mm;min-height:0}
+  .ka-steckbrief__kopf .ka-ziffer{font-size:40pt}
+  .ka-werte{grid-template-columns:repeat(3,1fr);margin:3mm 0}
+  .ka-wert{break-inside:avoid;padding:6px 8px}
+  .ka-wert .ka-zahl{font-size:15pt}
+  .ka-gruppe-titel{break-after:avoid;margin-top:5mm}
+  .ka-quelle,.fl-quelle{font-size:7.5pt}
+  .ka-buehne__karte{position:static;height:110mm}
+  .ka-frage{min-height:0}
+  a.link{text-decoration:none}
+}

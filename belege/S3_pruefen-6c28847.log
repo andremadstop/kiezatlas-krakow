@@ -1,0 +1,1607 @@
+Kiezatlas Kraków, Prüflauf 14.11.2026 00:36:59 CET
+Commit: 6c28847cde34624beac633554432d07b44dd8928
+Arbeitsstand: sauber (keine offenen Änderungen)
+Werkzeuge: uv 0.11.3 (x86_64-unknown-linux-gnu), node v22.23.4, Python 3.13.12
+
+== Syntax JavaScript (node --check)
+  41 Dateien, 0 mit Fehler
+-- Syntax JavaScript (node --check): grün, 1 s
+
+== Syntax Shell (sh -n)
+  7 Dateien, 0 mit Fehler
+-- Syntax Shell (sh -n): grün, 0 s
+
+== Syntax Python (ast)
+  91 Dateien, 0 mit Fehler
+-- Syntax Python (ast): grün, 0 s
+
+== Gerüst: Ortskonfiguration, Rechen-SRID, keine Plankennungen (pruefen/geruest.py)
+Ortskonfiguration config/krakow.yaml
+  ok    rechen_srid = ETRS89 / Poland CS2000 zone 7 (EPSG:2178)
+Rechen-SRID in sql/
+  ok    001_kiezatlas.sql: 1 SRID-Angaben, metrische = 2178
+  ok    002_ausbau.sql: 6 SRID-Angaben, metrische = 2178
+  ok    003_zellen.sql: 1 SRID-Angaben, metrische = 2178
+Keine feste metrische SRID in Python-Skripten
+  ok    skripte/ und pruefen/ ohne 25833/2178/2180/25834 im Code (Treffer: [])
+Keine internen Plankennungen in ausgelieferten Dateien
+  ok    129 Dateien ohne P0/D3/KR1/„Tor M“
+
+0 Befunde
+-- Gerüst: Ortskonfiguration, Rechen-SRID, keine Plankennungen (pruefen/geruest.py): grün, 1 s
+
+== ort.js aktuell (skripte/31_ort.py --pruefen)
+  ok    ort.js entspricht krakow.yaml (9832 Byte)
+-- ort.js aktuell (skripte/31_ort.py --pruefen): grün, 0 s
+
+== Seiten aktuell, pl/en/de (skripte/30_seiten.py --pruefen)
+  ok    45 Seiten (15 × 3 Sprachen) entsprechen vorlagen/ und texte/; keine fremden Seiten
+-- Seiten aktuell, pl/en/de (skripte/30_seiten.py --pruefen): grün, 0 s
+
+== Textschicht pl/en/de (pruefen/texte.py)
+Sprachen: pl, en, de
+  ok    Textformat aller Dateien lesbar (pl: 536 Schlüssel, en: 536 Schlüssel, de: 536 Schlüssel)
+Namensraum = Datei
+  ok    texte/pl/karte.js: 110 Schlüssel im Namensraum karte.*
+  ok    texte/pl/kern.js: 26 Schlüssel im Namensraum kern.*
+  ok    texte/pl/klimat.js: 54 Schlüssel im Namensraum klimat.*
+  ok    texte/pl/mieszkania.js: 45 Schlüssel im Namensraum mieszkania.*
+  ok    texte/pl/planer.js: 173 Schlüssel im Namensraum planer.*
+  ok    texte/pl/powietrze.js: 82 Schlüssel im Namensraum powietrze.*
+  ok    texte/pl/seiten.js: 46 Schlüssel im Namensraum seiten.*
+  ok    texte/en/karte.js: 110 Schlüssel im Namensraum karte.*
+  ok    texte/en/kern.js: 26 Schlüssel im Namensraum kern.*
+  ok    texte/en/klimat.js: 54 Schlüssel im Namensraum klimat.*
+  ok    texte/en/mieszkania.js: 45 Schlüssel im Namensraum mieszkania.*
+  ok    texte/en/planer.js: 173 Schlüssel im Namensraum planer.*
+  ok    texte/en/powietrze.js: 82 Schlüssel im Namensraum powietrze.*
+  ok    texte/en/seiten.js: 46 Schlüssel im Namensraum seiten.*
+  ok    texte/de/karte.js: 110 Schlüssel im Namensraum karte.*
+  ok    texte/de/kern.js: 26 Schlüssel im Namensraum kern.*
+  ok    texte/de/klimat.js: 54 Schlüssel im Namensraum klimat.*
+  ok    texte/de/mieszkania.js: 45 Schlüssel im Namensraum mieszkania.*
+  ok    texte/de/planer.js: 173 Schlüssel im Namensraum planer.*
+  ok    texte/de/powietrze.js: 82 Schlüssel im Namensraum powietrze.*
+  ok    texte/de/seiten.js: 46 Schlüssel im Namensraum seiten.*
+Gleiche Dateien und Schlüssel in allen Sprachen
+  ok    en: dieselben Dateien wie pl (['karte', 'kern', 'klimat', 'mieszkania', 'planer', 'powietrze', 'seiten'])
+  ok    en/karte.js: dieselben Schlüssel wie pl
+  ok    en/kern.js: dieselben Schlüssel wie pl
+  ok    en/klimat.js: dieselben Schlüssel wie pl
+  ok    en/mieszkania.js: dieselben Schlüssel wie pl
+  ok    en/planer.js: dieselben Schlüssel wie pl
+  ok    en/powietrze.js: dieselben Schlüssel wie pl
+  ok    en/seiten.js: dieselben Schlüssel wie pl
+  ok    de: dieselben Dateien wie pl (['karte', 'kern', 'klimat', 'mieszkania', 'planer', 'powietrze', 'seiten'])
+  ok    de/karte.js: dieselben Schlüssel wie pl
+  ok    de/kern.js: dieselben Schlüssel wie pl
+  ok    de/klimat.js: dieselben Schlüssel wie pl
+  ok    de/mieszkania.js: dieselben Schlüssel wie pl
+  ok    de/planer.js: dieselben Schlüssel wie pl
+  ok    de/powietrze.js: dieselben Schlüssel wie pl
+  ok    de/seiten.js: dieselben Schlüssel wie pl
+Platzhalter, Pluralformen, leere Texte
+  ok    gleiche Platzhalter je Schlüssel in allen Sprachen
+  ok    Pluraltexte mit genau den Formen der Sprache und {n}
+  ok    Objektwerte (kern.karte_locale) mit denselben Schlüsseln
+  ok    keine leeren Texte
+Verwendung
+  ok    536 Schlüssel, alle verwendet
+  ok    Titel, Überschrift, Beschreibung und Navigation für alle 15 Seiten
+  ok    jeder Schlüssel aus vorlagen/ vorhanden
+Keine deutschen Reste in pl und en
+  ok    pl: keine Wörter aus der deutschen Wortliste
+  ok    en: keine Wörter aus der deutschen Wortliste
+  ok    pl: sichtbarer Text der 15 erzeugten Seiten ohne Wörter aus der deutschen Wortliste
+  ok    en: sichtbarer Text der 15 erzeugten Seiten ohne Wörter aus der deutschen Wortliste
+Module im Wurzelordner: Schlüssel und Namensräume
+  ok    493 Abfragen in 10 Modulen, jeder Schlüssel vorhanden
+  ok    jede Seite lädt die Namensräume ihrer Module
+  ok    keine Seite lädt entfallene Module (jahre.js)
+Keine deutschen Satzteile in den Zeichenketten der Module
+  ok    atlas.js: keine deutschen Satzteile in Zeichenketten
+  ok    i18n.js: keine deutschen Satzteile in Zeichenketten
+  ok    karte.js: keine deutschen Satzteile in Zeichenketten
+  ok    kartenfeld.js: keine deutschen Satzteile in Zeichenketten
+  ok    kopf.js: keine deutschen Satzteile in Zeichenketten
+  ok    planer.js: keine deutschen Satzteile in Zeichenketten
+  ok    rahmen.js: keine deutschen Satzteile in Zeichenketten
+  ok    schaugrafik.js: keine deutschen Satzteile in Zeichenketten
+  ok    seite_klimat.js: keine deutschen Satzteile in Zeichenketten
+  ok    seite_mieszkania.js: keine deutschen Satzteile in Zeichenketten
+  ok    seite_powietrze.js: keine deutschen Satzteile in Zeichenketten
+  ok    themen.js: keine deutschen Satzteile in Zeichenketten
+  ok    themenseite.js: keine deutschen Satzteile in Zeichenketten
+  ok    14 begründete Ausnahmen, alle noch nötig
+Falschsatz-Listen je Sprache
+  ok    pl: 7 Falschsatz-Muster ohne Treffer in 559 Texten und 15 Seiten
+  ok    en: 6 Falschsatz-Muster ohne Treffer in 549 Texten und 15 Seiten
+  ok    de: 6 Falschsatz-Muster ohne Treffer in 549 Texten und 15 Seiten
+
+0 Befunde
+-- Textschicht pl/en/de (pruefen/texte.py): grün, 0 s
+
+== Sprachverweise ohne Browser: hreflang, canonical, Sprachschalter (pruefen/hreflang.py)
+Sprachen pl, en, de, Basis https://souverain-systems.de/kiezatlas/krakow/
+  ok    en: dieselben 15 Seiten wie pl
+  ok    de: dieselben 15 Seiten wie pl
+  ok    15 Seiten je Sprache gefunden
+  ok    404.html: noindex, ohne hreflang
+  ok    dzielnica.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    index.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    kamienice-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    kamienice-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    kamienice.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    karta.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    klimat.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    mieszkania.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    planer-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    planer-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    planer.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    porownanie.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    powietrze.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    punktualnosc.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/404.html: noindex, ohne hreflang
+  ok    en/dzielnica.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/index.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/kamienice-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/kamienice-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/kamienice.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/karta.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/klimat.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/mieszkania.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/planer-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/planer-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/planer.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/porownanie.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/powietrze.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/punktualnosc.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/404.html: noindex, ohne hreflang
+  ok    de/dzielnica.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/index.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/kamienice-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/kamienice-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/kamienice.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/karta.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/klimat.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/mieszkania.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/planer-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/planer-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/planer.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/porownanie.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/powietrze.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/punktualnosc.html: hreflang 3+x-default, canonical, gegenseitig
+
+42 Fassungen mit hreflang, 3 noindex
+0 Befunde
+-- Sprachverweise ohne Browser: hreflang, canonical, Sprachschalter (pruefen/hreflang.py): grün, 0 s
+
+== Datenverträge und Summen (pruefen/daten.py)
+Summen und Kontrollen gegen kennzahlen_odbl.json
+  ok    kennzahlen_odbl.js und kennzahlen_odbl.json gleich
+  ok    zellen_odbl.js nach gitter_id sortiert (Grundlage der Zellreihenfolge)
+  ok    zellen_odbl.js ohne doppelte gitter_id (327)
+  ok    Σ ew über zellen_odbl.js = Kachel Einwohner Stadt (793392 = 793392)
+  ok    Zahl der Zellen = stadt.zellen (327 = 327)
+  ok    Einwohner und Zellen je Stadtteil aus zellen_odbl.js = kennzahlen (18 Stadtteile, Abweichungen: [])
+  ok    Stadtteile in stadtteile_odbl.js = kennzahlen (18)
+  ok    Anteile der Kacheln = zaehler/nenner (Abweichungen: [])
+  ok    Σ Stadtteile einwohner = Stadt (793392)
+  ok    Gebäude je Stadtteil in gebaeude/<nr>.js = kennzahlen (Abweichungen: [])
+  ok    Σ Gebäude = kontrolle.gebaeude_in_stadt = stadt.gebaeude.anzahl (0)
+  ok    kontrolle: Gebäude im Rechteck (0) ≥ in der Stadt
+Datenverträge (32 Schemas)
+  ok    denkmale.js: Vertrag denkmale.json
+  ok    denkmale_bdot.js: Vertrag denkmale_bdot.json
+  ok    denkmale_odbl.js: Vertrag denkmale_odbl.json
+  ok    einrichtungen.js: Vertrag einrichtungen.json
+  ok    einrichtungen_odbl.js: Vertrag einrichtungen_odbl.json
+  ok    erreichbar.js: Vertrag erreichbar.json
+  ok    erreichbar_fuss_odbl.js: Vertrag erreichbar_fuss_odbl.json
+  ok    gebaeude_dzielnice_odbl.js: Vertrag gebaeude_dzielnice_odbl.json
+  ok    gebaeude_kennzahlen.js: Vertrag gebaeude_kennzahlen.json
+  ok    grundkarte.js: Vertrag grundkarte.json
+  ok    haltestellen.js: Vertrag haltestellen.json
+  ok    kennzahlen_odbl.js: Vertrag kennzahlen_odbl.json
+  ok    klimat.js: Vertrag klimat.json
+  ok    klimat_stadtteile_odbl.js: Vertrag klimat_stadtteile_odbl.json
+  ok    klimat_zellen.js: Vertrag klimat_zellen.json
+  ok    mieszkania.js: Vertrag mieszkania.json
+  ok    ort.js: Vertrag ort.json
+  ok    planer_fuss_odbl.js: Vertrag planer_fuss_odbl.json
+  ok    planer_odbl.js: Vertrag planer_odbl.json
+  ok    powietrze.js: Vertrag powietrze.json
+  ok    sanierung.js: Vertrag sanierung.json
+  ok    sanierung_odbl.js: Vertrag sanierung_odbl.json
+  ok    stadtteile_odbl.js: Vertrag stadtteile_odbl.json
+  ok    steckbrief.js: Vertrag steckbrief.json
+  ok    steckbrief_dzielnice_odbl.js: Vertrag steckbrief_dzielnice_odbl.json
+  ok    zellen_odbl.js: Vertrag zellen_odbl.json
+Fixtures
+
+Beispieldaten (fixture: true, auf den Seiten gekennzeichnet): 3 Dateien: denkmale.js, mieszkania.js, powietrze.js
+
+0 Abweichungen
+-- Datenverträge und Summen (pruefen/daten.py): grün, 0 s
+
+== Belegschicht in sich stimmig: belege/, README-Kasten, Entscheidungen, Meldeweg, Checkliste (pruefen/belege.py)
+belege/README.md gegen die Dateien unter belege/
+  ok    belege/D13_messung.md existiert
+  ok    belege/D1_infrastruktur.md existiert
+  ok    belege/D2_fussweg.md existiert
+  ok    belege/D4_bevoelkerung.md existiert
+  ok    belege/D5_gebaeude.md existiert
+  ok    belege/D5_gebaeude_lauf.md existiert
+  ok    belege/D6_einrichtungen.md existiert
+  ok    belege/D6_erreichbarkeit.md existiert
+  ok    belege/D6_oepnv.md existiert
+  ok    belege/D6_planer.md existiert
+  ok    belege/D7_luft.md existiert
+  ok    belege/D7_luft_lauf.md existiert
+  ok    belege/D8_grundkarte.md existiert
+  ok    belege/D8_vorschau/altstadt_z14.png existiert
+  ok    belege/D8_vorschau/kazimierz_z16.png existiert
+  ok    belege/D8_vorschau/stadt_z11.png existiert
+  ok    belege/DE_db_gliederung.md existiert
+  ok    belege/DE_echtlauf.md existiert
+  ok    belege/DE_fussweg.md existiert
+  ok    belege/DE_fussweg_export.md existiert
+  ok    belege/DE_osm_netz.md existiert
+  ok    belege/DE_ziele_db.md existiert
+  ok    belege/DF_gegenprobe_potsdam-38bf1a4.log existiert
+  ok    belege/DF_gegenprobe_potsdam-6b7792d.log existiert
+  ok    belege/DF_gegenprobe_potsdam-97f3aa5.log existiert
+  ok    belege/DF_gegenprobe_potsdam-eee6b25.log existiert
+  ok    belege/DF_schriften_grundkarte.md existiert
+  ok    belege/DS_sanierung_lauf.md existiert
+  ok    belege/DW_mieszkania.md existiert
+  ok    belege/DZ_denkmale_lauf.md existiert
+  ok    belege/dk_klimat.md existiert
+  ok    belege/gegenprobe_potsdam-20261113-13d7eba.log existiert
+  ok    belege/gegenprobe_potsdam-20261113-2593f02.log existiert
+  ok    belege/gegenprobe_potsdam-20261113-291befb.log existiert
+  ok    belege/gegenprobe_potsdam-20261113-830e5d3.log existiert
+  ok    belege/gegenprobe_potsdam-20261113-8dd5a1b.log existiert
+  ok    belege/gegenprobe_potsdam-20261113-d3d3b18.log existiert
+  ok    belege/pruefstand-20261113-3143f9f/pruefen.log existiert
+  ok    belege/pruefstand-20261113-3143f9f/pruefen.log: Angabe 48/42/0/6 = Zählung im Protokoll 48/42/0/6 (Prüfungen/grün/Befund/übersprungen)
+  ok    belege/pruefstand-20261113-c50de90/pruefen.log existiert
+  ok    belege/pruefstand-20261113-c50de90/pruefen.log: Angabe 19/12/0/7 = Zählung im Protokoll 19/12/0/7 (Prüfungen/grün/Befund/übersprungen)
+  ok    belege/pruefstand-20261113-e2199cf/pruefen.log existiert
+  ok    belege/pruefstand-20261113-e2199cf/pruefen.log: Angabe 21/14/0/7 = Zählung im Protokoll 21/14/0/7 (Prüfungen/grün/Befund/übersprungen)
+  ok    belege/pruefstand-20261113-e6dd017/pruefen.log existiert
+  ok    belege/pruefstand-20261113-e6dd017/pruefen.log: Angabe 21/14/0/7 = Zählung im Protokoll 21/14/0/7 (Prüfungen/grün/Befund/übersprungen)
+  ok    belege/rohdaten-D4-2026-11-13.sha256 existiert
+  ok    belege/rohdaten-D4-2026-11-13.sha256: Angabe „4 Dateien“ = 4 Zeilen
+  ok    belege/rohdaten-D5-2026-11-13.sha256 existiert
+  ok    belege/rohdaten-D5-2026-11-13.sha256: Angabe „7 Dateien“ = 7 Zeilen
+  ok    belege/rohdaten-D6-2026-11-13.sha256 existiert
+  ok    belege/rohdaten-D6-2026-11-13.sha256: Angabe „10 Dateien“ = 10 Zeilen
+  ok    belege/rohdaten-DE-2026-11-13.sha256 existiert
+  ok    belege/rohdaten-DE-2026-11-13.sha256: Angabe „3 Dateien“ = 3 Zeilen
+  ok    belege/rohdaten-DF-schriften.sha256 existiert
+  ok    belege/rohdaten-DF-schriften.sha256: Angabe „4 Dateien“ = 4 Zeilen
+  ok    belege/rohdaten-DS-2026-11-13.sha256 existiert
+  ok    belege/rohdaten-DS-2026-11-13.sha256: Angabe „9 Dateien“ = 9 Zeilen
+  ok    belege/rohdaten-dz-2026-11-13.sha256 existiert
+  ok    belege/rohdaten-dz-2026-11-13.sha256: Angabe „1 Dateien“ = 1 Zeilen
+  ok    belege/rohdaten_D7.sha256 existiert
+  ok    belege/rohdaten_D7.sha256: Angabe „10 Dateien“ = 10 Zeilen
+  ok    belege/rohdaten_DW.sha256 existiert
+  ok    belege/rohdaten_DW.sha256: Angabe „4 Dateien“ = 4 Zeilen
+  Hinweis belege/S3_themenseiten.md noch nicht in belege/README.md übernommen
+README-Kasten nennt einen grünen Prüfstand
+  ok    README.md hat den Abschnitt „Do weryfikacji / Zur Prüfung“
+  ok    Kasten nennt belege/pruefstand-<datum>-<commit>/pruefen.log
+  ok    belege/pruefstand-20261113-3143f9f/pruefen.log existiert
+  ok    Prüfstand pruefstand-20261113-3143f9f: 0 mit Befund (Zählung (48, 42, 0, 6))
+  ok    Prüfstand pruefstand-20261113-3143f9f: Arbeitsstand sauber
+  ok    Prüfstand pruefstand-20261113-3143f9f: Commit im Ordnernamen = Commit im Protokoll
+  ok    Kasten nennt das Datum des Prüfstands (13.11.2026)
+docs/entscheidungen.md: Übersicht gegen Abschnitte
+  ok    35 Abschnitte, keiner doppelt
+  ok    Übersicht KR[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35] = Abschnitte KR[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+  ok    Nummern lückenlos ab KR1
+  ok    jeder Eintrag mit Anlass, Entscheidung, Begründung, Verworfen, Neu prüfen, wenn
+  Hinweis docs/entscheidungen/S3.md noch nicht in docs/entscheidungen.md übernommen
+Meldeweg überall gleich
+  ok    config: meldeweg = kontakt@souverain-systems.de
+  ok    CITATION.cff contact email ['kontakt@souverain-systems.de'] = kontakt@souverain-systems.de
+  ok    README.md nennt kontakt@souverain-systems.de
+  ok    Seitenfuß (vorlagen/_rahmen.html) setzt {{meldeweg}} ein
+docs/checkliste.md: Punkte, Status, Belege
+  ok    51 Punkte je genau einmal
+  ok    jede Zeile mit Status und Beleg, erfüllt nur mit vorhandener Datei
+  ok    jede Datei der Belegspalte existiert
+  Stand: 15 erfüllt, 19 teilweise, 16 offen, 1 entfällt
+Lieferungen quellen-<paket>.md
+
+0 Befunde, 2 Hinweis(e) zum Einsammeln
+-- Belegschicht in sich stimmig: belege/, README-Kasten, Entscheidungen, Meldeweg, Checkliste (pruefen/belege.py): grün, 1 s
+
+== Schriften: polnische Sonderzeichen in jeder Schrift (pruefen/DF_schriften.py)
+1. Eingebundene Schriftdateien
+ok     atlas.css: @font-face ohne unicode-range (@font-face{font-family:"Barlow";src:url(fonts/barlow-400-normal.woff2)…)
+ok     atlas.css: fonts/barlow-400-normal.woff2 liegt als fonts/barlow-400-normal.woff2 vor
+ok     atlas.css: @font-face ohne unicode-range (@font-face{font-family:"Barlow";src:url(fonts/barlow-500-normal.woff2)…)
+ok     atlas.css: fonts/barlow-500-normal.woff2 liegt als fonts/barlow-500-normal.woff2 vor
+ok     atlas.css: @font-face ohne unicode-range (@font-face{font-family:"Barlow";src:url(fonts/barlow-600-normal.woff2)…)
+ok     atlas.css: fonts/barlow-600-normal.woff2 liegt als fonts/barlow-600-normal.woff2 vor
+ok     atlas.css: @font-face ohne unicode-range (@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlow-se…)
+ok     atlas.css: fonts/barlow-semi-condensed-500-normal.woff2 liegt als fonts/barlow-semi-condensed-500-normal.woff2 vor
+ok     atlas.css: @font-face ohne unicode-range (@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlow-se…)
+ok     atlas.css: fonts/barlow-semi-condensed-600-normal.woff2 liegt als fonts/barlow-semi-condensed-600-normal.woff2 vor
+ok     skripte/16_export.py: @font-face ohne unicode-range (@font-face{font-family:"Barlow";font-weight:400;src:url("../../../font…)
+ok     skripte/16_export.py: ../../../fonts/barlow-400-normal.woff2 liegt als fonts/barlow-400-normal.woff2 vor
+ok     skripte/16_export.py: @font-face ohne unicode-range (@font-face{font-family:"Barlow";font-weight:500;src:url("../../../font…)
+ok     skripte/16_export.py: ../../../fonts/barlow-500-normal.woff2 liegt als fonts/barlow-500-normal.woff2 vor
+ok     skripte/16_export.py: @font-face ohne unicode-range (@font-face{font-family:"Barlow";font-weight:600;src:url("../../../font…)
+ok     skripte/16_export.py: ../../../fonts/barlow-600-normal.woff2 liegt als fonts/barlow-600-normal.woff2 vor
+ok     skripte/16_export.py: @font-face ohne unicode-range (@font-face{font-family:"Barlow Semi Condensed";font-weight:500;src:url…)
+ok     skripte/16_export.py: ../../../fonts/barlow-semi-condensed-500-normal.woff2 liegt als fonts/barlow-semi-condensed-500-normal.woff2 vor
+ok     skripte/16_export.py: @font-face ohne unicode-range (@font-face{font-family:"Barlow Semi Condensed";font-weight:600;src:url…)
+ok     skripte/16_export.py: ../../../fonts/barlow-semi-condensed-600-normal.woff2 liegt als fonts/barlow-semi-condensed-600-normal.woff2 vor
+ok     5 Schriftdateien eingebunden: barlow-400-normal.woff2, barlow-500-normal.woff2, barlow-600-normal.woff2, barlow-semi-condensed-500-normal.woff2, barlow-semi-condensed-600-normal.woff2
+2. Polnische Sonderzeichen (18) je Datei
+ok     fonts/barlow-400-normal.woff2: 18 von 18
+ok     fonts/barlow-500-normal.woff2: 18 von 18
+ok     fonts/barlow-600-normal.woff2: 18 von 18
+ok     fonts/barlow-semi-condensed-500-normal.woff2: 18 von 18
+ok     fonts/barlow-semi-condensed-600-normal.woff2: 18 von 18
+2b/3. Schaugrafik (fonts/einbettung.js)
+ok     3 Schriften eingebettet: barlow-400-normal, barlow-600-normal, barlow-semi-condensed-600-normal
+ok     einbettung.js barlow-400-normal: 18 von 18
+ok     einbettung.js barlow-400-normal byte-gleich mit fonts/barlow-400-normal.woff2
+ok     einbettung.js barlow-600-normal: 18 von 18
+ok     einbettung.js barlow-600-normal byte-gleich mit fonts/barlow-600-normal.woff2
+ok     einbettung.js barlow-semi-condensed-600-normal: 18 von 18
+ok     einbettung.js barlow-semi-condensed-600-normal byte-gleich mit fonts/barlow-semi-condensed-600-normal.woff2
+4. Lizenz
+ok     fonts/OFL.txt: SIL Open Font License 1.1
+ok     fonts/OFL.txt: Copyright The Barlow Project Authors
+5. Gegenprobe der Prüfung
+ok     Kopie ohne Latin Extended-A: 16 Zeichen als fehlend erkannt (erwartet 16, ó/Ó liegen in Latin-1)
+
+grün
+-- Schriften: polnische Sonderzeichen in jeder Schrift (pruefen/DF_schriften.py): grün, 0 s
+
+== Schriften aus den Fontsource-Paketen reproduzierbar (skripte/schriften.py --pruefen)
+ok  fonts/barlow-400-normal.woff2 (28300 B, sha256 0279f5a9968d0ebba6cc7fe17076fb200d04362c93ce1f4481527f3c1d31802d)
+ok  fonts/barlow-500-normal.woff2 (28160 B, sha256 5e171be17d211b033f970e6054422c3d98cc440c490927bf48fed59afc877de5)
+ok  fonts/barlow-600-normal.woff2 (28956 B, sha256 8cc6b1bbe251933ebe249a852bbf075e09251a67202d592052c79aa5df9bea59)
+ok  fonts/barlow-semi-condensed-500-normal.woff2 (28508 B, sha256 461811ce1a0289aaff99b2cd5872dbf3a58486f0fb805b7bd866664f06d93f9e)
+ok  fonts/barlow-semi-condensed-600-normal.woff2 (29156 B, sha256 476cddbbf16e102c16f2fd4f800f6a53db716149f0f66830c85c74e109f85b1f)
+ok  fonts/einbettung.js (115554 B, sha256 29f4ab2b229402ae268e09d55d587a3c027ac0d46d6e3b6339b8a76920c269f0)
+-- Schriften aus den Fontsource-Paketen reproduzierbar (skripte/schriften.py --pruefen): grün, 2 s
+
+== Beispieldaten reproduzierbar (Erzeuger je Datei mit fixture: true, --pruefen)
+    ok    daten/denkmale_bdot.js gleich neu gerechnet (44788 B)
+    ok    daten/denkmale.js gleich neu gerechnet (2727 B)
+    ok    daten/denkmale_odbl.js gleich neu gerechnet (153602 B)
+    ok    belege/DZ_denkmale_lauf.md gleich neu gerechnet (3745 B)
+    ok    daten/mieszkania.js byte-gleich neu erzeugt
+    ok    belege/DW_mieszkania.md byte-gleich neu erzeugt
+  aktuell: daten/powietrze.js, belege/D7_luft_lauf.md
+  3 Dateien mit Beispieldaten, Erzeuger: skripte/dz_denkmale.py skripte/40_mieszkania.py skripte/32_powietrze.py; 0 mit Befund
+-- Beispieldaten reproduzierbar (Erzeuger je Datei mit fixture: true, --pruefen): grün, 53 s
+
+== Vertrag Bauzeiten-Methode (pruefen/B5_methode.py, skripte/26_jahre_methode.py --pruefen)
+-- übersprungen: Bauzeiten-Kaskade für Kraków gestrichen (docs/entscheidungen.md, KR4); läuft in der Gegenprobe Potsdam mit
+
+== planungsraeume.js aktuell (skripte/17_planungsraeume_js.py --pruefen)
+-- übersprungen: noch keine Raumebene unter den dzielnice
+
+== GIS-Export ohne Datenbank (pruefen/A8_export.py --odbl-erwartet)
+-- übersprungen: noch kein Export unter daten/export/
+
+== Codepfade Planer und Export (pruefen/A6_test_pfade.py, pruefen/A8_test_pfade.py)
+-- übersprungen: brauchen Richtwerte und Exporte eines Orts; laufen in der Gegenprobe Potsdam
+
+== OSM-Leser und Netz, ohne Datenbank (skripte/12_osm.sh test)
+.................................s                                       [100%]
+33 passed, 1 skipped in 0.63s
+-- OSM-Leser und Netz, ohne Datenbank (skripte/12_osm.sh test): grün, 1 s
+
+== Fußweg, ohne Datenbank (skripte/14b_fussweg.sh test)
+........................sssssss                                          [100%]
+24 passed, 7 skipped in 0.49s
+-- Fußweg, ohne Datenbank (skripte/14b_fussweg.sh test): grün, 1 s
+
+== Landesfilter (skripte/14b_fussweg.sh kreuzprobe)
+-- übersprungen: Landesfilter über VBB-DHID entfällt für Kraków (Bauvorlage, 14b)
+
+== Abrufwerkzeug: Sperrliste, robots.txt, Protokoll (pytest pruefen/d1_test_abruf.py)
+...........................                                              [100%]
+27 passed in 6.06s
+-- Abrufwerkzeug: Sperrliste, robots.txt, Protokoll (pytest pruefen/d1_test_abruf.py): grün, 6 s
+
+== Gliederung und Bevölkerung, Ausgaben (pruefen/D4_bevoelkerung.py --ohne-rohdaten)
+A  Zuordnung der dzielnice (selbst gebaute Kandidaten)
+  ok    roemisch_aus: XIII/XI/III ganz, kein Teilwort, nichts aus „Kraków-Nowa Huta“ oder „XIX“
+  ok    Form ref: 18 von 18 richtig zugeordnet (Fläche je nr gleich der gebauten)
+  ok    Form name_ziffer: 18 von 18 richtig zugeordnet (Fläche je nr gleich der gebauten)
+  ok    Form name: 18 von 18 richtig zugeordnet (Fläche je nr gleich der gebauten)
+  ok    XIII Podgórze, XI Podgórze Duchackie und III Prądnik Czerwony nicht verwechselt
+  ok    delegatura „Kraków-Nowa Huta“ wird nicht zu XVIII Nowa Huta (ohne Zuordnung gezählt)
+  ok    gleichnamige Flächen ohne Ziffer verdrängen die Grenzrelation mit Ziffer nicht (2 verdrängt gezählt)
+  ok    Ziffer XIII mit Namen „Podgórze Duchackie“: Abbruch (Name enthält „Podgórze“, ist es aber nicht)
+  ok    17 Flächen: Abbruch
+  ok    zwei Flächen mit Ziffer V: Abbruch
+  ok    zwei Flächen nur über den Namen „Stare Miasto“: Abbruch
+  ok    nur ref ohne Namen: 18 zugeordnet
+  ok    GeoJSON (flach und osmtogeojson): 18 Flächen, Linie übergangen, OSM-Kennung je dzielnica
+  ok    OSM-Form (official_name, admin_level 9): 18 richtig; 4 Viertel admin_level 11 übergangen, Osiedle ohne Zuordnung
+  ok    official_name „dzielnica XI Podgórze“ (Ziffer und Name widersprechen sich): Abbruch
+  ok    PBF: 18 Relationen (Ring aus zwei Wegen, Loch, Knoten-Mitglied), Fläche je dzielnica wie gebaut, Grenze außerhalb des Rahmens und Viertel ohne Ziffer nicht unter den Kandidaten
+B  Rechenbausteine (selbst gebaute Flächen und Zellen)
+  ok    Mittelpunktregel: Spalte 2 (Mittelpunkt bei 2,5 km) ganz nach Ost
+  ok    Flächenanteil Zelle z20 im Westen 0,40 (gerechnet 0.400)
+  ok    Summen nach Mittelpunkt: West + Ost = alle Zellen
+  ok    Summen nach Flächenanteil: West + Ost = alle Zellen
+  ok    Zellen je Fläche: Ost 4 / 4 berührt, West 6 berührt
+  ok    überlappende Flächen (Mittelpunkt in zwei): Abbruch
+  ok    rejon → dzielnica über den inneren Punkt; r3 (23 % in der Nachbar-dzielnica) als Schneider gezählt
+  ok    Anteile: null unter 100 Personen, eine Nachkommastelle
+  ok    Grenzvereinfachung: gleiche Schlüssel, keine Lücke und keine Überlappung zwischen Nachbarn
+C  daten/steckbrief.js und die abhängigen Seitendaten
+  ok    Vertrag daten/schema/steckbrief.json (0 Abweichungen)
+  ok    Stadt nach NSP 2021 = 800653 (Symbol 1261)
+  ok    Σ delegatury = Stadt (NSP)
+  ok    Σ rejony je delegatura = rejony der Stadt
+  ok    Σ delegatury = Stadt (Gitter, Mittelpunktregel: Einwohner und Zellen)
+  ok    Σ Flächen der delegatury = Stadtfläche (±0,05 km², Rundung)
+  ok    18 dzielnice mit römischer Ziffer, Name und Gruppe wie config/krakow.yaml
+  ok    Dichte = Einwohner / Fläche, ganzzahlig gerundet (0 Abweichungen [])
+  ok    Anteile = Zähler / Nenner, eine Nachkommastelle (0 Abweichungen [])
+  ok    Regel 13: keine Anteile unter 100 Personen (0 Räume)
+  ok    Regel 15: null nur mit Grund (0 ohne Grund [])
+  ok    Regel 12: keine Kennung oder Einzelwert eines rejon oder obwód in steckbrief.js (nur die Zahl „rejony“)
+  ok    dzielnice entweder alle mit Fläche oder alle ohne (kein halber Stand)
+  ok    steckbrief_dzielnice_odbl.js: Vertrag und ODbL-Vermerk im Kopf (0 Abweichungen)
+  ok    18 dzielnice mit römischer Ziffer und Name wie config/krakow.yaml
+  ok    Σ dzielnice = Stadt (Gitter, Mittelpunktregel): 793392 Einwohner, exakt
+  ok    Σ Zellen der dzielnice = Zellen der Stadt (327)
+  ok    Σ Flächen der dzielnice gegen die Stadtfläche höchstens ±1 % (326.84 / 326.86 km²)
+  ok    je dzielnica: Dichte, Anteile (Mindestfallzahl), Zählungen, Spanne, Grund bei null ([])
+  ok    Regel 15: steckbrief.js ohne Werte je dzielnica (die stehen in den _odbl-Dateien)
+  ok    Regel 15: mit Grenzen der dzielnice sind stadtteile_odbl.js, zellen_odbl.js, kennzahlen_odbl.* echt (fixture: true bei 0 von 4)
+  ok    Regel 15: die drei _odbl-Seitendateien tragen den Vermerk OpenStreetMap/ODbL im Kopf
+  ok    Regel 15: daten/zellen.js (alter Name ohne _odbl) gibt es nicht mehr
+  ok    Regel 15: daten/kennzahlen.js (alter Name ohne _odbl) gibt es nicht mehr
+  ok    Regel 15: daten/kennzahlen.json (alter Name ohne _odbl) gibt es nicht mehr
+D  Textvorschlag docs/entscheidungen/D4/texte/<lang>/bevoelkerung.js
+  ok    nur Namensraum bevoelkerung.*, Schlüsselform
+  ok    gleiche Schlüssel in pl, en, de (44)
+  ok    Pluralformen je Sprache, keine leeren Texte, gleiche Platzhalter ([])
+  ok    keine deutschen Wörter in pl und en ([])
+E  übersprungen (--ohne-rohdaten)
+
+0 Befund(e)
+-- Gliederung und Bevölkerung, Ausgaben (pruefen/D4_bevoelkerung.py --ohne-rohdaten): grün, 0 s
+
+== Gebäude und 3D, Ausgaben (pruefen/D5_gebaeude.py --ohne-rohdaten)
+A  Shapefile- und DBF-Leser
+  ok    drei Sätze gelesen (3)
+  ok    Polygon mit Loch, Fläche 100 − 4 = 96 (96.0)
+  ok    zwei Außenringe = MultiPolygon, Fläche 2 (2.0)
+  ok    Nullgeometrie als None
+  ok    DBF: UTF-8, gelöschter Satz als None, Leerwert ([{'A': 'x', 'B': 'żółć'}, None, {'A': '', 'B': '3'}])
+B  CityGML-Leser (skripte/20_lod.py)
+  ok    Dateimuster lod1 (['lod1_2024_1261_a.gml'])
+  ok    measuredHeight des Gebäudes, nicht des BuildingPart; Version ((12.4, '20240101'))
+  ok    ohne measuredHeight: z-Spanne 222,0 − 210,5 = 11,5 ((11.5, None))
+  ok    Zählung: 5 Gebäude, 1 ohne Kennung, 1 unplausibel (0 m), 1 doppelt, erste Fundstelle gilt ({'dateien': [{'datei': 'lod1_2024_1261_a.gml', 'gebaeude': 5}], 'gebaeude': 5, 'ohne_kennung': 1, 'ohne_hoehe': 0, 'doppelt': 1, 'measuredHeight': 2, 'z_spanne': 1, 'unplausibel': 1})
+  ok    ZIP wird gelesen wie GML
+C  Ausgaben
+  ok    Delegaturen → Stadt: Σ Teile = Ganzes für 6 Zahlen (Flächen ± Rundung auf m²) und 30 Unterzahlen
+  ok    Kontrolle: Datensätze 90563 = in der Stadt 90563 + außerhalb 0; keine Lücke zwischen den Delegaturen
+  ok    innere Stimmigkeit je Einheit (23 Einheiten)
+  ok    Σ dzielnice = kontrolle.in_dzielnica (90563) ≤ Stadt (90563)
+  ok    dzielnice und Kennzahlen aus demselben Lauf (in_stadt gleich)
+  ok    V8: fixture je dzielnica = fixture der Stadtteilgrenzen (None / None)
+  ok    V5: gebaeude_kennzahlen.js ohne Gebäudekennung, Namen, Zusatzinformation ([])
+  ok    gebaeude_kennzahlen.js: Quellenvermerk nach art. 40c ust. 3
+  ok    gebaeude_kennzahlen.js: Stand 2026-05-18
+  ok    V5: gebaeude_dzielnice_odbl.js ohne Gebäudekennung, Namen, Zusatzinformation ([])
+  ok    gebaeude_dzielnice_odbl.js: Quellenvermerk nach art. 40c ust. 3
+  ok    gebaeude_dzielnice_odbl.js: Stand 2026-05-18
+  ok    Stadt: Median der Geschosse vorhanden (n ≥ Mindestfallzahl)
+D  Textvorschlag gebaeude.*
+  ok    gleiche Schlüssel in pl, en, de (37)
+  ok    nur Namensraum gebaeude.*, Schlüsselform
+  ok    Pluralformen und Platzhalter ([])
+  ok    Beschriftung für alle zehn Klassen KŚT
+  ok    keine deutschen Wörter in pl und en ([])
+E  Mit Rohdaten
+  übersprungen: $KIEZ_DATEN/2026-11-13/03_gebaeude/1261_SHP.zip fehlt oder --ohne-rohdaten
+
+0 Befunde
+-- Gebäude und 3D, Ausgaben (pruefen/D5_gebaeude.py --ohne-rohdaten): grün, 1 s
+
+== Versorgung und Takt (pruefen/D6_versorgung.py; Skripte mit Datenbank übersprungen)
+1. Skripte mit --pruefen byte-gleich
+  übersprungen: skripte/11_einrichtungen_krakow.py --pruefen braucht die Datenbank (PG*-Umgebung, Rolle mosidi_lesen)
+  ok    skripte/13_oepnv_krakow.py --pruefen
+  ok    skripte/14_erreichbarkeit_krakow.py --pruefen
+  ok    skripte/15_planer_krakow.py --pruefen
+  übersprungen: skripte/14c_fussweg_export_krakow.py --pruefen braucht die Datenbank (PG*-Umgebung, Rolle mosidi_lesen)
+2. Beispieldaten pflanzen sich fort
+  ok    erreichbar.js: fixture None bei zellen_odbl.js fixture False
+  ok    planer_odbl.js: fixture None bei zellen_odbl.js fixture False
+  ok    einrichtungen_odbl.js: fixture genau dann, wenn keine echten OSM-Punkte
+  ok    einrichtungen.js und haltestellen.js aus echten Rohdaten (ohne fixture)
+  ok    haltestellen.js: ohne st-Werte (0 gesetzt; Zuordnung nur über daten/zellen_odbl.js)
+  ok    einrichtungen.js: ohne st-Werte (0 gesetzt; Zuordnung nur über daten/zellen_odbl.js)
+  ok    daten/planer.js gibt es nicht mehr (Werte je dzielnica in planer_odbl.js)
+  ok    planer_odbl.js: echt (ohne fixture), weil zellen_odbl.js echt ist
+  ok    planer_fuss_odbl.js: echt (ohne fixture), weil zellen_odbl.js echt ist
+  ok    erreichbar_fuss_odbl.js: echt (ohne fixture), weil zellen_odbl.js echt ist
+  ok    erreichbar.js: Zellreihenfolge gleich daten/zellen_odbl.js (327 Zellen, 6 Arten)
+  ok    erreichbar_fuss_odbl.js: Zellreihenfolge gleich daten/zellen_odbl.js (327 Zellen, 11 Arten)
+  ok    planer_odbl.js: Räume = die 18 dzielnice aus stadtteile_odbl.js
+  ok    planer_fuss_odbl.js: Räume = die 18 dzielnice aus stadtteile_odbl.js
+  ok    erreichbar_fuss_odbl.js: unbewohnte Zellen ohne Wert
+  ok    DE_fussweg_export.md: apotheke 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: arzt 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: haltestelle_takt 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: park 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: pflege 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: przedszkole 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: spielplatz 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: supermarkt 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: szkola 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: szpital 313 Zellen mit Wert
+  ok    DE_fussweg_export.md: zlobek 313 Zellen mit Wert
+3. Lizenzgrenze ODbL und Plankennungen
+  ok    haltestellen.js: keine OSM-Spur
+  ok    haltestellen.js: keine Plankennung
+  ok    einrichtungen.js: keine OSM-Spur
+  ok    einrichtungen.js: keine Plankennung
+  ok    erreichbar.js: keine OSM-Spur
+  ok    erreichbar.js: keine Plankennung
+  ok    planer_odbl.js: ODbL-Vermerk im Kopf
+  ok    planer_odbl.js: keine Plankennung
+  ok    einrichtungen_odbl.js: ODbL-Vermerk im Kopf
+  ok    einrichtungen_odbl.js: keine Plankennung
+  ok    planer_fuss_odbl.js: ODbL-Vermerk im Kopf
+  ok    planer_fuss_odbl.js: keine Plankennung
+  ok    erreichbar_fuss_odbl.js: ODbL-Vermerk im Kopf
+  ok    erreichbar_fuss_odbl.js: keine Plankennung
+4. Zählungen der Belege gleich den Dateien
+  ok    D6_oepnv.md: veröffentlicht 944, in der Stadt 813
+  ok    D6_oepnv.md: Taktklasse I in der Stadt 498, außerhalb 11
+  ok    D6_oepnv.md: Taktklasse II in der Stadt 232, außerhalb 52
+  ok    D6_oepnv.md: Taktklasse III in der Stadt 67, außerhalb 47
+  ok    D6_oepnv.md: Taktklasse unter III in der Stadt 16, außerhalb 21
+  ok    D6_einrichtungen.md: park 90
+  ok    D6_einrichtungen.md: przedszkole 35
+  ok    D6_einrichtungen.md: szkola 170
+  ok    D6_einrichtungen.md: szpital 24
+  ok    D6_einrichtungen.md: zlobek 2
+  ok    D6_erreichbarkeit.md: Zellen 327
+5. Taktklasse unabhängig nachgerechnet (Stichprobe)
+  ok    Stichprobe enthält mindestens drei Taktklassen: I 16, II 6, III 4
+  ok    26 Haltestellen (jede 37.) nachgerechnet, Abweichungen 0
+6. Richtwerte im Planer
+  ok    kein Wert mit Status amtlich (Luftlinie statt Weg)
+  ok    114 Werte mit Richtwert, jeder mit Quelle und Fundstelle
+  ok    Richtwerte nur an Bildungsradien (Prawo oświatowe)
+  ok    jede Fundstelle in planer_odbl.js und planer_fuss_odbl.js steht so in config/richtwerte.yaml (bildung)
+7. Fundstellen im Abzug nachgelesen (Seite, Artikel, Wortlaut)
+  ok    Prüfsumme d6_recht/2026-11-13/prawo_oswiatowe_DU_2026_820.pdf gleich dem Beleg
+  ok    szkola_podstawowa_droga: Fundstelle „art. 39 ust. 2, s. 40“ hat die Form „art. N ust. M, s. P“
+  ok    szkola_podstawowa_droga: s. 40 trägt den Seitenkopf „– 40 –“, „Art. 39.“, ust. 2 und den Wortlaut
+  ok    przedszkole_droga: Fundstelle „art. 32 ust. 3, s. 36“ hat die Form „art. N ust. M, s. P“
+  ok    przedszkole_droga: s. 36 trägt den Seitenkopf „– 36 –“, „Art. 32.“, ust. 3 und den Wortlaut
+
+0 Befunde
+-- Versorgung und Takt (pruefen/D6_versorgung.py; Skripte mit Datenbank übersprungen): grün, 18 s
+
+== Luft (pruefen/D7_powietrze.py)
+Vertrag
+  ok    powietrze.js passt zu daten/schema/powietrze.json
+Festlegungen aus pruefen/D7_protokoll.md
+  ok    Jahre 2010–2025
+  ok    Fenster vorher 2016–2018, Übergang 2019, nachher 2020–2022
+  ok    Umland 30 km, Deckung 75 % / 85 %
+  ok    Abzeichen „orientacyjnie“ (EEA-Jahreswerte, keine amtliche Jahresbewertung)
+  ok    Stichtag 2019-09-01 mit wörtlichem Zitat aus § 6 ust. 2 der Uchwała
+  ok    keine PM2.5-Überschreitungstage (kein Tagesgrenzwert)
+  ok    Grenzwerte und Fundstellen wie im Protokoll
+Zählung
+  ok    Eingabe = verwendet + verworfen (633 = 633)
+  ok    Werte in stacje = werte_verwendet (469 = 469)
+  ok    Stationen je Rolle nachgezählt ({'miasto': 4, 'okolica': 2})
+  ok    keine Station doppelt
+  ok    niepelne nachgezählt (5)
+  ok    Vorher/Nachher-Paare nachgezählt (25 vollständig, 5 ohne)
+Werte
+  ok    469 Werte: Jahr, Deckung, Kennzeichen, ganze Zahlen
+  ok    30 Vorher/Nachher-Paare nur mit vollem Fenster, Mittel nachgerechnet
+Stationen
+  ok    6 Stationen: Abstand nachgerechnet, Umland ≤ 30 km
+  ok    Beispieldaten genau dann, wenn alle Kennungen FIKCJA-… sind (fixture: true)
+  ok    Kopfvermerk und Dateiliste passen zu fixture
+Texte (texte/<lang>/powietrze.js)
+  ok    pl, en, de vorhanden und im Textformat
+  ok    nur Schlüssel powietrze.* (82)
+  ok    dieselben Schlüssel in pl, en, de
+  ok    gleiche Platzhalter je Schlüssel
+  ok    Pluraltexte mit den Formen der Sprache und {n}
+  ok    keine leeren Texte
+  ok    Begriffe für alle Kennwerte, Rollen, Typen und Gebietstypen der Daten (21)
+  ok    keine deutschen Wörter in pl und en
+  ok    keine Kausalwendung (Protokoll Abschnitt 5) und keine Falschsätze (pruefen/d3_falschsaetze.json)
+  ok    Hinweis auf andere Einflüsse (Wetter, Pandemiejahr 2020, weitere Maßnahmen) in allen Sprachen
+Reproduzierbar
+  ok    skripte/32_powietrze.py --pruefen: aktuell: daten/powietrze.js, belege/D7_luft_lauf.md
+
+0 Befunde
+-- Luft (pruefen/D7_powietrze.py): grün, 0 s
+
+== Grundkarte, eigener Dekoder (pruefen/D8_grundkarte.py; ohne Kachelordner übersprungen)
+G11 daten/grundkarte.js
+  ok    kein OpenStreetMap/ODbL (Dateigrenze, pruefen/daten.py Punkt 4)
+  ok    Vermerk nennt BDOT10k und den Główny Urząd Geodezji i Kartografii (art. 40c ust. 3)
+  ok    Bildzeile der Quelle = Vermerk
+  ok    Kacheln und Schrift relativ zur Atlas-Wurzel (selbst gehostet, kein fremder Rechner)
+Kachelordner $KIEZ_DATEN/abgeleitet/grundkarte/68b6ff47ed37
+G1 Manifest und Eingabe
+  ok    396 Dateien im Manifest, Prüfsummen stimmen, keine Datei außerhalb
+  ok    Eingabe BDOT10k 1261 mit SHA256 68b6ff47ed371849…
+G3–G7 Kacheln
+  ok    z9: 1 Kacheln, Rahmen verlangt 1
+  ok    z10: 4 Kacheln, Rahmen verlangt 4
+  ok    z11: 8 Kacheln, Rahmen verlangt 8
+  ok    z12: 24 Kacheln, Rahmen verlangt 24
+  ok    z13: 77 Kacheln, Rahmen verlangt 77
+  ok    z14: 273 Kacheln, Rahmen verlangt 273
+  ok    G3 387 Kacheln dekodiert, gültiges MVT 2.1
+  ok    G5 keine Kachel über 500 KB
+  ok    G6 Schichten ['cieki', 'drogi', 'miejsca', 'sciezki', 'teren', 'tory', 'woda', 'zielen'] nur aus der Liste
+  ok    G6 nur Attribute k, nazwa, most
+  ok    G7 Straßenname mit polnischem Sonderzeichen in den Kacheln: „Krzyżówka“
+G8–G9 Kartenschrift
+  ok    G8 Noto Sans Italic: 631 Glyphen, alle 18 polnischen Sonderzeichen eigene Glyphen
+  ok    G9 Noto Sans Italic: 42 Zeichen aus den Namen von ['cieki'] vorhanden
+  ok    G8 Noto Sans Medium: 628 Glyphen, alle 18 polnischen Sonderzeichen eigene Glyphen
+  ok    G9 Noto Sans Medium: 52 Zeichen aus den Namen von ['miejsca'] vorhanden
+  ok    G8 Noto Sans Regular: 628 Glyphen, alle 18 polnischen Sonderzeichen eigene Glyphen
+  ok    G9 Noto Sans Regular: 77 Zeichen aus den Namen von ['drogi'] vorhanden
+  ok    schrift/OFL.txt mit Copyright von Noto Sans und Wortlaut der OFL 1.1 (Lizenz geht mit den Glyphen)
+G12 Stil
+  ok    bm-teren: Quellschicht teren
+  ok    bm-zielen: Quellschicht zielen
+  ok    bm-woda: Quellschicht woda
+  ok    bm-cieki: Quellschicht cieki
+  ok    bm-sciezki: Quellschicht sciezki
+  ok    bm-tory: Quellschicht tory
+  ok    bm-drogi-obrys: Quellschicht drogi
+  ok    bm-drogi: Quellschicht drogi
+  ok    bm-cieki-nazwy: Quellschicht cieki
+  ok    bm-drogi-nazwy: Quellschicht drogi
+  ok    bm-miejsca: Quellschicht miejsca
+  ok    Schriftstapel Noto Sans Italic vorhanden
+  ok    Schriftstapel Noto Sans Regular vorhanden
+  ok    Schriftstapel Noto Sans Medium vorhanden
+
+Grundkarte: 0 Befund(e)
+-- Grundkarte, eigener Dekoder (pruefen/D8_grundkarte.py; ohne Kachelordner übersprungen): grün, 3 s
+
+== Klima, Ausgaben (pruefen/dk_klimat.py)
+1. Verträge
+  ok    klimat.js erfüllt klimat.json
+  ok    klimat_zellen.js erfüllt klimat_zellen.json
+  ok    klimat_stadtteile_odbl.js erfüllt klimat_stadtteile_odbl.json
+  ok    Gegenprobe: Vertrag lehnt ab (Anteil über 100)
+  ok    Gegenprobe: Vertrag lehnt ab (fehlende Klasse)
+  ok    Gegenprobe: Vertrag lehnt ab (unbekannter Grund)
+  ok    Gegenprobe: Vertrag lehnt ab (Zellkennung 100 m)
+  ok    Gegenprobe: Vertrag lehnt ab (Feld außerhalb des Vertrags)
+2. Anteile je Einheit
+  ok    420 Einheiten: Anteile, Summe 100, abgeleitete Anteile, Abdeckung
+3. Summen
+  ok    vier Delegaturen (4)
+  ok    Σ Fläche Delegaturen = Stadt (32685.9 / 32686.0 ha)
+  ok    Σ Klassenflächen Delegaturen = Stadt (Abweichungen: [])
+  ok    Σ Zellteile in der Stadt = Stadtfläche (32686.5 / 32686.0 ha, 397 Zellen)
+  ok    Σ Klassenflächen Zellen = Stadt (Abweichungen: [])
+4. Zellen
+  ok    Kennungen sortiert und eindeutig (397)
+  ok    Anteile null genau unter 10.0 ha in der Stadt, mit Grund (29 Zellen; Abweichungen: [])
+  ok    Ringe der Zellen geschlossen, vier Ecken (Abweichungen: [])
+5. Beispieldaten und Grün je Einwohner
+  ok    klimat_stadtteile_odbl.js fixture = False, Eingaben: Grenzen False, Einwohner False
+  ok    quelle_grenzen.fixture = fixture der Grenzen
+  ok    klimat.js und klimat_zellen.js ohne fixture (nur BDOT10k)
+  ok    Grün je Einwohner nach Regel 8 (19 Einheiten, Einwohner Beispieldaten: False; Abweichungen: [])
+6. Befund, Stadtteile
+  ok    keine Datei trägt befund
+  ok    Stadtteile = Ortskonfiguration (18)
+
+0 Befunde
+-- Klima, Ausgaben (pruefen/dk_klimat.py): grün, 0 s
+
+== Klima aus den Rohdaten byte-gleich (skripte/35_klimat.py --pruefen)
+  ok    daten/klimat.js gleich der Neuberechnung
+  ok    daten/klimat_zellen.js gleich der Neuberechnung
+  ok    daten/klimat_stadtteile_odbl.js gleich der Neuberechnung
+  ok    belege/dk_klimat.md gleich der Neuberechnung
+
+0 Abweichungen
+-- Klima aus den Rohdaten byte-gleich (skripte/35_klimat.py --pruefen): grün, 10 s
+
+== Wohnungsmarkt (pruefen/DW_mieszkania.py)
+  ok    globaler Name KIEZ_MIESZKANIA
+  ok    Vertrag, Mindestfallzahl, Datenschutz, Summen, Jahre, Kennzeichnung
+        252 Werte mit Median, 90 leer (Mindestfallzahl 10); Eingabe: beispiel (BEISPIELDATEN)
+Gegenprobe mit verfälschten Kopien
+  ok    erkannt: Median bei n = 9
+  ok    erkannt: Feld max in einer Zelle
+  ok    erkannt: leerer Median ohne Grund
+  ok    erkannt: Stadt ≠ Summe der dzielnice
+  ok    erkannt: Beispiel ohne fixture
+  ok    erkannt: Liste von Einzelfällen
+  ok    erkannt: Kopf ohne Quellenangabe
+Textvorschlag docs/entscheidungen/DW-texte/<lang>/mieszkania.js
+  ok    Namensraum, gleiche Schlüssel in pl/en/de, Platzhalter, Pluralformen, keine leeren Texte
+  ok    Gegenprobe Text: fehlender Schlüssel und falsche Pluralformen erkannt
+Reproduzierbar (skripte/40_mieszkania.py --pruefen)
+  ok    daten/mieszkania.js byte-gleich neu erzeugt
+  ok    belege/DW_mieszkania.md byte-gleich neu erzeugt
+  ok    40_mieszkania.py --pruefen, Rückgabe 0
+
+0 Befunde
+-- Wohnungsmarkt (pruefen/DW_mieszkania.py): grün, 1 s
+
+== Denkmale und Kamienice, Ausgaben (pruefen/DZ_denkmale.py)
+Teil BDOT10k (daten/denkmale_bdot.js)
+  ok    Teilmenge, keine Flächenaussage, echte Daten
+  ok    Σ KAT_ISTNIE = Gebäude (90563)
+  ok    Σ Delegaturen + nicht zugeordnet = Stadt, wohngebaeude (61199 = 61199)
+  ok    Σ Delegaturen + nicht zugeordnet = Stadt, mehrfamilienhaeuser (13739 = 13739)
+  ok    Σ Delegaturen + nicht zugeordnet = Stadt, namensbezug (28 = 28)
+  ok    Mehrfamilienhäuser ≤ Wohngebäude ≤ Gebäude
+  ok    Punkte mit Namensbezug = Zählung (28)
+  ok    Komplexe je Art = Zählung (59)
+  ok    vier Delegaturen (Kraków-Krowodrza, Kraków-Nowa Huta, Kraków-Podgórze, Kraków-Śródmieście)
+  ok    Namensbezug: kein Einzeljahr in 28 Punkten
+  ok    Namensbezug: Mehrfamilienhaus nur bei Wohngebäude, ohne Gebäudetreffer beides null
+  ok    Namensbezug: Felder der Punkte ['del', 'gs', 'mfh', 'w'] ohne Kennung, Name, Adresse
+  ok    keine Kennung oder Adresse in der ganzen Datei
+  ok    Quellenangabe nach art. 40c ust. 3 im Feld quelle.vermerk
+Teil Register (daten/denkmale.js)
+  ok    Teilmenge, keine Flächenaussage
+  ok    fixture genau dann, wenn kein Eingang da ist (Eingänge: keine)
+  ok    Kopf nennt Beispieldaten genau bei fixture
+  ok    Klassenliste wie im Protokoll
+  ok    Registerpunkte: kein Einzeljahr in 12 Punkten
+  ok    Registerpunkte: Bauzeit nur als Klasse (6 Klassen oder null)
+  ok    Registerpunkte: Mehrfamilienhaus nur bei Wohngebäude, ohne Gebäudetreffer beides null
+  ok    Registerpunkte: Felder der Punkte ['del', 'ep', 'mfh', 'q', 'w'] ohne Kennung, Name, Adresse
+  ok    Register: Kamienice je Delegatura = Punkte mit Mehrfamilienhaus (0)
+  ok    Register: Ortsmarke ul. Kościuszki 18 nur mit Quelle verortet (Lage offen)
+Teil OSM (daten/denkmale_odbl.js)
+  ok    Teilmenge, keine Flächenaussage
+  ok    fixture genau dann, wenn kein OSM-Auszug da ist
+  ok    Kopf nennt Beispieldaten genau bei fixture
+  ok    ODbL-Vermerk im Kopf
+  ok    OSM-Punkte: kein Einzeljahr in 906 Punkten
+  ok    OSM-Punkte: Bauzeit nur als Klasse (6 Klassen oder null)
+  ok    OSM-Punkte: Mehrfamilienhaus nur bei Wohngebäude, ohne Gebäudetreffer beides null
+  ok    OSM-Punkte: Felder der Punkte ['del', 'ep', 'h', 'mfh', 'w'] ohne Kennung, Name, Adresse
+  ok    OSM: Kamienice je Delegatura = Punkte mit Mehrfamilienhaus (8)
+  ok    OSM: Ortsmarke ul. Kościuszki 18 nur mit Quelle verortet (Lage aus osm)
+
+0 Befunde
+-- Denkmale und Kamienice, Ausgaben (pruefen/DZ_denkmale.py): grün, 0 s
+
+== Denkmale: Leser der Handdownloads mit erfundenen Eingängen (pruefen/DZ_test_eingang.py)
+Lesarten der Datumsangaben
+  ok    13 Fälle
+Register
+  ok    mit Eingang keine Beispieldaten
+  ok    Stand = jüngster Abruftag aus eingang/HERKUNFT.md (2026-11-12)
+  ok    Wikidata: vier Objekte, Zeilen je Objekt zusammengefasst ({'ausserhalb_stadt': 1, 'bauzeit_lesbar': 1, 'bauzeit_nicht_lesbar': 1, 'davon_mfh': 1, 'in_stadt': 2, 'mit_lage': 3, 'ohne_lage': 1, 'treffer_gebaeude': 2, 'zeilen': 4})
+  ok    NID: „A 1“ über die Nummer mit Wikidata zusammengeführt, „A-9“ ohne Lage ({'doppelt_ueber_nummer': 1, 'ohne_lage': 1, 'zeilen': 2})
+  ok    GEZ: Punkt aus Breite/Länge gelesen ({'bauzeit_lesbar': 1, 'bauzeit_nicht_lesbar': 0, 'davon_mfh': 0, 'in_stadt': 1, 'mit_lage': 1, 'treffer_gebaeude': 1, 'zeilen': 1})
+  ok    Treffer im Mehrfamilienhaus mit beiden Quellen und Klasse ({'q': ['nid', 'wd'], 'ep': '1867_1918', 'w': True, 'mfh': True, 'del': 'Kraków-Śródmieście'})
+  ok    zwei Inception-Werte in verschiedenen Klassen → Klasse null
+  ok    Kamienice je Delegatura ({'Kraków-Śródmieście': 1})
+  ok    NID-Spalte der Registernummer erkannt
+OSM
+  ok    mit PBF keine Beispieldaten
+  ok    heritage und start_date gezählt ({'bauzeit_lesbar': 1, 'bauzeit_nicht_lesbar': 1, 'davon_mfh': 1, 'mit_heritage': 1, 'mit_start_date': 2, 'objekte': 2, 'treffer_gebaeude': 2})
+  ok    Kamienice aus heritage im Mehrfamilienhaus ({'Kraków-Śródmieście': 1})
+  ok    Ortsmarke ul. Kościuszki 18 aus OSM verortet, als ungeprüft markiert
+Fremdes Format
+  ok    NID ohne Spalte Registernummer bricht ab (Rückgabe 3 im Skript)
+
+0 Befunde
+-- Denkmale: Leser der Handdownloads mit erfundenen Eingängen (pruefen/DZ_test_eingang.py): grün, 13 s
+
+== Sanierungsatlas, Ausgaben und Beleg (pruefen/DS_sanierung.py)
+Sanierungsatlas Wohnungsbestand (pruefen/DS_protokoll.md)
+1. Summen
+  ok    Σ je Art = N (508)
+  ok    Σ je Eigentum = N
+  ok    Σ je dzielnica = N
+  ok    je dzielnica: Σ Art = n = Σ Eigentum
+  ok    Σ Miejscowość = N
+  ok    Σ Art über die dzielnice = Art gesamt
+  ok    Σ Ergebnisklassen der Verortung = N
+  ok    in Kraków = N − poza Krakowem (508 − 8)
+  ok    Verortung je Art passt zu Liste und Summe
+  ok    Quote 79.6 % und Wilson [75.8, 82.9] nachgerechnet
+  ok    Gegenprobe über alle Treffer: n = verortet + abweichend (398 + 8), nachgerechnet
+  ok    Vergleichslauf ohne Namensregeln stimmig
+  ok    verortet = Umriss + Punkt + ohne
+  ok    verschiedene Gebäude ≤ verknüpfte Einträge
+  ok    Höhen ≤ verknüpfte Einträge
+  ok    Typologie mfh: Σ Delegaturen + nicht zugeordnet = Stadt (13573)
+  ok    Typologie mfh: Σ dzielnice + nicht zugeordnet = Stadt
+  ok    Typologie blok: Σ Delegaturen + nicht zugeordnet = Stadt (3341)
+  ok    Typologie blok: Σ dzielnice + nicht zugeordnet = Stadt
+  ok    Typologie osiedle: Σ Delegaturen + nicht zugeordnet = Stadt (943)
+  ok    Typologie osiedle: Σ dzielnice + nicht zugeordnet = Stadt
+  ok    Großsiedlung ≤ Block ≤ Mehrfamilienhäuser
+2. Datenschutz
+  ok    sanierung.js: keine Felder für Adresse, L.p., Kennung, Name ([])
+  ok    sanierung.js: keine Werte in Adressform ([])
+  ok    sanierung.js: keine BDOT10k-Kennung
+  ok    sanierung_odbl.js: keine Felder für Adresse, L.p., Kennung, Name ([])
+  ok    sanierung_odbl.js: keine Werte in Adressform ([])
+  ok    sanierung_odbl.js: keine BDOT10k-Kennung
+3. Punkte
+  ok    297 Punkte nur mit Eigentum ['gmina', 'skarb_panstwa', 'publiczne_mieszane']
+  ok    Punkte ≤ verortete Einträge
+  ok    kein Punkt an Einfamilienhäusern, keiner mit Wohnnutzung ohne Gebäudefunktion
+  ok    Punkte + ausgelassene ≤ verortete Einträge
+  ok    kein Denkmalfeld, solange das Register fehlt
+  ok    Höhe genau dann, wenn ihre Herkunft angegeben ist
+  ok    alle Punkte im Rahmen um Kraków
+  ok    Ortsmarke nur aus der Liste verortet, Lage ungeprüft gekennzeichnet
+4. ODbL als Dateigrenze
+  ok    sanierung.js ohne OSM-Spur
+  ok    sanierung_odbl.js mit ODbL-Vermerk im Kopf
+5. Typologie als Schätzung
+  ok    schaetzung = true, baujahr = false
+  ok    Literatur nur bibliographisch (keine Zahlenangabe daraus)
+6. Weiterverwendung (BIP Kraków, Zasady ponownego wykorzystywania)
+  ok    Haftungsklausel in beiden Dateien gleich
+  ok    Quellenangabe vor dem Verarbeitungshinweis in beiden gleich
+  ok    sanierung.js: Vermerk nennt Quelle, Erstellung, Abruf und Verarbeitung
+  ok    sanierung_odbl.js: Vermerk nennt Quelle, Erstellung, Abruf und Verarbeitung
+  ok    sanierung.js: Verarbeitungshinweis ohne Adressen
+  ok    sanierung_odbl.js: Verarbeitungshinweis nennt Geokodierung und Verknüpfung
+  ok    OSM-Nennung in pl, en, de
+7. Beleg
+  ok    Beleg nennt N wie die Daten
+  ok    Beleg nennt die verorteten Einträge wie die Daten
+  ok    Beleg nennt die Gegenprobe wie die Daten
+  ok    Beleg nennt den Vergleichslauf wie die Daten (gerechnet)
+  ok    Beleg nennt Abstand jedes abweichenden Treffers
+Ergebnis: 0 Befunde
+-- Sanierungsatlas, Ausgaben und Beleg (pruefen/DS_sanierung.py): grün, 0 s
+
+== aus den Rohdaten neu: Gliederung (pruefen/D4_bevoelkerung.py), Gebäude (pruefen/D5_gebaeude.py), Denkmale (pruefen/DZ_denkmale.py --mit-rohdaten), Sanierungsatlas (pruefen/DS_sanierung.py --neu)
+-- übersprungen: eigener Lauf mit --voll
+
+== Prüfsummen (belege/rohdaten-D4-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  4 Dateien stimmen
+-- Prüfsummen (belege/rohdaten-D4-2026-11-13.sha256 gegen $KIEZ_DATEN): grün, 1 s
+
+== Prüfsummen (belege/rohdaten-D5-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  7 Dateien stimmen
+-- Prüfsummen (belege/rohdaten-D5-2026-11-13.sha256 gegen $KIEZ_DATEN): grün, 0 s
+
+== Prüfsummen (belege/rohdaten-D6-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  10 Dateien stimmen
+-- Prüfsummen (belege/rohdaten-D6-2026-11-13.sha256 gegen $KIEZ_DATEN): grün, 0 s
+
+== Prüfsummen (belege/rohdaten_D7.sha256 gegen $KIEZ_DATEN)
+  10 Dateien stimmen
+-- Prüfsummen (belege/rohdaten_D7.sha256 gegen $KIEZ_DATEN): grün, 0 s
+
+== Prüfsummen (belege/rohdaten-DE-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  3 Dateien stimmen
+-- Prüfsummen (belege/rohdaten-DE-2026-11-13.sha256 gegen $KIEZ_DATEN): grün, 1 s
+
+== Prüfsummen (belege/rohdaten-DF-schriften.sha256 gegen $KIEZ_DATEN)
+  4 Dateien stimmen
+-- Prüfsummen (belege/rohdaten-DF-schriften.sha256 gegen $KIEZ_DATEN): grün, 0 s
+
+== Prüfsummen (belege/rohdaten-DS-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  9 Dateien stimmen
+-- Prüfsummen (belege/rohdaten-DS-2026-11-13.sha256 gegen $KIEZ_DATEN): grün, 0 s
+
+== Prüfsummen (belege/rohdaten_DW.sha256 gegen $KIEZ_DATEN)
+  4 Dateien stimmen
+-- Prüfsummen (belege/rohdaten_DW.sha256 gegen $KIEZ_DATEN): grün, 0 s
+
+== Prüfsummen (belege/rohdaten-dz-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  1 Dateien stimmen
+-- Prüfsummen (belege/rohdaten-dz-2026-11-13.sha256 gegen $KIEZ_DATEN): grün, 0 s
+
+== Browser: pruefen/seiten.mjs (alle Seiten in pl, en, de)
+
+[pl] 15 Seiten
+  ok   index.html (file): lädt ohne Fehler
+  ok   index.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   index.html (file): lang="pl", og:locale pl_PL
+  ok   index.html (file): keine deutschen Reste
+  ok   index.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   index.html (file): hreflang reziprok
+  ok   index.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js)
+  ok   index.html (file): axe ohne Verstoß
+  ok   index.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   index.html (http): lädt ohne Fehler
+  ok   karta.html (file): lädt ohne Fehler
+  ok   karta.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   karta.html (file): lang="pl", og:locale pl_PL
+  ok   karta.html (file): keine deutschen Reste
+  ok   karta.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   karta.html (file): hreflang reziprok
+  ok   karta.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js daten/zellen_odbl.js)
+  ok   karta.html (file): axe ohne Verstoß
+  ok   karta.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   karta.html (http): lädt ohne Fehler
+  ok   dzielnica.html (file): lädt ohne Fehler
+  ok   dzielnica.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   dzielnica.html (file): lang="pl", og:locale pl_PL
+  ok   dzielnica.html (file): keine deutschen Reste
+  ok   dzielnica.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   dzielnica.html (file): hreflang reziprok
+  ok   dzielnica.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js)
+  ok   dzielnica.html (file): axe ohne Verstoß
+  ok   dzielnica.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   dzielnica.html (http): lädt ohne Fehler
+  ok   porownanie.html (file): lädt ohne Fehler
+  ok   porownanie.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   porownanie.html (file): lang="pl", og:locale pl_PL
+  ok   porownanie.html (file): keine deutschen Reste
+  ok   porownanie.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   porownanie.html (file): hreflang reziprok
+  ok   porownanie.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   porownanie.html (file): axe ohne Verstoß
+  ok   porownanie.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   porownanie.html (http): lädt ohne Fehler
+  ok   kamienice.html (file): lädt ohne Fehler
+  ok   kamienice.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   kamienice.html (file): lang="pl", og:locale pl_PL
+  ok   kamienice.html (file): keine deutschen Reste
+  ok   kamienice.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   kamienice.html (file): hreflang reziprok
+  ok   kamienice.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   kamienice.html (file): axe ohne Verstoß
+  ok   kamienice.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   kamienice.html (http): lädt ohne Fehler
+  ok   kamienice-metoda.html (file): lädt ohne Fehler
+  ok   kamienice-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   kamienice-metoda.html (file): lang="pl", og:locale pl_PL
+  ok   kamienice-metoda.html (file): keine deutschen Reste
+  ok   kamienice-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   kamienice-metoda.html (file): hreflang reziprok
+  ok   kamienice-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   kamienice-metoda.html (file): axe ohne Verstoß
+  ok   kamienice-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   kamienice-metoda.html (http): lädt ohne Fehler
+  ok   kamienice-dane.html (file): lädt ohne Fehler
+  ok   kamienice-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   kamienice-dane.html (file): lang="pl", og:locale pl_PL
+  ok   kamienice-dane.html (file): keine deutschen Reste
+  ok   kamienice-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   kamienice-dane.html (file): hreflang reziprok
+  ok   kamienice-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   kamienice-dane.html (file): axe ohne Verstoß
+  ok   kamienice-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   kamienice-dane.html (http): lädt ohne Fehler
+  ok   planer.html (file): lädt ohne Fehler
+  ok   planer.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   planer.html (file): lang="pl", og:locale pl_PL
+  ok   planer.html (file): keine deutschen Reste
+  ok   planer.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   planer.html (file): hreflang reziprok
+  ok   planer.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   planer.html (file): axe ohne Verstoß
+  ok   planer.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   planer.html (http): lädt ohne Fehler
+  ok   planer-metoda.html (file): lädt ohne Fehler
+  ok   planer-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   planer-metoda.html (file): lang="pl", og:locale pl_PL
+  ok   planer-metoda.html (file): keine deutschen Reste
+  ok   planer-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   planer-metoda.html (file): hreflang reziprok
+  ok   planer-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   planer-metoda.html (file): axe ohne Verstoß
+  ok   planer-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   planer-metoda.html (http): lädt ohne Fehler
+  ok   planer-dane.html (file): lädt ohne Fehler
+  ok   planer-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   planer-dane.html (file): lang="pl", og:locale pl_PL
+  ok   planer-dane.html (file): keine deutschen Reste
+  ok   planer-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   planer-dane.html (file): hreflang reziprok
+  ok   planer-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   planer-dane.html (file): axe ohne Verstoß
+  ok   planer-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   planer-dane.html (http): lädt ohne Fehler
+  ok   klimat.html (file): lädt ohne Fehler
+  ok   klimat.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   klimat.html (file): lang="pl", og:locale pl_PL
+  ok   klimat.html (file): keine deutschen Reste
+  ok   klimat.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   klimat.html (file): hreflang reziprok
+  ok   klimat.html (file): Hinweis Beispieldaten verborgen (daten/stadtteile_odbl.js daten/klimat.js daten/klimat_zellen.js daten/klimat_stadtteile_odbl.js)
+  ok   klimat.html (file): axe ohne Verstoß
+  ok   klimat.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   klimat.html (http): lädt ohne Fehler
+  ok   powietrze.html (file): lädt ohne Fehler
+  ok   powietrze.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   powietrze.html (file): lang="pl", og:locale pl_PL
+  ok   powietrze.html (file): keine deutschen Reste
+  ok   powietrze.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   powietrze.html (file): hreflang reziprok
+  ok   powietrze.html (file): Hinweis Beispieldaten sichtbar (daten/powietrze.js)
+  ok   powietrze.html (file): axe ohne Verstoß
+  ok   powietrze.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   powietrze.html (http): lädt ohne Fehler
+  ok   mieszkania.html (file): lädt ohne Fehler
+  ok   mieszkania.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   mieszkania.html (file): lang="pl", og:locale pl_PL
+  ok   mieszkania.html (file): keine deutschen Reste
+  ok   mieszkania.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   mieszkania.html (file): hreflang reziprok
+  ok   mieszkania.html (file): Hinweis Beispieldaten sichtbar (daten/mieszkania.js)
+  ok   mieszkania.html (file): axe ohne Verstoß
+  ok   mieszkania.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   mieszkania.html (http): lädt ohne Fehler
+  ok   punktualnosc.html (file): lädt ohne Fehler
+  ok   punktualnosc.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   punktualnosc.html (file): lang="pl", og:locale pl_PL
+  ok   punktualnosc.html (file): keine deutschen Reste
+  ok   punktualnosc.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   punktualnosc.html (file): hreflang reziprok
+  ok   punktualnosc.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   punktualnosc.html (file): axe ohne Verstoß
+  ok   punktualnosc.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   punktualnosc.html (http): lädt ohne Fehler
+  ok   404.html (file): lädt ohne Fehler
+  ok   404.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   404.html (file): lang="pl", og:locale pl_PL
+  ok   404.html (file): keine deutschen Reste
+  ok   404.html (file): noindex ohne hreflang und canonical
+  ok   404.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   404.html (file): axe ohne Verstoß
+  ok   404.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   404.html (http): lädt ohne Fehler
+
+[en] 15 Seiten
+  ok   en/index.html (file): lädt ohne Fehler
+  ok   en/index.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/index.html (file): lang="en", og:locale en_GB
+  ok   en/index.html (file): keine deutschen Reste
+  ok   en/index.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/index.html (file): hreflang reziprok
+  ok   en/index.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js)
+  ok   en/index.html (file): axe ohne Verstoß
+  ok   en/index.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/index.html (http): lädt ohne Fehler
+  ok   en/karta.html (file): lädt ohne Fehler
+  ok   en/karta.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/karta.html (file): lang="en", og:locale en_GB
+  ok   en/karta.html (file): keine deutschen Reste
+  ok   en/karta.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/karta.html (file): hreflang reziprok
+  ok   en/karta.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js daten/zellen_odbl.js)
+  ok   en/karta.html (file): axe ohne Verstoß
+  ok   en/karta.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/karta.html (http): lädt ohne Fehler
+  ok   en/dzielnica.html (file): lädt ohne Fehler
+  ok   en/dzielnica.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/dzielnica.html (file): lang="en", og:locale en_GB
+  ok   en/dzielnica.html (file): keine deutschen Reste
+  ok   en/dzielnica.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/dzielnica.html (file): hreflang reziprok
+  ok   en/dzielnica.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js)
+  ok   en/dzielnica.html (file): axe ohne Verstoß
+  ok   en/dzielnica.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/dzielnica.html (http): lädt ohne Fehler
+  ok   en/porownanie.html (file): lädt ohne Fehler
+  ok   en/porownanie.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/porownanie.html (file): lang="en", og:locale en_GB
+  ok   en/porownanie.html (file): keine deutschen Reste
+  ok   en/porownanie.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/porownanie.html (file): hreflang reziprok
+  ok   en/porownanie.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/porownanie.html (file): axe ohne Verstoß
+  ok   en/porownanie.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/porownanie.html (http): lädt ohne Fehler
+  ok   en/kamienice.html (file): lädt ohne Fehler
+  ok   en/kamienice.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/kamienice.html (file): lang="en", og:locale en_GB
+  ok   en/kamienice.html (file): keine deutschen Reste
+  ok   en/kamienice.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/kamienice.html (file): hreflang reziprok
+  ok   en/kamienice.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/kamienice.html (file): axe ohne Verstoß
+  ok   en/kamienice.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/kamienice.html (http): lädt ohne Fehler
+  ok   en/kamienice-metoda.html (file): lädt ohne Fehler
+  ok   en/kamienice-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/kamienice-metoda.html (file): lang="en", og:locale en_GB
+  ok   en/kamienice-metoda.html (file): keine deutschen Reste
+  ok   en/kamienice-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/kamienice-metoda.html (file): hreflang reziprok
+  ok   en/kamienice-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/kamienice-metoda.html (file): axe ohne Verstoß
+  ok   en/kamienice-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/kamienice-metoda.html (http): lädt ohne Fehler
+  ok   en/kamienice-dane.html (file): lädt ohne Fehler
+  ok   en/kamienice-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/kamienice-dane.html (file): lang="en", og:locale en_GB
+  ok   en/kamienice-dane.html (file): keine deutschen Reste
+  ok   en/kamienice-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/kamienice-dane.html (file): hreflang reziprok
+  ok   en/kamienice-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/kamienice-dane.html (file): axe ohne Verstoß
+  ok   en/kamienice-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/kamienice-dane.html (http): lädt ohne Fehler
+  ok   en/planer.html (file): lädt ohne Fehler
+  ok   en/planer.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/planer.html (file): lang="en", og:locale en_GB
+  ok   en/planer.html (file): keine deutschen Reste
+  ok   en/planer.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/planer.html (file): hreflang reziprok
+  ok   en/planer.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/planer.html (file): axe ohne Verstoß
+  ok   en/planer.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/planer.html (http): lädt ohne Fehler
+  ok   en/planer-metoda.html (file): lädt ohne Fehler
+  ok   en/planer-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/planer-metoda.html (file): lang="en", og:locale en_GB
+  ok   en/planer-metoda.html (file): keine deutschen Reste
+  ok   en/planer-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/planer-metoda.html (file): hreflang reziprok
+  ok   en/planer-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/planer-metoda.html (file): axe ohne Verstoß
+  ok   en/planer-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/planer-metoda.html (http): lädt ohne Fehler
+  ok   en/planer-dane.html (file): lädt ohne Fehler
+  ok   en/planer-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/planer-dane.html (file): lang="en", og:locale en_GB
+  ok   en/planer-dane.html (file): keine deutschen Reste
+  ok   en/planer-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/planer-dane.html (file): hreflang reziprok
+  ok   en/planer-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/planer-dane.html (file): axe ohne Verstoß
+  ok   en/planer-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/planer-dane.html (http): lädt ohne Fehler
+  ok   en/klimat.html (file): lädt ohne Fehler
+  ok   en/klimat.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/klimat.html (file): lang="en", og:locale en_GB
+  ok   en/klimat.html (file): keine deutschen Reste
+  ok   en/klimat.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/klimat.html (file): hreflang reziprok
+  ok   en/klimat.html (file): Hinweis Beispieldaten verborgen (daten/stadtteile_odbl.js daten/klimat.js daten/klimat_zellen.js daten/klimat_stadtteile_odbl.js)
+  ok   en/klimat.html (file): axe ohne Verstoß
+  ok   en/klimat.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/klimat.html (http): lädt ohne Fehler
+  ok   en/powietrze.html (file): lädt ohne Fehler
+  ok   en/powietrze.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/powietrze.html (file): lang="en", og:locale en_GB
+  ok   en/powietrze.html (file): keine deutschen Reste
+  ok   en/powietrze.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/powietrze.html (file): hreflang reziprok
+  ok   en/powietrze.html (file): Hinweis Beispieldaten sichtbar (daten/powietrze.js)
+  ok   en/powietrze.html (file): axe ohne Verstoß
+  ok   en/powietrze.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/powietrze.html (http): lädt ohne Fehler
+  ok   en/mieszkania.html (file): lädt ohne Fehler
+  ok   en/mieszkania.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/mieszkania.html (file): lang="en", og:locale en_GB
+  ok   en/mieszkania.html (file): keine deutschen Reste
+  ok   en/mieszkania.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/mieszkania.html (file): hreflang reziprok
+  ok   en/mieszkania.html (file): Hinweis Beispieldaten sichtbar (daten/mieszkania.js)
+  ok   en/mieszkania.html (file): axe ohne Verstoß
+  ok   en/mieszkania.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/mieszkania.html (http): lädt ohne Fehler
+  ok   en/punktualnosc.html (file): lädt ohne Fehler
+  ok   en/punktualnosc.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/punktualnosc.html (file): lang="en", og:locale en_GB
+  ok   en/punktualnosc.html (file): keine deutschen Reste
+  ok   en/punktualnosc.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/punktualnosc.html (file): hreflang reziprok
+  ok   en/punktualnosc.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/punktualnosc.html (file): axe ohne Verstoß
+  ok   en/punktualnosc.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/punktualnosc.html (http): lädt ohne Fehler
+  ok   en/404.html (file): lädt ohne Fehler
+  ok   en/404.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/404.html (file): lang="en", og:locale en_GB
+  ok   en/404.html (file): keine deutschen Reste
+  ok   en/404.html (file): noindex ohne hreflang und canonical
+  ok   en/404.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/404.html (file): axe ohne Verstoß
+  ok   en/404.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/404.html (http): lädt ohne Fehler
+
+[de] 15 Seiten
+  ok   de/index.html (file): lädt ohne Fehler
+  ok   de/index.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/index.html (file): lang="de", og:locale de_DE
+  ok   de/index.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/index.html (file): hreflang reziprok
+  ok   de/index.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js)
+  ok   de/index.html (file): axe ohne Verstoß
+  ok   de/index.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/index.html (http): lädt ohne Fehler
+  ok   de/karta.html (file): lädt ohne Fehler
+  ok   de/karta.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/karta.html (file): lang="de", og:locale de_DE
+  ok   de/karta.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/karta.html (file): hreflang reziprok
+  ok   de/karta.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js daten/zellen_odbl.js)
+  ok   de/karta.html (file): axe ohne Verstoß
+  ok   de/karta.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/karta.html (http): lädt ohne Fehler
+  ok   de/dzielnica.html (file): lädt ohne Fehler
+  ok   de/dzielnica.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/dzielnica.html (file): lang="de", og:locale de_DE
+  ok   de/dzielnica.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/dzielnica.html (file): hreflang reziprok
+  ok   de/dzielnica.html (file): Hinweis Beispieldaten verborgen (daten/kennzahlen_odbl.js daten/stadtteile_odbl.js)
+  ok   de/dzielnica.html (file): axe ohne Verstoß
+  ok   de/dzielnica.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/dzielnica.html (http): lädt ohne Fehler
+  ok   de/porownanie.html (file): lädt ohne Fehler
+  ok   de/porownanie.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/porownanie.html (file): lang="de", og:locale de_DE
+  ok   de/porownanie.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/porownanie.html (file): hreflang reziprok
+  ok   de/porownanie.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/porownanie.html (file): axe ohne Verstoß
+  ok   de/porownanie.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/porownanie.html (http): lädt ohne Fehler
+  ok   de/kamienice.html (file): lädt ohne Fehler
+  ok   de/kamienice.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/kamienice.html (file): lang="de", og:locale de_DE
+  ok   de/kamienice.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/kamienice.html (file): hreflang reziprok
+  ok   de/kamienice.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/kamienice.html (file): axe ohne Verstoß
+  ok   de/kamienice.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/kamienice.html (http): lädt ohne Fehler
+  ok   de/kamienice-metoda.html (file): lädt ohne Fehler
+  ok   de/kamienice-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/kamienice-metoda.html (file): lang="de", og:locale de_DE
+  ok   de/kamienice-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/kamienice-metoda.html (file): hreflang reziprok
+  ok   de/kamienice-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/kamienice-metoda.html (file): axe ohne Verstoß
+  ok   de/kamienice-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/kamienice-metoda.html (http): lädt ohne Fehler
+  ok   de/kamienice-dane.html (file): lädt ohne Fehler
+  ok   de/kamienice-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/kamienice-dane.html (file): lang="de", og:locale de_DE
+  ok   de/kamienice-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/kamienice-dane.html (file): hreflang reziprok
+  ok   de/kamienice-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/kamienice-dane.html (file): axe ohne Verstoß
+  ok   de/kamienice-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/kamienice-dane.html (http): lädt ohne Fehler
+  ok   de/planer.html (file): lädt ohne Fehler
+  ok   de/planer.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/planer.html (file): lang="de", og:locale de_DE
+  ok   de/planer.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/planer.html (file): hreflang reziprok
+  ok   de/planer.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/planer.html (file): axe ohne Verstoß
+  ok   de/planer.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/planer.html (http): lädt ohne Fehler
+  ok   de/planer-metoda.html (file): lädt ohne Fehler
+  ok   de/planer-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/planer-metoda.html (file): lang="de", og:locale de_DE
+  ok   de/planer-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/planer-metoda.html (file): hreflang reziprok
+  ok   de/planer-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/planer-metoda.html (file): axe ohne Verstoß
+  ok   de/planer-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/planer-metoda.html (http): lädt ohne Fehler
+  ok   de/planer-dane.html (file): lädt ohne Fehler
+  ok   de/planer-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/planer-dane.html (file): lang="de", og:locale de_DE
+  ok   de/planer-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/planer-dane.html (file): hreflang reziprok
+  ok   de/planer-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/planer-dane.html (file): axe ohne Verstoß
+  ok   de/planer-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/planer-dane.html (http): lädt ohne Fehler
+  ok   de/klimat.html (file): lädt ohne Fehler
+  ok   de/klimat.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/klimat.html (file): lang="de", og:locale de_DE
+  ok   de/klimat.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/klimat.html (file): hreflang reziprok
+  ok   de/klimat.html (file): Hinweis Beispieldaten verborgen (daten/stadtteile_odbl.js daten/klimat.js daten/klimat_zellen.js daten/klimat_stadtteile_odbl.js)
+  ok   de/klimat.html (file): axe ohne Verstoß
+  ok   de/klimat.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/klimat.html (http): lädt ohne Fehler
+  ok   de/powietrze.html (file): lädt ohne Fehler
+  ok   de/powietrze.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/powietrze.html (file): lang="de", og:locale de_DE
+  ok   de/powietrze.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/powietrze.html (file): hreflang reziprok
+  ok   de/powietrze.html (file): Hinweis Beispieldaten sichtbar (daten/powietrze.js)
+  ok   de/powietrze.html (file): axe ohne Verstoß
+  ok   de/powietrze.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/powietrze.html (http): lädt ohne Fehler
+  ok   de/mieszkania.html (file): lädt ohne Fehler
+  ok   de/mieszkania.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/mieszkania.html (file): lang="de", og:locale de_DE
+  ok   de/mieszkania.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/mieszkania.html (file): hreflang reziprok
+  ok   de/mieszkania.html (file): Hinweis Beispieldaten sichtbar (daten/mieszkania.js)
+  ok   de/mieszkania.html (file): axe ohne Verstoß
+  ok   de/mieszkania.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/mieszkania.html (http): lädt ohne Fehler
+  ok   de/punktualnosc.html (file): lädt ohne Fehler
+  ok   de/punktualnosc.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/punktualnosc.html (file): lang="de", og:locale de_DE
+  ok   de/punktualnosc.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/punktualnosc.html (file): hreflang reziprok
+  ok   de/punktualnosc.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/punktualnosc.html (file): axe ohne Verstoß
+  ok   de/punktualnosc.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/punktualnosc.html (http): lädt ohne Fehler
+  ok   de/404.html (file): lädt ohne Fehler
+  ok   de/404.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/404.html (file): lang="de", og:locale de_DE
+  ok   de/404.html (file): noindex ohne hreflang und canonical
+  ok   de/404.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/404.html (file): axe ohne Verstoß
+  ok   de/404.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/404.html (http): lädt ohne Fehler
+
+Sprachschalter
+  ok   file: en → de: de/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   file: pl → en: en/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   file: de → pl: kiezatlas-krakow-wt-S3/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   http: en → de: de/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   http: pl → en: en/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   http: de → pl: /karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+
+Sprachhinweis
+  ok   Browser de, Seite pl: Hinweis nur auf Deutsch (["de"]), keine Umleitung
+  ok   Browser pl, Seite pl: kein Hinweis
+
+i18n.js
+  ok   pl: Plural 1 dzielnica | 2 dzielnice | 5 dzielnic | 12 dzielnic | 22 dzielnice | 25 dzielnic
+  ok   pl: Zahlen 1234 | 12 345 | 2,5, Anteil 12,5%, Datum 31.03.2021
+  ok   pl: Formen one/few/many richtig, vierstellige Zahl ungruppiert (1234)
+  ok   pl: fehlender Schlüssel bleibt sichtbar, Ortswerte in der Seitensprache (Kraków)
+  ok   en: Plural 1 district | 2 districts | 5 districts | 12 districts | 22 districts | 25 districts
+  ok   en: Zahlen 1,234 | 12,345 | 2.5, Anteil 12.5%, Datum 31/03/2021
+  ok   en: fehlender Schlüssel bleibt sichtbar, Ortswerte in der Seitensprache (Kraków)
+  ok   de: Plural 1 Stadtteil | 2 Stadtteile | 5 Stadtteile | 12 Stadtteile | 22 Stadtteile | 25 Stadtteile
+  ok   de: Zahlen 1.234 | 12.345 | 2,5, Anteil 12,5 %, Datum 31.3.2021
+  ok   de: fehlender Schlüssel bleibt sichtbar, Ortswerte in der Seitensprache (Krakau)
+
+Grundkarte: aus $KIEZ_DATEN/abgeleitet/grundkarte/68b6ff47ed37
+
+grün
+-- Browser: pruefen/seiten.mjs (alle Seiten in pl, en, de): grün, 48 s
+
+== Browser: Grundkarte auf den Kartenseiten, Schriften (pruefen/DF_grundkarte.mjs)
+1. Grundkarte über HTTP je Sprache (Kacheln aus $KIEZ_DATEN/abgeleitet/grundkarte/68b6ff47ed37)
+  ok    __probe.html: Schichten der Grundkarte gezeichnet {"miejsca":11,"drogi":1310,"tory":163,"sciezki":1051,"cieki":3,"woda":6,"zielen":17,"teren":41}
+  ok    __probe.html: 88 Beschriftungen, davon 38 mit polnischem Sonderzeichen (z. B. „Nowa Wieś“, „Wesoła“)
+  ok    __probe.html: Pfade absolut zur Atlas-Wurzel aufgelöst (/daten/grundkarte/kacheln/{z}/{x}/{y}.pbf, trotz ?v= an daten/grundkarte.js)
+  ok    __probe.html: Luftbild null ohne Quelle, Schalter "dop" ohne Fehler (ok); Quellen teile, bm
+  ok    __probe.html: Bildzeile auf der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne…“
+  ok    __probe.html: keine MapLibre-Fehler
+  ok    __probe.html: 6 Kacheln und 6 Schriftbereiche geladen
+  ok    __probe.html: keine Konsolenfehler
+  ok    __probe.html: keine fehlgeschlagenen Abrufe
+  ok    __probe.html: kein Abruf außerhalb 127.0.0.1
+  ok    en/__probe.html: Schichten der Grundkarte gezeichnet {"miejsca":11,"drogi":1310,"tory":163,"sciezki":1051,"cieki":3,"woda":6,"zielen":17,"teren":41}
+  ok    en/__probe.html: 88 Beschriftungen, davon 38 mit polnischem Sonderzeichen (z. B. „Nowa Wieś“, „Wesoła“)
+  ok    en/__probe.html: Pfade absolut zur Atlas-Wurzel aufgelöst (/daten/grundkarte/kacheln/{z}/{x}/{y}.pbf, trotz ?v= an daten/grundkarte.js)
+  ok    en/__probe.html: Luftbild null ohne Quelle, Schalter "dop" ohne Fehler (ok); Quellen teile, bm
+  ok    en/__probe.html: Bildzeile auf der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne…“
+  ok    en/__probe.html: keine MapLibre-Fehler
+  ok    en/__probe.html: 6 Kacheln und 6 Schriftbereiche geladen
+  ok    en/__probe.html: keine Konsolenfehler
+  ok    en/__probe.html: keine fehlgeschlagenen Abrufe
+  ok    en/__probe.html: kein Abruf außerhalb 127.0.0.1
+  ok    de/__probe.html: Schichten der Grundkarte gezeichnet {"miejsca":11,"drogi":1310,"tory":163,"sciezki":1051,"cieki":3,"woda":6,"zielen":17,"teren":41}
+  ok    de/__probe.html: 88 Beschriftungen, davon 38 mit polnischem Sonderzeichen (z. B. „Nowa Wieś“, „Wesoła“)
+  ok    de/__probe.html: Pfade absolut zur Atlas-Wurzel aufgelöst (/daten/grundkarte/kacheln/{z}/{x}/{y}.pbf, trotz ?v= an daten/grundkarte.js)
+  ok    de/__probe.html: Luftbild null ohne Quelle, Schalter "dop" ohne Fehler (ok); Quellen teile, bm
+  ok    de/__probe.html: Bildzeile auf der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne…“
+  ok    de/__probe.html: keine MapLibre-Fehler
+  ok    de/__probe.html: 6 Kacheln und 6 Schriftbereiche geladen
+  ok    de/__probe.html: keine Konsolenfehler
+  ok    de/__probe.html: keine fehlgeschlagenen Abrufe
+  ok    de/__probe.html: kein Abruf außerhalb 127.0.0.1
+2. Dieselbe Prüfseite per file://
+  ok    file://: ohne eigene Grundkarte (Quellen teile), Stadtteile gezeichnet (16)
+  ok    file://: keine MapLibre-Fehler
+  ok    file://: keine Konsolenfehler
+  ok    file://: keine fehlgeschlagenen Abrufe
+  ok    file://: kein Abruf außerhalb 127.0.0.1
+3. Schriften im Browser: polnische Sonderzeichen ohne Ersatzschrift
+  ok    5 Schriften aus atlas.css gemessen
+  ok    Barlow 400: Breite mit Ersatz monospace 389.00 px = mit Ersatz serif 389.00 px (nur monospace: 432.00 px)
+  ok    Barlow 500: Breite mit Ersatz monospace 395.00 px = mit Ersatz serif 395.00 px (nur monospace: 432.00 px)
+  ok    Barlow 600: Breite mit Ersatz monospace 398.00 px = mit Ersatz serif 398.00 px (nur monospace: 432.00 px)
+  ok    Barlow Semi Condensed 500: Breite mit Ersatz monospace 345.00 px = mit Ersatz serif 345.00 px (nur monospace: 432.00 px)
+  ok    Barlow Semi Condensed 600: Breite mit Ersatz monospace 352.00 px = mit Ersatz serif 352.00 px (nur monospace: 432.00 px)
+  ok    index.html (Schriften): keine Konsolenfehler
+  ok    index.html (Schriften): keine fehlgeschlagenen Abrufe
+  ok    index.html (Schriften): kein Abruf außerhalb 127.0.0.1
+4. Alle erzeugten Seiten über HTTP
+  ok    karta.html: lädt daten/grundkarte.js vor themen.js
+  ok    klimat.html: lädt daten/grundkarte.js vor themen.js
+  ok    en/karta.html: lädt daten/grundkarte.js vor themen.js
+  ok    en/klimat.html: lädt daten/grundkarte.js vor themen.js
+  ok    de/karta.html: lädt daten/grundkarte.js vor themen.js
+  ok    de/klimat.html: lädt daten/grundkarte.js vor themen.js
+  ok    45 von 45 Seiten ohne Konsolenfehler und Fehlabruf (404.html darf sich selbst melden)
+        Seiten, die themen.js laden (also eine Karte haben): 6 (karta.html, klimat.html, en/karta.html, en/klimat.html, de/karta.html, de/klimat.html)
+  ok    6 erzeugte Seiten laden eine Karte
+  ok    karta.html (1280 px): Karte mit eigener Grundkarte gezeichnet (610 Objekte, Quellen teile, bm)
+  ok    karta.html (1280 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne“
+  ok    karta.html (1280 px): kein horizontaler Überlauf
+  ok    karta.html (1280 px): Rynek z15 mit 46 Beschriftungen, davon 16 mit polnischem Sonderzeichen (z. B. „Nowy Świat“, „Piotra Michałowskiego“), 6 Schriftbereiche geladen
+  ok    karta.html (1280 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    karta.html (1280 px): keine Konsolenfehler
+  ok    karta.html (1280 px): keine fehlgeschlagenen Abrufe
+  ok    karta.html (1280 px): kein Abruf außerhalb 127.0.0.1
+  ok    karta.html (390 px): Karte mit eigener Grundkarte gezeichnet (319 Objekte, Quellen teile, bm)
+  ok    karta.html (390 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne“
+  ok    karta.html (390 px): kein horizontaler Überlauf
+  ok    karta.html (390 px): Rynek z15 mit 20 Beschriftungen, davon 8 mit polnischem Sonderzeichen (z. B. „św. Gertrudy“, „św. Tomasza“), 6 Schriftbereiche geladen
+  ok    karta.html (390 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    karta.html (390 px): keine Konsolenfehler
+  ok    karta.html (390 px): keine fehlgeschlagenen Abrufe
+  ok    karta.html (390 px): kein Abruf außerhalb 127.0.0.1
+  ok    klimat.html (1280 px): Karte mit eigener Grundkarte gezeichnet (610 Objekte, Quellen teile, bm, klimat-zellen)
+  ok    klimat.html (1280 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Źródło: GUGiK, BDOT10k (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartograf“
+  ok    klimat.html (1280 px): kein horizontaler Überlauf
+  ok    klimat.html (1280 px): Rynek z15 mit 46 Beschriftungen, davon 16 mit polnischem Sonderzeichen (z. B. „Nowy Świat“, „Piotra Michałowskiego“), 6 Schriftbereiche geladen
+  ok    klimat.html (1280 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    klimat.html (1280 px): keine Konsolenfehler
+  ok    klimat.html (1280 px): keine fehlgeschlagenen Abrufe
+  ok    klimat.html (1280 px): kein Abruf außerhalb 127.0.0.1
+  ok    klimat.html (390 px): Karte mit eigener Grundkarte gezeichnet (319 Objekte, Quellen teile, bm, klimat-zellen)
+  ok    klimat.html (390 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Źródło: GUGiK, BDOT10k (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartograf“
+  ok    klimat.html (390 px): kein horizontaler Überlauf
+  ok    klimat.html (390 px): Rynek z15 mit 20 Beschriftungen, davon 8 mit polnischem Sonderzeichen (z. B. „św. Gertrudy“, „św. Tomasza“), 6 Schriftbereiche geladen
+  ok    klimat.html (390 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    klimat.html (390 px): keine Konsolenfehler
+  ok    klimat.html (390 px): keine fehlgeschlagenen Abrufe
+  ok    klimat.html (390 px): kein Abruf außerhalb 127.0.0.1
+  ok    en/karta.html (1280 px): Karte mit eigener Grundkarte gezeichnet (610 Objekte, Quellen teile, bm)
+  ok    en/karta.html (1280 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne“
+  ok    en/karta.html (1280 px): kein horizontaler Überlauf
+  ok    en/karta.html (1280 px): Rynek z15 mit 46 Beschriftungen, davon 16 mit polnischem Sonderzeichen (z. B. „Nowy Świat“, „Piotra Michałowskiego“), 6 Schriftbereiche geladen
+  ok    en/karta.html (1280 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    en/karta.html (1280 px): keine Konsolenfehler
+  ok    en/karta.html (1280 px): keine fehlgeschlagenen Abrufe
+  ok    en/karta.html (1280 px): kein Abruf außerhalb 127.0.0.1
+  ok    en/karta.html (390 px): Karte mit eigener Grundkarte gezeichnet (319 Objekte, Quellen teile, bm)
+  ok    en/karta.html (390 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne“
+  ok    en/karta.html (390 px): kein horizontaler Überlauf
+  ok    en/karta.html (390 px): Rynek z15 mit 20 Beschriftungen, davon 8 mit polnischem Sonderzeichen (z. B. „św. Gertrudy“, „św. Tomasza“), 6 Schriftbereiche geladen
+  ok    en/karta.html (390 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    en/karta.html (390 px): keine Konsolenfehler
+  ok    en/karta.html (390 px): keine fehlgeschlagenen Abrufe
+  ok    en/karta.html (390 px): kein Abruf außerhalb 127.0.0.1
+  ok    en/klimat.html (1280 px): Karte mit eigener Grundkarte gezeichnet (610 Objekte, Quellen teile, bm, klimat-zellen)
+  ok    en/klimat.html (1280 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Źródło: GUGiK, BDOT10k (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartograf“
+  ok    en/klimat.html (1280 px): kein horizontaler Überlauf
+  ok    en/klimat.html (1280 px): Rynek z15 mit 46 Beschriftungen, davon 16 mit polnischem Sonderzeichen (z. B. „Nowy Świat“, „Piotra Michałowskiego“), 6 Schriftbereiche geladen
+  ok    en/klimat.html (1280 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    en/klimat.html (1280 px): keine Konsolenfehler
+  ok    en/klimat.html (1280 px): keine fehlgeschlagenen Abrufe
+  ok    en/klimat.html (1280 px): kein Abruf außerhalb 127.0.0.1
+  ok    en/klimat.html (390 px): Karte mit eigener Grundkarte gezeichnet (319 Objekte, Quellen teile, bm, klimat-zellen)
+  ok    en/klimat.html (390 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Źródło: GUGiK, BDOT10k (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartograf“
+  ok    en/klimat.html (390 px): kein horizontaler Überlauf
+  ok    en/klimat.html (390 px): Rynek z15 mit 20 Beschriftungen, davon 8 mit polnischem Sonderzeichen (z. B. „św. Gertrudy“, „św. Tomasza“), 6 Schriftbereiche geladen
+  ok    en/klimat.html (390 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    en/klimat.html (390 px): keine Konsolenfehler
+  ok    en/klimat.html (390 px): keine fehlgeschlagenen Abrufe
+  ok    en/klimat.html (390 px): kein Abruf außerhalb 127.0.0.1
+  ok    de/karta.html (1280 px): Karte mit eigener Grundkarte gezeichnet (610 Objekte, Quellen teile, bm)
+  ok    de/karta.html (1280 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne“
+  ok    de/karta.html (1280 px): kein horizontaler Überlauf
+  ok    de/karta.html (1280 px): Rynek z15 mit 46 Beschriftungen, davon 16 mit polnischem Sonderzeichen (z. B. „Nowy Świat“, „Piotra Michałowskiego“), 6 Schriftbereiche geladen
+  ok    de/karta.html (1280 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    de/karta.html (1280 px): keine Konsolenfehler
+  ok    de/karta.html (1280 px): keine fehlgeschlagenen Abrufe
+  ok    de/karta.html (1280 px): kein Abruf außerhalb 127.0.0.1
+  ok    de/karta.html (390 px): Karte mit eigener Grundkarte gezeichnet (319 Objekte, Quellen teile, bm)
+  ok    de/karta.html (390 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne“
+  ok    de/karta.html (390 px): kein horizontaler Überlauf
+  ok    de/karta.html (390 px): Rynek z15 mit 20 Beschriftungen, davon 8 mit polnischem Sonderzeichen (z. B. „św. Gertrudy“, „św. Tomasza“), 6 Schriftbereiche geladen
+  ok    de/karta.html (390 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    de/karta.html (390 px): keine Konsolenfehler
+  ok    de/karta.html (390 px): keine fehlgeschlagenen Abrufe
+  ok    de/karta.html (390 px): kein Abruf außerhalb 127.0.0.1
+  ok    de/klimat.html (1280 px): Karte mit eigener Grundkarte gezeichnet (610 Objekte, Quellen teile, bm, klimat-zellen)
+  ok    de/klimat.html (1280 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Źródło: GUGiK, BDOT10k (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartograf“
+  ok    de/klimat.html (1280 px): kein horizontaler Überlauf
+  ok    de/klimat.html (1280 px): Rynek z15 mit 46 Beschriftungen, davon 16 mit polnischem Sonderzeichen (z. B. „Nowy Świat“, „Piotra Michałowskiego“), 6 Schriftbereiche geladen
+  ok    de/klimat.html (1280 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    de/klimat.html (1280 px): keine Konsolenfehler
+  ok    de/klimat.html (1280 px): keine fehlgeschlagenen Abrufe
+  ok    de/klimat.html (1280 px): kein Abruf außerhalb 127.0.0.1
+  ok    de/klimat.html (390 px): Karte mit eigener Grundkarte gezeichnet (319 Objekte, Quellen teile, bm, klimat-zellen)
+  ok    de/klimat.html (390 px): Bildzeilen sichtbar in der Karte „© OpenStreetMap (ODbL) | Źródło: GUGiK, BDOT10k (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne) | Podkład: BDOT10k, Główny Urząd Geodezji i Kartograf“
+  ok    de/klimat.html (390 px): kein horizontaler Überlauf
+  ok    de/klimat.html (390 px): Rynek z15 mit 20 Beschriftungen, davon 8 mit polnischem Sonderzeichen (z. B. „św. Gertrudy“, „św. Tomasza“), 6 Schriftbereiche geladen
+  ok    de/klimat.html (390 px): ohne Luftbild lässt der Luftbild-Schalter die Grundkarte stehen (8 von 8 Flächen- und Linienebenen sichtbar)
+  ok    de/klimat.html (390 px): keine Konsolenfehler
+  ok    de/klimat.html (390 px): keine fehlgeschlagenen Abrufe
+  ok    de/klimat.html (390 px): kein Abruf außerhalb 127.0.0.1
+5. Startgewicht des Planers (JavaScript, gzip -9)
+        planer.html heute: 13174 B gz (7 Dateien: daten/ort.js, i18n.js, texte/pl/kern.js, texte/pl/seiten.js, texte/pl/planer.js, kopf.js, rahmen.js)
+  ok    Startgewicht von planer.html gemessen
+        planer.html mit Karte (gerechnet): 298879 B gz = 291.9 KB; je Datei daten/ort.js 2541, i18n.js 971, texte/pl/kern.js 1239, texte/pl/seiten.js 1242, texte/pl/planer.js 3938, kopf.js 1901, rahmen.js 1342, daten/stadtteile_odbl.js 51075, vendor/maplibre-gl.js 211733, daten/grundkarte.js 1407, themen.js 5239, planer.js 16251
+  ok    alle Dateien der Ladeliste vorhanden
+        davon Grundkarte daten/grundkarte.js: 1407 B gz
+
+grün
+-- Browser: Grundkarte auf den Kartenseiten, Schriften (pruefen/DF_grundkarte.mjs): grün, 39 s
+
+== Gegenprobe Potsdam (pruefen/gegenprobe_potsdam.sh)
+-- übersprungen: eigener Lauf mit --gegenprobe
+
+== Zählung: 45 Prüfungen, 38 grün, 0 mit Befund, 7 übersprungen
+  grün  Syntax JavaScript (node --check)
+  grün  Syntax Shell (sh -n)
+  grün  Syntax Python (ast)
+  grün  Gerüst: Ortskonfiguration, Rechen-SRID, keine Plankennungen (pruefen/geruest.py)
+  grün  ort.js aktuell (skripte/31_ort.py --pruefen)
+  grün  Seiten aktuell, pl/en/de (skripte/30_seiten.py --pruefen)
+  grün  Textschicht pl/en/de (pruefen/texte.py)
+  grün  Sprachverweise ohne Browser: hreflang, canonical, Sprachschalter (pruefen/hreflang.py)
+  grün  Datenverträge und Summen (pruefen/daten.py)
+  grün  Belegschicht in sich stimmig: belege/, README-Kasten, Entscheidungen, Meldeweg, Checkliste (pruefen/belege.py)
+  grün  Schriften: polnische Sonderzeichen in jeder Schrift (pruefen/DF_schriften.py)
+  grün  Schriften aus den Fontsource-Paketen reproduzierbar (skripte/schriften.py --pruefen)
+  grün  Beispieldaten reproduzierbar (Erzeuger je Datei mit fixture: true, --pruefen)
+  übersprungen  Vertrag Bauzeiten-Methode (pruefen/B5_methode.py, skripte/26_jahre_methode.py --pruefen) (Bauzeiten-Kaskade für Kraków gestrichen (docs/entscheidungen.md, KR4); läuft in der Gegenprobe Potsdam mit)
+  übersprungen  planungsraeume.js aktuell (skripte/17_planungsraeume_js.py --pruefen) (noch keine Raumebene unter den dzielnice)
+  übersprungen  GIS-Export ohne Datenbank (pruefen/A8_export.py --odbl-erwartet) (noch kein Export unter daten/export/)
+  übersprungen  Codepfade Planer und Export (pruefen/A6_test_pfade.py, pruefen/A8_test_pfade.py) (brauchen Richtwerte und Exporte eines Orts; laufen in der Gegenprobe Potsdam)
+  grün  OSM-Leser und Netz, ohne Datenbank (skripte/12_osm.sh test)
+  grün  Fußweg, ohne Datenbank (skripte/14b_fussweg.sh test)
+  übersprungen  Landesfilter (skripte/14b_fussweg.sh kreuzprobe) (Landesfilter über VBB-DHID entfällt für Kraków (Bauvorlage, 14b))
+  grün  Abrufwerkzeug: Sperrliste, robots.txt, Protokoll (pytest pruefen/d1_test_abruf.py)
+  grün  Gliederung und Bevölkerung, Ausgaben (pruefen/D4_bevoelkerung.py --ohne-rohdaten)
+  grün  Gebäude und 3D, Ausgaben (pruefen/D5_gebaeude.py --ohne-rohdaten)
+  grün  Versorgung und Takt (pruefen/D6_versorgung.py; Skripte mit Datenbank übersprungen)
+  grün  Luft (pruefen/D7_powietrze.py)
+  grün  Grundkarte, eigener Dekoder (pruefen/D8_grundkarte.py; ohne Kachelordner übersprungen)
+  grün  Klima, Ausgaben (pruefen/dk_klimat.py)
+  grün  Klima aus den Rohdaten byte-gleich (skripte/35_klimat.py --pruefen)
+  grün  Wohnungsmarkt (pruefen/DW_mieszkania.py)
+  grün  Denkmale und Kamienice, Ausgaben (pruefen/DZ_denkmale.py)
+  grün  Denkmale: Leser der Handdownloads mit erfundenen Eingängen (pruefen/DZ_test_eingang.py)
+  grün  Sanierungsatlas, Ausgaben und Beleg (pruefen/DS_sanierung.py)
+  übersprungen  aus den Rohdaten neu: Gliederung (pruefen/D4_bevoelkerung.py), Gebäude (pruefen/D5_gebaeude.py), Denkmale (pruefen/DZ_denkmale.py --mit-rohdaten), Sanierungsatlas (pruefen/DS_sanierung.py --neu) (eigener Lauf mit --voll)
+  grün  Prüfsummen (belege/rohdaten-D4-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten-D5-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten-D6-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten_D7.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten-DE-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten-DF-schriften.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten-DS-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten_DW.sha256 gegen $KIEZ_DATEN)
+  grün  Prüfsummen (belege/rohdaten-dz-2026-11-13.sha256 gegen $KIEZ_DATEN)
+  grün  Browser: pruefen/seiten.mjs (alle Seiten in pl, en, de)
+  grün  Browser: Grundkarte auf den Kartenseiten, Schriften (pruefen/DF_grundkarte.mjs)
+  übersprungen  Gegenprobe Potsdam (pruefen/gegenprobe_potsdam.sh) (eigener Lauf mit --gegenprobe)

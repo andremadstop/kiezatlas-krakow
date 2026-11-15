@@ -1,0 +1,26 @@
+# Datenbank des Kiezatlas Kraków: PostGIS, dieselbe festgeschriebene Version wie die
+# Geodaten-Import-Pipeline (und wie der Kiezatlas Potsdam). Nur auf dem eigenen Rechner erreichbar.
+# Eigener Projektname, eigenes Volume und eigener Port (55462).
+#   docker compose up -d --wait db        (im Wurzelordner dieses Repositorys, dort liegt die .env; Vorlage .env.beispiel)
+# Danach Rollen und Rechte: skripte/lauf.sh einrichten, Prüfung: skripte/lauf.sh rechte (belege/D1_infrastruktur.md).
+# Mehrere Arbeitskopien und der Kiezatlas Potsdam daneben: docs/rundgang.md, „Datenbank und mehrere Arbeitskopien“.
+name: kiezatlas-krakow
+services:
+  db:
+    image: postgis/postgis:16-3.6@sha256:d07ce3f06f657b6516c7511412232e97174d7e9dcf4c9fe520109b682b44a201
+    environment:
+      POSTGRES_DB: kiezatlas
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?in .env setzen}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "127.0.0.1:${PG_PORT:-55462}:5432"
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U admin -d kiezatlas"]
+      interval: 5s
+      retries: 20
+volumes:
+  pgdata:

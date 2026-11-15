@@ -1,0 +1,31 @@
+<!--seite
+daten: daten/kennzahlen_odbl.js daten/stadtteile_odbl.js daten/zellen_odbl.js daten/steckbrief.js daten/steckbrief_dzielnice_odbl.js daten/gebaeude_kennzahlen.js daten/gebaeude_dzielnice_odbl.js daten/klimat.js daten/klimat_stadtteile_odbl.js daten/sanierung.js
+texte: kern seiten erzaehlung
+robots: index
+css: vendor/maplibre-gl.css kartenfeld.css stadtatlas.css
+skripte: vendor/maplibre-gl.js daten/grundkarte.js themen.js kartenfeld.js dzielnica.js
+-->
+<h1>{{t:seiten.dzielnica.h1}}</h1>
+<p class="lede">{{t:seiten.dzielnica.beschreibung}}</p>
+<div class="ka-teilwahl ka-nicht-drucken">
+  <label for="ka-teil">{{t:erzaehlung.sb_wahl}}<select id="ka-teil"></select></label>
+  <button type="button" id="ka-drucken" class="knopf"><span class="knopf__flut" aria-hidden="true"></span>{{t:erzaehlung.sb_drucken}}</button>
+</div>
+<section id="ka-steckbrief" class="ka-steckbrief" aria-labelledby="ka-sb-name">
+  <div class="ka-steckbrief__kopf">
+    <span id="ka-sb-ziffer" class="ka-ziffer" aria-hidden="true"></span>
+    <h2 id="ka-sb-name"></h2>
+    <p id="ka-sb-gruppe" class="lede"></p>
+    <p>{{t:erzaehlung.sb_einleitung}}</p>
+  </div>
+  <div class="kartenfeld"><div id="karte" role="region" aria-label="{{t:erzaehlung.sb_karte_aria}}"></div></div>
+  <div id="ka-sb-legende" class="fl-legende" hidden></div>
+</section>
+<div id="ka-sb-werte"></div>
+<div id="ka-sb-nsp"></div>
+<p class="ka-quelle">{{t:erzaehlung.sb_grenzen_hinweis}}</p>
+{{block:dzielnica}}
+<h2 id="dzielnice" class="ka-nicht-drucken">{{plural:kern.dzielnice:teile}}</h2>
+<div class="ka-nicht-drucken">
+{{liste:teile}}
+</div>

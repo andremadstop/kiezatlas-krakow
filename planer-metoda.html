@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pl" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dostępność: metodologia · Kiezatlas Kraków</title>
+<meta name="description" content="Jak liczona jest dostępność: sieć dróg pieszych, rozkład jazdy, wartości odniesienia.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/planer-metoda.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/planer-metoda.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/planer-metoda.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/planer-metoda.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/planer-metoda.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dostępność: metodologia · Kiezatlas Kraków">
+<meta property="og:description" content="Jak liczona jest dostępność: sieć dróg pieszych, rozkład jazdy, wartości odniesienia.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="atlas.css">
+<link rel="stylesheet" href="rahmen.css">
+</head>
+<body class="textseite" data-seite="planer-metoda">
+<a class="sprung" href="#inhalt">Przejdź do treści</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Nawigacja">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Mapa</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Dzielnice</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Kamienice</span></a></li>
+        <li><a class="nav" href="planer.html" aria-current="true"><span>Dostępność</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Tematy</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Metodologia</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Wybór języka">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="planer-metoda.html" aria-current="true">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="en/planer-metoda.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="de/planer-metoda.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Dostępność i komunikacja">
+    <ul>
+      <li><a class="nav" href="planer.html"><span>Dostępność</span></a></li>
+      <li><a class="nav" href="planer-metoda.html" aria-current="page"><span>Metodologia</span></a></li>
+      <li><a class="nav" href="planer-dane.html"><span>Dane</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="en/planer-metoda.html">Also available in English</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="de/planer-metoda.html">Auch auf Deutsch</a> <button type="button" aria-label="Zamknij" title="Zamknij"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Dane przykładowe w części strony: dane wczytane na żądanie pokazują fikcyjne wartości, które służą wyłącznie do budowy atlasu, i są oznaczone tam, gdzie się pojawiają. Pozostałe dane na tej stronie nie są przykładowe." hidden>Dane przykładowe: ta strona pokazuje fikcyjne wartości, które służą wyłącznie do budowy atlasu. Nie są to dane o Krakowie.</p>
+</div>
+<h1>Dostępność: metodologia</h1>
+<p class="lede">Jak liczona jest dostępność: sieć dróg pieszych, rozkład jazdy, wartości odniesienia.</p>
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/planer_metoda.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="p-jednostki">
+<h2>Jednostki i mieszkańcy</h2>
+<p>Obliczenia dostępności opierają się na komórkach siatki ludności Eurostatu (1 km); mieszkańcy w granicach miasta: <span data-feld="planer_fuss_odbl:gesamt.ew">793 390</span>. Mieszkańcy komórki są umieszczeni w jej środku; to uproszczenie, bo w komórce mieszkańcy mogą być rozłożeni nierówno. Wartości dla dzielnicy powstają z komórek, których środek leży w dzielnicy (granice z OpenStreetMap), liczby mieszkańców są zaokrąglone do <span data-feld="planer_odbl:rundung.ew">10</span>. Wszystkie wskaźniki są <em>orientacyjne</em>.</p>
+</section>
+
+<section id="p-placowki">
+<h2>Placówki</h2>
+<p>Szkoły, przedszkola, żłobki, szpitale i parki pochodzą z bazy BDOT10k jako kompleksy zajmujące własny teren (tu reprezentowane przez punkt wewnątrz tego terenu). W granicach miasta: szkoły <span data-feld="einrichtungen:features[properties.art=szkola,properties.in_stadt=true]">170</span>, przedszkola <span data-feld="einrichtungen:features[properties.art=przedszkole,properties.in_stadt=true]">35</span>, żłobki <span data-feld="einrichtungen:features[properties.art=zlobek,properties.in_stadt=true]">2</span>, szpitale <span data-feld="einrichtungen:features[properties.art=szpital,properties.in_stadt=true]">24</span>, parki <span data-feld="einrichtungen:features[properties.art=park,properties.in_stadt=true]">90</span>. BDOT10k nie rozróżnia typów szkół i nie podaje liczby miejsc ani liczby uczniów; przedszkola i żłobki w budynkach bez własnej działki w ogóle się w niej nie pojawiają. Dlatego wartości dla żłobków i przedszkoli nie oddają rzeczywistej sieci placówek. Rejestr Szkół i Placówek Oświatowych (RSPO) nie jest jeszcze włączony, bo jego licencji nie sprawdzono.</p>
+<p>Lekarze i apteki pochodzą z OpenStreetMap (lekarze: <span data-feld="einrichtungen_odbl:features[properties.art=arzt]">283</span>, apteki: <span data-feld="einrichtungen_odbl:features[properties.art=apotheke]">321</span>), bez nazw; ich kompletności nie sprawdzono. Placówki tuż za granicą miasta są uwzględniane przy obliczaniu odległości, bo z obrzeży bywają najbliższe.</p>
+</section>
+
+<section id="p-odleglosc">
+<h2>Linia prosta i dojście piesze</h2>
+<p>Dla każdej komórki atlas podaje odległość od jej środka do najbliższej placówki danego rodzaju w metrach: w linii prostej (pliki bez OpenStreetMap) oraz dojściem pieszym siecią dróg z OpenStreetMap (pliki <code>_odbl</code>). Dojście piesze jest zawsze dłuższe od odległości w linii prostej lub jej równe i bliższe codziennemu doświadczeniu; pytania na stronach pokazują je zawsze, gdy jest dostępne.</p>
+</section>
+
+<section id="p-szkoly">
+<h2>Szkoła i przedszkole w zasięgu</h2>
+<p>Prawo oświatowe określa najdłuższą drogę dziecka do szkoły i przedszkola: <span data-feld="richtwerte:bildung.szkola_podstawowa_droga.wortlaut">Droga dziecka z domu do szkoły nie może przekraczać: 1) 3 km – w przypadku uczniów klas I–IV szkół podstawowych; 2) 4 km – w przypadku uczniów klas V–VIII szkół podstawowych.</span> (<span data-feld="richtwerte:bildung.szkola_podstawowa_droga.seite">art. 39 ust. 2, s. 40</span>). Dla przedszkola: <span data-feld="richtwerte:bildung.przedszkole_droga.seite">art. 32 ust. 3, s. 36</span>, <span data-feld="richtwerte:bildung.przedszkole_droga.wert_m">3000</span> m. Źródło: <span data-feld="planer_odbl:quellen.prawo_oswiatowe.vermerk">Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)</span>.</p>
+<p>Przepis mówi o drodze do szkoły w obwodzie, w którym dziecko mieszka; atlas liczy drogę do najbliższej placówki dowolnego rodzaju. Dlatego to <em>wartość orientacyjna</em>, nie <em>standard urzędowy</em>. Wynik dla całego miasta (dojście piesze):</p>
+<ul>
+<li>szkoła w odległości do <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].richtwert.wert">3000</span> m: <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].wert">99%</span> mieszkańców (<span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].zaehler">784 590</span> z <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].nenner">793 390</span>);</li>
+<li>przedszkole w odległości do <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].richtwert.wert">3000</span> m: <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].wert">90%</span> (<span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].zaehler">710 470</span> z <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].nenner">793 390</span>).</li>
+</ul>
+</section>
+
+<section id="p-takt">
+<h2>Klasa częstotliwości kursowania</h2>
+<p>Przystanki i odjazdy pochodzą z rozkładu GTFS ZTP. Przystanek to wspólny rdzeń kodów słupków, jego położenie to średnia położeń słupków. Liczymy odjazdy w dzień roboczy <span data-feld="haltestellen:stichtag">18 listopada 2026</span> między <span data-feld="haltestellen:fenster.0">06:00</span> a <span data-feld="haltestellen:fenster.1">09:00</span>, wszystkie linie razem, w kierunku z większą liczbą odjazdów, jako średnią na godzinę. Najmniejsza liczba odjazdów na godzinę: klasa I <span data-feld="haltestellen:klassen.grenzen.I">6</span>, klasa II <span data-feld="haltestellen:klassen.grenzen.II">2</span>, klasa III <span data-feld="haltestellen:klassen.grenzen.III">1</span>. Progi przejęto z atlasu Poczdamu, żeby oba miasta były porównywalne; w Polsce nie znaleziono dla nich normy, dlatego klasy są orientacyjne.</p>
+<p>Przystanki w granicach miasta: <span data-feld="haltestellen:features[properties.in_stadt=true]">813</span>, w tym klasa I: <span data-feld="haltestellen:features[properties.taktklasse=I,properties.in_stadt=true]">498</span>, klasa II: <span data-feld="haltestellen:features[properties.taktklasse=II,properties.in_stadt=true]">232</span>, klasa III: <span data-feld="haltestellen:features[properties.taktklasse=III,properties.in_stadt=true]">67</span>, poniżej klasy III: <span data-feld="haltestellen:features[properties.taktklasse=unter III,properties.in_stadt=true]">16</span>. Przystanki do <span data-feld="richtwerte:oepnv.messung.randpuffer_m">1000</span> m za granicą miasta też się liczą (<span data-feld="haltestellen:features[properties.in_stadt=false]">131</span>).</p>
+<p>Udział mieszkańców, którzy mają przystanek klasy I lub II w odległości do <span data-feld="richtwerte:planer.oepnv_radius_m.wert">500</span> m (próg własny, bez normy): <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=oepnv_takt].wert">78%</span> dojściem pieszym, <span data-feld="planer_odbl:gesamt.werte[kennzahl=oepnv_takt].wert">96%</span> w linii prostej.</p>
+</section>
+
+<section id="p-zielen">
+<h2>Zieleń w pobliżu</h2>
+<p>Parki to kompleksy BDOT10k „park lub skwer”, bez lasów i ogródków działkowych. Udział mieszkańców z parkiem w zasięgu dojścia pieszego (odległość graniczna jest ustalona w skrypcie obliczeniowym, bez normy; zapisy weryfikacji: <code>belege/README.md</code>): <span data-feld="planer_fuss_odbl:gesamt.werte[kennzahl=gruen_in_radius].wert">37%</span>; powierzchnia parków na mieszkańca w całym mieście to <span data-feld="planer_odbl:gesamt.werte[kennzahl=gruen_m2_je_ew].wert">6,8</span> m².</p>
+</section>
+
+<section id="p-granice">
+<h2>Ograniczenia</h2>
+<ul>
+<li>Odległość do najbliższej placówki nie mówi nic o miejscach, obwodach szkolnych ani godzinach otwarcia.</li>
+<li>Komórka 1 km z mieszkańcami w środku zawyża lub zaniża drogę tych, którzy mieszkają na skraju komórki.</li>
+<li>Klasy częstotliwości odnoszą się do jednego dnia roboczego i porannego szczytu.</li>
+<li>Dane o sieci dróg pieszych i lekarzach z OpenStreetMap są tak kompletne, jak mapa w dniu pobrania.</li>
+</ul>
+</section>
+
+<p class="odbl-vermerk"><small>Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Strona główna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/nota-prawna/">Nota prawna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/polityka-prywatnosci/">Polityka prywatności</a></p>
+  <p class="fuss-seite__stand">Stan <span data-kiez-version>—</span>. Wydawca: Stiebitz Souverain Systems UG (haftungsbeschränkt). Kod: Apache-2.0. Grafiki: CC BY 4.0. Dane: licencje według źródeł. <span class="fuss-seite__odbl">Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Widzisz błąd? Napisz do nas: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="daten/ort.js"></script>
+<script defer src="i18n.js"></script>
+<script defer src="texte/pl/kern.js"></script>
+<script defer src="texte/pl/seiten.js"></script>
+<script defer src="texte/pl/planer.js"></script>
+<script defer src="kopf.js"></script>
+<script defer src="rahmen.js"></script>
+</body>
+</html>

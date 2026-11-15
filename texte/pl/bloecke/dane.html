@@ -1,0 +1,54 @@
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/dane.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="d-pobierz">
+<h2>Pliki do pobrania</h2>
+<p>Wszystkie pliki powstają skryptem z tych samych plików danych, które wczytują strony; żadna wartość nie jest liczona od nowa. Powietrze i ceny mieszkań nie mają jeszcze własnej warstwy (CZYTAJ, sekcja „Czego nie ma w eksporcie”).</p>
+<ul class="quellen">
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: GeoPackage bez danych z OpenStreetMap (miasto, delegatury, siatka 1 km, pokrycie terenu, placówki z BDOT10k, przystanki, kompleksy BDOT10k, wykaz ZBK według dzielnic).</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a>: GeoPackage z granicami dzielnic i wszystkim, co od nich zależy, z drogą pieszą, lekarzami i aptekami, obiektami OSM ze znacznikiem <code>heritage</code> i punktami zasobu ZBK. Cały plik: Open Database License 1.0.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.qgz" download>kiezatlas_krakow.qgz</a>: projekt QGIS ze stylami; oba pliki GeoPackage muszą leżeć w tym samym katalogu.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: te same warstwy jako CSV, w dwóch wersjach.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/licencje.csv" download>licencje.csv</a>: licencja i dosłowna nota o źródle dla każdej warstwy.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/pola.csv" download>pola.csv</a> i <a class="link" href="{{wurzel}}daten/pobierz/wartosci.csv" download>wartosci.csv</a>: znaczenie każdego pola i każdej wartości kodowanej po polsku, angielsku i niemiecku.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/CZYTAJ.md">CZYTAJ.md</a>: opis warstw i pól, liczba wierszy, ograniczenia (także <a class="link" hreflang="en" href="{{wurzel}}daten/pobierz/README.md">po angielsku</a> i <a class="link" hreflang="de" href="{{wurzel}}daten/pobierz/LIESMICH.md">po niemiecku</a>).</li>
+</ul>
+<p><strong>Przecinek dziesiętny.</strong> Katalogi <code>csv_pl/</code> i <code>csv_odbl_pl/</code> w archiwum mają przecinek dziesiętny i nie mają separatora tysięcy, więc polski Excel i LibreOffice od razu czytają liczby jako liczby. Katalogi <code>csv/</code> i <code>csv_odbl/</code> mają kropkę dziesiętną (dla programów i ustawień angielskich). Wszystkie pliki: UTF-8 z BOM, separator średnik, współrzędne w układzie EPSG:2178.</p>
+</section>
+
+<section id="d-licencje">
+<h2>Licencje</h2>
+<ul class="quellen">
+<li><strong>Pliki z <code>_odbl</code> w nazwie</strong> (w atlasie i do pobrania) zawierają dane z OpenStreetMap albo wartości przypisane do dzielnic według granic z OpenStreetMap. Obowiązuje Open Database License 1.0 z notą „© OpenStreetMap contributors” (openstreetmap.org/copyright). Kto je zmienia i udostępnia, udostępnia na tej samej licencji.</li>
+<li><strong>BDOT10k, modele LoD2, rejestr cen nieruchomości</strong> (GUGiK): bez licencji, z obowiązkiem podania źródła (art. 40c ust. 3 i 5 ustawy Prawo geodezyjne i kartograficzne).</li>
+<li><strong>Siatka ludności Eurostatu, rozkład GTFS ZTP</strong>: CC BY 4.0, z notą o źródle i informacją o zmianach.</li>
+<li><strong>NSP 2021 (GUS)</strong>: kopiowanie dozwolone z podaniem źródła.</li>
+<li><strong>Wykaz ZBK</strong>: ponowne wykorzystywanie informacji sektora publicznego na warunkach Gminy Miejskiej Kraków, z notą i klauzulą odpowiedzialności.</li>
+<li><strong>Kod i własne teksty</strong>: Apache-2.0; grafiki atlasu: CC BY 4.0 z podpisem na grafice.</li>
+</ul>
+<p>Noty o źródłach podajemy niżej dosłownie, w języku oryginału.</p>
+</section>
+
+<section id="d-zrodla">
+<h2>Źródła danych</h2>
+<ul class="quellen">
+<li><strong>Ludność, NSP 2021:</strong> <span data-feld="steckbrief:quellen.nsp2021.quelle">Główny Urząd Statystyczny, Narodowy Spis Powszechny Ludności i Mieszkań 2021: „Ludność w rejonach statystycznych i obwodach spisowych według płci, ekonomicznych i 10-letnich grup wieku”</span>. Nota: „<span data-feld="steckbrief:quellen.nsp2021.vermerk">Główny Urząd Statystyczny: nie ma zastrzeżeń co do kopiowania plików i stron oraz dokonywania wydruków, w tym do własnych opracowań, pod warunkiem, że będzie podane ich źródło</span>”.</li>
+<li><strong>Siatka ludności:</strong> Eurostat, Census 2021 population grid, <span data-feld="steckbrief:quellen.eurostat2021.url">https://gisco-services.ec.europa.eu/census/2021/INSPIRE/Data/PL_PD_3035_GPKG.zip</span>. Nota: „<span data-feld="steckbrief:quellen.eurostat2021.vermerk">EU copyright rules apply, while the licence would be under CC-BY 4.0.</span>”</li>
+<li><strong>Budynki i granice delegatur:</strong> <span data-feld="gebaeude_kennzahlen:quellen.bdot10k.vermerk">Źródło: Baza Danych Obiektów Topograficznych (BDOT10k), państwowy zasób geodezyjny i kartograficzny, Główny Urząd Geodezji i Kartografii; dane opracowane (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne, Dz.U. 2026 poz. 1389)</span> <span data-feld="gebaeude_kennzahlen:quellen.delegatury.vermerk">Granice delegatur: państwowy rejestr granic (PRG) w BDOT10k, Główny Urząd Geodezji i Kartografii</span>.</li>
+<li><strong>Wysokości budynków:</strong> <span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></li>
+<li><strong>Placówki:</strong> <span data-feld="einrichtungen:quellen.bdot10k.vermerk">Źródło: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne)</span>.</li>
+<li><strong>Rozkład jazdy:</strong> <span data-feld="haltestellen:quellen.ztp.vermerk">ZTP Kraków, GTFS, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), dane zmienione (opracowanie własne)</span>.</li>
+<li><strong>OpenStreetMap:</strong> © OpenStreetMap contributors, ODbL 1.0 (openstreetmap.org/copyright); wyciąg dla województwa małopolskiego, stan na <span data-feld="stadtteile_odbl:stand">12 listopada 2026</span>.</li>
+<li><strong>Wykaz ZBK:</strong> <span data-feld="sanierung:quellen.zbk.vermerk">Źródło: Zarząd Budynków Komunalnych w Krakowie, „Wykaz budynków i obiektów w zarządzie ZBK na dzień 2025-12-01”, Biuletyn Informacji Publicznej (https://www.bip.krakow.pl/?bip_id=32&amp;mmi=10127), załącznik nr 635620 z dnia 2025-12-18; data wytworzenia: 2025-12-18 (plik PDF), data pozyskania: 2026-11-13. Informacja przetworzona: odczyt tabeli z PDF, ujednolicenie rodzaju budynku i własności, zliczenia; plik nie zawiera adresów.</span> Klauzula: „<span data-feld="sanierung:quellen.zbk.odpowiedzialnosc">Gmina Miejska Kraków nie ponosi odpowiedzialności za: szkody spowodowane pozyskaniem informacji sektora publicznego lub ponownym wykorzystywaniem informacji sektora publicznego, zamieszczonej na stronach BIP MK lub w innym miejskim serwisie internetowym, udostępnianej na wniosek lub pozyskanej w inny sposób, wykorzystywanej ponownie z naruszeniem warunków udostępniania lub ponownego wykorzystywania informacji sektora publicznego; szkody spowodowane przez dalsze udostępnienie informacji sektora publicznego przez podmioty ponownie ją wykorzystujące z naruszeniem przepisów prawa powszechnie obowiązującego, w tym dalsze udostępnianie informacji sektora publicznego z naruszeniem przepisów regulujących ich ochronę m.in. przepisów ustawy o prawie autorskim i prawach pokrewnych, ustawy o ochronie baz danych, przepisów o ochronie danych osobowych, ustawy o ochronie informacji niejawnych itd.</span>”</li>
+<li><strong>Podkład mapowy:</strong> BDOT10k, Główny Urząd Geodezji i Kartografii; <span data-feld="grundkarte:stand">BDOT10k 1261 (Miasto Kraków), pliki z 2026-10-03</span>.</li>
+<li><strong>Normy szkolne:</strong> <span data-feld="planer_odbl:quellen.prawo_oswiatowe.vermerk">Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)</span>.</li>
+<li><strong>Normy jakości powietrza:</strong> <span data-feld="powietrze:grenzwerte.pm10_srednia.0.fundstelle">Dz.U. 2021 poz. 845, załącznik nr 1, lp. 7</span>. Uchwała antysmogowa: <span data-feld="powietrze:kontekst.akt">Uchwała Nr XVIII/243/16 Sejmiku Województwa Małopolskiego z dnia 15 stycznia 2016 roku w sprawie wprowadzenia na obszarze Gminy Miejskiej Kraków ograniczeń w zakresie eksploatacji instalacji, w których następuje spalanie paliw</span>. Pomiary: <span data-feld="powietrze:quelle.nazwa">EEA, Air Quality e-Reporting: Air quality annual statistics calculated by the EEA</span>, nota „EEA; dane: GIOŚ”.</li>
+<li><strong>Ceny mieszkań</strong>: <span data-feld="mieszkania_odbl:quelle.vermerk">Rejestr cen nieruchomości, Prezydent Miasta Krakowa (powiat 1261); dane udostępnione przez Główny Urząd Geodezji i Kartografii w serwisie www.geoportal.gov.pl; opracowanie własne (mediany, bez danych jednostkowych)</span>.</li>
+</ul>
+</section>
+
+<section id="d-cytuj">
+<h2>Jak cytować</h2>
+<p><span data-feld="ort:zitierzeile.pl">Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow</span>, stan danych podany w stopce strony. Dla danych do pobrania dodatkowo nazwa pliku i noty o źródłach z <code>licencje.csv</code>. Dane do cytowania w formacie maszynowym są w pliku <code>CITATION.cff</code> w <a class="link" href="https://github.com/andremadstop/kiezatlas-krakow">repozytorium</a>; trwały identyfikator DOI nie został jeszcze nadany.</p>
+<p>Błąd w danych lub tekście? Prosimy o wiadomość: <a class="link" href="mailto:{{meldeweg}}">{{meldeweg}}</a>.</p>
+</section>
+
+<p class="odbl-vermerk"><small>Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>

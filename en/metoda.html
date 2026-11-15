@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology and limitations · Kiezatlas Kraków</title>
+<meta name="description" content="How the atlas computes every topic, what it does not show and what has not been checked yet.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/metoda.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/metoda.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/metoda.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/metoda.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/metoda.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Methodology and limitations · Kiezatlas Kraków">
+<meta property="og:description" content="How the atlas computes every topic, what it does not show and what has not been checked yet.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+</head>
+<body class="textseite" data-seite="metoda">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html" aria-current="page"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../metoda.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/metoda.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/metoda.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Methodology and limitations">
+    <ul>
+      <li><a class="nav" href="metoda.html" aria-current="page"><span>Method</span></a></li>
+      <li><a class="nav" href="dane.html"><span>Data</span></a></li>
+      <li><a class="nav" href="porownanie.html"><span>Kraków and Potsdam</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../metoda.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/metoda.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Methodology and limitations</h1>
+<p class="lede">How the atlas computes every topic, what it does not show and what has not been checked yet.</p>
+<div class="mit-spis">
+<nav class="spis" aria-labelledby="spis-titel">
+<p class="spis__titel" id="spis-titel">Contents</p>
+<ol class="spis__liste">
+  <li><a class="link" href="#m-zasady">Principles</a></li>
+  <li><a class="link" href="#m-podzial">Districts and population</a></li>
+  <li><a class="link" href="#m-budynki">Buildings and 3D</a></li>
+  <li><a class="link" href="#m-dostepnosc">Access and service frequency</a></li>
+  <li><a class="link" href="#m-klimat">Climate: built-up land and green space</a></li>
+  <li><a class="link" href="#m-powietrze">Air quality</a></li>
+  <li><a class="link" href="#m-mieszkania">Housing market</a></li>
+  <li><a class="link" href="#m-punktualnosc">Public transport punctuality</a></li>
+  <li><a class="link" href="#m-zabytki">Monuments, kamienice and the ZBK stock</a></li>
+  <li><a class="link" href="#m-mapa">Base map</a></li>
+  <li><a class="link" href="#m-ograniczenia">Limitations</a></li>
+  <li><a class="link" href="#m-niesprawdzone">What has not been checked</a></li>
+</ol>
+</nav>
+<div class="mit-spis__text">
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/metoda.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="m-zasady">
+<h2>Principles</h2>
+<p>The atlas uses only open public data. Every figure shows its source, and the <a class="link" href="https://github.com/andremadstop/kiezatlas-krakow">repository</a> holds the script that computes it and a verification record with the counts (<code>belege/README.md</code>). The checks (<code>pruefen.sh</code>) run without a network and without a database, so with the code anyone can verify every figure.</p>
+<ul>
+<li>A value that cannot be computed reliably stays empty (<em>no data</em>) with the reason, instead of a zero.</li>
+<li>The label <em>official standard</em> (standard urzędowy) appears only where the calculation follows the regulation; otherwise a value is a <em>guide value</em>.</li>
+<li>Sample data (invented, only for building the pages) is clearly marked on every page that uses it.</li>
+<li>Distances and areas are computed in EPSG:2178.</li>
+</ul>
+</section>
+
+<section id="m-podzial">
+<h2>Districts and population</h2>
+<p>The boundaries of all districts (dzielnice, <span data-feld="stadtteile_odbl:features">18</span>) come from OpenStreetMap (as of <span data-feld="stadtteile_odbl:stand">12 November 2026</span>). The boundaries on the city portal MSIP are described as open data, but the portal's terms allow only non-commercial use without redistribution; faced with this contradiction the atlas follows the narrower reading and uses the MSIP boundaries only internally to check the geometry. All values assigned to districts by these boundaries are therefore published under the ODbL 1.0.</p>
+<p>The city's population comes from the Narodowy Spis Powszechny Ludności i Mieszkań 2021 (NSP 2021, national census): residents <span data-feld="steckbrief:stadt.nsp.einwohner">800,653</span>, statistical areas (rejony statystyczne) <span data-feld="steckbrief:stadt.nsp.rejony">748</span>. The boundaries of the statistical areas from the census have not been obtained yet, so census values are given only for the city and the four delegatury (historic districts) and stay empty for the dzielnice.</p>
+<p>For the districts and the map the atlas uses Eurostat's population grid from census 2021 (1 km cells). Cells within the city: <span data-feld="steckbrief:stadt.gitter.zellen">327</span>, residents in them: <span data-feld="steckbrief:stadt.gitter.einwohner">793,392</span>, difference from the census: <span data-feld="steckbrief:stadt.gitter.abweichung_nsp_proz">-0.91%</span>. A cell belongs to the district that contains its centre. Age shares are given only from <span data-feld="steckbrief:methode.mindestfallzahl">100</span> people per cell or area. For comparison we also split cells by area share; the range between both rules shows the blur at the boundaries and is not an error margin.</p>
+<p>The assignment of the dzielnice to the four delegatury was checked by area: each district lies almost entirely in the delegatura of its group according to BDOT10k. III Prądnik Czerwony (<span data-feld="steckbrief_dzielnice_odbl:zuordnung.ausnahmen.03.anteil_proz">98.53%</span>) and XV Mistrzejowice (<span data-feld="steckbrief_dzielnice_odbl:zuordnung.ausnahmen.15.anteil_proz">98.64%</span>) fall slightly short of the threshold of <span data-feld="steckbrief_dzielnice_odbl:zuordnung.schwelle_proz">99%</span>; their remainder is a narrow strip where the delegatura and district boundaries meet, as the check against the city's boundaries confirms, so both count as assigned.</p>
+</section>
+
+<section id="m-budynki">
+<h2>Buildings and 3D</h2>
+<p>Buildings come from the BDOT10k database (powiat 1261); buildings: <span data-feld="gebaeude_kennzahlen:stadt.anzahl">90,563</span>, of which residential: <span data-feld="gebaeude_kennzahlen:stadt.wohngebaeude">61,199</span>. Each building goes to exactly one area via a point inside its footprint, not via the centroid, which can lie outside the building. Duplicate notes (<span data-feld="gebaeude_kennzahlen:kontrolle.duplikat_vermerk">466</span>) are counted, not removed, because the open data does not say which version is right. Area indicators are given from <span data-feld="gebaeude_kennzahlen:methode.mindestfallzahl">30</span> buildings.</p>
+<p>A 3D view of the buildings is available on request on the pages Tenements, Access and Retrofit (button “3D buildings”). Building heights come from the GUGiK LoD2 models; without a model, we use storeys × <span data-feld="gebaeude_kennzahlen:methode.geschoss_hoehe_m">3</span> m and label the height as estimated. The origin of the height is shown for every building. Source notice: <span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk" lang="pl">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></p>
+</section>
+
+<section id="m-dostepnosc">
+<h2>Access and service frequency</h2>
+<p>For each 1 km cell we compute the distance from its centre to the nearest facility of each kind, once as a straight line and once as a walking route along the OpenStreetMap path network. Stops get a frequency class from the ZTP timetable. Details, thresholds and results: <a class="link" href="planer-metoda.html">planner methodology</a>.</p>
+</section>
+
+<section id="m-klimat">
+<h2>Climate: built-up land and green space</h2>
+<p>Land cover comes from the BDOT10k classes. The share of built-up and transport land serves as an approximation of soil sealing; it is not a measurement and is always labelled <em>guide value</em>. The error tends upwards (part of the built-up land is vegetated); its size has not been measured. Across the city, built-up and transport land cover <span data-feld="klimat:stadt.anteil.bebauung_verkehr">37.2%</span> of the area, green space and forest <span data-feld="klimat:stadt.anteil.gruen_wald">47.2%</span>.</p>
+<p>Arable land is a class of its own and does not count as green space; allotment gardens do. Green space per resident is given only for areas with at least <span data-feld="klimat:mindest_einwohner">1,000</span> residents, never for a single cell; for the city it is <span data-feld="klimat:stadt.gruen_je_ew">194</span> m² per person. The urban heat island is named only as a limit: there is no land surface temperature with a clearly open licence yet.</p>
+</section>
+
+<section id="m-powietrze">
+<h2>Air quality</h2>
+<p>The air page shows the EEA annual statistics from GIOŚ measurements (<span data-feld="powietrze:quelle.nazwa">EEA, Air Quality e-Reporting: Air quality annual statistics calculated by the EEA</span>), downloaded by hand and labelled <em>guide value</em>, because the annual values are computed by the EEA, not by GIOŚ. The export is filtered to the city of Kraków; stations in the surrounding area are therefore still missing, and no comparison with the surrounding area is possible. Added to this are the limit values from the regulation (<span data-feld="powietrze:grenzwerte.pm10_srednia.0.fundstelle" lang="pl">Dz.U. 2021 poz. 845, załącznik nr 1, lp. 7</span>: annual mean PM10 <span data-feld="powietrze:grenzwerte.pm10_srednia.0.wartosc">40</span> µg/m³) and the quotation of the anti-smog resolution, in force since <span data-feld="powietrze:kontekst.wejscie_w_zycie">1 September 2019</span>.</p>
+</section>
+
+<section id="m-mieszkania">
+<h2>Housing market</h2>
+<p>The housing price page shows, from the Rejestr cen nieruchomości (register of property prices, downloaded by hand from GUGiK), only the median price per m² by district, year and market, from <span data-feld="mieszkania_odbl:regeln.mindestfallzahl">10</span> transactions, with the number of transactions; no minimum, maximum or single transactions, because a single purchase can be linked to a person. In its early years the file almost nowhere carries the share in the right, and for several years after that most sales have no location; the time series is therefore reliable only in the more recent years, and values per district later still. The years are listed under the limits on the housing market page.</p>
+</section>
+
+<section id="m-punktualnosc">
+<h2>Public transport punctuality</h2>
+<p>The punctuality page does not contain <strong>any values</strong> yet. The planned source is the ZTP real-time feed (GTFS-RT), recorded over a longer period. The licence of this feed and the length of the recording have not been checked yet; without that, the page will be removed. The timetable (GTFS) is used today only for the frequency classes of stops, not for punctuality.</p>
+</section>
+
+<section id="m-zabytki">
+<h2>Monuments, kamienice and the ZBK stock</h2>
+<p>Tenement houses (kamienice) and monuments are a subset in the atlas, not a census: no construction years for whole areas, only construction period classes where a source gives them. The atlas of the municipal building stock is based on the building list of the Zarząd Budynków Komunalnych (ZBK) and an estimated block typology. Details: <a class="link" href="kamienice-metoda.html">kamienice methodology</a>.</p>
+</section>
+
+<section id="m-mapa">
+<h2>Base map</h2>
+<p>The base map consists of our own vector tiles from BDOT10k, without OpenStreetMap, set in Noto Sans; the tiles sit next to the pages. Opening the atlas loads no external service. Notice: <span data-feld="grundkarte:stand">BDOT10k 1261 (Miasto Kraków), pliki z 2026-10-03</span>.</p>
+</section>
+
+<section id="m-ograniczenia">
+<h2>Limitations</h2>
+<ul>
+<li><strong>No construction years.</strong> The population grid has no year of construction, and the year of construction in the land and building register is paid for. The atlas therefore shows no building age for areas; construction periods appear only for objects whose source gives them.</li>
+<li><strong>No heating data.</strong> The central register of building emissions (CEEB) is not open; there is no page on heating.</li>
+<li><strong>Population on a 1 km grid.</strong> The map and the district values rest on 1 km cells assigned by their centre; at district boundaries this is an approximation, and census values for the districts wait for the boundaries of the statistical areas.</li>
+<li><strong>The block typology is an estimate.</strong> The criteria (storeys, footprint, rectangularity, neighbours) were fixed in advance; on the orthophoto a random sample confirms <span data-feld="sanierung:typologie.sichtpruefung.osiedle.ja">21</span> of <span data-feld="sanierung:typologie.sichtpruefung.osiedle.n">30</span> candidates in large estates as residential blocks (<span data-feld="sanierung:typologie.sichtpruefung.osiedle.quote">81%</span> of the decided cases, unclear <span data-feld="sanierung:typologie.sichtpruefung.osiedle.unklar">4</span>); the construction method was not checked. These are candidates, not a register of prefabricated buildings, and they imply no construction year and no energy use.</li>
+<li>The district boundaries come from OpenStreetMap, not from the city administration.</li>
+<li>The location of OpenStreetMap objects with a heritage tag has been checked on the orthophoto only for a random sample (n = <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.n">20</span>: <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.quote">80%</span> on the object), not for every point; the assignment to a building has not been checked.</li>
+<li>The register of monuments comes only from Wikidata so far (a subset, location checked only on a sample: <span data-feld="denkmale:sichtpruefung.ergebnis.lage.quote">85%</span> on the object); the NID register and the gminna ewidencja zabytków are missing; air quality stations in the surrounding area are missing from the EEA export.</li>
+<li>Schools come from BDOT10k without pupil numbers and without school types; the RSPO school register is not included yet.</li>
+</ul>
+</section>
+
+<section id="m-niesprawdzone">
+<h2>What has not been checked</h2>
+<p>The Polish and English texts have not yet been read by native speakers; technical terms are proposals. Not checked: the census reference date at the official source, the assignment of districts to delegatury against an official city list, and, by legal review, the licence consequences of the OSM boundaries, the LoD2 models and the EEA data, or the data protection limit for housing prices and the ZBK list. Full list (in German): <code>docs/entscheidungen.md</code> in the <a class="link" href="https://github.com/andremadstop/kiezatlas-krakow">repository</a>.</p>
+<p>The data was collected, computed and checked by AI agents (Claude); André Stiebitz made the decisions. Every decision with its reasons and rejected options is in <code>docs/entscheidungen.md</code>, the path from raw data to page in <code>docs/rundgang.md</code> (both in German; a Polish and English version of the decision list does not exist yet).</p>
+</section>
+
+<p class="odbl-vermerk"><small>District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</div>
+</div>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+</body>
+</html>

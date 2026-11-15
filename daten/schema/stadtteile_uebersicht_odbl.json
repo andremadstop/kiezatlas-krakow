@@ -1,0 +1,84 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Stadtteile (dzielnice), vereinfachte Grenzen für die Übersicht der Startseite (aus OpenStreetMap)",
+ "description": "Dieselben 18 dzielnice wie daten/stadtteile_odbl.js mit unveränderten Eigenschaften, die Geometrie gemeinsam vereinfacht (shapely.coverage_simplify, Abdeckung ohne Lücken und Überlappungen), damit die Startseite leichter lädt (KR39). Nur zur Darstellung; gerechnet wird mit den genauen Grenzen. Erzeugt von skripte/02a_stadtteile_uebersicht.py, Regeln pruefen/N1_protokoll.md (Regel 5). ODbL 1.0 wie die Quelle.",
+ "x-datei": "stadtteile_uebersicht_odbl.js",
+ "x-global": "^KIEZ_STADTTEILE$",
+ "x-odbl": true,
+ "type": "object",
+ "required": [
+  "type",
+  "features",
+  "vereinfachung"
+ ],
+ "properties": {
+  "type": {
+   "const": "FeatureCollection"
+  },
+  "features": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "geometry",
+     "properties"
+    ],
+    "properties": {
+     "properties": {
+      "type": "object",
+      "required": [
+       "nr",
+       "name",
+       "flaeche_km2",
+       "bezirk",
+       "lx",
+       "ly"
+      ]
+     }
+    }
+   }
+  },
+  "fixture": {
+   "type": "boolean"
+  },
+  "hinweis": {
+   "type": "string"
+  },
+  "vereinfachung": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "verfahren",
+    "toleranz_m",
+    "srid",
+    "stellen",
+    "quelle",
+    "quelle_sha256"
+   ],
+   "properties": {
+    "verfahren": {
+     "const": "coverage_simplify"
+    },
+    "toleranz_m": {
+     "type": "number",
+     "exclusiveMinimum": 0
+    },
+    "srid": {
+     "type": "integer"
+    },
+    "stellen": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "quelle": {
+     "const": "stadtteile_odbl.js"
+    },
+    "quelle_sha256": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{64}$"
+    }
+   }
+  }
+ }
+}

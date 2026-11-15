@@ -1,0 +1,21 @@
+Gegenprobe Potsdam: stand-2026-11-07b-4-g7b6eb08 gegen 8dd5a1b
+Wegwerf-Ordner: <Wegwerf-Ordner>/kiezatlas-gegenprobe.3JbeyL
+<Wegwerf-Ordner>/kiezatlas-gegenprobe.3JbeyL/umgebaut/daten/ort.js  3633 Byte
+Anpassung: Skriptzeile in 7 Seiten, in_potsdam → in_stadt in 10 Dateien und 2 GeoPackage-Tabellen
+Vergleich Potsdam (basis) gegen umgebauten Code
+  ok    A6_test_pfade: Rückgabe 0, 56 × ok, 0 × FEHLT, wie Potsdam
+  ok    A8_test_pfade: Rückgabe 1, 19 × ok, 21 × FEHLT, wie Potsdam
+  ok    seiten: Rückgabe 0, 120 × ok, 0 × FEHLT, wie Potsdam
+  FEHLT A7_planer: Potsdam Rückgabe 0 / 121 × ok, umgebaut Rückgabe 1 / 119 × ok
+        <   ok   Startgewicht 320 KB gz JS mit echten Daten (Grenze 320)
+        >   FEHLT Startgewicht 323 KB gz JS mit echten Daten (Grenze 320)
+        <   ok   Startgewicht 305 KB gz JS (Grenze 320); geladen: basis/kopf.js, daten/stadtteile.js, daten/planungsraeume.js, vendor/maplibre-gl.js, daten/grundkarte.js, basis/themen.js, basis/planer.js, fixtures/einrichtungen.js
+        >   ok   Startgewicht 308 KB gz JS (Grenze 320); geladen: daten/ort.js, umgebaut/i18n.js, de/kern.js, umgebaut/kopf.js, daten/stadtteile.js, daten/planungsraeume.js, vendor/maplibre-gl.js, daten/grundkarte.js, umgebaut/themen.js, umgebaut/planer.js, fixtures/einrichtungen.js
+        <   ok   Startgewicht 320 KB gz JS mit echten Daten (Grenze 320)
+        >   FEHLT Startgewicht 323 KB gz JS mit echten Daten (Grenze 320)
+        <   ok   Startgewicht 305 KB gz JS (Grenze 320); geladen: 127.0.0.1:46123/kopf.js, daten/stadtteile.js, daten/planungsraeume.js, vendor/maplibre-gl.js, daten/grundkarte.js, 127.0.0.1:46123/themen.js, 127.0.0.1:46123/planer.js, fixtures/einrichtungen.js
+        >   ok   Startgewicht 308 KB gz JS (Grenze 320); geladen: daten/ort.js, 127.0.0.1:33479/i18n.js, de/kern.js, 127.0.0.1:33479/kopf.js, daten/stadtteile.js, daten/planungsraeume.js, vendor/maplibre-gl.js, daten/grundkarte.js, 127.0.0.1:33479/themen.js, 127.0.0.1:33479/planer.js, fixtures/einrichtungen.js
+  ok    B5_jahre: Rückgabe 0, 251 × ok, 0 × FEHLT, wie Potsdam
+  ok    Textabzug: 9 Seiten, sichtbarer Text gleich (89664 Byte)
+
+1 Abweichung(en); Logs unter <Wegwerf-Ordner>/kiezatlas-gegenprobe.3JbeyL (mit GEGENPROBE_BEHALTEN=1 aufheben)

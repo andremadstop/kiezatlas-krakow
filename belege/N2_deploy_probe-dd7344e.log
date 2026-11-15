@@ -1,0 +1,105 @@
+# Deploy-Probelauf, Paket Oberfläche und Auslieferung, Commit dd7344e, 14.11.2026
+# Ziel: Wegwerf-Ordner (<probe>), nichts hochgeladen. esbuild aus node_modules (npm ci --offline --ignore-scripts).
+# --mit-beispieldaten, weil powietrze, mieszkania und denkmale noch Beispieldaten sind (Kopie nur zur Probe).
+$ python -I skripte/deploy_kopie.py --deploy-wurzel <probe> --mit-beispieldaten
+203 Dateien (54 Seiten in pl, en, de), 7.4 MB nach <probe>/kiezatlas-deploy/krakow/2026-11-14
+  KIEZ_V=1794624302, Stand 2026-11-14 (dd7344e), Verweise der 404-Seiten ab /kiezatlas/krakow/
+  verkleinert mit esbuild 0.25.12: 55 Dateien, 702886 → 539115 Byte, gzip -9 232606 → 189385 Byte
+  Grundkarte aus ../kiezatlas-daten/krakow/abgeleitet/grundkarte/68b6ff47ed37: 397 Dateien, 6959078 Byte nach daten/grundkarte/ (MANIFEST.sha256 geprüft)
+  Gebäude 3D aus ../kiezatlas-daten/krakow/abgeleitet/gebaeude/2026-11-13-odbl: 18 Dateien, 32484980 Byte nach daten/gebaeude/ (Manifest geprüft)
+  ACHTUNG Beispieldaten, nicht hochladen: daten/denkmale.js, daten/mieszkania.js, daten/powietrze.js
+  MD5SUMS geschrieben. Upload und Abnahme: docs/auslieferung.md
+
+$ node skripte/deploy_pruefen.mjs --kopie <probe>/kiezatlas-deploy/krakow/2026-11-14
+Deploy-Kopie <probe>/kiezatlas-deploy/krakow/2026-11-14
+  Pfad live: /kiezatlas/krakow/, Sprachen pl, en, de
+
+Ort und Dateien
+  ok   Kopie liegt unter kiezatlas-deploy/krakow/ (kiezatlas-deploy/krakow/2026-11-14)
+  ok   keine Verknüpfungen in der Kopie (0)
+  ok   MD5SUMS: 618 Einträge, ohne Eintrag 0, fehlend 0, abweichend 0 
+  ok   alle Pfade in MD5SUMS relativ und ohne ..
+  ok   55 JavaScript-Dateien des eigenen Codes sind genau esbuild 0.25.12(Quelle in ../kiezatlas-krakow-wt-n2) 
+
+Seiten (statisch)
+  ok   54 Seiten (18 je Sprache) vorhanden 
+  ok   KIEZ_V in jeder Seite, überall derselbe Wert (1794624302) 
+  ok   Stand (Datum und Version) im Seitenfuß jeder Seite 
+  ok   ?v= an jedem lokalen Verweis auf eine Datei 
+  ok   kein lokaler Verweis ins Leere 
+  ok   404-Seiten verweisen nur ab der Domain (/kiezatlas/krakow/…) 
+
+Im Browser (Server auf 127.0.0.1, Pfad wie live)
+  ok   index.html: 35 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 303538, live 303538
+  ok   karta.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 304251, live 304251
+  ok   dzielnica.html: 42 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 316412, live 316412
+  ok   porownanie.html: 17 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 15545, live 15545
+  ok   kamienice.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 312495, live 312495
+  ok   kamienice-metoda.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7809, live 7809
+  ok   kamienice-dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7809, live 7809
+  ok   planer.html: 26 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 291939, live 291939
+  ok   planer-metoda.html: 14 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 14710, live 14710
+  ok   planer-dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7809, live 7809
+  ok   modernizacja.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 305479, live 305479
+  ok   klimat.html: 32 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 315673, live 315673
+  ok   powietrze.html: 18 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 19732, live 19732
+  ok   mieszkania.html: 18 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 17046, live 17046
+  ok   punktualnosc.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7809, live 7809
+  ok   metoda.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7809, live 7809
+  ok   dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7809, live 7809
+  ok   404.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7809, live 7809
+  ok   en/index.html: 35 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 302811, live 302811
+  ok   en/karta.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 303524, live 303524
+  ok   en/dzielnica.html: 42 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 315991, live 315991
+  ok   en/porownanie.html: 17 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 15124, live 15124
+  ok   en/kamienice.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 311723, live 311723
+  ok   en/kamienice-metoda.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7586, live 7586
+  ok   en/kamienice-dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7586, live 7586
+  ok   en/planer.html: 26 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 291227, live 291227
+  ok   en/planer-metoda.html: 14 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 13998, live 13998
+  ok   en/planer-dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7586, live 7586
+  ok   en/modernizacja.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 304617, live 304617
+  ok   en/klimat.html: 32 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 315136, live 315136
+  ok   en/powietrze.html: 18 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 19426, live 19426
+  ok   en/mieszkania.html: 18 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 16760, live 16760
+  ok   en/punktualnosc.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7586, live 7586
+  ok   en/metoda.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7586, live 7586
+  ok   en/dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7586, live 7586
+  ok   en/404.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7586, live 7586
+  ok   de/index.html: 35 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 302910, live 302910
+  ok   de/karta.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 303623, live 303623
+  ok   de/dzielnica.html: 42 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 316138, live 316138
+  ok   de/porownanie.html: 17 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 15271, live 15271
+  ok   de/kamienice.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 311818, live 311818
+  ok   de/kamienice-metoda.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7604, live 7604
+  ok   de/kamienice-dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7604, live 7604
+  ok   de/planer.html: 26 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 291268, live 291268
+  ok   de/planer-metoda.html: 14 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 14039, live 14039
+  ok   de/planer-dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7604, live 7604
+  ok   de/modernizacja.html: 30 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 304790, live 304790
+  ok   de/klimat.html: 32 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 315341, live 315341
+  ok   de/powietrze.html: 18 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 19546, live 19546
+  ok   de/mieszkania.html: 18 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 16850, live 16850
+  ok   de/punktualnosc.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7604, live 7604
+  ok   de/metoda.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7604, live 7604
+  ok   de/dane.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7604, live 7604
+  ok   de/404.html: 13 eigene Abrufe, nicht 200: 0, ohne ?v: 0, KIEZ_V 1794624302, Fehler 0; JS gz9 7604, live 7604
+
+Fehladressen (404-Seite der Sprache, vollständig geladen)
+  ok   /kiezatlas/krakow/gibt-es-nicht.html: Status 404, lang=pl, Stylesheets 2, Dateien nicht 200: 0, Fehler 0
+  ok   /kiezatlas/krakow/a/b/c/gibt-es-nicht: Status 404, lang=pl, Stylesheets 2, Dateien nicht 200: 0, Fehler 0
+  ok   /kiezatlas/krakow/en/gibt-es-nicht.html: Status 404, lang=en, Stylesheets 2, Dateien nicht 200: 0, Fehler 0
+  ok   /kiezatlas/krakow/en/x/y/z: Status 404, lang=en, Stylesheets 2, Dateien nicht 200: 0, Fehler 0
+  ok   /kiezatlas/krakow/de/gibt-es-nicht.html: Status 404, lang=de, Stylesheets 2, Dateien nicht 200: 0, Fehler 0
+  ok   /kiezatlas/krakow/de/x/y/z: Status 404, lang=de, Stylesheets 2, Dateien nicht 200: 0, Fehler 0
+
+Startgewicht (JavaScript bis zur Ruhe; gz9 = gzip -9 je Datei, live = Stufe 9 ab 1024 Byte, heute = Stufe 6)
+  ok   [pl] planer.html: gz9 291939 Byte (285.1 KB), live 291939 Byte (285.1 KB), heute 296503 Byte (289.6 KB) (Grenze 320 KB); i18n.js, daten/ort.js, texte/pl/kern.js, texte/pl/seiten.js, texte/pl/planer.js, kopf.js, daten/grundkarte.js, themen.js, kartenseite.js, daten/stadtteile_odbl.js, erreichbarkeit.js, rahmen.js, vendor/maplibre-gl.js
+  FEHLT [pl] index.html: alles, was die Seite lädt, live 569282 Byte (555.9 KB) (Grenze Startseite 300 KB), davon JS gz9 303538 Byte (296.4 KB)
+  ok   [en] planer.html: gz9 291227 Byte (284.4 KB), live 291227 Byte (284.4 KB), heute 295739 Byte (288.8 KB) (Grenze 320 KB); daten/ort.js, texte/en/kern.js, i18n.js, texte/en/seiten.js, texte/en/planer.js, kopf.js, rahmen.js, daten/grundkarte.js, kartenseite.js, themen.js, erreichbarkeit.js, daten/stadtteile_odbl.js, vendor/maplibre-gl.js
+  FEHLT [en] index.html: alles, was die Seite lädt, live 568536 Byte (555.2 KB) (Grenze Startseite 300 KB), davon JS gz9 302811 Byte (295.7 KB)
+  ok   [de] planer.html: gz9 291268 Byte (284.4 KB), live 291268 Byte (284.4 KB), heute 295831 Byte (288.9 KB) (Grenze 320 KB); i18n.js, daten/ort.js, texte/de/kern.js, texte/de/seiten.js, texte/de/planer.js, kopf.js, rahmen.js, daten/stadtteile_odbl.js, daten/grundkarte.js, themen.js, kartenseite.js, erreichbarkeit.js, vendor/maplibre-gl.js
+  FEHLT [de] index.html: alles, was die Seite lädt, live 568642 Byte (555.3 KB) (Grenze Startseite 300 KB), davon JS gz9 302910 Byte (295.8 KB)
+
+3 Befund(e)
+Rückgabe 1

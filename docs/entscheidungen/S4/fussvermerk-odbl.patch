@@ -1,0 +1,19 @@
+--- a/skripte/30_seiten.py	2026-11-14 01:50:30.677350132 +0100
++++ b/skripte/30_seiten.py	2026-11-14 01:50:30.699343480 +0100
+@@ -225,11 +225,13 @@
+             "sprachhinweis": " ".join(hinweis), "skripte": "\n".join(skripte) + "\n",
+             "herausgeber": html.escape(self.k["herausgeber"]), "meldeweg": html.escape(self.k["meldeweg"]),
+         }
+-        # Lädt die Seite eine _odbl-Datei (Werte auf OSM-Grenzen, ODbL), steht der Vermerk sichtbar im Fuß
++        werte["inhalt"] = self.ersetzen(inhalt.strip(), lang, werte)
++        # Lädt die Seite eine _odbl-Datei oder zeigt ein Block einen beim Bauen eingesetzten Wert aus einer
++        # (data-feld="…_odbl:…", skripte/16_bloecke_krakow.py), steht der Vermerk sichtbar im Fuß (Werte auf OSM-Grenzen, ODbL)
+         werte["odbl"] = (f' <span class="fuss-seite__odbl">{self.t(lang, "kern.odbl")} <a class="link" '
+                          f'href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span>'
+-                         if any("_odbl" in d for d in kopf["daten"]) else "")
+-        werte["inhalt"] = self.ersetzen(inhalt.strip(), lang, werte)
++                         if any("_odbl" in d for d in kopf["daten"])
++                         or re.search(r'data-feld="[a-z0-9_]*_odbl:', werte["inhalt"]) else "")
+         text = self.ersetzen(self.rahmen, lang, werte)
+         if "{{" in text:
+             raise Fehler(f"{seite} ({lang}): Platzhalter übrig")

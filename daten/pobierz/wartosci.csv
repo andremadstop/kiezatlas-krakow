@@ -1,0 +1,79 @@
+﻿warstwa;pole;wartosc;opis_pl;opis_en;opis_de
+miasto;flaeche_quelle;bdot10k;granica z BDOT10k (PRG);boundary from BDOT10k (PRG);Grenze aus BDOT10k (PRG)
+miasto;nsp_weg;tabelle;tabela GUS dla całej jednostki;GUS table for the whole unit;GUS-Tabelle für die ganze Einheit
+miasto;geb_bebauungsdichte_anzeige;anteil;pokazywane jako udział w %;shown as a share in %;als Anteil in % gezeigt
+miasto;geb_geschossflaeche_naeherung_abzeichen;orientacyjnie;orientacyjnie;for orientation;Orientierung
+delegatury;flaeche_quelle;bdot10k;granica z BDOT10k (PRG);boundary from BDOT10k (PRG);Grenze aus BDOT10k (PRG)
+delegatury;nsp_weg;tabelle;tabela GUS dla całej jednostki;GUS table for the whole unit;GUS-Tabelle für die ganze Einheit
+delegatury;geb_bebauungsdichte_anzeige;anteil;pokazywane jako udział w %;shown as a share in %;als Anteil in % gezeigt
+delegatury;geb_geschossflaeche_naeherung_abzeichen;orientacyjnie;orientacyjnie;for orientation;Orientierung
+siatka_1km_pokrycie;anteil_grund;bezugsflaeche_zu_klein;powierzchnia odniesienia za mała;reference area too small;Bezugsfläche zu klein
+placowki_bdot;art;park;park lub skwer (BDOT10k);park or square (BDOT10k);Park oder Grünanlage (BDOT10k, park lub skwer)
+placowki_bdot;art;przedszkole;przedszkole;kindergarten (przedszkole);Kindergarten (przedszkole)
+placowki_bdot;art;szkola;szkoła dowolnego typu (BDOT10k nie rozróżnia typów);school of any type (BDOT10k does not distinguish);Schule jeder Art (BDOT10k trennt nicht)
+placowki_bdot;art;szpital;szpital;hospital (szpital);Krankenhaus (szpital)
+placowki_bdot;art;zlobek;żłobek;nursery (żłobek);Krippe (żłobek)
+placowki_bdot;q;bdot10k;BDOT10k (GUGiK);BDOT10k (GUGiK);BDOT10k (GUGiK)
+placowki_bdot;status;lage_ohne_kapazitaet;tylko położenie, bez liczby miejsc i uczniów;location only, no places or pupils;nur Lage, ohne Plätze und Schüler
+przystanki;verkehrsmittel;bus;autobus;bus;Bus
+przystanki;verkehrsmittel;bus+tram;autobus i tramwaj;bus and tram;Bus und Straßenbahn
+przystanki;verkehrsmittel;tram;tramwaj;tram;Straßenbahn
+przystanki;taktklasse;I;odjazdy na godzinę w kierunku: co najmniej 6;departures per hour and direction: at least 6;Abfahrten je Stunde und Richtung: mindestens 6
+przystanki;taktklasse;II;odjazdy na godzinę w kierunku: co najmniej 2;departures per hour and direction: at least 2;Abfahrten je Stunde und Richtung: mindestens 2
+przystanki;taktklasse;III;odjazdy na godzinę w kierunku: co najmniej 1;departures per hour and direction: at least 1;Abfahrten je Stunde und Richtung: mindestens 1
+przystanki;taktklasse;unter III;odjazdy na godzinę w kierunku: mniej niż 1;departures per hour and direction: fewer than 1;Abfahrten je Stunde und Richtung: weniger als 1
+bdot_kompleksy;r;muzeum;zespół muzealny;museum complex (zespół muzealny);Museumskomplex (zespół muzealny)
+bdot_kompleksy;r;pamiec;miejsce pamięci narodowej;national memorial site (miejsce pamięci narodowej);nationale Gedenkstätte (miejsce pamięci narodowej)
+bdot_kompleksy;r;twierdza;twierdza lub forteca;fortress (twierdza lub forteca);Festung (twierdza lub forteca)
+bdot_kompleksy;r;zabudowa;zespół zabudowy historycznej;historic building ensemble (zespół zabudowy historycznej);historisches Bauensemble (zespół zabudowy historycznej)
+rejestr_zabytkow;q;wd;Wikidane (CC0 1.0);Wikidata (CC0 1.0);Wikidata (CC0 1.0)
+rejestr_zabytkow;ep;1800_1866;1800–1866;1800–1866;1800–1866
+rejestr_zabytkow;ep;1867_1918;1867–1918;1867–1918;1867–1918
+rejestr_zabytkow;ep;1919_1945;1919–1945;1919–1945;1919–1945
+rejestr_zabytkow;ep;1946_1989;1946–1989;1946–1989;1946–1989
+rejestr_zabytkow;ep;ab_1990;od 1990;from 1990;ab 1990
+rejestr_zabytkow;ep;vor_1800;przed 1800;before 1800;vor 1800
+dzielnice;nsp_grund;rejony_geometrie_fehlt;brak granic rejonów statystycznych: ręczne pobranie GUS „Jednostki statystyczne 2021” jeszcze nie nastąpiło;boundaries of the statistical areas are missing: the manual download of GUS “Jednostki statystyczne 2021” is still pending;Geometrie der rejony statystyczne fehlt: Handdownload GUS „Jednostki statystyczne 2021“ steht aus
+dzielnice;geb_bebauungsdichte_anzeige;anteil;pokazywane jako udział w %;shown as a share in %;als Anteil in % gezeigt
+dzielnice;geb_geschossflaeche_naeherung_abzeichen;orientacyjnie;orientacyjnie;for orientation;Orientierung
+dostepnosc;kennzahl;anteil_in_radius;udział mieszkańców z placówką w promieniu ze standardu urzędowego (richtwert_wert), %;share of residents with a facility within the radius of the official standard (richtwert_wert), %;Anteil der Einwohner mit Einrichtung im Radius der amtlichen Vorgabe (richtwert_wert), %
+dostepnosc;kennzahl;ew_je_einrichtung;mieszkańcy na jedną placówkę;residents per facility;Einwohner je Einrichtung
+dostepnosc;kennzahl;gruen_in_radius;udział mieszkańców z parkiem lub skwerem w odległości 500 m dojścia pieszego, %;share of residents with a park or square within 500 m walking, %;Anteil der Einwohner mit Park oder Grünanlage in 500 m Fußweg, %
+dostepnosc;kennzahl;gruen_m2_je_ew;powierzchnia parków i skwerów (BDOT10k) na mieszkańca, m²;park and square area (BDOT10k) per resident, m²;Park- und Grünanlagenfläche (BDOT10k) je Einwohner, m²
+dostepnosc;kennzahl;oepnv_takt;udział mieszkańców z przystankiem klasy I lub II w odległości 500 m, %;share of residents with a class I or II stop within 500 m, %;Anteil der Einwohner mit Haltestelle der Taktklasse I oder II in 500 m, %
+dostepnosc;art;haltestelle_takt;przystanek klasy częstotliwości kursowania I lub II;stop of service frequency class I or II;Haltestelle der Taktklasse I oder II
+dostepnosc;art;park;park lub skwer (BDOT10k);park or square (BDOT10k);Park oder Grünanlage (BDOT10k, park lub skwer)
+dostepnosc;art;przedszkole;przedszkole;kindergarten (przedszkole);Kindergarten (przedszkole)
+dostepnosc;art;szkola;szkoła dowolnego typu (BDOT10k nie rozróżnia typów);school of any type (BDOT10k does not distinguish);Schule jeder Art (BDOT10k trennt nicht)
+dostepnosc;art;zlobek;żłobek;nursery (żłobek);Krippe (żłobek)
+dostepnosc;methode;fussweg;dojście piesze siecią dróg OSM od środka komórki 1 km;walking route along the OSM network from the centre of the 1 km cell;Fußweg über das OSM-Wegenetz vom Mittelpunkt der 1-km-Zelle
+dostepnosc;methode;luftlinie;odległość w linii prostej od środka komórki 1 km;straight-line distance from the centre of the 1 km cell;Luftlinie vom Mittelpunkt der 1-km-Zelle
+dostepnosc;einheit;%;procent;per cent;Prozent
+dostepnosc;einheit;ew_je_einrichtung;mieszkańcy na placówkę;residents per facility;Einwohner je Einrichtung
+dostepnosc;einheit;m2_je_ew;m² na mieszkańca;m² per resident;m² je Einwohner
+dostepnosc;status;orientierung;wartość orientacyjna, nie urzędowa;guide value, not official;Orientierung, kein amtlicher Wert
+dostepnosc;q;bdot10k;BDOT10k (GUGiK);BDOT10k (GUGiK);BDOT10k (GUGiK)
+dostepnosc;q;ztp;GTFS ZTP Kraków;GTFS of ZTP Kraków;GTFS der ZTP Kraków
+dostepnosc;richtwert_einheit;m;metry;metres;Meter
+dostepnosc;richtwert_q;prawo_oswiatowe;ustawa Prawo oświatowe;Education Law (Prawo oświatowe);Schulgesetz (Prawo oświatowe)
+placowki_osm;art;apotheke;apteka (OSM);pharmacy (OSM);Apotheke (OSM)
+placowki_osm;art;arzt;lekarz lub przychodnia (OSM amenity=doctors);doctor or practice (OSM amenity=doctors);Arzt oder Praxis (OSM amenity=doctors)
+placowki_osm;q;osm;OpenStreetMap;OpenStreetMap;OpenStreetMap
+osm_heritage_start_date;ep;1800_1866;1800–1866;1800–1866;1800–1866
+osm_heritage_start_date;ep;1867_1918;1867–1918;1867–1918;1867–1918
+osm_heritage_start_date;ep;1919_1945;1919–1945;1919–1945;1919–1945
+osm_heritage_start_date;ep;1946_1989;1946–1989;1946–1989;1946–1989
+osm_heritage_start_date;ep;ab_1990;od 1990;from 1990;ab 1990
+osm_heritage_start_date;ep;vor_1800;przed 1800;before 1800;vor 1800
+zbk_budynki;art;M;mieszkalny;residential (M);Wohnen (M)
+zbk_budynki;art;MP;mieszkalny i przychodnia;residential and clinic (MP);Wohnen und Ambulanz (MP)
+zbk_budynki;art;MU;mieszkalny i użytkowy;residential and non-residential (MU);Wohnen und Nutzung (MU)
+zbk_budynki;art;P;przychodnia;health clinic (P);Ambulanz (P)
+zbk_budynki;art;U;użytkowy;non-residential use (U);Nutzung ohne Wohnen (U)
+zbk_budynki;eig;gmina;Gmina Miejska Kraków;City of Kraków (Gmina Miejska Kraków);Stadt Kraków (Gmina Miejska Kraków)
+zbk_budynki;eig;publiczne_mieszane;kilku właścicieli publicznych albo województwo;several public owners or the voivodeship;mehrere öffentliche Eigentümer oder die Woiwodschaft
+zbk_budynki;eig;skarb_panstwa;Skarb Państwa;State Treasury (Skarb Państwa);Staatskasse (Skarb Państwa)
+zbk_budynki;hq;geschosse;kondygnacje × 3 m (szacunek);storeys × 3 m (estimate);Geschosse × 3 m (Schätzung)
+zbk_budynki;hq;lod2;model 3D LoD2 (GUGiK, stan 2017);LoD2 3D model (GUGiK, as of 2017);LoD2-Modell (GUGiK, Stand 2017)
+zbk_budynki;typ;blok;kandydat na blok (szacunek);block candidate (estimate);Block-Kandidat (Schätzung)
+zbk_budynki;typ;osiedle;kandydat na blok na osiedlu blokowym (szacunek);block candidate in a large housing estate (estimate);Block-Kandidat in einer Großsiedlung (Schätzung)

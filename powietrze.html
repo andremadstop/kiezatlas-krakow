@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pl" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jakość powietrza · Kiezatlas Kraków</title>
+<meta name="description" content="Wartości roczne ze stacji monitoringu powietrza w Krakowie, obliczone przez EEA (orientacyjnie).">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/powietrze.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/powietrze.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/powietrze.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/powietrze.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/powietrze.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jakość powietrza · Kiezatlas Kraków">
+<meta property="og:description" content="Wartości roczne ze stacji monitoringu powietrza w Krakowie, obliczone przez EEA (orientacyjnie).">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="atlas.css">
+<link rel="stylesheet" href="rahmen.css">
+<link rel="stylesheet" href="themenseite.css">
+</head>
+<body class="textseite" data-seite="powietrze">
+<a class="sprung" href="#inhalt">Przejdź do treści</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Nawigacja">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Mapa</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Dzielnice</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Kamienice</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Dostępność</span></a></li>
+        <li><a class="nav" href="index.html#tematy" aria-current="true"><span>Tematy</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Metodologia</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Wybór języka">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="powietrze.html" aria-current="true">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="en/powietrze.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="de/powietrze.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Tematy">
+    <ul>
+      <li><a class="nav" href="modernizacja.html"><span>Modernizacja</span></a></li>
+      <li><a class="nav" href="klimat.html"><span>Klimat</span></a></li>
+      <li><a class="nav" href="powietrze.html" aria-current="page"><span>Powietrze</span></a></li>
+      <li><a class="nav" href="mieszkania.html"><span>Mieszkania</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="en/powietrze.html">Also available in English</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="de/powietrze.html">Auch auf Deutsch</a> <button type="button" aria-label="Zamknij" title="Zamknij"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Dane przykładowe w części strony: dane wczytane na żądanie pokazują fikcyjne wartości, które służą wyłącznie do budowy atlasu, i są oznaczone tam, gdzie się pojawiają. Pozostałe dane na tej stronie nie są przykładowe." hidden>Dane przykładowe: ta strona pokazuje fikcyjne wartości, które służą wyłącznie do budowy atlasu. Nie są to dane o Krakowie.</p>
+</div>
+<h1>Jakość powietrza</h1>
+<p class="lede">Wartości roczne ze stacji monitoringu powietrza w Krakowie, obliczone przez EEA (orientacyjnie).</p>
+<p class="ts-abzeichen">orientacyjnie: wartości roczne obliczone przez EEA, nie urzędowa ocena roczna GIOŚ</p>
+<aside class="ts-beispiel" id="p-beispiel" role="note" hidden></aside>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-kontekst">Uchwała antysmogowa</h2>
+  <p id="p-stichtag"></p>
+  <blockquote class="ts-zitat" id="p-zitat"></blockquote>
+  <p id="p-zmiany"></p>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-przebieg">Wartości roczne stacji pomiarowych</h2>
+  <div class="ts-knoepfe" id="p-wahl"></div>
+  <p><label for="p-stacja">Wyróżniona stacja:</label> <select id="p-stacja" class="ts-knopf"></select></p>
+  <figure class="ts-abbildung" id="p-wykres"><div class="ts-zeichnung"></div><figcaption></figcaption></figure>
+  <div id="p-legende"></div>
+  <p id="p-bez"></p>
+  <div class="ts-beispielzone" id="p-jahre"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-przedpo">Średnie z okresów przed zmianą przepisów i po niej</h2>
+  <div class="ts-merke"><p>Porównanie lat przed tą datą i po niej nie wskazuje przyczyny zmian. Na stężenia wpływają także pogoda, rok pandemii 2020 i inne działania; tego nie sprawdzono ani nie uwzględniono w obliczeniach.</p></div>
+  <div class="ts-beispielzone" id="p-przedpo"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-normy">Poziomy dopuszczalne</h2>
+  <div id="p-normy"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-granice">Ograniczenia</h2>
+  <ul class="ts-grenzen" id="p-grenzen">
+    <li>orientacyjnie: wartości roczne obliczone przez EEA, nie urzędowa ocena roczna GIOŚ. Zgodności wartości EEA z urzędową roczną oceną jakości powietrza GIOŚ nie sprawdzono.</li>
+    <li>„Stacje w Krakowie” to stacje, które EEA przypisuje do miasta Krakowa; czy to przypisanie odpowiada granicy gminy, nie sprawdzono.</li>
+    <li>Stacja mierzy w jednym miejscu; jej wartości nie opisują całej dzielnicy ani całego miasta.</li>
+    <li>Porównanie lat przed tą datą i po niej nie wskazuje przyczyny zmian. Na stężenia wpływają także pogoda, rok pandemii 2020 i inne działania; tego nie sprawdzono ani nie uwzględniono w obliczeniach.</li>
+  </ul>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="p-h-zrodla">Źródła danych</h2>
+  <dl class="ts-quellen" id="p-quellen"></dl>
+</section>
+
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Strona główna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/nota-prawna/">Nota prawna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/polityka-prywatnosci/">Polityka prywatności</a></p>
+  <p class="fuss-seite__stand">Stan <span data-kiez-version>—</span>. Wydawca: Stiebitz Souverain Systems UG (haftungsbeschränkt). Kod: Apache-2.0. Grafiki: CC BY 4.0. Dane: licencje według źródeł. Widzisz błąd? Napisz do nas: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="daten/ort.js"></script>
+<script defer src="i18n.js"></script>
+<script defer src="texte/pl/kern.js"></script>
+<script defer src="texte/pl/seiten.js"></script>
+<script defer src="texte/pl/powietrze.js"></script>
+<script defer src="daten/powietrze.js"></script>
+<script defer src="kopf.js"></script>
+<script defer src="rahmen.js"></script>
+<script defer src="themenseite.js"></script>
+<script defer src="seite_powietrze.js"></script>
+</body>
+</html>

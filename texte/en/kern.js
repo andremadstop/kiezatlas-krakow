@@ -1,0 +1,31 @@
+/* texte/en/kern.js: Namensraum kern.* (Bedienung aller Seiten). Vertrag: daten/schema/texte.md. */
+(function (T) {
+  T["kern.karte_locale"] = {"Map.Title": "Map", "GeolocateControl.FindMyLocation": "Show my location", "GeolocateControl.LocationNotAvailable": "Location not available", "NavigationControl.ZoomIn": "Zoom in", "NavigationControl.ZoomOut": "Zoom out", "NavigationControl.ResetBearing": "Reset bearing to north", "AttributionControl.ToggleAttribution": "Show or hide sources", "CooperativeGesturesHandler.MobileHelpText": "Use two fingers to move the map", "CooperativeGesturesHandler.WindowsHelpText": "Use Ctrl + scroll to zoom the map", "CooperativeGesturesHandler.MacHelpText": "Use ⌘ + scroll to zoom the map"};
+  T["kern.sprung"] = "Skip to content";
+  T["kern.navigation"] = "Navigation";
+  T["kern.sprachwahl"] = "Choose language";
+  T["kern.sprache_name"] = "English";
+  T["kern.sprache_auch"] = "Also available in English";
+  T["kern.schliessen"] = "Close";
+  T["kern.spis"] = "Contents";
+  T["kern.beispieldaten"] = "Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.";
+  T["kern.beispieldaten_nachgeladen"] = "Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data.";
+  T["kern.in_arbeit"] = "This part of the atlas is in preparation. Content will appear once the data have been checked.";
+  T["kern.stand"] = "Status";
+  T["kern.meldeweg"] = "Found an error? Write to us:";
+  T["kern.herausgeber"] = "Publisher";
+  T["kern.lizenz"] = "Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source.";
+  T["kern.odbl"] = "District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0:";
+  T["kern.zur_startseite"] = "Home";
+  T["kern.impressum"] = "Legal notice";
+  T["kern.datenschutz"] = "Privacy policy";
+  T["kern.dzielnice"] = {"one": "{n} district", "other": "{n} districts"};
+  T["kern.k_a"] = "n/a";
+  T["kern.rund"] = "about {zahl}";
+  T["kern.laden_unvollstaendig"] = "Data from {datei} are incomplete.";
+  T["kern.laden_fehler"] = "Data from {datei} could not be loaded.";
+  T["kern.ebene_passt_nicht"] = "The values of layer {ebene} do not match the grid cells on the map.";
+  T["kern.hq_kataster"] = "Object height from the cadastre (ALKIS)";
+  T["kern.hq_geschosse"] = "estimated: storeys × 3 m";
+  T["kern.hq_ersatz"] = "default value 3 m, no height in the cadastre";
+})(window.KIEZ_TEXTE = window.KIEZ_TEXTE || {});

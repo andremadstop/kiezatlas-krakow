@@ -1,0 +1,59 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Gebäude je Stadtteil (Bestand), Zuordnung über OSM-Grenzen (ODbL)",
+ "x-datei": "gebaeude/[0-9][0-9]_odbl.js",
+ "x-odbl": true,
+ "x-global": "^KIEZ_GEB_\\d{2}$",
+ "type": "object",
+ "required": [
+  "type",
+  "features"
+ ],
+ "properties": {
+  "type": {
+   "const": "FeatureCollection"
+  },
+  "features": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "geometry",
+     "properties"
+    ],
+    "properties": {
+     "properties": {
+      "type": "object",
+      "required": [
+       "f",
+       "gs",
+       "h",
+       "hq"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "f": {
+        "type": "string"
+       },
+       "gs": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "h": {
+        "type": "number",
+        "minimum": 0,
+        "description": "Höhe in m für 3D, ganze Meter: Kraków LoD1-measuredHeight, sonst LoD2 (höchster minus tiefster z-Wert), sonst Geschosse × 3 m, sonst 3 m; Potsdam ALKIS-Objekthöhe über Gelände (kataster), sonst Geschosse × 3 m, sonst 3 m (seit 06.11.2026; vorher immer Geschosse × 3 m)"
+       },
+       "hq": {
+        "enum": ["kataster", "lod1", "lod2", "geschosse", "ersatz"],
+        "description": "Herkunft der Höhe h"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

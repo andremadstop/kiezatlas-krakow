@@ -1,0 +1,47 @@
+<section id="p-jednostki">
+<h2>Einheiten und Einwohner</h2>
+<p>Der Planer rechnet auf den Zellen des Eurostat-Bevölkerungsgitters (1 km); Einwohner in der Stadt: [[planer_fuss_odbl:gesamt.ew]]. Die Einwohner einer Zelle sitzen in ihrem Mittelpunkt; das ist eine Vereinfachung, weil sie in der Zelle ungleich verteilt sein können. Werte je dzielnica entstehen aus den Zellen, deren Mittelpunkt in der dzielnica liegt (Grenzen aus OpenStreetMap); Einwohnerzahlen sind auf [[planer_odbl:rundung.ew]] gerundet. Alle Kennzahlen sind <em>Orientierung</em>.</p>
+</section>
+
+<section id="p-placowki">
+<h2>Einrichtungen</h2>
+<p>Schulen, Kindergärten, Krippen, Krankenhäuser und Parks stammen aus der BDOT10k als Komplexe mit eigener Fläche (hier ein Punkt in der Fläche). In der Stadt: Schulen [[einrichtungen:features[properties.art=szkola,properties.in_stadt=true]|anzahl]], Kindergärten [[einrichtungen:features[properties.art=przedszkole,properties.in_stadt=true]|anzahl]], Krippen [[einrichtungen:features[properties.art=zlobek,properties.in_stadt=true]|anzahl]], Krankenhäuser [[einrichtungen:features[properties.art=szpital,properties.in_stadt=true]|anzahl]], Parks [[einrichtungen:features[properties.art=park,properties.in_stadt=true]|anzahl]]. Die BDOT10k trennt keine Schularten und nennt weder Plätze noch Schülerzahlen; Kindergärten und Krippen in Gebäuden ohne eigenes Grundstück fehlen ganz. Die Werte für Krippen und Kindergärten bilden das wirkliche Netz deshalb nicht ab. Das Schulregister RSPO ist noch nicht eingebunden, weil seine Lizenz nicht geprüft ist.</p>
+<p>Ärzte und Apotheken stammen aus OpenStreetMap (Ärzte: [[einrichtungen_odbl:features[properties.art=arzt]|anzahl]], Apotheken: [[einrichtungen_odbl:features[properties.art=apotheke]|anzahl]]), ohne Namen; ihre Vollständigkeit ist nicht geprüft. Einrichtungen knapp jenseits der Stadtgrenze zählen für die Entfernungen mit, weil sie vom Stadtrand aus oft die nächsten sind.</p>
+</section>
+
+<section id="p-odleglosc">
+<h2>Luftlinie und Fußweg</h2>
+<p>Für jede Zelle nennt der Atlas die Entfernung von ihrem Mittelpunkt zur nächsten Einrichtung jeder Art in Metern: als Luftlinie (Dateien ohne OpenStreetMap) und als Fußweg über das Wegenetz aus OpenStreetMap (Dateien <code>_odbl</code>). Der Fußweg ist immer länger und näher an der Erfahrung im Alltag; die Fragen auf den Seiten zeigen ihn immer, wenn es ihn gibt.</p>
+</section>
+
+<section id="p-szkoly">
+<h2>Schule und Kindergarten in Reichweite</h2>
+<p>Das polnische Schulgesetz (Prawo oświatowe) begrenzt den Weg eines Kindes zur Schule und zum Kindergarten: [[richtwerte:bildung.szkola_podstawowa_droga.wortlaut|text]] ([[richtwerte:bildung.szkola_podstawowa_droga.seite|text]]). Für den Kindergarten: [[richtwerte:bildung.przedszkole_droga.seite|text]], [[richtwerte:bildung.przedszkole_droga.wert_m]] m. Quelle: [[planer_odbl:quellen.prawo_oswiatowe.vermerk|text]].</p>
+<p>Das Gesetz meint den Weg zur Schule des Schulbezirks, in dem das Kind wohnt; der Atlas rechnet den Weg zur nächsten Einrichtung jeder Art. Das ist deshalb <em>Orientierung</em>, kein <em>amtlicher Maßstab</em>. Ergebnis für die ganze Stadt (Fußweg):</p>
+<ul>
+<li>Schule in [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].richtwert.wert]] m: [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].wert|anteil0]] der Einwohner ([[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].zaehler]] von [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].nenner]]);</li>
+<li>Kindergarten in [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].richtwert.wert]] m: [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].wert|anteil0]] ([[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].zaehler]] von [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].nenner]]).</li>
+</ul>
+</section>
+
+<section id="p-takt">
+<h2>Taktklasse</h2>
+<p>Haltestellen und Abfahrten stammen aus dem GTFS-Fahrplan der ZTP. Eine Haltestelle ist der gemeinsame Stamm der Steig-Codes, ihre Lage das Mittel der Steige. Gezählt werden die Abfahrten am Werktag [[haltestellen:stichtag|datum]] zwischen [[haltestellen:fenster.0|text]] und [[haltestellen:fenster.1|text]], alle Linien zusammen, in der stärkeren Richtung, als Mittel je Stunde. Mindestzahl der Abfahrten je Stunde: Klasse I [[haltestellen:klassen.grenzen.I]], Klasse II [[haltestellen:klassen.grenzen.II]], Klasse III [[haltestellen:klassen.grenzen.III]]. Die Schwellen stammen aus dem Kiezatlas Potsdam, damit beide Städte vergleichbar sind; eine polnische Norm dafür wurde nicht gefunden, deshalb sind die Klassen Orientierung.</p>
+<p>Haltestellen in der Stadt: [[haltestellen:features[properties.in_stadt=true]|anzahl]], davon Klasse I: [[haltestellen:features[properties.taktklasse=I,properties.in_stadt=true]|anzahl]], Klasse II: [[haltestellen:features[properties.taktklasse=II,properties.in_stadt=true]|anzahl]], Klasse III: [[haltestellen:features[properties.taktklasse=III,properties.in_stadt=true]|anzahl]], unter Klasse III: [[haltestellen:features[properties.taktklasse=unter III,properties.in_stadt=true]|anzahl]]. Haltestellen bis [[richtwerte:oepnv.messung.randpuffer_m]] m jenseits der Stadtgrenze zählen mit ([[haltestellen:features[properties.in_stadt=false]|anzahl]]).</p>
+<p>Eine Haltestelle der Klasse I oder II in [[richtwerte:planer.oepnv_radius_m.wert]] m (eigene Festlegung, keine Norm) haben [[planer_fuss_odbl:gesamt.werte[kennzahl=oepnv_takt].wert|anteil0]] der Einwohner zu Fuß und [[planer_odbl:gesamt.werte[kennzahl=oepnv_takt].wert|anteil0]] in Luftlinie.</p>
+</section>
+
+<section id="p-zielen">
+<h2>Grün in der Nähe</h2>
+<p>Parks sind BDOT10k-Komplexe „park lub skwer“, ohne Wald und Kleingärten. In Fußweg-Reichweite (der Radius ist der Standard des Rechenskripts, keine Norm; Belege: <code>belege/README.md</code>) haben [[planer_fuss_odbl:gesamt.werte[kennzahl=gruen_in_radius].wert|anteil0]] der Einwohner einen Park; Parkfläche je Einwohner in der ganzen Stadt: [[planer_odbl:gesamt.werte[kennzahl=gruen_m2_je_ew].wert|zahl1]] m².</p>
+</section>
+
+<section id="p-granice">
+<h2>Grenzen</h2>
+<ul>
+<li>Die Entfernung zur nächsten Einrichtung sagt nichts über Plätze, Schulbezirke oder Öffnungszeiten.</li>
+<li>Eine 1-km-Zelle mit den Einwohnern im Mittelpunkt über- oder unterschätzt den Weg derer, die am Rand der Zelle wohnen.</li>
+<li>Die Taktklassen beziehen sich auf einen Werktag und die Morgenspitze.</li>
+<li>Wegenetz und Ärzte aus OpenStreetMap sind so vollständig wie die Karte am Tag des Abrufs.</li>
+</ul>
+</section>

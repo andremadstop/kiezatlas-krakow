@@ -1,0 +1,633 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Sanierungsatlas Wohnungsbestand: ZBK-Liste und Typologie-Schätzung (ohne OpenStreetMap)",
+ "description": "Zählungen aus dem Wykaz budynków i obiektów w zarządzie ZBK (Einträge, nicht Gebäude) je Art, Eigentumsklasse und dzielnica laut Liste; Typologie-Kandidaten aus BDOT10k je Delegatur als Schätzung ohne Baujahr. Keine Adresse, keine L.p., keine Gebäudekennung, kein Name.",
+ "x-datei": "sanierung.js",
+ "x-global": "^KIEZ_SANIERUNG$",
+ "x-eigentuemer": "Paket Sanierungsatlas Wohnungsbestand",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "stand",
+  "stand_bdot",
+  "quellen",
+  "liste",
+  "typologie",
+  "ortsmarke"
+ ],
+ "properties": {
+  "stand": {
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "stand_bdot": {
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "fixture": {
+   "const": true
+  },
+  "quellen": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "zbk",
+    "bdot"
+   ],
+   "properties": {
+    "zbk": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "vermerk",
+      "odpowiedzialnosc",
+      "url",
+      "sha256"
+     ],
+     "properties": {
+      "vermerk": {
+       "type": "string",
+       "pattern": "^Źródło: Zarząd Budynków Komunalnych w Krakowie"
+      },
+      "odpowiedzialnosc": {
+       "type": "string",
+       "pattern": "^Gmina Miejska Kraków nie ponosi odpowiedzialności za: .*ochronie informacji niejawnych itd\\.$"
+      },
+      "url": {
+       "type": "string",
+       "pattern": "^https://www\\.bip\\.krakow\\.pl/"
+      },
+      "plik": {
+       "type": "string",
+       "pattern": "^https://www\\.bip\\.krakow\\.pl/"
+      },
+      "sha256": {
+       "type": "string",
+       "pattern": "^[0-9a-f]{64}$"
+      }
+     }
+    },
+    "bdot": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "vermerk"
+     ],
+     "properties": {
+      "vermerk": {
+       "type": "string",
+       "minLength": 20
+      }
+     }
+    }
+   }
+  },
+  "liste": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "eintraege",
+    "je_art",
+    "je_eigentum",
+    "samoistne_posiadanie",
+    "art_mit_zusatz",
+    "miejscowosc",
+    "je_dzielnica",
+    "spalten_fehlen"
+   ],
+   "properties": {
+    "eintraege": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "je_art": {
+     "type": "object",
+     "additionalProperties": false,
+     "patternProperties": {
+      "^(M|U|P|MU|MP|UP|MUP)$": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "je_eigentum": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "gmina",
+      "skarb_panstwa",
+      "publiczne_mieszane",
+      "z_prywatnymi",
+      "prywatne",
+      "brak"
+     ],
+     "properties": {
+      "gmina": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "skarb_panstwa": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "publiczne_mieszane": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "z_prywatnymi": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "prywatne": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "brak": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "samoistne_posiadanie": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "art_mit_zusatz": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "miejscowosc": {
+     "type": "object",
+     "additionalProperties": false,
+     "patternProperties": {
+      "^(krakow|wieliczka|inne)$": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "je_dzielnica": {
+     "type": "object",
+     "additionalProperties": false,
+     "minProperties": 18,
+     "patternProperties": {
+      "^(0[1-9]|1[0-8]|poza)$": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "n",
+        "art",
+        "eigentum"
+       ],
+       "properties": {
+        "n": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "art": {
+         "type": "object",
+         "additionalProperties": false,
+         "patternProperties": {
+          "^(M|U|P|MU|MP|UP|MUP)$": {
+           "type": "integer",
+           "minimum": 0
+          }
+         }
+        },
+        "eigentum": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "gmina",
+          "skarb_panstwa",
+          "publiczne_mieszane",
+          "z_prywatnymi",
+          "prywatne",
+          "brak"
+         ],
+         "properties": {
+          "gmina": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "skarb_panstwa": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "publiczne_mieszane": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "z_prywatnymi": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "prywatne": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "brak": {
+           "type": "integer",
+           "minimum": 0
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "spalten_fehlen": {
+     "type": "array",
+     "items": {
+      "enum": [
+       "zarzadca",
+       "nr_rejestru_zabytkow"
+      ]
+     }
+    }
+   }
+  },
+  "typologie": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "schaetzung",
+    "baujahr",
+    "kriterien",
+    "angebaut",
+    "grundgesamtheit",
+    "stadt",
+    "delegaturen",
+    "nicht_zugeordnet",
+    "literatur"
+   ],
+   "properties": {
+    "schaetzung": {
+     "const": true,
+     "description": "Kandidaten aus Gebäudemerkmalen, keine Erhebung der Bauweise"
+    },
+    "baujahr": {
+     "const": false
+    },
+    "kriterien": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "geschosse_min",
+      "flaeche_min_m2",
+      "rechteckigkeit_min",
+      "umkreis_m",
+      "nachbarn_min"
+     ],
+     "properties": {
+      "geschosse_min": {
+       "type": "number",
+       "minimum": 0
+      },
+      "flaeche_min_m2": {
+       "type": "number",
+       "minimum": 0
+      },
+      "rechteckigkeit_min": {
+       "type": "number",
+       "minimum": 0
+      },
+      "umkreis_m": {
+       "type": "number",
+       "minimum": 0
+      },
+      "nachbarn_min": {
+       "type": "number",
+       "minimum": 0
+      }
+     }
+    },
+    "angebaut": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "toleranz_m",
+      "grenze_min_m"
+     ],
+     "description": "Messung „angebaut“ (Hinweis, keine Regel): gemeinsame Grenze mit anderen Gebäuden der BDOT10k",
+     "properties": {
+      "toleranz_m": {
+       "type": "number",
+       "minimum": 0
+      },
+      "grenze_min_m": {
+       "type": "number",
+       "minimum": 0
+      }
+     }
+    },
+    "grundgesamtheit": {
+     "type": "string"
+    },
+    "stadt": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "mfh",
+      "blok",
+      "osiedle",
+      "blok_angebaut",
+      "osiedle_angebaut"
+     ],
+     "properties": {
+      "mfh": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "blok": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "osiedle": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "blok_angebaut": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "Kandidat mit gemeinsamer Grenze von mindestens 3 m mit einem anderen Gebäude der BDOT10k (angebaut, Blockrand); Hinweis auf kamienice, keine Regel"
+      },
+      "osiedle_angebaut": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "wie blok_angebaut, nur Kandidaten in Großsiedlungen"
+      }
+     }
+    },
+    "delegaturen": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "mfh",
+       "blok",
+       "osiedle",
+       "blok_angebaut",
+       "osiedle_angebaut"
+      ],
+      "properties": {
+       "mfh": {
+        "type": "integer",
+        "minimum": 0
+       },
+       "blok": {
+        "type": "integer",
+        "minimum": 0
+       },
+       "osiedle": {
+        "type": "integer",
+        "minimum": 0
+       },
+       "blok_angebaut": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Kandidat mit gemeinsamer Grenze von mindestens 3 m mit einem anderen Gebäude der BDOT10k (angebaut, Blockrand); Hinweis auf kamienice, keine Regel"
+       },
+       "osiedle_angebaut": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "wie blok_angebaut, nur Kandidaten in Großsiedlungen"
+       }
+      }
+     },
+     "minProperties": 4
+    },
+    "nicht_zugeordnet": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "mfh",
+      "blok",
+      "osiedle",
+      "blok_angebaut",
+      "osiedle_angebaut"
+     ],
+     "properties": {
+      "mfh": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "blok": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "osiedle": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "blok_angebaut": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "Kandidat mit gemeinsamer Grenze von mindestens 3 m mit einem anderen Gebäude der BDOT10k (angebaut, Blockrand); Hinweis auf kamienice, keine Regel"
+      },
+      "osiedle_angebaut": {
+       "type": "integer",
+       "minimum": 0,
+       "description": "wie blok_angebaut, nur Kandidaten in Großsiedlungen"
+      }
+     }
+    },
+    "literatur": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "autoren",
+      "weitere_autoren",
+      "zeitschrift",
+      "band",
+      "jahr",
+      "artikel",
+      "doi"
+     ],
+     "properties": {
+      "autoren": {
+       "type": "string",
+       "description": "die ersten Autorinnen und Autoren, ohne Zusatz"
+      },
+      "weitere_autoren": {
+       "type": "boolean",
+       "description": "true: weitere Autorinnen und Autoren (die Seite setzt „i in.“ / „et al.“ / „u. a.“ aus den Texten)"
+      },
+      "zeitschrift": {
+       "type": "string"
+      },
+      "band": {
+       "type": "integer"
+      },
+      "jahr": {
+       "type": "integer"
+      },
+      "artikel": {
+       "type": "string"
+      },
+      "doi": {
+       "type": "string",
+       "pattern": "^10\\."
+      }
+     }
+    },
+    "sichtpruefung": {
+     "type": "object",
+     "additionalProperties": false,
+     "description": "Sichtprüfung der Stichprobe am Luftbild (Eingabe belege/DS_sichtpruefung.json); quote und wilson95 in Prozent der entschiedenen Punkte (ja + nein)",
+     "required": [
+      "datum",
+      "grundlage",
+      "osiedle",
+      "kein_kandidat"
+     ],
+     "properties": {
+      "datum": {
+       "type": "string",
+       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "grundlage": {
+       "const": "ortofotomapa"
+      },
+      "osiedle": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "n",
+        "ja",
+        "nein",
+        "unklar",
+        "quote",
+        "wilson95"
+       ],
+       "properties": {
+        "n": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "ja": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "nein": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "unklar": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "quote": {
+         "type": [
+          "number",
+          "null"
+         ]
+        },
+        "wilson95": {
+         "type": [
+          "array",
+          "null"
+         ],
+         "items": {
+          "type": "number"
+         },
+         "minItems": 2,
+         "maxItems": 2
+        }
+       }
+      },
+      "kein_kandidat": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "n",
+        "ja",
+        "nein",
+        "unklar",
+        "quote",
+        "wilson95"
+       ],
+       "properties": {
+        "n": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "ja": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "nein": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "unklar": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "quote": {
+         "type": [
+          "number",
+          "null"
+         ]
+        },
+        "wilson95": {
+         "type": [
+          "array",
+          "null"
+         ],
+         "items": {
+          "type": "number"
+         },
+         "minItems": 2,
+         "maxItems": 2
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "ortsmarke": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "schluessel",
+    "in_liste"
+   ],
+   "properties": {
+    "schluessel": {
+     "const": "kosciuszki_18"
+    },
+    "in_liste": {
+     "type": "boolean"
+    },
+    "st": {
+     "type": "string",
+     "pattern": "^(0[1-9]|1[0-8]|poza)$"
+    },
+    "art": {
+     "enum": [
+      "M",
+      "U",
+      "P",
+      "MU",
+      "MP",
+      "UP",
+      "MUP"
+     ]
+    },
+    "eigentum": {
+     "enum": [
+      "gmina",
+      "skarb_panstwa",
+      "publiczne_mieszane",
+      "z_prywatnymi",
+      "prywatne",
+      "brak"
+     ]
+    }
+   }
+  }
+ }
+}

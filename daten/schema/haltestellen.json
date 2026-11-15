@@ -1,0 +1,88 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "ÖPNV-Haltestellen mit Taktklasse",
+ "x-datei": "haltestellen.js",
+ "x-global": "^KIEZ_HALTESTELLEN$",
+ "x-odbl": false,
+ "x-eigentuemer": "Versorgung und Takt (skripte/13_oepnv_krakow.py); Vorschlag, Vertrag über die Integration",
+ "description": "Haltestellen (Stamm des Haltestellen-Codes über die GTFS-Feeds Bus, Tram, Mobilis) als Punkte in EPSG:4326. Taktklasse = eigene Klassifikation der Abfahrten je Stunde und Richtung im Fenster, keine polnische Norm (klassen.status). Keine Adresse.",
+ "type": "object",
+ "required": ["type", "stand", "stichtag", "fenster", "haltestelle", "lage", "st_ueber", "klassen", "quellen", "features"],
+ "additionalProperties": false,
+ "properties": {
+  "fixture": {"const": true, "description": "nur in Beispieldaten"},
+  "type": {"const": "FeatureCollection"},
+  "stand": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "Tag der Auswertung"},
+  "stichtag": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "Fahrplantag, an dem gezählt wurde"},
+  "fenster": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string", "pattern": "^\\d{2}:\\d{2}$"}},
+  "haltestelle": {"const": "stamm_des_codes", "description": "Haltestelle = Stamm des Haltestellen-Codes (stop_code vor dem Bindestrich)"},
+  "lage": {"const": "mittel_der_steige", "description": "Lage = Mittel der Steige des Stamms"},
+  "st_ueber": {"enum": ["zellen_odbl", null], "description": "zellen_odbl: st ist hier null, die Zuordnung zur dzielnica kommt über die Zelle in daten/zellen_odbl.js (Lizenz der Grenzen, KR28); null: st steht in der Datei"},
+  "klassen": {
+   "type": "object",
+   "required": ["status", "mass", "vorbehalte", "grenzen"],
+   "additionalProperties": false,
+   "properties": {
+    "status": {"enum": ["amtlich", "orientierung"]},
+    "mass": {"const": "abfahrten_je_stunde_staerkere_richtung", "description": "Abfahrten je Stunde und Richtung im Fenster, es zählt die stärkere Richtung"},
+    "vorbehalte": {"type": "array", "items": {"enum": ["eigene_klassifikation_takt"]}, "uniqueItems": true, "description": "eigene_klassifikation_takt = Taktklasse ist eine eigene Klassifikation, keine polnische Norm"},
+    "grenzen": {
+     "type": "object",
+     "required": ["I", "II", "III"],
+     "additionalProperties": false,
+     "properties": {"I": {"type": "number"}, "II": {"type": "number"}, "III": {"type": "number"}},
+     "description": "Untergrenzen in Abfahrten je Stunde und Richtung"
+    }
+   }
+  },
+  "quellen": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/quelle"}},
+  "features": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": ["type", "geometry", "properties"],
+    "additionalProperties": false,
+    "properties": {
+     "type": {"const": "Feature"},
+     "geometry": {
+      "type": "object",
+      "required": ["type", "coordinates"],
+      "additionalProperties": false,
+      "properties": {
+       "type": {"const": "Point"},
+       "coordinates": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+      }
+     },
+     "properties": {
+      "type": "object",
+      "required": ["id", "name", "verkehrsmittel", "fahrten_hvz_je_richtung", "taktklasse", "in_stadt", "st"],
+      "additionalProperties": false,
+      "properties": {
+       "id": {"type": "string", "pattern": "^\\d+$", "description": "Stamm des Haltestellen-Codes (stop_code vor dem Bindestrich)"},
+       "name": {"type": "string", "minLength": 1, "description": "Name der Haltestelle (stop_name)"},
+       "verkehrsmittel": {"type": "string", "pattern": "^(bus|sonstige|tram)(\\+(bus|sonstige|tram))*$", "description": "alle Verkehrsmittel mit Abfahrten am Stichtag, sortiert, mit + verbunden"},
+       "fahrten_hvz_je_richtung": {"type": "number", "minimum": 0, "description": "Abfahrten je Stunde im Fenster, stärkere Richtung, eine Nachkommastelle"},
+       "taktklasse": {"enum": ["I", "II", "III", "unter III"]},
+       "in_stadt": {"type": "boolean", "description": "in der Gemeinde Kraków (BDOT10k); false = bis zum Randpuffer außerhalb"},
+       "st": {"type": ["string", "null"], "pattern": "^\\d{2}$", "description": "Stadtteil-nr; null, solange die Stadtteilgrenzen Beispieldaten sind oder außerhalb"}
+      }
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "quelle": {
+   "type": "object",
+   "required": ["quelle", "lizenz", "vermerk"],
+   "additionalProperties": false,
+   "properties": {
+    "quelle": {"type": "string", "minLength": 3},
+    "lizenz": {"type": "string", "minLength": 3},
+    "vermerk": {"type": "string", "minLength": 10},
+    "url": {"type": "string"},
+    "stand": {"type": "string"}
+   }
+  }
+ }
+}

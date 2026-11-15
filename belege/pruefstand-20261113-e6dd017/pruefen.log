@@ -1,0 +1,716 @@
+Kiezatlas Kraków, Prüflauf 13.11.2026 13:58:54 CET
+Commit: e6dd017afdbcea9439dc0d3fe5dd214824a6b494
+Arbeitsstand: sauber (keine offenen Änderungen)
+Werkzeuge: uv 0.11.3 (x86_64-unknown-linux-gnu), node v22.23.4, Python 3.13.12
+
+== Syntax JavaScript (node --check)
+  19 Dateien, 0 mit Fehler
+-- Syntax JavaScript (node --check): grün, 2 s
+
+== Syntax Shell (sh -n)
+  5 Dateien, 0 mit Fehler
+-- Syntax Shell (sh -n): grün, 0 s
+
+== Syntax Python (ast)
+  59 Dateien, 0 mit Fehler
+-- Syntax Python (ast): grün, 1 s
+
+== Gerüst: Ortskonfiguration, Rechen-SRID, keine Plankennungen (pruefen/geruest.py)
+Ortskonfiguration config/krakow.yaml
+  ok    rechen_srid = ETRS89 / Poland CS2000 zone 7 (EPSG:2178)
+Rechen-SRID in sql/
+  ok    001_kiezatlas.sql: 1 SRID-Angaben, metrische = 2178
+  ok    002_ausbau.sql: 6 SRID-Angaben, metrische = 2178
+Keine feste metrische SRID in Python-Skripten
+  ok    skripte/ und pruefen/ ohne 25833/2178/2180/25834 im Code (Treffer: [])
+Keine internen Plankennungen in ausgelieferten Dateien
+  ok    85 Dateien ohne P0/D3/KR1/„Tor M“
+
+0 Befunde
+-- Gerüst: Ortskonfiguration, Rechen-SRID, keine Plankennungen (pruefen/geruest.py): grün, 0 s
+
+== ort.js aktuell (skripte/31_ort.py --pruefen)
+  ok    ort.js entspricht krakow.yaml (9386 Byte)
+-- ort.js aktuell (skripte/31_ort.py --pruefen): grün, 0 s
+
+== Seiten aktuell, pl/en/de (skripte/30_seiten.py --pruefen)
+  ok    45 Seiten (15 × 3 Sprachen) entsprechen vorlagen/ und texte/; keine fremden Seiten
+-- Seiten aktuell, pl/en/de (skripte/30_seiten.py --pruefen): grün, 0 s
+
+== Textschicht pl/en/de (pruefen/texte.py)
+Sprachen: pl, en, de
+  ok    Textformat aller Dateien lesbar (pl: 63 Schlüssel, en: 63 Schlüssel, de: 63 Schlüssel)
+Namensraum = Datei
+  ok    texte/pl/kern.js: 17 Schlüssel im Namensraum kern.*
+  ok    texte/pl/seiten.js: 46 Schlüssel im Namensraum seiten.*
+  ok    texte/en/kern.js: 17 Schlüssel im Namensraum kern.*
+  ok    texte/en/seiten.js: 46 Schlüssel im Namensraum seiten.*
+  ok    texte/de/kern.js: 17 Schlüssel im Namensraum kern.*
+  ok    texte/de/seiten.js: 46 Schlüssel im Namensraum seiten.*
+Gleiche Dateien und Schlüssel in allen Sprachen
+  ok    en: dieselben Dateien wie pl (['kern', 'seiten'])
+  ok    en/kern.js: dieselben Schlüssel wie pl
+  ok    en/seiten.js: dieselben Schlüssel wie pl
+  ok    de: dieselben Dateien wie pl (['kern', 'seiten'])
+  ok    de/kern.js: dieselben Schlüssel wie pl
+  ok    de/seiten.js: dieselben Schlüssel wie pl
+Platzhalter, Pluralformen, leere Texte
+  ok    gleiche Platzhalter je Schlüssel in allen Sprachen
+  ok    Pluraltexte mit genau den Formen der Sprache und {n}
+  ok    Objektwerte (kern.karte_locale) mit denselben Schlüsseln
+  ok    keine leeren Texte
+Verwendung
+  ok    63 Schlüssel, alle verwendet
+  ok    Titel, Überschrift, Beschreibung und Navigation für alle 15 Seiten
+  ok    jeder Schlüssel aus vorlagen/ vorhanden
+Keine deutschen Reste in pl und en
+  ok    pl: keine Wörter aus der deutschen Wortliste
+  ok    en: keine Wörter aus der deutschen Wortliste
+  ok    pl: sichtbarer Text der 15 erzeugten Seiten ohne Wörter aus der deutschen Wortliste
+  ok    en: sichtbarer Text der 15 erzeugten Seiten ohne Wörter aus der deutschen Wortliste
+
+0 Befunde
+-- Textschicht pl/en/de (pruefen/texte.py): grün, 0 s
+
+== Sprachverweise ohne Browser: hreflang, canonical, Sprachschalter (pruefen/hreflang.py)
+Sprachen pl, en, de, Basis https://souverain-systems.de/kiezatlas/krakow/
+  ok    en: dieselben 15 Seiten wie pl
+  ok    de: dieselben 15 Seiten wie pl
+  ok    15 Seiten je Sprache gefunden
+  ok    404.html: noindex, ohne hreflang
+  ok    dzielnica.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    index.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    kamienice-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    kamienice-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    kamienice.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    karta.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    klimat.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    mieszkania.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    planer-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    planer-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    planer.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    porownanie.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    powietrze.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    punktualnosc.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/404.html: noindex, ohne hreflang
+  ok    en/dzielnica.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/index.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/kamienice-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/kamienice-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/kamienice.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/karta.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/klimat.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/mieszkania.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/planer-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/planer-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/planer.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/porownanie.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/powietrze.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    en/punktualnosc.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/404.html: noindex, ohne hreflang
+  ok    de/dzielnica.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/index.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/kamienice-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/kamienice-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/kamienice.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/karta.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/klimat.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/mieszkania.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/planer-dane.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/planer-metoda.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/planer.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/porownanie.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/powietrze.html: hreflang 3+x-default, canonical, gegenseitig
+  ok    de/punktualnosc.html: hreflang 3+x-default, canonical, gegenseitig
+
+42 Fassungen mit hreflang, 3 noindex
+0 Befunde
+-- Sprachverweise ohne Browser: hreflang, canonical, Sprachschalter (pruefen/hreflang.py): grün, 0 s
+
+== Datenverträge und Summen (pruefen/daten.py)
+Summen und Kontrollen gegen kennzahlen.json
+  ok    kennzahlen.js und kennzahlen.json gleich
+  ok    zellen.js nach gitter_id sortiert (Grundlage der Zellreihenfolge)
+  ok    zellen.js ohne doppelte gitter_id (582)
+  ok    Σ ew über zellen.js = Kachel Einwohner Stadt (2589483 = 2589483)
+  ok    Zahl der Zellen = stadt.zellen (582 = 582)
+  ok    Einwohner und Zellen je Stadtteil aus zellen.js = kennzahlen (18 Stadtteile, Abweichungen: [])
+  ok    Stadtteile in stadtteile_odbl.js = kennzahlen (18)
+  ok    Anteile der Kacheln = zaehler/nenner (Abweichungen: [])
+  ok    Σ Stadtteile einwohner = Stadt (2589483)
+  ok    Gebäude je Stadtteil in gebaeude/<nr>.js = kennzahlen (Abweichungen: [])
+  ok    Σ Gebäude = kontrolle.gebaeude_in_stadt = stadt.gebaeude.anzahl (0)
+  ok    kontrolle: Gebäude im Rechteck (0) ≥ in der Stadt
+Datenverträge (16 Schemas)
+  ok    kennzahlen.js: Vertrag kennzahlen.json
+  ok    ort.js: Vertrag ort.json
+  ok    stadtteile_odbl.js: Vertrag stadtteile_odbl.json
+  ok    zellen.js: Vertrag zellen.json
+Fixtures
+
+Beispieldaten (fixture: true, auf den Seiten gekennzeichnet): 3 Dateien: kennzahlen.js, stadtteile_odbl.js, zellen.js
+
+0 Abweichungen
+-- Datenverträge und Summen (pruefen/daten.py): grün, 0 s
+
+== Belegschicht in sich stimmig: belege/, README-Kasten, Entscheidungen, Meldeweg, Checkliste (pruefen/belege.py)
+belege/README.md gegen die Dateien unter belege/
+  ok    belege/gegenprobe_potsdam-20261113-2593f02.log existiert
+  ok    belege/gegenprobe_potsdam-20261113-291befb.log existiert
+  ok    belege/gegenprobe_potsdam-20261113-8dd5a1b.log existiert
+  ok    belege/pruefstand-20261113-c50de90/pruefen.log existiert
+  ok    belege/pruefstand-20261113-c50de90/pruefen.log: Angabe 19/12/0/7 = Zählung im Protokoll 19/12/0/7 (Prüfungen/grün/Befund/übersprungen)
+  ok    belege/pruefstand-20261113-e2199cf/pruefen.log existiert
+  ok    belege/pruefstand-20261113-e2199cf/pruefen.log: Angabe 21/14/0/7 = Zählung im Protokoll 21/14/0/7 (Prüfungen/grün/Befund/übersprungen)
+README-Kasten nennt einen grünen Prüfstand
+  ok    README.md hat den Abschnitt „Do weryfikacji / Zur Prüfung“
+  ok    Kasten nennt belege/pruefstand-<datum>-<commit>/pruefen.log
+  ok    belege/pruefstand-20261113-e2199cf/pruefen.log existiert
+  ok    Prüfstand pruefstand-20261113-e2199cf: 0 mit Befund (Zählung (21, 14, 0, 7))
+  ok    Prüfstand pruefstand-20261113-e2199cf: Arbeitsstand sauber
+  ok    Prüfstand pruefstand-20261113-e2199cf: Commit im Ordnernamen = Commit im Protokoll
+  ok    Kasten nennt das Datum des Prüfstands (13.11.2026)
+docs/entscheidungen.md: Übersicht gegen Abschnitte
+  ok    11 Abschnitte, keiner doppelt
+  ok    Übersicht KR[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] = Abschnitte KR[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  ok    Nummern lückenlos ab KR1
+  ok    jeder Eintrag mit Anlass, Entscheidung, Begründung, Verworfen, Neu prüfen, wenn
+Meldeweg überall gleich
+  ok    config: meldeweg = kontakt@souverain-systems.de
+  ok    CITATION.cff contact email ['kontakt@souverain-systems.de'] = kontakt@souverain-systems.de
+  ok    README.md nennt kontakt@souverain-systems.de
+  ok    Seitenfuß (vorlagen/_rahmen.html) setzt {{meldeweg}} ein
+docs/checkliste.md: Punkte, Status, Belege
+  ok    51 Punkte je genau einmal
+  ok    jede Zeile mit Status und Beleg, erfüllt nur mit vorhandener Datei
+  ok    jede Datei der Belegspalte existiert
+  Stand: 14 erfüllt, 19 teilweise, 17 offen, 1 entfällt
+Lieferungen quellen-<paket>.md
+
+0 Befunde
+-- Belegschicht in sich stimmig: belege/, README-Kasten, Entscheidungen, Meldeweg, Checkliste (pruefen/belege.py): grün, 0 s
+
+== Beispieldaten reproduzierbar (pruefen/fixtures_krakow.py --pruefen)
+  ok    4 Beispieldateien entsprechen pruefen/fixtures_krakow.py
+-- Beispieldaten reproduzierbar (pruefen/fixtures_krakow.py --pruefen): grün, 1 s
+
+== Vertrag Bauzeiten-Methode (pruefen/B5_methode.py, skripte/26_jahre_methode.py --pruefen)
+-- übersprungen: Bauzeiten-Kaskade für Kraków gestrichen (docs/entscheidungen.md, KR4); läuft in der Gegenprobe Potsdam mit
+
+== planungsraeume.js aktuell (skripte/17_planungsraeume_js.py --pruefen)
+-- übersprungen: noch keine Raumebene unter den dzielnice
+
+== GIS-Export ohne Datenbank (pruefen/A8_export.py --odbl-erwartet)
+-- übersprungen: noch kein Export unter daten/export/
+
+== Codepfade Planer und Export (pruefen/A6_test_pfade.py, pruefen/A8_test_pfade.py)
+-- übersprungen: brauchen Richtwerte und Exporte eines Orts; laufen in der Gegenprobe Potsdam
+
+== OSM-Leser und Netz, ohne Datenbank (skripte/12_osm.sh test)
+.....................s                                                   [100%]
+21 passed, 1 skipped in 0.65s
+-- OSM-Leser und Netz, ohne Datenbank (skripte/12_osm.sh test): grün, 1 s
+
+== Fußweg, ohne Datenbank (skripte/14b_fussweg.sh test)
+..............sss                                                        [100%]
+14 passed, 3 skipped in 1.24s
+-- Fußweg, ohne Datenbank (skripte/14b_fussweg.sh test): grün, 2 s
+
+== Landesfilter (skripte/14b_fussweg.sh kreuzprobe)
+-- übersprungen: Landesfilter über VBB-DHID entfällt für Kraków (Bauvorlage, 14b)
+
+== Prüfsummen der Rohdaten (belege/rohdaten*.sha256)
+-- übersprungen: noch keine Rohdaten abgerufen
+
+== Browser: pruefen/seiten.mjs (alle Seiten in pl, en, de)
+
+[pl] 15 Seiten
+  ok   index.html (file): lädt ohne Fehler
+  ok   index.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   index.html (file): lang="pl", og:locale pl_PL
+  ok   index.html (file): keine deutschen Reste
+  ok   index.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   index.html (file): hreflang reziprok
+  ok   index.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js)
+  ok   index.html (file): axe ohne Verstoß
+  ok   index.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   index.html (http): lädt ohne Fehler
+  ok   karta.html (file): lädt ohne Fehler
+  ok   karta.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   karta.html (file): lang="pl", og:locale pl_PL
+  ok   karta.html (file): keine deutschen Reste
+  ok   karta.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   karta.html (file): hreflang reziprok
+  ok   karta.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js daten/zellen.js)
+  ok   karta.html (file): axe ohne Verstoß
+  ok   karta.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   karta.html (http): lädt ohne Fehler
+  ok   dzielnica.html (file): lädt ohne Fehler
+  ok   dzielnica.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   dzielnica.html (file): lang="pl", og:locale pl_PL
+  ok   dzielnica.html (file): keine deutschen Reste
+  ok   dzielnica.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   dzielnica.html (file): hreflang reziprok
+  ok   dzielnica.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js)
+  ok   dzielnica.html (file): axe ohne Verstoß
+  ok   dzielnica.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   dzielnica.html (http): lädt ohne Fehler
+  ok   porownanie.html (file): lädt ohne Fehler
+  ok   porownanie.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   porownanie.html (file): lang="pl", og:locale pl_PL
+  ok   porownanie.html (file): keine deutschen Reste
+  ok   porownanie.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   porownanie.html (file): hreflang reziprok
+  ok   porownanie.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   porownanie.html (file): axe ohne Verstoß
+  ok   porownanie.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   porownanie.html (http): lädt ohne Fehler
+  ok   kamienice.html (file): lädt ohne Fehler
+  ok   kamienice.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   kamienice.html (file): lang="pl", og:locale pl_PL
+  ok   kamienice.html (file): keine deutschen Reste
+  ok   kamienice.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   kamienice.html (file): hreflang reziprok
+  ok   kamienice.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   kamienice.html (file): axe ohne Verstoß
+  ok   kamienice.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   kamienice.html (http): lädt ohne Fehler
+  ok   kamienice-metoda.html (file): lädt ohne Fehler
+  ok   kamienice-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   kamienice-metoda.html (file): lang="pl", og:locale pl_PL
+  ok   kamienice-metoda.html (file): keine deutschen Reste
+  ok   kamienice-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   kamienice-metoda.html (file): hreflang reziprok
+  ok   kamienice-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   kamienice-metoda.html (file): axe ohne Verstoß
+  ok   kamienice-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   kamienice-metoda.html (http): lädt ohne Fehler
+  ok   kamienice-dane.html (file): lädt ohne Fehler
+  ok   kamienice-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   kamienice-dane.html (file): lang="pl", og:locale pl_PL
+  ok   kamienice-dane.html (file): keine deutschen Reste
+  ok   kamienice-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   kamienice-dane.html (file): hreflang reziprok
+  ok   kamienice-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   kamienice-dane.html (file): axe ohne Verstoß
+  ok   kamienice-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   kamienice-dane.html (http): lädt ohne Fehler
+  ok   planer.html (file): lädt ohne Fehler
+  ok   planer.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   planer.html (file): lang="pl", og:locale pl_PL
+  ok   planer.html (file): keine deutschen Reste
+  ok   planer.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   planer.html (file): hreflang reziprok
+  ok   planer.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   planer.html (file): axe ohne Verstoß
+  ok   planer.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   planer.html (http): lädt ohne Fehler
+  ok   planer-metoda.html (file): lädt ohne Fehler
+  ok   planer-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   planer-metoda.html (file): lang="pl", og:locale pl_PL
+  ok   planer-metoda.html (file): keine deutschen Reste
+  ok   planer-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   planer-metoda.html (file): hreflang reziprok
+  ok   planer-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   planer-metoda.html (file): axe ohne Verstoß
+  ok   planer-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   planer-metoda.html (http): lädt ohne Fehler
+  ok   planer-dane.html (file): lädt ohne Fehler
+  ok   planer-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   planer-dane.html (file): lang="pl", og:locale pl_PL
+  ok   planer-dane.html (file): keine deutschen Reste
+  ok   planer-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   planer-dane.html (file): hreflang reziprok
+  ok   planer-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   planer-dane.html (file): axe ohne Verstoß
+  ok   planer-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   planer-dane.html (http): lädt ohne Fehler
+  ok   klimat.html (file): lädt ohne Fehler
+  ok   klimat.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   klimat.html (file): lang="pl", og:locale pl_PL
+  ok   klimat.html (file): keine deutschen Reste
+  ok   klimat.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   klimat.html (file): hreflang reziprok
+  ok   klimat.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   klimat.html (file): axe ohne Verstoß
+  ok   klimat.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   klimat.html (http): lädt ohne Fehler
+  ok   powietrze.html (file): lädt ohne Fehler
+  ok   powietrze.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   powietrze.html (file): lang="pl", og:locale pl_PL
+  ok   powietrze.html (file): keine deutschen Reste
+  ok   powietrze.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   powietrze.html (file): hreflang reziprok
+  ok   powietrze.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   powietrze.html (file): axe ohne Verstoß
+  ok   powietrze.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   powietrze.html (http): lädt ohne Fehler
+  ok   mieszkania.html (file): lädt ohne Fehler
+  ok   mieszkania.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   mieszkania.html (file): lang="pl", og:locale pl_PL
+  ok   mieszkania.html (file): keine deutschen Reste
+  ok   mieszkania.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   mieszkania.html (file): hreflang reziprok
+  ok   mieszkania.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   mieszkania.html (file): axe ohne Verstoß
+  ok   mieszkania.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   mieszkania.html (http): lädt ohne Fehler
+  ok   punktualnosc.html (file): lädt ohne Fehler
+  ok   punktualnosc.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   punktualnosc.html (file): lang="pl", og:locale pl_PL
+  ok   punktualnosc.html (file): keine deutschen Reste
+  ok   punktualnosc.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   punktualnosc.html (file): hreflang reziprok
+  ok   punktualnosc.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   punktualnosc.html (file): axe ohne Verstoß
+  ok   punktualnosc.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   punktualnosc.html (http): lädt ohne Fehler
+  ok   404.html (file): lädt ohne Fehler
+  ok   404.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   404.html (file): lang="pl", og:locale pl_PL
+  ok   404.html (file): keine deutschen Reste
+  ok   404.html (file): noindex ohne hreflang und canonical
+  ok   404.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   404.html (file): axe ohne Verstoß
+  ok   404.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   404.html (http): lädt ohne Fehler
+
+[en] 15 Seiten
+  ok   en/index.html (file): lädt ohne Fehler
+  ok   en/index.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/index.html (file): lang="en", og:locale en_GB
+  ok   en/index.html (file): keine deutschen Reste
+  ok   en/index.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/index.html (file): hreflang reziprok
+  ok   en/index.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js)
+  ok   en/index.html (file): axe ohne Verstoß
+  ok   en/index.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/index.html (http): lädt ohne Fehler
+  ok   en/karta.html (file): lädt ohne Fehler
+  ok   en/karta.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/karta.html (file): lang="en", og:locale en_GB
+  ok   en/karta.html (file): keine deutschen Reste
+  ok   en/karta.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/karta.html (file): hreflang reziprok
+  ok   en/karta.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js daten/zellen.js)
+  ok   en/karta.html (file): axe ohne Verstoß
+  ok   en/karta.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/karta.html (http): lädt ohne Fehler
+  ok   en/dzielnica.html (file): lädt ohne Fehler
+  ok   en/dzielnica.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/dzielnica.html (file): lang="en", og:locale en_GB
+  ok   en/dzielnica.html (file): keine deutschen Reste
+  ok   en/dzielnica.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/dzielnica.html (file): hreflang reziprok
+  ok   en/dzielnica.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js)
+  ok   en/dzielnica.html (file): axe ohne Verstoß
+  ok   en/dzielnica.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/dzielnica.html (http): lädt ohne Fehler
+  ok   en/porownanie.html (file): lädt ohne Fehler
+  ok   en/porownanie.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/porownanie.html (file): lang="en", og:locale en_GB
+  ok   en/porownanie.html (file): keine deutschen Reste
+  ok   en/porownanie.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/porownanie.html (file): hreflang reziprok
+  ok   en/porownanie.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/porownanie.html (file): axe ohne Verstoß
+  ok   en/porownanie.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/porownanie.html (http): lädt ohne Fehler
+  ok   en/kamienice.html (file): lädt ohne Fehler
+  ok   en/kamienice.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/kamienice.html (file): lang="en", og:locale en_GB
+  ok   en/kamienice.html (file): keine deutschen Reste
+  ok   en/kamienice.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/kamienice.html (file): hreflang reziprok
+  ok   en/kamienice.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/kamienice.html (file): axe ohne Verstoß
+  ok   en/kamienice.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/kamienice.html (http): lädt ohne Fehler
+  ok   en/kamienice-metoda.html (file): lädt ohne Fehler
+  ok   en/kamienice-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/kamienice-metoda.html (file): lang="en", og:locale en_GB
+  ok   en/kamienice-metoda.html (file): keine deutschen Reste
+  ok   en/kamienice-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/kamienice-metoda.html (file): hreflang reziprok
+  ok   en/kamienice-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/kamienice-metoda.html (file): axe ohne Verstoß
+  ok   en/kamienice-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/kamienice-metoda.html (http): lädt ohne Fehler
+  ok   en/kamienice-dane.html (file): lädt ohne Fehler
+  ok   en/kamienice-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/kamienice-dane.html (file): lang="en", og:locale en_GB
+  ok   en/kamienice-dane.html (file): keine deutschen Reste
+  ok   en/kamienice-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/kamienice-dane.html (file): hreflang reziprok
+  ok   en/kamienice-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/kamienice-dane.html (file): axe ohne Verstoß
+  ok   en/kamienice-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/kamienice-dane.html (http): lädt ohne Fehler
+  ok   en/planer.html (file): lädt ohne Fehler
+  ok   en/planer.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/planer.html (file): lang="en", og:locale en_GB
+  ok   en/planer.html (file): keine deutschen Reste
+  ok   en/planer.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/planer.html (file): hreflang reziprok
+  ok   en/planer.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/planer.html (file): axe ohne Verstoß
+  ok   en/planer.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/planer.html (http): lädt ohne Fehler
+  ok   en/planer-metoda.html (file): lädt ohne Fehler
+  ok   en/planer-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/planer-metoda.html (file): lang="en", og:locale en_GB
+  ok   en/planer-metoda.html (file): keine deutschen Reste
+  ok   en/planer-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/planer-metoda.html (file): hreflang reziprok
+  ok   en/planer-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/planer-metoda.html (file): axe ohne Verstoß
+  ok   en/planer-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/planer-metoda.html (http): lädt ohne Fehler
+  ok   en/planer-dane.html (file): lädt ohne Fehler
+  ok   en/planer-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/planer-dane.html (file): lang="en", og:locale en_GB
+  ok   en/planer-dane.html (file): keine deutschen Reste
+  ok   en/planer-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/planer-dane.html (file): hreflang reziprok
+  ok   en/planer-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/planer-dane.html (file): axe ohne Verstoß
+  ok   en/planer-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/planer-dane.html (http): lädt ohne Fehler
+  ok   en/klimat.html (file): lädt ohne Fehler
+  ok   en/klimat.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/klimat.html (file): lang="en", og:locale en_GB
+  ok   en/klimat.html (file): keine deutschen Reste
+  ok   en/klimat.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/klimat.html (file): hreflang reziprok
+  ok   en/klimat.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/klimat.html (file): axe ohne Verstoß
+  ok   en/klimat.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/klimat.html (http): lädt ohne Fehler
+  ok   en/powietrze.html (file): lädt ohne Fehler
+  ok   en/powietrze.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/powietrze.html (file): lang="en", og:locale en_GB
+  ok   en/powietrze.html (file): keine deutschen Reste
+  ok   en/powietrze.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/powietrze.html (file): hreflang reziprok
+  ok   en/powietrze.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/powietrze.html (file): axe ohne Verstoß
+  ok   en/powietrze.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/powietrze.html (http): lädt ohne Fehler
+  ok   en/mieszkania.html (file): lädt ohne Fehler
+  ok   en/mieszkania.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/mieszkania.html (file): lang="en", og:locale en_GB
+  ok   en/mieszkania.html (file): keine deutschen Reste
+  ok   en/mieszkania.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/mieszkania.html (file): hreflang reziprok
+  ok   en/mieszkania.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/mieszkania.html (file): axe ohne Verstoß
+  ok   en/mieszkania.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/mieszkania.html (http): lädt ohne Fehler
+  ok   en/punktualnosc.html (file): lädt ohne Fehler
+  ok   en/punktualnosc.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/punktualnosc.html (file): lang="en", og:locale en_GB
+  ok   en/punktualnosc.html (file): keine deutschen Reste
+  ok   en/punktualnosc.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   en/punktualnosc.html (file): hreflang reziprok
+  ok   en/punktualnosc.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/punktualnosc.html (file): axe ohne Verstoß
+  ok   en/punktualnosc.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/punktualnosc.html (http): lädt ohne Fehler
+  ok   en/404.html (file): lädt ohne Fehler
+  ok   en/404.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   en/404.html (file): lang="en", og:locale en_GB
+  ok   en/404.html (file): keine deutschen Reste
+  ok   en/404.html (file): noindex ohne hreflang und canonical
+  ok   en/404.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   en/404.html (file): axe ohne Verstoß
+  ok   en/404.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   en/404.html (http): lädt ohne Fehler
+
+[de] 15 Seiten
+  ok   de/index.html (file): lädt ohne Fehler
+  ok   de/index.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/index.html (file): lang="de", og:locale de_DE
+  ok   de/index.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/index.html (file): hreflang reziprok
+  ok   de/index.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js)
+  ok   de/index.html (file): axe ohne Verstoß
+  ok   de/index.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/index.html (http): lädt ohne Fehler
+  ok   de/karta.html (file): lädt ohne Fehler
+  ok   de/karta.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/karta.html (file): lang="de", og:locale de_DE
+  ok   de/karta.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/karta.html (file): hreflang reziprok
+  ok   de/karta.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js daten/zellen.js)
+  ok   de/karta.html (file): axe ohne Verstoß
+  ok   de/karta.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/karta.html (http): lädt ohne Fehler
+  ok   de/dzielnica.html (file): lädt ohne Fehler
+  ok   de/dzielnica.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/dzielnica.html (file): lang="de", og:locale de_DE
+  ok   de/dzielnica.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/dzielnica.html (file): hreflang reziprok
+  ok   de/dzielnica.html (file): Hinweis Beispieldaten sichtbar (daten/kennzahlen.js daten/stadtteile_odbl.js)
+  ok   de/dzielnica.html (file): axe ohne Verstoß
+  ok   de/dzielnica.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/dzielnica.html (http): lädt ohne Fehler
+  ok   de/porownanie.html (file): lädt ohne Fehler
+  ok   de/porownanie.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/porownanie.html (file): lang="de", og:locale de_DE
+  ok   de/porownanie.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/porownanie.html (file): hreflang reziprok
+  ok   de/porownanie.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/porownanie.html (file): axe ohne Verstoß
+  ok   de/porownanie.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/porownanie.html (http): lädt ohne Fehler
+  ok   de/kamienice.html (file): lädt ohne Fehler
+  ok   de/kamienice.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/kamienice.html (file): lang="de", og:locale de_DE
+  ok   de/kamienice.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/kamienice.html (file): hreflang reziprok
+  ok   de/kamienice.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/kamienice.html (file): axe ohne Verstoß
+  ok   de/kamienice.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/kamienice.html (http): lädt ohne Fehler
+  ok   de/kamienice-metoda.html (file): lädt ohne Fehler
+  ok   de/kamienice-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/kamienice-metoda.html (file): lang="de", og:locale de_DE
+  ok   de/kamienice-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/kamienice-metoda.html (file): hreflang reziprok
+  ok   de/kamienice-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/kamienice-metoda.html (file): axe ohne Verstoß
+  ok   de/kamienice-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/kamienice-metoda.html (http): lädt ohne Fehler
+  ok   de/kamienice-dane.html (file): lädt ohne Fehler
+  ok   de/kamienice-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/kamienice-dane.html (file): lang="de", og:locale de_DE
+  ok   de/kamienice-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/kamienice-dane.html (file): hreflang reziprok
+  ok   de/kamienice-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/kamienice-dane.html (file): axe ohne Verstoß
+  ok   de/kamienice-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/kamienice-dane.html (http): lädt ohne Fehler
+  ok   de/planer.html (file): lädt ohne Fehler
+  ok   de/planer.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/planer.html (file): lang="de", og:locale de_DE
+  ok   de/planer.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/planer.html (file): hreflang reziprok
+  ok   de/planer.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/planer.html (file): axe ohne Verstoß
+  ok   de/planer.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/planer.html (http): lädt ohne Fehler
+  ok   de/planer-metoda.html (file): lädt ohne Fehler
+  ok   de/planer-metoda.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/planer-metoda.html (file): lang="de", og:locale de_DE
+  ok   de/planer-metoda.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/planer-metoda.html (file): hreflang reziprok
+  ok   de/planer-metoda.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/planer-metoda.html (file): axe ohne Verstoß
+  ok   de/planer-metoda.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/planer-metoda.html (http): lädt ohne Fehler
+  ok   de/planer-dane.html (file): lädt ohne Fehler
+  ok   de/planer-dane.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/planer-dane.html (file): lang="de", og:locale de_DE
+  ok   de/planer-dane.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/planer-dane.html (file): hreflang reziprok
+  ok   de/planer-dane.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/planer-dane.html (file): axe ohne Verstoß
+  ok   de/planer-dane.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/planer-dane.html (http): lädt ohne Fehler
+  ok   de/klimat.html (file): lädt ohne Fehler
+  ok   de/klimat.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/klimat.html (file): lang="de", og:locale de_DE
+  ok   de/klimat.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/klimat.html (file): hreflang reziprok
+  ok   de/klimat.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/klimat.html (file): axe ohne Verstoß
+  ok   de/klimat.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/klimat.html (http): lädt ohne Fehler
+  ok   de/powietrze.html (file): lädt ohne Fehler
+  ok   de/powietrze.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/powietrze.html (file): lang="de", og:locale de_DE
+  ok   de/powietrze.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/powietrze.html (file): hreflang reziprok
+  ok   de/powietrze.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/powietrze.html (file): axe ohne Verstoß
+  ok   de/powietrze.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/powietrze.html (http): lädt ohne Fehler
+  ok   de/mieszkania.html (file): lädt ohne Fehler
+  ok   de/mieszkania.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/mieszkania.html (file): lang="de", og:locale de_DE
+  ok   de/mieszkania.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/mieszkania.html (file): hreflang reziprok
+  ok   de/mieszkania.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/mieszkania.html (file): axe ohne Verstoß
+  ok   de/mieszkania.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/mieszkania.html (http): lädt ohne Fehler
+  ok   de/punktualnosc.html (file): lädt ohne Fehler
+  ok   de/punktualnosc.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/punktualnosc.html (file): lang="de", og:locale de_DE
+  ok   de/punktualnosc.html (file): hreflang (pl, en, de, x-default) und canonical vollständig
+  ok   de/punktualnosc.html (file): hreflang reziprok
+  ok   de/punktualnosc.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/punktualnosc.html (file): axe ohne Verstoß
+  ok   de/punktualnosc.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/punktualnosc.html (http): lädt ohne Fehler
+  ok   de/404.html (file): lädt ohne Fehler
+  ok   de/404.html (file): kein Platzhalter und kein Textschlüssel sichtbar
+  ok   de/404.html (file): lang="de", og:locale de_DE
+  ok   de/404.html (file): noindex ohne hreflang und canonical
+  ok   de/404.html (file): Hinweis Beispieldaten verborgen (keine Daten)
+  ok   de/404.html (file): axe ohne Verstoß
+  ok   de/404.html (file): 360 px ohne seitlichen Überstand (0 px)
+  ok   de/404.html (http): lädt ohne Fehler
+
+Sprachschalter
+  ok   file: en → de: de/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   file: pl → en: en/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   file: de → pl: kiezatlas-krakow-wt-D12/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   http: en → de: de/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   http: pl → en: en/karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+  ok   http: de → pl: /karta.html#thema=ew&st=07&k=12/50.06/19.94/0/0
+
+Sprachhinweis
+  ok   Browser de, Seite pl: Hinweis nur auf Deutsch (["de"]), keine Umleitung
+  ok   Browser pl, Seite pl: kein Hinweis
+
+i18n.js
+  ok   pl: Plural 1 dzielnica | 2 dzielnice | 5 dzielnic | 12 dzielnic | 22 dzielnice | 25 dzielnic
+  ok   pl: Zahlen 1234 | 12 345 | 2,5, Anteil 12,5%, Datum 31.03.2021
+  ok   pl: Formen one/few/many richtig, vierstellige Zahl ungruppiert (1234)
+  ok   pl: fehlender Schlüssel bleibt sichtbar, Ortswerte in der Seitensprache (Kraków)
+  ok   en: Plural 1 district | 2 districts | 5 districts | 12 districts | 22 districts | 25 districts
+  ok   en: Zahlen 1,234 | 12,345 | 2.5, Anteil 12.5%, Datum 31/03/2021
+  ok   en: fehlender Schlüssel bleibt sichtbar, Ortswerte in der Seitensprache (Kraków)
+  ok   de: Plural 1 Stadtteil | 2 Stadtteile | 5 Stadtteile | 12 Stadtteile | 22 Stadtteile | 25 Stadtteile
+  ok   de: Zahlen 1.234 | 12.345 | 2,5, Anteil 12,5 %, Datum 31.3.2021
+  ok   de: fehlender Schlüssel bleibt sichtbar, Ortswerte in der Seitensprache (Krakau)
+
+grün
+-- Browser: pruefen/seiten.mjs (alle Seiten in pl, en, de): grün, 41 s
+
+== Gegenprobe Potsdam (pruefen/gegenprobe_potsdam.sh)
+-- übersprungen: eigener Lauf mit --gegenprobe
+
+== Zählung: 21 Prüfungen, 14 grün, 0 mit Befund, 7 übersprungen
+  grün  Syntax JavaScript (node --check)
+  grün  Syntax Shell (sh -n)
+  grün  Syntax Python (ast)
+  grün  Gerüst: Ortskonfiguration, Rechen-SRID, keine Plankennungen (pruefen/geruest.py)
+  grün  ort.js aktuell (skripte/31_ort.py --pruefen)
+  grün  Seiten aktuell, pl/en/de (skripte/30_seiten.py --pruefen)
+  grün  Textschicht pl/en/de (pruefen/texte.py)
+  grün  Sprachverweise ohne Browser: hreflang, canonical, Sprachschalter (pruefen/hreflang.py)
+  grün  Datenverträge und Summen (pruefen/daten.py)
+  grün  Belegschicht in sich stimmig: belege/, README-Kasten, Entscheidungen, Meldeweg, Checkliste (pruefen/belege.py)
+  grün  Beispieldaten reproduzierbar (pruefen/fixtures_krakow.py --pruefen)
+  übersprungen  Vertrag Bauzeiten-Methode (pruefen/B5_methode.py, skripte/26_jahre_methode.py --pruefen) (Bauzeiten-Kaskade für Kraków gestrichen (docs/entscheidungen.md, KR4); läuft in der Gegenprobe Potsdam mit)
+  übersprungen  planungsraeume.js aktuell (skripte/17_planungsraeume_js.py --pruefen) (noch keine Raumebene unter den dzielnice)
+  übersprungen  GIS-Export ohne Datenbank (pruefen/A8_export.py --odbl-erwartet) (noch kein Export unter daten/export/)
+  übersprungen  Codepfade Planer und Export (pruefen/A6_test_pfade.py, pruefen/A8_test_pfade.py) (brauchen Richtwerte und Exporte eines Orts; laufen in der Gegenprobe Potsdam)
+  grün  OSM-Leser und Netz, ohne Datenbank (skripte/12_osm.sh test)
+  grün  Fußweg, ohne Datenbank (skripte/14b_fussweg.sh test)
+  übersprungen  Landesfilter (skripte/14b_fussweg.sh kreuzprobe) (Landesfilter über VBB-DHID entfällt für Kraków (Bauvorlage, 14b))
+  übersprungen  Prüfsummen der Rohdaten (belege/rohdaten*.sha256) (noch keine Rohdaten abgerufen)
+  grün  Browser: pruefen/seiten.mjs (alle Seiten in pl, en, de)
+  übersprungen  Gegenprobe Potsdam (pruefen/gegenprobe_potsdam.sh) (eigener Lauf mit --gegenprobe)

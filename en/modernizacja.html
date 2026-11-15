@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Housing stock and retrofit · Kiezatlas Kraków</title>
+<meta name="description" content="Buildings managed by the municipal ZBK, prefabricated block candidates (an estimate), heights from 3D models, linked to access and green space.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/modernizacja.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/modernizacja.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/modernizacja.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/modernizacja.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/modernizacja.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Housing stock and retrofit · Kiezatlas Kraków">
+<meta property="og:description" content="Buildings managed by the municipal ZBK, prefabricated block candidates (an estimate), heights from 3D models, linked to access and green space.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenseite.css">
+</head>
+<body class="textseite" data-seite="modernizacja">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy" aria-current="true"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../modernizacja.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/modernizacja.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/modernizacja.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Topics">
+    <ul>
+      <li><a class="nav" href="modernizacja.html" aria-current="page"><span>Retrofit</span></a></li>
+      <li><a class="nav" href="klimat.html"><span>Climate</span></a></li>
+      <li><a class="nav" href="powietrze.html"><span>Air</span></a></li>
+      <li><a class="nav" href="mieszkania.html"><span>Housing</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../modernizacja.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/modernizacja.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Housing stock and retrofit</h1>
+<p class="lede">Buildings managed by the municipal housing authority (Zarząd Budynków Komunalnych, ZBK) according to its list in the public information bulletin (BIP), prefabricated large-panel block candidates as an estimate from BDOT10k, heights from 3D models, linked to access and green space. The page shows what the data contain, what is missing and how certain the figures are. It is about the stock and building types, not about retrofit needs: regeneration areas (Gminny Program Rewitalizacji), heat demand, heating type and urban heat islands are not shown yet.</p>
+<p><span class="ks-abz">typology: estimate</span><span class="ks-abz">no construction years</span><span class="ks-abz">no energy data</span><span class="ks-abz">no heritage status</span></p>
+<section class="ks" aria-label="Housing stock: map and panel">
+  <div class="ks__karte">
+    <div id="karte" role="region" aria-label="Map of ZBK buildings and large-panel block candidates. Pan with the arrow keys, zoom with plus and minus."></div>
+    <div class="ks-werkzeug" id="werkzeug"></div>
+    <div class="ks-legende" id="legende" tabindex="0" role="region" aria-label="Legend" hidden></div>
+    <p class="nur-sr" id="kartenstatus" aria-live="polite"></p>
+  </div>
+  <div class="ks-blatt">
+    <div class="ks-block">
+      <h2>District</h2>
+      <label class="ks-wahl"><span>Choose a district</span><select id="st-wahl"></select></label>
+      <div id="st-inhalt" aria-live="polite"></div>
+    </div>
+    <div class="ks-block">
+      <h2>Reference point</h2>
+      <div id="ortsmarke"></div>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="om-zeigen"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Show on map</span></button></div>
+    </div>
+    <div class="ks-block">
+      <h2>ZBK building list</h2>
+      <p class="ks-fuss" id="liste-kopf"></p>
+      <ul class="ks-zahlen" id="liste"></ul>
+      <h3>Ownership</h3>
+      <ul class="ks-zahlen" id="eigentum"></ul>
+      <p class="ks-fuss" id="liste-fehlt"></p>
+      <p class="ks-fuss" id="punkte-regel"></p>
+    </div>
+    <div class="ks-block">
+      <h2>Residential blocks: candidates by geometry <span class="ks-abz">estimate</span></h2>
+      <p id="typ-regel"></p>
+      <p id="typ-osiedle"></p>
+      <ul class="ks-zahlen" id="typ-zahlen"></ul>
+      <p class="ks-fuss">The number only counts a combination of features and is neither a lower nor an upper bound: it also includes newer residential blocks, tenement houses (kamienice) in perimeter blocks with at least four storeys (especially in the centre: Old Town, Kazimierz, Kleparz, Wesoła) and the brick buildings of socialist realism in Nowa Huta, and it misses prefabricated blocks with an irregular footprint, made of several parts or without neighbours. Candidates attached to other buildings are more often kamienice than blocks.</p>
+      <p class="ks-fuss" id="literatur"></p>
+    </div>
+    <div class="ks-block">
+      <h2>Heritage status</h2>
+      <p>This version of the ZBK list gives no heritage register number, and the register (NID) is not yet in the atlas. A missing mark therefore does not mean that a building is not a monument. For orientation you can switch on objects tagged as heritage in OpenStreetMap: tags, not the register; the legend states how their location was checked.</p>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="dz-knopf" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Monuments according to OpenStreetMap</span></button></div>
+    </div>
+    <div class="ks-block">
+      <h2>Location of the entries</h2>
+      <ul class="ks-zahlen" id="verortung"></ul>
+      <h3>Buildings and heights</h3>
+      <ul class="ks-zahlen" id="hoehen"></ul>
+    </div>
+  </div>
+</section>
+<h2>Surroundings: access, green space, air</h2>
+<p class="ks-grenzen">Retrofitting the stock is also a question of the surroundings: walking access to class I or II public transport stops and to green space, and air quality. The table compares the districts; details are on the theme pages.</p>
+<div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="bezug-laden"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Add access to the table</span></button></div>
+<div id="tab-dzielnice" aria-live="polite"></div>
+<ul class="ks-grenzen">
+  <li><a class="link" href="planer.html#zu=haltestelle_takt&amp;weg=fuss&amp;halt=1">Map: class I or II stop, walking route</a></li>
+  <li><a class="link" href="planer.html#zu=park&amp;weg=fuss">Map: park or square, walking route</a></li>
+  <li><a class="link" href="klimat.html">Climate: built-up area and green space</a></li>
+  <li><a class="link" href="powietrze.html">Air quality</a></li>
+  <li><a class="link" href="kamienice.html">Tenements and monuments</a></li>
+</ul>
+<h2>Limitations</h2>
+<ul class="ks-grenzen">
+  <li>No construction year and no energy data: the construction year in the building cadastre is not free of charge, and the central register of building emissions (CEEB) is not open. The atlas therefore does not split the stock by construction period and gives no energy use.</li>
+  <li>The typology is an estimate from a combination of BDOT10k features (storeys, footprint, shape, neighbourhood). It does not recognise the construction technology; its accuracy has not yet been checked.</li>
+  <li>Points only for buildings in public ownership. Entries with private co-owners, independent possession and single-family houses are only counted, so that no address is linked to a specific person or household.</li>
+  <li>Locations come from OpenStreetMap addresses; some entries are plots, garages or forts without an address. If a point falls outside the district named in the list, it is not shown; whether the list or the geocoding is wrong has not been checked.</li>
+  <li>Heights come from LoD2 3D models as of 2017; later extensions and demolitions are not included. Without a model: storeys × 3 m.</li>
+  <li>No heritage status is given: the list has no register number, and the NID register is not yet in the atlas.</li>
+  <li>The list is a snapshot of one day; ZBK publishes new versions. Reading the table from the PDF was checked by matching totals by type, ownership and district, but individual rows may still contain errors.</li>
+</ul>
+<h2>Sources</h2>
+<p class="ks-quellen">The re-use rules of Gmina Miejska Kraków require the source, the time of creation and retrieval, a note on processing and a liability clause. We quote them verbatim in Polish:</p>
+<ul class="ks-quellen" id="quellen-zbk"></ul>
+<ul class="ks-quellen">
+  <li>Location of the entries and district boundaries: © OpenStreetMap contributors, ODbL 1.0.</li>
+  <li>Heights and 3D buildings: LoD2 3D building models, as of 2017, GUGiK: „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.”</li>
+</ul>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../texte/en/planer.js"></script>
+<script defer src="../texte/en/denkmale.js"></script>
+<script defer src="../texte/en/sanierung.js"></script>
+<script defer src="../daten/stadtteile_odbl.js"></script>
+<script defer src="../daten/sanierung.js"></script>
+<script defer src="../daten/sanierung_odbl.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenseite.js"></script>
+<script defer src="../sanierungsatlas.js"></script>
+</body>
+</html>

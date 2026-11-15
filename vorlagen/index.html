@@ -1,0 +1,90 @@
+<!--seite
+daten: daten/stadtteile_uebersicht_odbl.js daten/steckbrief.js daten/steckbrief_dzielnice_odbl.js daten/gebaeude_kennzahlen.js daten/gebaeude_dzielnice_odbl.js daten/sanierung.js
+texte: kern seiten karte erzaehlung
+robots: index
+css: vendor/maplibre-gl.css kartenfeld.css stadtatlas.css
+skripte: vendor/maplibre-gl.js daten/grundkarte.js themen.js kartenfeld.js erzaehlung.js
+-->
+<h1>{{t:seiten.index.h1}}</h1>
+<p class="lede">{{t:erzaehlung.lede}}</p>
+<dl id="ka-stadtzahlen" class="ka-stadtzahlen" aria-label="{{t:erzaehlung.kz_aria}}"></dl>
+<p class="ka-quelle">{{t:erzaehlung.kz_hinweis}}</p>
+
+<div class="ka-buehne">
+  <div class="ka-fragen">
+    <article class="ka-frage" data-ansicht="teile" id="ka-f-teile">
+      <h2>{{t:erzaehlung.f_teile}}</h2>
+      <p class="ka-antwort" id="ka-a-teile"></p>
+      <p>{{t:erzaehlung.f_teile_mehr}}</p>
+      <p class="ka-quelle">{{t:erzaehlung.quelle_teile}}</p>
+    </article>
+    <article class="ka-frage" data-ansicht="einwohner" id="ka-f-einwohner">
+      <h2>{{t:erzaehlung.f_einwohner}}</h2>
+      <p class="ka-antwort" id="ka-a-einwohner"></p>
+      <p>{{t:erzaehlung.f_einwohner_mehr}}</p>
+      <p class="ka-quelle">{{t:erzaehlung.quelle_nsp_gitter}}</p>
+    </article>
+    <article class="ka-frage" data-ansicht="dichte" id="ka-f-dichte">
+      <h2>{{t:erzaehlung.f_dichte}}</h2>
+      <p class="ka-antwort" id="ka-a-dichte"></p>
+      <p class="ka-quelle">{{t:erzaehlung.quelle_gitter}} {{t:erzaehlung.quelle_flaeche_osm}}</p>
+    </article>
+    <article class="ka-frage" data-ansicht="alter" id="ka-f-alter">
+      <h2>{{t:erzaehlung.f_alter}}</h2>
+      <p class="ka-antwort" id="ka-a-alter"></p>
+      <p>{{t:erzaehlung.f_alter_mehr}}</p>
+      <p class="ka-quelle">{{t:erzaehlung.quelle_gitter}}</p>
+    </article>
+    <article class="ka-frage" data-ansicht="gebaeude" id="ka-f-gebaeude">
+      <h2>{{t:erzaehlung.f_gebaeude}}</h2>
+      <p class="ka-antwort" id="ka-a-gebaeude"></p>
+      <p>{{t:erzaehlung.f_gebaeude_3d}} <a class="link" href="kamienice.html">{{t:seiten.kamienice.nav}}</a>, <a class="link" href="planer.html">{{t:seiten.planer.nav}}</a>, <a class="link" href="modernizacja.html">{{t:seiten.modernizacja.nav}}</a></p>
+      <p class="ka-quelle">{{t:erzaehlung.quelle_bdot_lang}}</p>
+    </article>
+    <article class="ka-frage" data-ansicht="takt" id="ka-f-takt">
+      <h2>{{t:erzaehlung.f_takt}}</h2>
+      <p class="ka-antwort" id="ka-a-takt">{{t:erzaehlung.laedt}}</p>
+      <p>{{t:erzaehlung.f_takt_mehr}} <a class="link" href="planer.html">{{t:erzaehlung.zum_planer}}</a></p>
+      <p class="ka-quelle">{{t:erzaehlung.quelle_fuss}}</p>
+    </article>
+    <article class="ka-frage" data-ansicht="luft" id="ka-f-luft">
+      <h2>{{t:erzaehlung.f_luft}}</h2>
+      <p class="ka-antwort">{{t:erzaehlung.a_luft}}</p>
+      <p class="ka-teaser">{{t:erzaehlung.luft_hinweis}} <a class="link" href="powietrze.html">{{t:erzaehlung.zur_luft}}</a></p>
+    </article>
+    <article class="ka-frage" data-ansicht="zbk" id="ka-f-zbk">
+      <h2>{{t:erzaehlung.f_zbk}}</h2>
+      <p class="ka-antwort" id="ka-a-zbk"></p>
+      <p id="ka-a-zbk-grenzen"></p>
+      <p class="ka-teaser">{{t:erzaehlung.zbk_teaser}} <a class="link" href="modernizacja.html">{{t:seiten.modernizacja.h1}}</a></p>
+      <p class="ka-quelle">{{t:erzaehlung.quelle_zbk_lang}}</p>
+    </article>
+  </div>
+  <div class="ka-buehne__karte">
+    <div class="kartenfeld"><div id="karte" role="region" aria-label="{{t:erzaehlung.karte_aria}}"></div></div>
+    <div id="ka-buehne-legende" class="ka-buehne__legende fl-legende" aria-live="polite"></div>
+  </div>
+</div>
+
+<h2 id="dzielnice">{{plural:kern.dzielnice:teile}}</h2>
+<p>{{t:erzaehlung.register_einleitung}}</p>
+<div class="ka-tabelle-rahmen" role="region" tabindex="0" aria-label="{{plural:kern.dzielnice:teile}}">
+<table id="ka-register" class="ka-tabelle">
+  <caption>{{t:erzaehlung.register_quelle}}</caption>
+  <thead><tr>
+    <th scope="col"><button type="button" data-sort="nr">{{t:erzaehlung.reg_teil}}</button></th>
+    <th scope="col"><button type="button" data-sort="ew">{{t:erzaehlung.reg_ew}}</button></th>
+    <th scope="col"><button type="button" data-sort="dichte">{{t:erzaehlung.reg_dichte}}</button></th>
+    <th scope="col"><button type="button" data-sort="65p">{{t:erzaehlung.reg_65p}}</button></th>
+    <th scope="col"><button type="button" data-sort="geb">{{t:erzaehlung.reg_geb}}</button></th>
+    <th scope="col"><button type="button" data-sort="bebauung">{{t:erzaehlung.reg_bebauung}}</button></th>
+    <th scope="col"><button type="button" data-sort="zbk">{{t:erzaehlung.reg_zbk}}</button></th>
+  </tr></thead>
+  <tbody></tbody>
+  <tfoot></tfoot>
+</table>
+</div>
+<noscript>{{liste:teile}}</noscript>
+{{block:index}}
+<h2 id="tematy">{{t:seiten.index.themen}}</h2>
+{{liste:themenseiten}}

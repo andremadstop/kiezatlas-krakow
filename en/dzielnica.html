@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>District profile · Kiezatlas Kraków</title>
+<meta name="description" content="A profile for each district: key figures, comparison with the other districts and a printable sheet.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/dzielnica.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/dzielnica.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/dzielnica.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/dzielnica.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/dzielnica.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="District profile · Kiezatlas Kraków">
+<meta property="og:description" content="A profile for each district: key figures, comparison with the other districts and a printable sheet.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenfeld.css">
+<link rel="stylesheet" href="../stadtatlas.css">
+</head>
+<body class="textseite" data-seite="dzielnica">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html" aria-current="page"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../dzielnica.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/dzielnica.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/dzielnica.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../dzielnica.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/dzielnica.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>District profile</h1>
+<p class="lede">A profile for each district: key figures, comparison with the other districts and a printable sheet.</p>
+<div class="ka-teilwahl ka-nicht-drucken">
+  <label for="ka-teil">Choose a district<select id="ka-teil"></select></label>
+  <button type="button" id="ka-drucken" class="knopf"><span class="knopf__flut" aria-hidden="true"></span>Print or save as PDF</button>
+</div>
+<section id="ka-steckbrief" class="ka-steckbrief" aria-labelledby="ka-sb-name">
+  <div class="ka-steckbrief__kopf">
+    <span id="ka-sb-ziffer" class="ka-ziffer" aria-hidden="true"></span>
+    <h2 id="ka-sb-name"></h2>
+    <p id="ka-sb-gruppe" class="lede"></p>
+    <p>Each indicator with the value for the whole city, the rank among districts and its source. A missing value means no data, not zero.</p>
+  </div>
+  <div class="kartenfeld"><div id="karte" role="region" aria-label="Map of the selected district with grid cells"></div></div>
+  <div id="ka-sb-legende" class="fl-legende" hidden></div>
+</section>
+<div id="ka-sb-werte"></div>
+<div id="ka-sb-nsp"></div>
+<p class="ka-quelle">District boundaries come from OpenStreetMap until the licence of the city&#x27;s boundaries is clarified. Values per district based on these boundaries are published under ODbL 1.0.</p>
+
+<h2 id="dzielnice" class="ka-nicht-drucken">18 districts</h2>
+<div class="ka-nicht-drucken">
+<ul class="teile-liste">
+  <li><a class="link" href="dzielnica.html#st=01">District I Stare Miasto</a></li>
+  <li><a class="link" href="dzielnica.html#st=02">District II Grzegórzki</a></li>
+  <li><a class="link" href="dzielnica.html#st=03">District III Prądnik Czerwony</a></li>
+  <li><a class="link" href="dzielnica.html#st=04">District IV Prądnik Biały</a></li>
+  <li><a class="link" href="dzielnica.html#st=05">District V Krowodrza</a></li>
+  <li><a class="link" href="dzielnica.html#st=06">District VI Bronowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=07">District VII Zwierzyniec</a></li>
+  <li><a class="link" href="dzielnica.html#st=08">District VIII Dębniki</a></li>
+  <li><a class="link" href="dzielnica.html#st=09">District IX Łagiewniki-Borek Fałęcki</a></li>
+  <li><a class="link" href="dzielnica.html#st=10">District X Swoszowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=11">District XI Podgórze Duchackie</a></li>
+  <li><a class="link" href="dzielnica.html#st=12">District XII Bieżanów-Prokocim</a></li>
+  <li><a class="link" href="dzielnica.html#st=13">District XIII Podgórze</a></li>
+  <li><a class="link" href="dzielnica.html#st=14">District XIV Czyżyny</a></li>
+  <li><a class="link" href="dzielnica.html#st=15">District XV Mistrzejowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=16">District XVI Bieńczyce</a></li>
+  <li><a class="link" href="dzielnica.html#st=17">District XVII Wzgórza Krzesławickie</a></li>
+  <li><a class="link" href="dzielnica.html#st=18">District XVIII Nowa Huta</a></li>
+</ul>
+</div>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../texte/en/erzaehlung.js"></script>
+<script defer src="../daten/kennzahlen_odbl.js"></script>
+<script defer src="../daten/stadtteile_odbl.js"></script>
+<script defer src="../daten/zellen_odbl.js"></script>
+<script defer src="../daten/steckbrief.js"></script>
+<script defer src="../daten/steckbrief_dzielnice_odbl.js"></script>
+<script defer src="../daten/gebaeude_kennzahlen.js"></script>
+<script defer src="../daten/gebaeude_dzielnice_odbl.js"></script>
+<script defer src="../daten/klimat.js"></script>
+<script defer src="../daten/klimat_stadtteile_odbl.js"></script>
+<script defer src="../daten/sanierung.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenfeld.js"></script>
+<script defer src="../dzielnica.js"></script>
+</body>
+</html>

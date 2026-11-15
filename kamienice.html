@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pl" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kamienice i zabytki · Kiezatlas Kraków</title>
+<meta name="description" content="Wybór kamienic i zabytków w dzielnicach: obiekty oznaczone w OpenStreetMap, kompleksy z BDOT10k i obiekty z numerem rejestru z Wikidanych; rejestru NID jeszcze nie ma.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/kamienice.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/kamienice.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/kamienice.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/kamienice.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/kamienice.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kamienice i zabytki · Kiezatlas Kraków">
+<meta property="og:description" content="Wybór kamienic i zabytków w dzielnicach: obiekty oznaczone w OpenStreetMap, kompleksy z BDOT10k i obiekty z numerem rejestru z Wikidanych; rejestru NID jeszcze nie ma.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="atlas.css">
+<link rel="stylesheet" href="rahmen.css">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<link rel="stylesheet" href="kartenseite.css">
+</head>
+<body class="textseite" data-seite="kamienice">
+<a class="sprung" href="#inhalt">Przejdź do treści</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Nawigacja">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Mapa</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Dzielnice</span></a></li>
+        <li><a class="nav" href="kamienice.html" aria-current="page"><span>Kamienice</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Dostępność</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Tematy</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Metodologia</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Wybór języka">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="kamienice.html" aria-current="true">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="en/kamienice.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="de/kamienice.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Kamienice i zabytki">
+    <ul>
+      <li><a class="nav" href="kamienice.html" aria-current="page"><span>Kamienice</span></a></li>
+      <li><a class="nav" href="kamienice-metoda.html"><span>Metodologia</span></a></li>
+      <li><a class="nav" href="kamienice-dane.html"><span>Dane</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="en/kamienice.html">Also available in English</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="de/kamienice.html">Auch auf Deutsch</a> <button type="button" aria-label="Zamknij" title="Zamknij"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Dane przykładowe w części strony: dane wczytane na żądanie pokazują fikcyjne wartości, które służą wyłącznie do budowy atlasu, i są oznaczone tam, gdzie się pojawiają. Pozostałe dane na tej stronie nie są przykładowe." hidden>Dane przykładowe: ta strona pokazuje fikcyjne wartości, które służą wyłącznie do budowy atlasu. Nie są to dane o Krakowie.</p>
+</div>
+<h1>Kamienice i zabytki</h1>
+<p class="lede">Wybór kamienic i zabytków w dzielnicach: obiekty oznaczone w OpenStreetMap, kompleksy z BDOT10k i obiekty z numerem rejestru z Wikidanych; rejestru NID jeszcze nie ma.</p>
+<p><span class="ks-abz ks-abz--fest">zbiór niepełny</span><span class="ks-abz" id="abz-lage" hidden></span><span class="ks-abz">rejestr tylko z Wikidanych</span></p>
+<section class="ks" aria-label="Kamienice i zabytki: mapa i panel">
+  <div class="ks__karte">
+    <div id="karte" role="region" aria-label="Mapa zabytków i kamienic w Krakowie. Przesuwaj strzałkami, przybliżaj klawiszami plus i minus."></div>
+    <div class="ks-werkzeug" id="werkzeug"></div>
+    <div class="ks-legende" id="legende" data-start="zu" tabindex="0" role="region" aria-label="Legenda" hidden></div>
+    <p class="nur-sr" id="kartenstatus" aria-live="polite"></p>
+  </div>
+  <div class="ks-blatt">
+    <div class="ks-block">
+      <h2>Zabytki i kamienice</h2>
+      <p>Wybrane zabytki: tylko obiekty, które źródło wymienia jako zabytek. Nie wszystkie budynki z danego okresu.</p>
+      <p>Mapa nie pokazuje wieku całej zabudowy. Wykorzystane źródła nie podają roku budowy wszystkich budynków.</p>
+      <p class="ks-fuss">Kamienica w atlasie: budynek wielorodzinny, który źródło wymienia jako zabytek.</p>
+    </div>
+    <div class="ks-block">
+      <h2>Co pokazać</h2>
+      <fieldset class="ks-chips" id="ep"></fieldset>
+      <div class="ks-knoepfe">
+        <button class="knopf knopf--rand" type="button" id="nur-kamienice" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Tylko kamienice (OSM)</span></button>
+        <button class="knopf knopf--rand" type="button" id="alle-objekte" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Także obiekty bez oznaczenia zabytku</span></button>
+        <button class="knopf knopf--rand" type="button" id="komplexe" aria-pressed="true"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Kompleksy z BDOT10k</span></button>
+      </div>
+      <p class="ks-fuss">Obiekty bez oznaczenia zabytku mają w OpenStreetMap tylko datę budowy; to nie są zabytki i pokazujemy je wyłącznie na życzenie.</p>
+    </div>
+    <div class="ks-block">
+      <h2>Punkt odniesienia</h2>
+      <div id="ortsmarke"></div>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="om-zeigen"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Pokaż na mapie</span></button></div>
+      <p class="ks-fuss"><a class="link" href="modernizacja.html">Zasób mieszkaniowy i modernizacja</a></p>
+    </div>
+    <div class="ks-block">
+      <h2>Źródła i stan</h2>
+      <ul class="ks-zahlen" id="quellen-stand"></ul>
+    </div>
+    <div class="ks-block">
+      <h2>Rejestr zabytków, część z Wikidanych</h2>
+      <ul class="ks-zahlen" id="zahlen-register"></ul>
+      <p class="ks-fuss">Punkty są na stronie „Mapa”, oddzielnie od oznaczeń w OpenStreetMap. <a class="link" href="karta.html#pkt=rejestr">Punkty rejestru na mapie</a></p>
+    </div>
+    <div class="ks-block">
+      <h2>OpenStreetMap</h2>
+      <ul class="ks-zahlen" id="zahlen-osm"></ul>
+    </div>
+    <div class="ks-block">
+      <h2>BDOT10k</h2>
+      <ul class="ks-zahlen" id="zahlen-bdot"></ul>
+      <p class="ks-fuss" id="komplex-hinweis"></p>
+      <h3>Według delegatur (dawnych dzielnic)</h3>
+      <div class="ks-tabelle" id="tab-delegatur" tabindex="0" role="region" aria-label="Budynki wielorodzinne, budynki o nazwie „Kamienica …”, punkty rejestru z Wikidanych, zabytki z OpenStreetMap i budynki wielorodzinne z oznaczeniem zabytku według delegatur"></div>
+    </div>
+  </div>
+</section>
+<h2>Ograniczenia</h2>
+<ul class="ks-grenzen">
+  <li>Dane rejestru pochodzą na razie tylko z Wikidanych: są to obiekty, które mają tam numer polskiego rejestru zabytków. To część rejestru; czego brakuje w Wikidanych albo co nie ma współrzędnych, tego brakuje też tutaj. Rejestru zabytków (NID) i gminnej ewidencji zabytków jeszcze nie ma w atlasie, bo nie zostały pobrane ręcznie. Mapa na tej stronie pokazuje tylko to, co oznaczono jako zabytek w OpenStreetMap; punkty rejestru są na stronie „Mapa”.</li>
+  <li>Punkt rejestru łączy obiekty Wikidanych o tym samym numerze rejestru (np. zespół wielu pojedynczych obiektów); jego położenie to współrzędne pierwszego z nich. Podana liczba dotyczy więc punktów, a nie zabytków ani budynków.</li>
+  <li>Oznaczenia w OpenStreetMap wprowadzają wolontariusze; kompletność nie została sprawdzona. Brak punktu nie znaczy, że budynek nie jest zabytkiem.</li>
+  <li id="grenze-lage"></li>
+  <li>Podajemy tylko okres budowy, nigdy dokładny rok, i tylko dla obiektów z datą w źródle. Mapa nie mówi nic o wieku pozostałej zabudowy.</li>
+  <li>Kamienica to w atlasie budynek wielorodzinny według BDOT10k z oznaczeniem zabytku w obrysie albo do 10 m od niego. To definicja robocza, węższa niż potoczne znaczenie słowa. Na mapie tej strony oznaczenie opiera się tylko na OpenStreetMap; punkty rejestru w budynkach wielorodzinnych podaje tabela.</li>
+  <li>Kompleksy z BDOT10k to obiekty topograficzne (np. zespół zabudowy historycznej, twierdza lub forteca), a nie wpisy do rejestru zabytków.</li>
+  <li>Zliczenia z BDOT10k i z OpenStreetMap podajemy według delegatur (dawnych dzielnic, granice z BDOT10k), a nie według dzielnic.</li>
+</ul>
+<h2>Źródła</h2>
+<ul class="ks-quellen">
+  <li>Dane rejestru: Wikidane, CC0 1.0 (obiekty z polskim numerem rejestru, właściwość P3424; zapytanie wykonane ręcznie, stan w pliku danych).</li>
+  <li>Zabytki i daty budowy: © autorzy OpenStreetMap, ODbL 1.0 (wyciąg z Geofabrik, stan w pliku danych).</li>
+  <li>Budynki i kompleksy: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne).</li>
+  <li>Budynki 3D: Modele 3D budynków LoD2, stan 2017, GUGiK: „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.”</li>
+</ul>
+<p>Więcej: <a class="link" href="kamienice-metoda.html">Kamienice: metodologia</a> · <a class="link" href="kamienice-dane.html">Kamienice: dane</a> · <a class="link" href="modernizacja.html">Zasób mieszkaniowy i modernizacja</a> · <a class="link" href="planer.html">Dostępność i komunikacja</a></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Strona główna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/nota-prawna/">Nota prawna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/polityka-prywatnosci/">Polityka prywatności</a></p>
+  <p class="fuss-seite__stand">Stan <span data-kiez-version>—</span>. Wydawca: Stiebitz Souverain Systems UG (haftungsbeschränkt). Kod: Apache-2.0. Grafiki: CC BY 4.0. Dane: licencje według źródeł. <span class="fuss-seite__odbl">Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Widzisz błąd? Napisz do nas: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="daten/ort.js"></script>
+<script defer src="i18n.js"></script>
+<script defer src="texte/pl/kern.js"></script>
+<script defer src="texte/pl/seiten.js"></script>
+<script defer src="texte/pl/planer.js"></script>
+<script defer src="texte/pl/denkmale.js"></script>
+<script defer src="texte/pl/kamienice.js"></script>
+<script defer src="daten/stadtteile_odbl.js"></script>
+<script defer src="daten/denkmale_bdot.js"></script>
+<script defer src="daten/denkmale_odbl.js"></script>
+<script defer src="daten/denkmale.js"></script>
+<script defer src="kopf.js"></script>
+<script defer src="rahmen.js"></script>
+<script defer src="vendor/maplibre-gl.js"></script>
+<script defer src="daten/grundkarte.js"></script>
+<script defer src="themen.js"></script>
+<script defer src="kartenseite.js"></script>
+<script defer src="kamienice.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karte · Kiezatlas Kraków</title>
+<meta name="description" content="Alle Themen des Atlas auf einer Karte: Stadtteile, Gitter und wählbare Ebenen.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/karta.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/karta.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/karta.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/karta.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/de/karta.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karte · Kiezatlas Kraków">
+<meta property="og:description" content="Alle Themen des Atlas auf einer Karte: Stadtteile, Gitter und wählbare Ebenen.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenfeld.css">
+<link rel="stylesheet" href="../stadtatlas.css">
+</head>
+<body class="textseite" data-seite="karta">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html" aria-current="page"><span>Karte</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Stadtteile</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Mietshäuser</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Erreichbarkeit</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Themen</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Methode</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Sprache wählen">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../karta.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/karta.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/karta.html" aria-current="true">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../karta.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="../en/karta.html">Also available in English</a> <button type="button" aria-label="Schließen" title="Schließen"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Beispieldaten auf einem Teil der Seite: Auf Abruf geladene Daten zeigen unechte Werte, die nur zum Bauen des Atlas dienen, und sind dort gekennzeichnet, wo sie erscheinen. Die übrigen Daten dieser Seite sind keine Beispieldaten." hidden>Beispieldaten: Diese Seite zeigt unechte Werte, die nur zum Bauen des Atlas dienen. Es sind keine Daten über Krakau.</p>
+</div>
+<h1>Karte</h1>
+<p class="lede">Alle Themen des Atlas auf einer Karte: Stadtteile, Gitter und wählbare Ebenen.</p>
+<div class="ka-kartenseite">
+  <div class="kartenfeld ka-kartenfeld"><div id="karte" role="region" aria-label="Karte von Krakau mit den gewählten Ebenen"></div></div>
+  <div class="ka-bedienung">
+    <p class="ka-wahl"><label for="ka-teil">Stadtteil</label>
+      <select id="ka-teil"><option value="">Ganz Krakau</option></select></p>
+    <p class="ka-wahl"><label for="ka-zelle">Ebene im 1-km-Gitter</label>
+      <select id="ka-zelle">
+        <option value="">keine</option>
+        <optgroup data-gruppe="gitter" label="Bevölkerung (Eurostat)"></optgroup>
+        <optgroup data-gruppe="fuss" label="Fußweg zum nächsten Ziel"></optgroup>
+        <optgroup data-gruppe="klima" label="Flächennutzung (BDOT10k)"></optgroup>
+      </select></p>
+    <fieldset id="ka-dz" class="ka-feld">
+      <legend>Färbung der Stadtteile</legend>
+      <label><input type="radio" name="dz" value="gruppen"> historische Stadtbezirke</label>
+      <label><input type="radio" name="dz" value="bebauung"> Bebauungsdichte (überbaute Fläche)</label>
+      <label><input type="radio" name="dz" value="versiegelung"> Anteil Bebauung und Verkehr an der Fläche</label>
+      <label><input type="radio" name="dz" value="zbk"> Einträge in der Gebäudeliste des ZBK</label>
+    </fieldset>
+    <fieldset class="ka-feld">
+      <legend>Punkte</legend>
+      <label><input type="checkbox" name="pkt" value="haltestellen"> Haltestellen nach Taktklasse</label>
+      <label><input type="checkbox" name="pkt" value="einrichtungen"> Schulen, Kitas, Krippen, Krankenhäuser, Parks</label>
+      <label><input type="checkbox" name="pkt" value="zbk"> Gebäude in Verwaltung des ZBK (ohne private Anteile)</label>
+      <label><input type="checkbox" name="pkt" value="rejestr"> Denkmalregister aus Wikidata (Registerpunkte)</label>
+      <label><input type="checkbox" name="pkt" value="zabytki"> Denkmal-Kennzeichnung in OpenStreetMap</label>
+      <label><input type="checkbox" name="pkt" value="powietrze"> Messstationen Luftqualität</label>
+    </fieldset>
+    <div class="ka-legenden" aria-live="polite">
+      <div id="ka-leg-zelle" class="fl-legende" hidden></div>
+      <div id="ka-leg-teile" class="fl-legende"></div>
+      <div id="ka-leg-punkte" class="fl-legende" hidden></div>
+    </div>
+    <p class="ka-hinweis">Gebäude in 3D schaltet der Knopf „3D-Häuser“ auf diesen Seiten ein: <a class="link" href="kamienice.html">Mietshäuser</a>, <a class="link" href="planer.html">Erreichbarkeit</a>, <a class="link" href="modernizacja.html">Sanierung</a></p>
+  </div>
+</div>
+
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Startseite</a> <a class="link" hreflang="de" href="https://souverain-systems.de/impressum/">Impressum</a> <a class="link" hreflang="de" href="https://souverain-systems.de/datenschutz/">Datenschutz</a></p>
+  <p class="fuss-seite__stand">Stand <span data-kiez-version>—</span>. Herausgeber: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Grafiken: CC BY 4.0. Daten: Lizenzen nach Quelle. <span class="fuss-seite__odbl">Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Fehler gefunden? Schreib uns: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/de/kern.js"></script>
+<script defer src="../texte/de/seiten.js"></script>
+<script defer src="../texte/de/karte.js"></script>
+<script defer src="../texte/de/erzaehlung.js"></script>
+<script defer src="../texte/de/denkmale.js"></script>
+<script defer src="../daten/kennzahlen_odbl.js"></script>
+<script defer src="../daten/stadtteile_odbl.js"></script>
+<script defer src="../daten/zellen_odbl.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenfeld.js"></script>
+<script defer src="../karta.js"></script>
+</body>
+</html>

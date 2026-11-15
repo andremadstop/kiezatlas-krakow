@@ -1,0 +1,54 @@
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/dane.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="d-pobierz">
+<h2>Downloads</h2>
+<p>All files are built by a script from the same data files the pages load; no value is computed anew. Air and housing prices do not have a layer of their own yet (readme, section “Not in the export”).</p>
+<ul class="quellen">
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: GeoPackage without OpenStreetMap data (city, delegatury, 1 km grid, land cover, BDOT10k facilities, stops, BDOT10k complexes, ZBK list by district).</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a>: GeoPackage with the district boundaries and everything that depends on them, walking routes, doctors and pharmacies, OSM objects with a heritage tag and the points of the ZBK stock. Whole file: Open Database License 1.0.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.qgz" download>kiezatlas_krakow.qgz</a>: QGIS project with styles; keep both GeoPackage files in the same folder.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: the same layers as CSV, in two versions.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/licencje.csv" download>licencje.csv</a>: licence and verbatim source notice for every layer.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/pola.csv" download>pola.csv</a> and <a class="link" href="{{wurzel}}daten/pobierz/wartosci.csv" download>wartosci.csv</a>: meaning of every field and every coded value in Polish, English and German.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/README.md">README.md</a>: description of the layers and fields, row counts, limitations (also <a class="link" hreflang="pl" href="{{wurzel}}daten/pobierz/CZYTAJ.md">in Polish</a> and <a class="link" hreflang="de" href="{{wurzel}}daten/pobierz/LIESMICH.md">in German</a>).</li>
+</ul>
+<p><strong>Decimal comma.</strong> The folders <code>csv_pl/</code> and <code>csv_odbl_pl/</code> in the archive use a decimal comma and no thousands separator, so Excel and LibreOffice with Polish settings read numbers as numbers straight away. The folders <code>csv/</code> and <code>csv_odbl/</code> use a decimal point (for software and English settings). All files: UTF-8 with BOM, semicolon separator, coordinates in EPSG:2178.</p>
+</section>
+
+<section id="d-licencje">
+<h2>Licences</h2>
+<ul class="quellen">
+<li><strong>Files with <code>_odbl</code> in their name</strong> (in the atlas and in the downloads) contain OpenStreetMap data or values assigned to districts by the OpenStreetMap boundaries. The Open Database License 1.0 applies, with the notice “© OpenStreetMap contributors” (openstreetmap.org/copyright). Whoever changes and shares them shares them under the same licence.</li>
+<li><strong>BDOT10k, LoD2 models, register of property prices</strong> (GUGiK): no licence, the source must be named (art. 40c ust. 3 i 5 of the Polish geodesy and cartography act, Prawo geodezyjne i kartograficzne).</li>
+<li><strong>Eurostat population grid, ZTP GTFS timetable</strong>: CC BY 4.0, with source notice and a note on changes.</li>
+<li><strong>NSP 2021 (GUS)</strong>: copying allowed with the source named.</li>
+<li><strong>ZBK list</strong>: reuse of public sector information under the conditions of the Gmina Miejska Kraków, with notice and liability clause.</li>
+<li><strong>Code and own texts</strong>: Apache-2.0; atlas graphics: CC BY 4.0 with the credit on the graphic.</li>
+</ul>
+<p>The source notices are given verbatim below, in their original language.</p>
+</section>
+
+<section id="d-zrodla">
+<h2>Data sources</h2>
+<ul class="quellen">
+<li><strong>Population, NSP 2021:</strong> <span data-feld="steckbrief:quellen.nsp2021.quelle" lang="pl">Główny Urząd Statystyczny, Narodowy Spis Powszechny Ludności i Mieszkań 2021: „Ludność w rejonach statystycznych i obwodach spisowych według płci, ekonomicznych i 10-letnich grup wieku”</span>. Notice: “<span data-feld="steckbrief:quellen.nsp2021.vermerk" lang="pl">Główny Urząd Statystyczny: nie ma zastrzeżeń co do kopiowania plików i stron oraz dokonywania wydruków, w tym do własnych opracowań, pod warunkiem, że będzie podane ich źródło</span>”.</li>
+<li><strong>Population grid:</strong> Eurostat, Census 2021 population grid, <span data-feld="steckbrief:quellen.eurostat2021.url">https://gisco-services.ec.europa.eu/census/2021/INSPIRE/Data/PL_PD_3035_GPKG.zip</span>. Notice: “<span data-feld="steckbrief:quellen.eurostat2021.vermerk">EU copyright rules apply, while the licence would be under CC-BY 4.0.</span>”</li>
+<li><strong>Buildings and delegatura boundaries:</strong> <span data-feld="gebaeude_kennzahlen:quellen.bdot10k.vermerk" lang="pl">Źródło: Baza Danych Obiektów Topograficznych (BDOT10k), państwowy zasób geodezyjny i kartograficzny, Główny Urząd Geodezji i Kartografii; dane opracowane (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne, Dz.U. 2026 poz. 1389)</span> <span data-feld="gebaeude_kennzahlen:quellen.delegatury.vermerk" lang="pl">Granice delegatur: państwowy rejestr granic (PRG) w BDOT10k, Główny Urząd Geodezji i Kartografii</span>.</li>
+<li><strong>Building heights:</strong> <span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk" lang="pl">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></li>
+<li><strong>Facilities:</strong> <span data-feld="einrichtungen:quellen.bdot10k.vermerk" lang="pl">Źródło: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne)</span>.</li>
+<li><strong>Timetable:</strong> <span data-feld="haltestellen:quellen.ztp.vermerk" lang="pl">ZTP Kraków, GTFS, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), dane zmienione (opracowanie własne)</span>.</li>
+<li><strong>OpenStreetMap:</strong> © OpenStreetMap contributors, ODbL 1.0 (openstreetmap.org/copyright); extract for the Małopolska region, as of <span data-feld="stadtteile_odbl:stand">12 November 2026</span>.</li>
+<li><strong>ZBK list:</strong> <span data-feld="sanierung:quellen.zbk.vermerk" lang="pl">Źródło: Zarząd Budynków Komunalnych w Krakowie, „Wykaz budynków i obiektów w zarządzie ZBK na dzień 2025-12-01”, Biuletyn Informacji Publicznej (https://www.bip.krakow.pl/?bip_id=32&amp;mmi=10127), załącznik nr 635620 z dnia 2025-12-18; data wytworzenia: 2025-12-18 (plik PDF), data pozyskania: 2026-11-13. Informacja przetworzona: odczyt tabeli z PDF, ujednolicenie rodzaju budynku i własności, zliczenia; plik nie zawiera adresów.</span> Clause: “<span data-feld="sanierung:quellen.zbk.odpowiedzialnosc" lang="pl">Gmina Miejska Kraków nie ponosi odpowiedzialności za: szkody spowodowane pozyskaniem informacji sektora publicznego lub ponownym wykorzystywaniem informacji sektora publicznego, zamieszczonej na stronach BIP MK lub w innym miejskim serwisie internetowym, udostępnianej na wniosek lub pozyskanej w inny sposób, wykorzystywanej ponownie z naruszeniem warunków udostępniania lub ponownego wykorzystywania informacji sektora publicznego; szkody spowodowane przez dalsze udostępnienie informacji sektora publicznego przez podmioty ponownie ją wykorzystujące z naruszeniem przepisów prawa powszechnie obowiązującego, w tym dalsze udostępnianie informacji sektora publicznego z naruszeniem przepisów regulujących ich ochronę m.in. przepisów ustawy o prawie autorskim i prawach pokrewnych, ustawy o ochronie baz danych, przepisów o ochronie danych osobowych, ustawy o ochronie informacji niejawnych itd.</span>”</li>
+<li><strong>Base map:</strong> BDOT10k, Główny Urząd Geodezji i Kartografii; <span data-feld="grundkarte:stand">BDOT10k 1261 (Miasto Kraków), pliki z 2026-10-03</span>.</li>
+<li><strong>School distance rules:</strong> <span data-feld="planer_odbl:quellen.prawo_oswiatowe.vermerk" lang="pl">Prawo oświatowe, Dz.U. 2026 poz. 820 (tekst jednolity)</span>.</li>
+<li><strong>Air quality limit values:</strong> <span data-feld="powietrze:grenzwerte.pm10_srednia.0.fundstelle" lang="pl">Dz.U. 2021 poz. 845, załącznik nr 1, lp. 7</span>. Anti-smog resolution: <span data-feld="powietrze:kontekst.akt" lang="pl">Uchwała Nr XVIII/243/16 Sejmiku Województwa Małopolskiego z dnia 15 stycznia 2016 roku w sprawie wprowadzenia na obszarze Gminy Miejskiej Kraków ograniczeń w zakresie eksploatacji instalacji, w których następuje spalanie paliw</span>. Measurements: <span data-feld="powietrze:quelle.nazwa">EEA, Air Quality e-Reporting: Air quality annual statistics calculated by the EEA</span>, notice “EEA; data: GIOŚ”.</li>
+<li><strong>Housing prices</strong>: <span data-feld="mieszkania_odbl:quelle.vermerk" lang="pl">Rejestr cen nieruchomości, Prezydent Miasta Krakowa (powiat 1261); dane udostępnione przez Główny Urząd Geodezji i Kartografii w serwisie www.geoportal.gov.pl; opracowanie własne (mediany, bez danych jednostkowych)</span>.</li>
+</ul>
+</section>
+
+<section id="d-cytuj">
+<h2>How to cite</h2>
+<p><span data-feld="ort:zitierzeile.en">Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow</span>, with the data state given in the page footer. For downloads, add the file name and the source notices from <code>licencje.csv</code>. Machine-readable citation data is in the file <code>CITATION.cff</code> in the <a class="link" href="https://github.com/andremadstop/kiezatlas-krakow">repository</a>; no DOI has been assigned yet.</p>
+<p>Found an error in the data or text? Please write to <a class="link" href="mailto:{{meldeweg}}">{{meldeweg}}</a>.</p>
+</section>
+
+<p class="odbl-vermerk"><small>District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>

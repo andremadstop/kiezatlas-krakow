@@ -1,0 +1,13 @@
+# Python-Pakete für skripte/ und pruefen/ (Kiezatlas Kraków), exakte Versionen mit Prüfsummen in requirements.txt.
+# Übernommen aus dem Kiezatlas Potsdam (festgeschrieben am 06.11.2026, dort aus dem lokalen uv-Zwischenspeicher
+# aufgelöst; psycopg und pyyaml wie in ../geodaten-import-pipeline/requirements.txt). Kraków braucht bisher keine
+# weiteren Pakete. Herleitung und Gegenprobe: belege/D1_infrastruktur.md.
+# Neu erzeugen (ohne Netz, nur aus dem Zwischenspeicher; Ergebnis muss bis auf die Zeile mit -o gleich bleiben):
+#   uv pip compile --offline --generate-hashes --python-version 3.13 requirements.in -o requirements.txt
+psycopg[binary]==3.3.6
+pyyaml==6.0.3
+numpy==2.5.4
+scipy==1.18.1
+pyproj==3.8.0
+shapely==2.2.0
+pillow==13.0.0

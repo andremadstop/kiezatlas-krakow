@@ -1,0 +1,202 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Luft: Jahreskennwerte der Messstationen in und um Kraków (Paket Luft, D7)",
+ "description": "Erzeugt von skripte/32_powietrze.py nach pruefen/D7_protokoll.md. Sprachneutral: Schlüssel und Zahlen, Texte in texte/<lang>/powietrze.js. Werte je Station, Kennwert und Jahr; Vorher/Nachher nur bei vollem Fenster. Keine Personenbezüge, nur Messstationen.",
+ "x-datei": "powietrze.js",
+ "x-global": "^KIEZ_POWIETRZE$",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["quelle", "abzeichen", "lata", "okna", "kennwerte", "bez_wartosci", "grenzwerte", "kontekst",
+              "reguly", "stacje", "zaehlung"],
+ "properties": {
+  "fixture": {"const": true},
+  "abzeichen": {"enum": ["orientacyjnie"]},
+  "quelle": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["nazwa", "pochodzenie", "licencja", "vermerk", "metadane", "pliki"],
+   "properties": {
+    "nazwa": {"type": "string", "minLength": 1},
+    "pochodzenie": {"type": "string", "minLength": 1},
+    "licencja": {"const": "CC BY 4.0"},
+    "vermerk": {"type": "string", "pattern": "CC-BY 4\\.0"},
+    "metadane": {"type": "string", "pattern": "^https://"},
+    "pliki": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nazwa", "sha256"],
+      "properties": {
+       "nazwa": {"type": "string", "minLength": 1},
+       "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+     }
+    }
+   }
+  },
+  "lata": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 2010, "maximum": 2025}},
+  "okna": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["przed", "przejscie", "po"],
+   "properties": {
+    "przed": {"$ref": "#/$defs/zakres"},
+    "przejscie": {"type": "integer"},
+    "po": {"$ref": "#/$defs/zakres"}
+   }
+  },
+  "kennwerte": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["pm10_srednia", "pm10_dni", "pm25_srednia", "no2_srednia", "no2_godziny"],
+   "patternProperties": {
+    "^(pm10_srednia|pm10_dni|pm25_srednia|no2_srednia|no2_godziny)$": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": ["zanieczyszczenie", "agregacja", "jednostka"],
+     "properties": {
+      "zanieczyszczenie": {"enum": ["PM10", "PM2.5", "NO2"]},
+      "agregacja": {"type": "string", "minLength": 1},
+      "jednostka": {"enum": ["µg/m³", "dni", "godziny"]}
+     }
+    }
+   }
+  },
+  "bez_wartosci": {"type": "object", "additionalProperties": {"type": "string"}},
+  "grenzwerte": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["pm10_srednia", "pm10_dni", "pm25_srednia", "no2_srednia", "no2_godziny"],
+   "patternProperties": {
+    "^(pm10_srednia|pm10_dni|pm25_srednia|no2_srednia|no2_godziny)$": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wartosc", "jednostka", "okres", "od_roku", "fundstelle"],
+      "properties": {
+       "wartosc": {"type": "number", "minimum": 0},
+       "jednostka": {"const": "µg/m³"},
+       "okres": {"enum": ["rok kalendarzowy", "24 godziny", "jedna godzina"]},
+       "dopuszczalna_czestosc": {"type": "integer", "minimum": 0},
+       "od_roku": {"type": "integer"},
+       "faza": {"enum": ["I", "II"]},
+       "fundstelle": {"type": "string", "pattern": "^Dz\\.U\\. 2021 poz\\. 845, załącznik nr 1, lp\\. \\d"}
+      }
+     }
+    }
+   }
+  },
+  "kontekst": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["akt", "publikacja", "wejscie_w_zycie", "cytat_wejscie", "cytat_paliwa", "url", "zmiany_pozniejsze"],
+   "properties": {
+    "akt": {"type": "string", "pattern": "^Uchwała Nr XVIII/243/16 "},
+    "publikacja": {"type": "string", "pattern": "poz\\. 812$"},
+    "wejscie_w_zycie": {"const": "2019-09-01"},
+    "cytat_wejscie": {"type": "string", "minLength": 1},
+    "cytat_paliwa": {"type": "string", "minLength": 1},
+    "url": {"type": "string", "pattern": "^https://"},
+    "zmiany_pozniejsze": {"type": "string"}
+   }
+  },
+  "reguly": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["miasto", "okolica_km", "pokrycie_min", "pokrycie_pelne", "srodek"],
+   "properties": {
+    "miasto": {"type": "string"},
+    "okolica_km": {"type": "number", "minimum": 0},
+    "pokrycie_min": {"type": "number"},
+    "pokrycie_pelne": {"type": "number"},
+    "srodek": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+   }
+  },
+  "stacje": {"type": "array", "items": {"$ref": "#/$defs/stacja"}},
+  "zaehlung": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["zeilen_gesamt", "verworfen", "werte_verwendet", "stationen", "niepelne", "przed_po_pelne",
+                "przed_po_brak"],
+   "properties": {
+    "zeilen_gesamt": {"type": "integer", "minimum": 0},
+    "ausreisser_nicht_geliefert": {"const": true, "description": "Der Export liefert potentialOutlier nicht, die Regel „Ausreißer verwerfen“ greift nicht (pruefen/D7_protokoll.md, Abweichung 2); fehlt das Feld, war potentialOutlier geliefert"},
+    "werte_verwendet": {"type": "integer", "minimum": 0},
+    "niepelne": {"type": "integer", "minimum": 0},
+    "przed_po_pelne": {"type": "integer", "minimum": 0},
+    "przed_po_brak": {"type": "integer", "minimum": 0},
+    "stationen": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": ["miasto", "okolica"],
+     "properties": {"miasto": {"type": "integer", "minimum": 0}, "okolica": {"type": "integer", "minimum": 0}}
+    },
+    "verworfen": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": ["land", "kennwert", "jahr", "datenfluss", "deckung", "ausreisser", "wert", "koordinate",
+                  "entfernung", "dublette"],
+     "patternProperties": {"^[a-z]+$": {"type": "integer", "minimum": 0}}
+    }
+   }
+  }
+ },
+ "$defs": {
+  "zakres": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer"}},
+  "stacja": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["kod", "nazwa", "rola", "typ", "obszar", "lat", "lon", "odleglosc_km", "przed_po"],
+   "properties": {
+    "kod": {"type": "string", "minLength": 1},
+    "nazwa": {"type": "string"},
+    "rola": {"enum": ["miasto", "okolica"]},
+    "typ": {"type": "string"},
+    "obszar": {"type": "string"},
+    "lat": {"type": "number", "minimum": -90, "maximum": 90},
+    "lon": {"type": "number", "minimum": -180, "maximum": 180},
+    "odleglosc_km": {"type": "number", "minimum": 0},
+    "serie": {
+     "type": "object",
+     "additionalProperties": false,
+     "patternProperties": {
+      "^(pm10_srednia|pm10_dni|pm25_srednia|no2_srednia|no2_godziny)$": {
+       "type": "object",
+       "additionalProperties": false,
+       "patternProperties": {"^20[12]\\d$": {"$ref": "#/$defs/wartosc"}}
+      }
+     }
+    },
+    "przed_po": {
+     "type": "object",
+     "additionalProperties": false,
+     "patternProperties": {
+      "^(pm10_srednia|pm10_dni|pm25_srednia|no2_srednia|no2_godziny)$": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": ["przed", "po"],
+       "properties": {
+        "przed": {"type": ["number", "null"], "minimum": 0},
+        "po": {"type": ["number", "null"], "minimum": 0},
+        "powod": {"enum": ["brak_pelnego_okna"]}
+       }
+      }
+     }
+    }
+   }
+  },
+  "wartosc": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["w", "pokrycie"],
+   "properties": {
+    "w": {"type": "number", "minimum": 0},
+    "pokrycie": {"type": "number", "minimum": 75, "maximum": 100},
+    "niepelne": {"const": true}
+   }
+  }
+ }
+}

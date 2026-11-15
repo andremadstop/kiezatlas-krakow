@@ -1,0 +1,222 @@
+# node pruefen/S2_seiten.mjs auf 942f9a7, 2026-11-14T00:27Z, v22.23.4
+
+[pl] Erreichbarkeit
+  ok    planer.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    planer.html: Fußweg ist Standard (Hash weg=fuss)
+  ok    planer.html: 5 Fragen
+  ok    planer.html: Frage „takt“ → zu=haltestelle_takt, weg=fuss, Haltestellen an, 313 Zellen mit Wert, Legende da
+  ok    planer.html: Frage „gruen“ → zu=park, weg=fuss, 313 Zellen mit Wert, Legende da
+  ok    planer.html: Frage „schule“ → zu=szkola, weg=fuss, 313 Zellen mit Wert, Legende da
+  ok    planer.html: Frage „luft“ → zu=haltestelle_takt, weg=luft, Haltestellen an, 314 Zellen mit Wert, Legende da
+  ok    planer.html: Frage „st“ → Stadtteil 01, 5 Kennzahlen mit Zähler und Nenner, Fußweg
+  ok    planer.html: Chip Luftlinie setzt weg=luft
+  ok    planer.html: Vergleich mit 18 Stadtteilen und einer Zeile für die ganze Stadt
+  ok    planer.html: geteilter Link #zu=park&weg=fuss&st=08 öffnet Park, Fußweg, Stadtteil 08
+  ok    planer.html (Link): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    planer.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    planer.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1973 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    planer.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Budynek Rodzaj budynku (BDOT10k) budynki mieszkalne Wysokość 19 m Kondygnacje nadziemne 4 …“)
+  ok    planer.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    planer.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    planer.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    planer.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    planer.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    planer.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    planer.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    planer.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[pl] Kamienice
+  ok    kamienice.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    kamienice.html: Abzeichen Teilmenge, ungeprüft, ohne Register sichtbar (3); 6 Grenzen
+  ok    kamienice.html: die erfundenen Punkte aus daten/denkmale.js werden nicht geladen
+  ok    kamienice.html: Legende nennt die 167 Objekte mit Denkmalangabe (Zahl aus daten/denkmale_odbl.js)
+  ok    kamienice.html: „Nur Kamienice“ filtert auf 8 Kamienice (Legende, Filter, Hash nur=1)
+  ok    kamienice.html: Bauzeitklasse abwählen ändert Filter und Hash
+  ok    kamienice.html: Ortsmarke ul. Kościuszki 18: Karte springt hin (Zoom 16.0), Text mit „ungeprüft“-Hinweis
+  ok    kamienice.html: kein Projektname an der Ortsmarke (KR24)
+  ok    kamienice.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    kamienice.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1372 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    kamienice.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Budynek Rodzaj budynku (BDOT10k) budynki mieszkalne Wysokość 20 m Kondygnacje nadziemne 5 …“)
+  ok    kamienice.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    kamienice.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    kamienice.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    kamienice.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    kamienice.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    kamienice.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    kamienice.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    kamienice.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[pl] Wohnungsbestand
+  ok    modernizacja.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    modernizacja.html: Abzeichen Schätzung, ohne Baujahre, ohne Energie, ohne Denkmalstatus sichtbar (5); 12 Grenzen und Verweise
+  ok    modernizacja.html: 297 Punkte, alle in öffentlichem Eigentum
+  ok    modernizacja.html: Zahlen aus den Datendateien im Blatt (508 Einträge, 3341 Kandidaten)
+  ok    modernizacja.html: Verortungsquote mit Wilson-Intervall
+  ok    modernizacja.html: Quellenvermerk und Haftungsklausel des ZBK wörtlich
+  ok    modernizacja.html: Stadtteile nach Anteil der Kandidaten gefärbt, Legende mit Prozent und Schätzung
+  ok    modernizacja.html: Literatur nur bibliographisch (DOI), keine Zahl aus dem Artikel
+  ok    modernizacja.html: Ortsmarke ul. Kościuszki 18 ohne Projektname (KR24)
+  ok    modernizacja.html: Stadtteil 16 gewählt: Zählungen und Kandidaten mit Hinweis Schätzung
+  ok    modernizacja.html: Tabelle je Stadtteil mit Erreichbarkeit und Grün (18 Zeilen, 6 Spalten)
+  ok    modernizacja.html: OSM-Denkmale als ungeprüfte Ebene zuschaltbar (Hash dz=1)
+  ok    modernizacja.html: Stadtteilfarbe auf Großsiedlungen (Hash m=osiedle)
+  ok    modernizacja.html: Verweis auf die Erreichbarkeit öffnet Haltestelle, Fußweg, Taktklassen (planer.html#zu=haltestelle_takt&weg=fuss&halt=1)
+  ok    modernizacja.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    modernizacja.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1369 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    modernizacja.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Budynek Rodzaj budynku (BDOT10k) budynki mieszkalne Wysokość 20 m Kondygnacje nadziemne 5 …“)
+  ok    modernizacja.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    modernizacja.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    modernizacja.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    modernizacja.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    modernizacja.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    modernizacja.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    modernizacja.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    modernizacja.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[en] Erreichbarkeit
+  ok    en/planer.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    en/planer.html: Fußweg ist Standard (Hash weg=fuss)
+  ok    en/planer.html: 5 Fragen
+  ok    en/planer.html: Frage „takt“ → zu=haltestelle_takt, weg=fuss, Haltestellen an, 313 Zellen mit Wert, Legende da
+  ok    en/planer.html: Frage „gruen“ → zu=park, weg=fuss, 313 Zellen mit Wert, Legende da
+  ok    en/planer.html: Frage „schule“ → zu=szkola, weg=fuss, 313 Zellen mit Wert, Legende da
+  ok    en/planer.html: Frage „luft“ → zu=haltestelle_takt, weg=luft, Haltestellen an, 314 Zellen mit Wert, Legende da
+  ok    en/planer.html: Frage „st“ → Stadtteil 01, 5 Kennzahlen mit Zähler und Nenner, Fußweg
+  ok    en/planer.html: Chip Luftlinie setzt weg=luft
+  ok    en/planer.html: Vergleich mit 18 Stadtteilen und einer Zeile für die ganze Stadt
+  ok    en/planer.html: geteilter Link #zu=park&weg=fuss&st=08 öffnet Park, Fußweg, Stadtteil 08
+  ok    en/planer.html (Link): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/planer.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    en/planer.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1973 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    en/planer.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Building Building class (BDOT10k) residential buildings Height 19 m Storeys above ground 4…“)
+  ok    en/planer.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    en/planer.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/planer.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    en/planer.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/planer.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    en/planer.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/planer.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    en/planer.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[en] Kamienice
+  ok    en/kamienice.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    en/kamienice.html: Abzeichen Teilmenge, ungeprüft, ohne Register sichtbar (3); 6 Grenzen
+  ok    en/kamienice.html: die erfundenen Punkte aus daten/denkmale.js werden nicht geladen
+  ok    en/kamienice.html: Legende nennt die 167 Objekte mit Denkmalangabe (Zahl aus daten/denkmale_odbl.js)
+  ok    en/kamienice.html: „Nur Kamienice“ filtert auf 8 Kamienice (Legende, Filter, Hash nur=1)
+  ok    en/kamienice.html: Bauzeitklasse abwählen ändert Filter und Hash
+  ok    en/kamienice.html: Ortsmarke ul. Kościuszki 18: Karte springt hin (Zoom 16.0), Text mit „ungeprüft“-Hinweis
+  ok    en/kamienice.html: kein Projektname an der Ortsmarke (KR24)
+  ok    en/kamienice.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    en/kamienice.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1372 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    en/kamienice.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Building Building class (BDOT10k) residential buildings Height 20 m Storeys above ground 5…“)
+  ok    en/kamienice.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    en/kamienice.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/kamienice.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    en/kamienice.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/kamienice.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    en/kamienice.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/kamienice.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    en/kamienice.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[en] Wohnungsbestand
+  ok    en/modernizacja.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    en/modernizacja.html: Abzeichen Schätzung, ohne Baujahre, ohne Energie, ohne Denkmalstatus sichtbar (5); 12 Grenzen und Verweise
+  ok    en/modernizacja.html: 297 Punkte, alle in öffentlichem Eigentum
+  ok    en/modernizacja.html: Zahlen aus den Datendateien im Blatt (508 Einträge, 3341 Kandidaten)
+  ok    en/modernizacja.html: Verortungsquote mit Wilson-Intervall
+  ok    en/modernizacja.html: Quellenvermerk und Haftungsklausel des ZBK wörtlich
+  ok    en/modernizacja.html: Stadtteile nach Anteil der Kandidaten gefärbt, Legende mit Prozent und Schätzung
+  ok    en/modernizacja.html: Literatur nur bibliographisch (DOI), keine Zahl aus dem Artikel
+  ok    en/modernizacja.html: Ortsmarke ul. Kościuszki 18 ohne Projektname (KR24)
+  ok    en/modernizacja.html: Stadtteil 16 gewählt: Zählungen und Kandidaten mit Hinweis Schätzung
+  ok    en/modernizacja.html: Tabelle je Stadtteil mit Erreichbarkeit und Grün (18 Zeilen, 6 Spalten)
+  ok    en/modernizacja.html: OSM-Denkmale als ungeprüfte Ebene zuschaltbar (Hash dz=1)
+  ok    en/modernizacja.html: Stadtteilfarbe auf Großsiedlungen (Hash m=osiedle)
+  ok    en/modernizacja.html: Verweis auf die Erreichbarkeit öffnet Haltestelle, Fußweg, Taktklassen (planer.html#zu=haltestelle_takt&weg=fuss&halt=1)
+  ok    en/modernizacja.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    en/modernizacja.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1369 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    en/modernizacja.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Building Building class (BDOT10k) residential buildings Height 20 m Storeys above ground 5…“)
+  ok    en/modernizacja.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    en/modernizacja.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/modernizacja.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    en/modernizacja.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/modernizacja.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    en/modernizacja.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    en/modernizacja.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    en/modernizacja.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[de] Erreichbarkeit
+  ok    de/planer.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    de/planer.html: Fußweg ist Standard (Hash weg=fuss)
+  ok    de/planer.html: 5 Fragen
+  ok    de/planer.html: Frage „takt“ → zu=haltestelle_takt, weg=fuss, Haltestellen an, 313 Zellen mit Wert, Legende da
+  ok    de/planer.html: Frage „gruen“ → zu=park, weg=fuss, 313 Zellen mit Wert, Legende da
+  ok    de/planer.html: Frage „schule“ → zu=szkola, weg=fuss, 313 Zellen mit Wert, Legende da
+  ok    de/planer.html: Frage „luft“ → zu=haltestelle_takt, weg=luft, Haltestellen an, 314 Zellen mit Wert, Legende da
+  ok    de/planer.html: Frage „st“ → Stadtteil 01, 5 Kennzahlen mit Zähler und Nenner, Fußweg
+  ok    de/planer.html: Chip Luftlinie setzt weg=luft
+  ok    de/planer.html: Vergleich mit 18 Stadtteilen und einer Zeile für die ganze Stadt
+  ok    de/planer.html: geteilter Link #zu=park&weg=fuss&st=08 öffnet Park, Fußweg, Stadtteil 08
+  ok    de/planer.html (Link): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/planer.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    de/planer.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1973 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    de/planer.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Gebäude Gebäudeart (BDOT10k) Wohngebäude Höhe 19 m Oberirdische Geschosse 4 Höhe aus dem 3…“)
+  ok    de/planer.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    de/planer.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/planer.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    de/planer.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/planer.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    de/planer.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/planer.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    de/planer.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[de] Kamienice
+  ok    de/kamienice.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    de/kamienice.html: Abzeichen Teilmenge, ungeprüft, ohne Register sichtbar (3); 6 Grenzen
+  ok    de/kamienice.html: die erfundenen Punkte aus daten/denkmale.js werden nicht geladen
+  ok    de/kamienice.html: Legende nennt die 167 Objekte mit Denkmalangabe (Zahl aus daten/denkmale_odbl.js)
+  ok    de/kamienice.html: „Nur Kamienice“ filtert auf 8 Kamienice (Legende, Filter, Hash nur=1)
+  ok    de/kamienice.html: Bauzeitklasse abwählen ändert Filter und Hash
+  ok    de/kamienice.html: Ortsmarke ul. Kościuszki 18: Karte springt hin (Zoom 16.0), Text mit „ungeprüft“-Hinweis
+  ok    de/kamienice.html: kein Projektname an der Ortsmarke (KR24)
+  ok    de/kamienice.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    de/kamienice.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1372 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    de/kamienice.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Gebäude Gebäudeart (BDOT10k) Wohngebäude Höhe 20 m Oberirdische Geschosse 5 Höhe aus dem 3…“)
+  ok    de/kamienice.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    de/kamienice.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/kamienice.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    de/kamienice.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/kamienice.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    de/kamienice.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/kamienice.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    de/kamienice.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+[de] Wohnungsbestand
+  ok    de/modernizacja.html: kein Textschlüssel und kein Platzhalter sichtbar
+  ok    de/modernizacja.html: Abzeichen Schätzung, ohne Baujahre, ohne Energie, ohne Denkmalstatus sichtbar (5); 12 Grenzen und Verweise
+  ok    de/modernizacja.html: 297 Punkte, alle in öffentlichem Eigentum
+  ok    de/modernizacja.html: Zahlen aus den Datendateien im Blatt (508 Einträge, 3341 Kandidaten)
+  ok    de/modernizacja.html: Verortungsquote mit Wilson-Intervall
+  ok    de/modernizacja.html: Quellenvermerk und Haftungsklausel des ZBK wörtlich
+  ok    de/modernizacja.html: Stadtteile nach Anteil der Kandidaten gefärbt, Legende mit Prozent und Schätzung
+  ok    de/modernizacja.html: Literatur nur bibliographisch (DOI), keine Zahl aus dem Artikel
+  ok    de/modernizacja.html: Ortsmarke ul. Kościuszki 18 ohne Projektname (KR24)
+  ok    de/modernizacja.html: Stadtteil 16 gewählt: Zählungen und Kandidaten mit Hinweis Schätzung
+  ok    de/modernizacja.html: Tabelle je Stadtteil mit Erreichbarkeit und Grün (18 Zeilen, 6 Spalten)
+  ok    de/modernizacja.html: OSM-Denkmale als ungeprüfte Ebene zuschaltbar (Hash dz=1)
+  ok    de/modernizacja.html: Stadtteilfarbe auf Großsiedlungen (Hash m=osiedle)
+  ok    de/modernizacja.html: Verweis auf die Erreichbarkeit öffnet Haltestelle, Fußweg, Taktklassen (planer.html#zu=haltestelle_takt&weg=fuss&halt=1)
+  ok    de/modernizacja.html: vor dem 3D-Knopf keine Gebäudedatei angefragt
+  ok    de/modernizacja.html: 3D-Knopf: Zoom 15.2, Neigung 50°, 1369 Gebäude gezeichnet, Herkunft der Höhe lod2/geschosse, Hash 3d=1
+  ok    de/modernizacja.html: Popup eines Gebäudes nennt Höhe, Herkunft und den wörtlichen Vermerk („Gebäude Gebäudeart (BDOT10k) Wohngebäude Höhe 20 m Oberirdische Geschosse 5 Höhe aus dem 3…“)
+  ok    de/modernizacja.html: Link mit #3d=1 zeigt die 3D-Häuser (1410 gezeichnet)
+  ok    de/modernizacja.html (Link 3d=1): keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/modernizacja.html: bei Zoom 13 Hinweis auf die Zoomstufe der 3D-Häuser in der Legende
+  ok    de/modernizacja.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/modernizacja.html bei 390 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (364 px breit)
+  ok    de/modernizacja.html bei 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    de/modernizacja.html bei 360 px: kein Überstand (0 px), Karte 496 px hoch, Seitenleiste darunter (334 px breit)
+  ok    de/modernizacja.html bei 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+grün

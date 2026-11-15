@@ -1,0 +1,59 @@
+WEBVTT
+
+NOTE Napisy do filmu Kiezatlas Kraków (wersja wyświetlana w filmie). Tekst nie był sprawdzony przez rodzimego użytkownika języka.
+
+1
+00:00:00.001 --> 00:00:04.460
+Atlas w minutę. Atlas dzielnic Krakowa z otwartych danych publicznych
+
+2
+00:00:04.460 --> 00:00:09.271
+Strona główna: najważniejsze liczby miasta, przy każdej źródło.
+
+3
+00:00:09.271 --> 00:00:14.283
+Pytania prowadzą przez miasto, a mapa pokazuje odpowiedź.
+
+4
+00:00:14.283 --> 00:00:19.497
+Z każdym pytaniem zmieniają się kolory mapy.
+
+5
+00:00:19.879 --> 00:00:24.285
+Mapa: wszystkie tematy atlasu na jednej mapie.
+
+6
+00:00:24.285 --> 00:00:29.092
+Warstwa siatki 1 km: mieszkańcy w komórce siatki.
+
+7
+00:00:29.092 --> 00:00:33.902
+Kolory dzielnic: udział powierzchni zabudowy budynkami.
+
+8
+00:00:33.902 --> 00:00:38.713
+Punkty: przystanki według klasy częstotliwości kursowania.
+
+9
+00:00:39.095 --> 00:00:43.902
+Profil dzielnicy: wskaźniki, miejsce wśród dzielnic i źródło.
+
+10
+00:00:43.902 --> 00:00:48.916
+Brak wartości oznacza brak danych, nie zero.
+
+11
+00:00:49.301 --> 00:00:54.106
+Porównanie: Kraków i Poczdam, ta sama siatka i ta sama metoda.
+
+12
+00:00:54.106 --> 00:00:58.916
+Porównujemy tylko wskaźniki o tej samej definicji.
+
+13
+00:00:58.916 --> 00:01:03.924
+Resztę wymieniamy osobno: czego nie porównujemy i dlaczego.
+
+14
+00:01:03.924 --> 00:01:08.938
+Źródła: GUS, Narodowy Spis Powszechny 2021; Eurostat, Census 2021 population grid (CC BY 4.0); BDOT10k, Główny Urząd Geodezji i Kartografii; Rozkład jazdy: ZTP Kraków, GTFS (CC BY 4.0); Granice dzielnic: © autorzy OpenStreetMap (ODbL). Pełne noty o źródłach i licencje: strona „Dane”.

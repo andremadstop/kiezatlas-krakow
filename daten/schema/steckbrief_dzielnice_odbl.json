@@ -1,0 +1,105 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Steckbrief je dzielnica aus den OSM-Grenzen (ODbL)",
+ "description": "Einwohner, Altersgruppen (Gitter), Fläche und Dichte je dzielnica, gerechnet mit den Grenzen der dzielnice aus OpenStreetMap und dem Eurostat-Gitter 2021 (1 km, Mittelpunktregel, dazu Flächenanteil und Spanne als Maß der Unschärfe). Solange nicht entschieden ist, ob aus OSM-Grenzen abgeleitete Werte unter die ODbL fallen (KR3), stehen sie nur hier, in einer Datei mit _odbl im Namen; daten/steckbrief.js trägt für die dzielnice null mit Grund. NSP-Werte je dzielnica erst mit der Geometrie der rejony (bis dahin null mit Grund). Datenschutz: Anteile erst ab der Mindestfallzahl. Erzeugt von skripte/02_bevoelkerung.py.",
+ "x-datei": "steckbrief_dzielnice_odbl.js",
+ "x-global": "^KIEZ_STECKBRIEF_DZIELNICE$",
+ "x-odbl": true,
+ "x-eigentuemer": "skripte/02_bevoelkerung.py (Paket Gliederung und Bevölkerung)",
+ "type": "object",
+ "required": ["stand_auswertung", "stand_osm", "quelle_grenzen", "vergleich", "spanne_ist_fehlergrenze", "quellen", "lizenz", "methode", "zuordnung_geprueft", "zuordnung", "kontrolle", "stadtteile"],
+ "additionalProperties": false,
+ "properties": {
+  "stand_auswertung": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+  "stand_osm": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"},
+  "quelle_grenzen": {"type": "string", "minLength": 1},
+  "vergleich": {"const": "flaechenanteil", "description": "Einwohner nach dem Mittelpunkt der Zelle; zum Vergleich die Flächenanteilsregel (gitter.einwohner_flaechenanteil) und die Spanne beider (gitter.spanne_proz)"},
+  "spanne_ist_fehlergrenze": {"const": false, "description": "die Spanne ist ein Maß der Unschärfe an den Grenzen, keine Fehlergrenze"},
+  "fixture": {"const": true},
+  "quellen": {
+   "type": "object",
+   "minProperties": 1,
+   "patternProperties": {"^[a-z0-9_]+$": {"$ref": "#/$defs/quelle"}},
+   "additionalProperties": false
+  },
+  "lizenz": {"type": "string", "minLength": 1},
+  "methode": {
+   "type": "object",
+   "required": ["gitter_zuordnung", "mindestfallzahl", "flaechen_srid", "gitter_srid"],
+   "additionalProperties": false,
+   "properties": {
+    "gitter_zuordnung": {"enum": ["mittelpunkt"]},
+    "mindestfallzahl": {"type": "integer", "minimum": 100},
+    "flaechen_srid": {"type": "integer"},
+    "gitter_srid": {"const": 3035}
+   }
+  },
+  "zuordnung_geprueft": {"type": "boolean"},
+  "zuordnung": {"type": "object", "required": ["vergleich", "schwelle_proz", "ausnahmen"], "additionalProperties": false, "description": "Zuordnung der dzielnice zu den historischen Stadtbezirken (Gruppen, Regel 4 in pruefen/D4_protokoll.md): Anteil der Fläche in der delegatura der Gruppe laut BDOT10k mindestens schwelle_proz; ausnahmen mit dokumentiertem Anteil (KR17)", "properties": {"vergleich": {"const": "delegatury_bdot10k"}, "schwelle_proz": {"type": "number", "exclusiveMinimum": 0, "maximum": 100}, "ausnahmen": {"type": "object", "propertyNames": {"pattern": "^(0[1-9]|1[0-8])$"}, "additionalProperties": {"type": "object", "required": ["anteil_proz", "rest"], "additionalProperties": false, "properties": {"anteil_proz": {"type": "number", "minimum": 0, "maximum": 100}, "rest": {"enum": ["grenzsplitter"], "description": "grenzsplitter = der Rest ist ein Grenzsplitter zwischen den delegatury der BDOT10k und den dzielnice (Gegenprobe mit den städtischen Grenzen)"}}}}}},
+  "kontrolle": {
+   "type": "object",
+   "required": ["einwohner_mittelpunkt_stadt", "zellen_mittelpunkt_stadt", "einwohner_summe_dzielnice", "zellen_summe_dzielnice"],
+   "additionalProperties": false,
+   "patternProperties": {"^(einwohner|zellen)_": {"$ref": "#/$defs/zahl"}}
+  },
+  "stadtteile": {
+   "type": "object",
+   "minProperties": 18,
+   "patternProperties": {"^\\d{2}$": {"$ref": "#/$defs/teil"}},
+   "additionalProperties": false
+  }
+ },
+ "$defs": {
+  "quelle": {
+   "type": "object",
+   "required": ["quelle", "url", "lizenz", "vermerk", "fundstelle", "stichtag", "stichtag_geprueft"],
+   "additionalProperties": false,
+   "properties": {
+    "quelle": {"type": "string", "minLength": 1},
+    "url": {"type": "string", "pattern": "^https://"},
+    "lizenz": {"type": "string", "minLength": 1},
+    "vermerk": {"type": "string", "minLength": 1},
+    "fundstelle": {"type": "string", "pattern": "^https://"},
+    "stichtag": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "stichtag_geprueft": {"type": "boolean"}
+   }
+  },
+  "anteil": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+  "zahl": {"type": "integer", "minimum": 0},
+  "gitter": {
+   "type": "object",
+   "required": ["zellen", "zellen_beruehrt", "einwohner", "u15", "a15_64", "a65p", "a_ges", "q_u15", "q_65p", "einwohner_flaechenanteil", "spanne_proz", "abweichung_nsp_proz"],
+   "additionalProperties": false,
+   "properties": {
+    "zellen": {"$ref": "#/$defs/zahl"},
+    "zellen_beruehrt": {"$ref": "#/$defs/zahl"},
+    "einwohner": {"$ref": "#/$defs/zahl"},
+    "u15": {"$ref": "#/$defs/zahl"},
+    "a15_64": {"$ref": "#/$defs/zahl"},
+    "a65p": {"$ref": "#/$defs/zahl"},
+    "a_ges": {"$ref": "#/$defs/zahl"},
+    "q_u15": {"$ref": "#/$defs/anteil"},
+    "q_65p": {"$ref": "#/$defs/anteil"},
+    "einwohner_flaechenanteil": {"$ref": "#/$defs/zahl"},
+    "spanne_proz": {"type": ["number", "null"]},
+    "abweichung_nsp_proz": {"type": ["number", "null"]}
+   }
+  },
+  "teil": {
+   "type": "object",
+   "required": ["name", "roemisch", "gruppe", "osm_id", "flaeche_km2", "gitter", "dichte_gitter", "nsp"],
+   "additionalProperties": false,
+   "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "roemisch": {"enum": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII"]},
+    "gruppe": {"type": "string", "pattern": "^[0-9]$"},
+    "osm_id": {"type": ["string", "null"]},
+    "flaeche_km2": {"type": "number", "minimum": 0},
+    "gitter": {"$ref": "#/$defs/gitter"},
+    "dichte_gitter": {"type": ["integer", "null"], "minimum": 0},
+    "nsp": {"type": "null"},
+    "nsp_grund": {"enum": ["rejony_geometrie_fehlt", "rejony_erst_mit_dzielnice", "nsp_erst_ueber_rejony", "dzielnice_grenzen_fehlen", "nicht_angefordert", "grenzen_odbl"], "description": "Grund als Schlüssel: rejony_geometrie_fehlt = Geometrie der rejony statystyczne fehlt (Handdownload GUS „Jednostki statystyczne 2021“ ausstehend); rejony_erst_mit_dzielnice = Geometrie der rejony erst mit den Grenzen der dzielnice verwendbar; nsp_erst_ueber_rejony = NSP je dzielnica erst über die rejony; dzielnice_grenzen_fehlen = Grenzen der dzielnice fehlen; nicht_angefordert = nicht angefordert; grenzen_odbl = aus den OSM-Grenzen abgeleitet, steht deshalb nur in steckbrief_dzielnice_odbl.js (KR13, KR28)"}
+   }
+  }
+ }
+}

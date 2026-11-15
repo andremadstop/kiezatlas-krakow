@@ -1,0 +1,200 @@
+# Kiezatlas Kraków: Ortskonfiguration und Quellen für die Geodaten-Import-Pipeline.
+#
+# Eine Datei für drei Leser:
+#   skripte/ort_konfig.py   Rechen-Koordinatensystem (rechen_srid) für alle Rechenskripte
+#   skripte/31_ort.py       erzeugt daten/ort.js (window.KIEZ_ORT) für die Seiten; nicht von Hand ändern
+#   skripte/30_seiten.py    Seitenliste, Sprachen, kanonische Adressen, hreflang
+#   pipeline.laden          Abschnitt quellen (skripte/lauf.sh laden --nur QUELLE)
+#
+# Stand: Gerüst. Die Quellen trägt die Integration nach der Machbarkeitsprobe ein, je Quelle mit Lizenz,
+# robots-Befund und Abrufweg (Entscheidungen KR1 ff. in docs/entscheidungen.md). Bis dahin laufen alle
+# Seiten auf Beispieldaten, die direkt unter daten/ liegen (fixture: true, auf jeder Seite sichtbar
+# gekennzeichnet; docs/entscheidungen.md, KR6).
+ort: krakow
+berichte: berichte
+sprache: pl                       # Sprache der Pipeline-Berichte
+sprachen: [pl, en, de]            # erste = Standardsprache, liegt im Wurzelordner; die anderen in <lang>/
+basis_url: "https://souverain-systems.de/kiezatlas/krakow/"
+
+# Rechen-Koordinatensystem für Abstände und Flächen (auswertung.* in der Datenbank, GeoPackage-Export).
+# EPSG:2178 = ETRS89 / Poland CS2000 zone 7 (Mittelmeridian 21° O; Kraków liegt bei rund 19,9° O, also in
+# Zone 7). Begründung und verworfene Alternativen (2180, 25834): docs/entscheidungen.md, KR1.
+# Muss gleich der SRID in sql/002_ausbau.sql sein (pruefen.sh prüft das).
+rechen_srid: 2178
+
+name:                             # Name des Atlas (Marke, unübersetzt)
+  pl: "Kiezatlas Kraków"
+  en: "Kiezatlas Kraków"
+  de: "Kiezatlas Kraków"
+stadt:                            # Name der Stadt im Fließtext (Nominativ)
+  pl: "Kraków"
+  en: "Kraków"
+  de: "Krakau"
+stadt_lokativ:                    # „in der Stadt“, damit Sätze nicht beugen müssen
+  pl: "w Krakowie"
+  en: "in Kraków"
+  de: "in Krakau"
+ganze_stadt:                      # Auswahl „ganze Stadt“ in Listen und Kopfzeilen
+  pl: "Cały Kraków"
+  en: "All of Kraków"
+  de: "Ganz Krakau"
+stadt_amtlich:                    # amtliche Bezeichnung der Gemeinde, z. B. in „Stadtteil 01 der …“
+  pl: "Miasto Kraków"
+  en: "City of Kraków"
+  de: "Stadt Krakau"
+stadt_art:                        # Art der Gemeinde ohne Namen, z. B. „Stadt, 18 Stadtteile“
+  pl: "Miasto"
+  en: "City"
+  de: "Stadt"
+zitierzeile:                      # Bildzeile für Grafiken und Zitate (Druck, Schaugrafik)
+  pl: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow"
+  en: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow"
+  de: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow"
+herausgeber: "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
+meldeweg: "kontakt@souverain-systems.de"
+# Rechtstexte der Herausgeberin je Sprache (Seitenfuß, vorlagen/_rahmen.html über {{ort:impressum}} und {{ort:datenschutz}}).
+# Die polnischen und englischen Fassungen sind Übersetzungen; verbindlich ist die deutsche (Hinweis oben auf jeder Fassung).
+impressum:
+  pl: "https://souverain-systems.de/pl/nota-prawna/"
+  en: "https://souverain-systems.de/en/imprint/"
+  de: "https://souverain-systems.de/impressum/"
+datenschutz:
+  pl: "https://souverain-systems.de/pl/polityka-prywatnosci/"
+  en: "https://souverain-systems.de/en/privacy/"
+  de: "https://souverain-systems.de/datenschutz/"
+# Adresse des öffentlichen Repositorys (https://…; seit 15.11.2026 gesetzt, KR69). Gesetzt verlinken Methoden- und
+# Datenseite „Repository“ darauf und lassen den Satz „noch nicht öffentlich, auf Anfrage“ weg
+# (skripte/16_bloecke_krakow.py, danach skripte/30_seiten.py); leer (null, etwa in einem Fork) gilt der Satz wieder.
+repository: "https://github.com/andremadstop/kiezatlas-krakow"
+
+# Kartenausschnitt: gerundete Rahmenwerte für den Start der Karte, keine Messwerte. Die genaue Stadtgrenze
+# kommt mit den Stadtteilgrenzen (daten/stadtteile_odbl.js).
+karte:
+  mitte: [19.94, 50.06]           # Länge, Breite (WGS 84)
+  rahmen: [19.79, 49.96, 20.22, 50.13]   # West, Süd, Ost, Nord (WGS 84), gerundet
+  haus_ziel: [19.9373, 50.0617]   # Kamera-Ziel „Häuser“ (Rynek Główny), gerundet
+  # Grundkarte: eigene Vektorkacheln aus BDOT10k (skripte/27_grundkarte.py), selbst gehostet unter
+  # daten/grundkarte/ (Kacheln außerhalb des Repos, docs/entscheidungen.md KR21). Seiten mit Karte laden
+  # daten/grundkarte.js immer mit; themen.js ersetzt damit die Ebene "basemap" samt dieser Quelle und macht die
+  # relativen Pfade absolut. Die Bildzeile ist dieselbe wie in daten/grundkarte.js, im Original (Polnisch).
+  grundkarte:
+    type: vector
+    tiles: ["daten/grundkarte/kacheln/{z}/{x}/{y}.pbf"]
+    minzoom: 9
+    maxzoom: 14
+    attribution: 'Podkład: <a href="https://www.geoportal.gov.pl/pl/dane/baza-danych-obiektow-topograficznych-bdot10k/">BDOT10k</a>, Główny Urząd Geodezji i Kartografii (stan plików 2026-10-03), opracowanie własne'
+  # Luftbild: keines (GUGiK-Orthofoto nur EPSG:2180/4326, Vorrendern gilt als „harvesting“). themen.js lässt die
+  # Quelle weg und behält die Ebene "dop" als unsichtbaren Platzhalter.
+  luftbild: null
+  # Bildzeile der Stadtteilgrenzen je Sprache, im Wortlaut der OpenStreetMap-Vorgabe der jeweiligen Sprache
+  # (Entscheidung vom 14.11.2026; pl nach openstreetmap.org/copyright/pl und dem Schlüssel openstreetmap_contributors
+  # der polnischen Oberfläche: „autorzy OpenStreetMap“); der Link führt auf die Urheberrechtsseite von OpenStreetMap.
+  teile_attribution:
+    pl: '© autorzy <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, ODbL'
+    en: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ODbL'
+    de: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, ODbL'
+  # dieselbe Angabe als reiner Text für Druck und Schaugrafik
+  teile_bildzeile:
+    pl: "Granice dzielnic: © autorzy OpenStreetMap, ODbL 1.0."
+    en: "District boundaries: © OpenStreetMap contributors, ODbL 1.0."
+    de: "Stadtteilgrenzen: © OpenStreetMap-Mitwirkende, ODbL 1.0."
+
+# Gliederung: 18 dzielnice, gruppiert in die vier historischen Stadtbezirke (pl. delegatury, dawne dzielnice; nicht „dzielnice historyczne“, Glossar), die
+# auch die Delegaturen der Verwaltung und die GUS-Tabelle des NSP 2021 nutzen. Schlüssel nr = „01“ … „18“
+# (zweistellig wie in Potsdam, Sortierung als Text = Sortierung als Zahl), angezeigt wird die römische Ziffer.
+# Die Zuordnung zu den Gruppen war aus Wissen eingetragen; sie ist inzwischen gegen die delegatury der BDOT10k
+# geprüft (zuordnung_geprueft: true, Ausnahmen und Zahlen unten).
+gliederung:
+  einheit: {pl: "dzielnica", en: "district", de: "Stadtteil"}
+  einheit_mehrzahl: {pl: "dzielnice", en: "districts", de: "Stadtteile"}
+  gruppe: {pl: "delegatura (dawna dzielnica)", en: "historic borough", de: "historischer Stadtbezirk"}
+  # geprüft (Entscheidung vom 13.11.2026): jede dzielnica liegt zu mindestens 99 % in der delegatura ihrer Gruppe
+  # (BDOT10k), außer III Prądnik Czerwony (98,53 %) und XV Mistrzejowice (98,64 %): Grenzsplitter zwischen den
+  # delegatury der BDOT10k und den dzielnice (Gegenprobe mit den städtischen Grenzen); beide gelten als zugeordnet.
+  # Zahlen: belege/D4_bevoelkerung.md, Regel 4. Die Schwelle 99 % bleibt.
+  zuordnung_geprueft: true
+  # Anzeige eines Stadtteils und „in diesem Stadtteil“ (Kasus fest hinterlegt statt im Satz gebeugt);
+  # skripte/31_ort.py setzt daraus je Stadtteil anzeige.<lang> und lokativ.<lang>.
+  anzeige_muster: {pl: "Dzielnica {roemisch} {name}", en: "District {roemisch} {name}", de: "Stadtteil {roemisch} {name}"}
+  lokativ_muster: {pl: "w Dzielnicy {roemisch} {name}", en: "in District {roemisch} {name}", de: "im Stadtteil {roemisch} {name}"}
+  gruppen:
+    - {id: "1", ton: 205, name: "Śródmieście"}
+    - {id: "2", ton: 150, name: "Krowodrza"}
+    - {id: "3", ton: 28, name: "Podgórze"}
+    - {id: "4", ton: 350, name: "Nowa Huta"}
+  teile:
+    - {nr: "01", roemisch: "I", name: "Stare Miasto", gruppe: "1"}
+    - {nr: "02", roemisch: "II", name: "Grzegórzki", gruppe: "1"}
+    - {nr: "03", roemisch: "III", name: "Prądnik Czerwony", gruppe: "1"}
+    - {nr: "04", roemisch: "IV", name: "Prądnik Biały", gruppe: "2"}
+    - {nr: "05", roemisch: "V", name: "Krowodrza", gruppe: "2"}
+    - {nr: "06", roemisch: "VI", name: "Bronowice", gruppe: "2"}
+    - {nr: "07", roemisch: "VII", name: "Zwierzyniec", gruppe: "2"}
+    - {nr: "08", roemisch: "VIII", name: "Dębniki", gruppe: "3"}
+    - {nr: "09", roemisch: "IX", name: "Łagiewniki-Borek Fałęcki", gruppe: "3"}
+    - {nr: "10", roemisch: "X", name: "Swoszowice", gruppe: "3"}
+    - {nr: "11", roemisch: "XI", name: "Podgórze Duchackie", gruppe: "3"}
+    - {nr: "12", roemisch: "XII", name: "Bieżanów-Prokocim", gruppe: "3"}
+    - {nr: "13", roemisch: "XIII", name: "Podgórze", gruppe: "3"}
+    - {nr: "14", roemisch: "XIV", name: "Czyżyny", gruppe: "4"}
+    - {nr: "15", roemisch: "XV", name: "Mistrzejowice", gruppe: "4"}
+    - {nr: "16", roemisch: "XVI", name: "Bieńczyce", gruppe: "4"}
+    - {nr: "17", roemisch: "XVII", name: "Wzgórza Krzesławickie", gruppe: "4"}
+    - {nr: "18", roemisch: "XVIII", name: "Nowa Huta", gruppe: "4"}
+
+# Themen der Zellkarte in Chip-Reihenfolge (themen.js liest sie aus daten/ort.js). id = Feld in daten/zellen.js,
+# h = Hash-Schlüssel (bleibt stabil, geteilte Links), einheit "%" schaltet feste Klassengrenzen, nenner = Feld
+# mit der Bezugsgröße; mindestfallzahl = kleinster Nenner mit Wert (fehlt sie, gilt 10 wie in Potsdam; darunter grau
+# und flach). Für Kraków 100 wie methode.mindestfallzahl in daten/steckbrief*.js (skripte/raum_bevoelkerung.py,
+# MINDESTFALLZAHL): darunter ist der Anteil in zellen_odbl.js null. Vorläufig nach dem Eurostat-Gitter 2021 (1 km, CC BY 4.0, Tor-M-
+# Entscheidung); welche Merkmale tragen, bestätigt das Paket Gliederung und Bevölkerung (Vertragsänderung).
+themen:
+  - {id: stadtteile, h: stadtteile, kurz: {pl: "Dzielnice", en: "Districts", de: "Stadtteile"}, name: {pl: "Dzielnice", en: "Districts", de: "Stadtteile"}}
+  - id: ew
+    h: ew
+    kurz: {pl: "Mieszkańcy", en: "Population", de: "Einwohner"}
+    name: {pl: "Mieszkańcy w komórce siatki", en: "Population per grid cell", de: "Einwohner je Zelle"}
+    einheit: {pl: "osoby", en: "persons", de: "Personen"}
+    quelle: {pl: "Eurostat, siatka 1 km 2021, ludność ogółem", en: "Eurostat, 1 km grid 2021, total population", de: "Eurostat, 1-km-Gitter 2021, Bevölkerung insgesamt"}
+  - id: q_u15
+    h: u15
+    kurz: {pl: "poniżej 15", en: "under 15", de: "unter 15"}
+    name: {pl: "Udział osób poniżej 15 lat", en: "Share under 15 years", de: "Anteil unter 15 Jahre"}
+    einheit: "%"
+    nenner: a_ges
+    mindestfallzahl: 100
+    quelle: {pl: "Eurostat, siatka 1 km 2021, grupy wieku", en: "Eurostat, 1 km grid 2021, age groups", de: "Eurostat, 1-km-Gitter 2021, Altersgruppen"}
+  - id: q_65p
+    h: 65p
+    kurz: {pl: "65 i więcej", en: "65 and over", de: "65 und älter"}
+    name: {pl: "Udział osób w wieku 65 lat i więcej", en: "Share aged 65 and over", de: "Anteil 65 Jahre und älter"}
+    einheit: "%"
+    nenner: a_ges
+    mindestfallzahl: 100
+    quelle: {pl: "Eurostat, siatka 1 km 2021, grupy wieku", en: "Eurostat, 1 km grid 2021, age groups", de: "Eurostat, 1-km-Gitter 2021, Altersgruppen"}
+
+# Seiten (Dateiname ohne .html). Jede Seite hat eine Vorlage vorlagen/<seite>.html und erscheint in jeder
+# Sprache. Neue Seiten nur über die Integration (Vertragsänderung), nicht im Paket.
+seiten: [index, karta, dzielnica, porownanie, kamienice, kamienice-metoda, kamienice-dane,
+         planer, planer-metoda, planer-dane, modernizacja, klimat, powietrze, mieszkania, punktualnosc, metoda, dane, "404"]
+
+# Kopfleiste: Hauptnavigation (obere Zeile) und Unterseiten je Rubrik (untere Zeile, html.kopf-zwei).
+# Texte: seiten.<seite>.nav in texte/<lang>/seiten.js (Bindestrich im Seitennamen wird dort zu _).
+# Ein Punkt der Hauptnavigation ist eine Seite oder eine Rubrik aus „rubriken“ (Punkt ohne eigene Seite: ziel = Link,
+# text = Textschlüssel, karten = Seiten der Übersicht {{liste:themenseiten}} auf der Startseite, je mit Titel und Satz).
+navigation: [index, karta, dzielnica, kamienice, planer, tematy, metoda]
+rubriken:
+  tematy:
+    ziel: "index.html#tematy"
+    text: seiten.index.themen
+    karten: [kamienice, planer, modernizacja, klimat, powietrze, mieszkania, punktualnosc, porownanie]
+unterseiten:
+  kamienice: [kamienice, kamienice-metoda, kamienice-dane]
+  planer: [planer, planer-metoda, planer-dane]
+  tematy: [modernizacja, klimat, powietrze, mieszkania]
+  metoda: [metoda, dane, porownanie]
+# Seiten ohne Inhalt: bleiben erreichbar (noindex), erscheinen aber nicht unter „Tematy“ (skripte/30_seiten.py)
+in_vorbereitung: [punktualnosc]
+
+# Quellen für pipeline.laden: noch keine (siehe Kopf).
+quellen: {}

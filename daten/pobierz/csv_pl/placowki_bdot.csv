@@ -1,0 +1,322 @@
+﻿id;art;unterart;q;name;plaetze;schueler;schueler_stand;status;in_stadt;x;y
+28BA1C50-0618-8554-E053-CC2BA8C0F941;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7424644,47;5551953,82
+28BA1C50-061A-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty Krakowskie;;;;lage_ohne_kapazitaet;1;7423715,04;5547342,71
+28BA1C50-061C-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Kleparski;;;;lage_ohne_kapazitaet;1;7423982,07;5549401,32
+28BA1C50-061D-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Skałki Twardowskiego;;;;lage_ohne_kapazitaet;1;7421861,73;5545440,52
+28BA1C50-061E-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty Bieńczyckie;;;;lage_ohne_kapazitaet;1;7429228,87;5550867,73
+28BA1C50-061F-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty Bieńczyckie;;;;lage_ohne_kapazitaet;1;7429653,37;5550713,06
+28BA1C50-0620-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty Mistrzejowickie;;;;lage_ohne_kapazitaet;1;7428647,14;5551734,23
+28BA1C50-0621-8554-E053-CC2BA8C0F941;park;;bdot10k;Fort Mistrzejowice;;;;lage_ohne_kapazitaet;1;7429699,15;5552125,19
+28BA1C50-0622-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty Krakowskie;;;;lage_ohne_kapazitaet;1;7424237,87;5547647,87
+28BA1C50-0624-8554-E053-CC2BA8C0F941;park;;bdot10k;Park św. Wincentego a Paulo;;;;lage_ohne_kapazitaet;1;7422090,83;5548872,33
+28BA1C50-0626-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Kurdwanów;;;;lage_ohne_kapazitaet;1;7425211,98;5542068,84
+28BA1C50-0628-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Jordana;;;;lage_ohne_kapazitaet;1;7422398,18;5547997,95
+28BA1C50-0629-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty im. Floriana Nowackiego;;;;lage_ohne_kapazitaet;1;7424276,22;5545802,96
+28BA1C50-062B-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Jalu Kurka;;;;lage_ohne_kapazitaet;1;7424270,6;5548695,29
+28BA1C50-0632-8554-E053-CC2BA8C0F941;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7419783,26;5541750,21
+28BA1C50-0633-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Krakowski;;;;lage_ohne_kapazitaet;1;7422996,29;5548556,64
+28BA1C50-0634-8554-E053-CC2BA8C0F941;park;;bdot10k;Skwer im. Więźniów Obozów Zagłady;;;;lage_ohne_kapazitaet;1;7423101,55;5548955,59
+28BA1C50-0635-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Młynówka Królewska;;;;lage_ohne_kapazitaet;1;7422716,5;5549361,61
+28BA1C50-0636-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Borkowski;;;;lage_ohne_kapazitaet;1;7422070,59;5542214,83
+28BA1C50-0639-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Aleksandry;;;;lage_ohne_kapazitaet;1;7429366,43;5542250,53
+28BA1C50-063A-8554-E053-CC2BA8C0F941;park;;bdot10k;Bulwar Czerwieński;;;;lage_ohne_kapazitaet;1;7423625,33;5546827,83
+28BA1C50-063B-8554-E053-CC2BA8C0F941;park;;bdot10k;Bulwar Poleski;;;;lage_ohne_kapazitaet;1;7423520,27;5546693,62
+28BA1C50-063C-8554-E053-CC2BA8C0F941;park;;bdot10k;Bulwar Wołyński;;;;lage_ohne_kapazitaet;1;7423746,07;5546153,1
+28BA1C50-063D-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Maćka i Doroty;;;;lage_ohne_kapazitaet;1;7422030,04;5541250,96
+28BA1C50-063E-8554-E053-CC2BA8C0F941;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7422836,07;5541707,62
+28BA1C50-0641-8554-E053-CC2BA8C0F941;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7423471,05;5541843,13
+28BA1C50-0642-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Solvay;;;;lage_ohne_kapazitaet;1;7423129,83;5542794,66
+28BA1C50-0643-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Rzeczny Wilga;;;;lage_ohne_kapazitaet;1;7423275,54;5544510,13
+28BA1C50-0644-8554-E053-CC2BA8C0F941;park;;bdot10k;Bulwar Inflancki;;;;lage_ohne_kapazitaet;1;7423872,43;5546273,67
+28BA1C50-0645-8554-E053-CC2BA8C0F941;park;;bdot10k;Bulwar Kurlandzki;;;;lage_ohne_kapazitaet;1;7424729,87;5546274,89
+28BA1C50-0646-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty Sokolskie;;;;lage_ohne_kapazitaet;1;7424417,79;5545885,5
+28BA1C50-0647-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Dąbie;;;;lage_ohne_kapazitaet;1;7427119,71;5547397,59
+28BA1C50-064B-8554-E053-CC2BA8C0F941;park;;bdot10k;Park szpitalny;;;;lage_ohne_kapazitaet;1;7419925,14;5541553,42
+28BA1C50-064F-8554-E053-CC2BA8C0F941;park;;bdot10k;Park zdrojowy;;;;lage_ohne_kapazitaet;1;7423537,83;5540191,38
+28BA1C50-0650-8554-E053-CC2BA8C0F941;park;;bdot10k;Fort Batowice;;;;lage_ohne_kapazitaet;1;7428395,41;5552012,36
+28BA1C50-0651-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Anny i Erazma Jerzmanowskich;;;;lage_ohne_kapazitaet;1;7428059,37;5543031,0
+28BA1C50-0652-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Lilli Wenedy;;;;lage_ohne_kapazitaet;1;7428516,27;5543110,54
+28BA1C50-0653-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Lotników Polskich;;;;lage_ohne_kapazitaet;1;7427951,64;5548708,95
+28BA1C50-0654-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Łuczanowice;;;;lage_ohne_kapazitaet;1;7436552,16;5552673,45
+28BA1C50-0656-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Generała pil. Stanisława Skalskiego;;;;lage_ohne_kapazitaet;1;7428962,0;5550281,7
+28BA1C50-0657-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Wadów;;;;lage_ohne_kapazitaet;1;7437411,4;5551883,55
+28BA1C50-0658-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Dworski Popielów;;;;lage_ohne_kapazitaet;1;7439056,75;5550603,13
+28BA1C50-0659-8554-E053-CC2BA8C0F941;park;;bdot10k;Zespół Pałacowy w Kościelnikach;;;;lage_ohne_kapazitaet;1;7441221,81;5551335,27
+28BA1C50-065A-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Dworski Badenich;;;;lage_ohne_kapazitaet;1;7438121,34;5548434,79
+28BA1C50-065B-8554-E053-CC2BA8C0F941;park;;bdot10k;Planty Bieńczyckie;;;;lage_ohne_kapazitaet;1;7430367,72;5550225,38
+28BA1C50-065C-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Płaszów;;;;lage_ohne_kapazitaet;1;7427892,12;5546204,66
+28BA1C50-065D-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Rżąka;;;;lage_ohne_kapazitaet;1;7428936,96;5541811,25
+28BA1C50-065E-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Witkowicki;;;;lage_ohne_kapazitaet;1;7424649,39;5552860,37
+28BA1C50-065F-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Zielony Jar;;;;lage_ohne_kapazitaet;1;7432663,79;5551357,29
+28BA1C50-0661-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Zaczarowanej Dorożki;;;;lage_ohne_kapazitaet;1;7426010,92;5550592,05
+28BA1C50-0662-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Tadeusza Kościuszki;;;;lage_ohne_kapazitaet;1;7424241,21;5551369,94
+28BA1C50-0663-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Stanisława Wyspiańskiego;;;;lage_ohne_kapazitaet;1;7422753,51;5550535,79
+28BA1C50-0664-8554-E053-CC2BA8C0F941;park;;bdot10k;Zalew Nowohucki;;;;lage_ohne_kapazitaet;1;7432205,73;5549657,81
+28BA1C50-0665-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Bednarskiego;;;;lage_ohne_kapazitaet;1;7424725,44;5545551,89
+28BA1C50-0666-8554-E053-CC2BA8C0F941;park;;bdot10k;Ogród Strzelecki;;;;lage_ohne_kapazitaet;1;7424827,6;5548284,74
+28BA1C50-0667-8554-E053-CC2BA8C0F941;park;;bdot10k;Kopiec Wandy;;;;lage_ohne_kapazitaet;1;7433272,47;5548638,81
+28BA1C50-066B-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Krowoderski;;;;lage_ohne_kapazitaet;1;7422797,01;5550871,11
+28BA1C50-066C-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Tysiąclecia;;;;lage_ohne_kapazitaet;1;7428253,01;5550891,86
+28BA1C50-066D-8554-E053-CC2BA8C0F941;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7436119,06;5548278,13
+28BA1C50-066E-8554-E053-CC2BA8C0F941;park;;bdot10k;Lasek Mogilski;;;;lage_ohne_kapazitaet;1;7432533,57;5547103,0
+28BA1C50-0672-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Decjusza;;;;lage_ohne_kapazitaet;1;7419242,59;5548204,85
+28BA1C50-0677-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Ratuszowy;;;;lage_ohne_kapazitaet;1;7431259,41;5549268,32
+28BA1C50-0678-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Szwedzki;;;;lage_ohne_kapazitaet;1;7431529,9;5549148,05
+28BA1C50-0679-8554-E053-CC2BA8C0F941;park;;bdot10k;Park dworski Jana Matejki;;;;lage_ohne_kapazitaet;1;7432353,68;5549922,9
+28BA1C50-067A-8554-E053-CC2BA8C0F941;park;;bdot10k;Park miejski;;;;lage_ohne_kapazitaet;1;7432191,43;5549207,48
+28BA1C50-067D-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Kultury i Wypoczynku;;;;lage_ohne_kapazitaet;1;7430678,33;5548732,98
+28BA1C50-067E-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Wiśniowy Sad;;;;lage_ohne_kapazitaet;1;7430388,05;5549312,97
+28BA1C50-067F-8554-E053-CC2BA8C0F941;park;;bdot10k;Skwer II Korpusu Polskich Sił Zbrojnych Na Zachodzie;;;;lage_ohne_kapazitaet;1;7430286,4;5549752,57
+28BA1C50-0682-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Lotników Polskich;;;;lage_ohne_kapazitaet;1;7427789,83;5549186,13
+28BA1C50-0685-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Klasztorna;;;;lage_ohne_kapazitaet;1;7432061,15;5548250,27
+28BA1C50-0686-8554-E053-CC2BA8C0F941;park;;bdot10k;Park miejski;;;;lage_ohne_kapazitaet;1;7431854,82;5548185,04
+28BA1C50-0687-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Żeromskiego;;;;lage_ohne_kapazitaet;1;7431506,54;5548274,03
+28BA1C50-0688-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Miejski;;;;lage_ohne_kapazitaet;1;7430641,43;5549309,67
+28BA1C50-0689-8554-E053-CC2BA8C0F941;park;;bdot10k;Park os. Zgody;;;;lage_ohne_kapazitaet;1;7431059,71;5549270,89
+28BA1C50-068F-8554-E053-CC2BA8C0F941;park;;bdot10k;Park Dębnicki;;;;lage_ohne_kapazitaet;1;7422436,5;5546491,18
+3ee7laYl-2CGE-xkrm-uMt3-FCvKkgbaHssL;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7422807,78;5552062,36
+5TUdh8YZ-JFp7-5E6X-ZkYt-kTuSzAET58ph;park;;bdot10k;Park Wola - Rodzinny Park Rozrywki Kraków;;;;lage_ohne_kapazitaet;1;7419061,49;5548161,98
+CLibwU7U-nfl4-P6Fn-uTVQ-7gaRj9s09CM2;park;;bdot10k;Ogród Doświadczeń im. Stanisława Lema;;;;lage_ohne_kapazitaet;1;7428218,6;5548488,45
+H5qJaEdW-dSWp-Orq8-mUhU-CCfKJH837ywk;park;;bdot10k;Zielony Ogród;;;;lage_ohne_kapazitaet;1;7420814,92;5544367,96
+Ll9epH7j-0lhb-8m4Y-PQDj-EvEHILMsSWxj;park;;bdot10k;Park Kolejowy;;;;lage_ohne_kapazitaet;1;7424662,51;5547697,49
+b79fec1e-4555-11eb-8588-b8ca3aa2e5c2;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7423751,54;5548596,99
+b79fec1f-4555-11eb-a285-b8ca3aa2e5c2;park;;bdot10k;Park Dębnicki;;;;lage_ohne_kapazitaet;1;7422129,14;5546486,75
+b79fec20-4555-11eb-a2fb-b8ca3aa2e5c2;park;;bdot10k;Plac Sikorskiego;;;;lage_ohne_kapazitaet;1;7423253,68;5547782,04
+b7a2360f-4555-11eb-9c36-b8ca3aa2e5c2;park;;bdot10k;Park Miejski Bagry Wielkie;;;;lage_ohne_kapazitaet;1;7427897,85;5544715,1
+b7a23610-4555-11eb-8a1d-b8ca3aa2e5c2;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7424273,89;5548725,28
+dO3VADDG-xBzo-6yys-BsmA-I77B0i7DYIHA;park;;bdot10k;Staw Kaczeńcowy;;;;lage_ohne_kapazitaet;1;7430836,03;5550684,28
+e01753b1-64b7-11eb-9963-5404a6a68038;park;;bdot10k;Park Reduta;;;;lage_ohne_kapazitaet;1;7427404,92;5551628,6
+f50b7e80-4555-11eb-8cc3-b8ca3aa2e5c2;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7423870,57;5545185,76
+f50dc870-4555-11eb-a6dd-b8ca3aa2e5c2;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7423953,52;5545124,52
+gNgEPDSF-A7rX-JBSu-HGog-UDJ8HaQvQ08B;park;;bdot10k;;;;;lage_ohne_kapazitaet;1;7431845,63;5543524,34
+28BA1C50-039D-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 179 im. Szewczyka Dratewki w Krakowie;;;;lage_ohne_kapazitaet;1;7424897,9;5542880,83
+28BA1C50-039F-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 36 Krakowski Żaczek w Krakowie;;;;lage_ohne_kapazitaet;1;7427082,76;5542683,79
+28BA1C50-03A1-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 22 Tajemniczy Ogród w Krakowie;;;;lage_ohne_kapazitaet;1;7424501,79;5542696,18
+28BA1C50-03A3-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 6 im. Dr. Henryka Jordana w Krakowie;;;;lage_ohne_kapazitaet;1;7424966,22;5542077,84
+28BA1C50-03AF-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 83 w Krakowie;;;;lage_ohne_kapazitaet;1;7424236,76;5550551,27
+28BA1C50-03B1-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 5 Słoneczna Kraina Smoka Wawelskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7421805,7;5543810,54
+28BA1C50-03B2-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 10 im. Jana Pawła II w Krakowie;;;;lage_ohne_kapazitaet;1;7422974,18;5543933,78
+28BA1C50-03B7-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 35 z Oddziałami Integracyjnymi im. Anny Dymnej w Krakowie;;;;lage_ohne_kapazitaet;1;7428715,99;5542984,41
+28BA1C50-03BA-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 180 w Krakowie;;;;lage_ohne_kapazitaet;1;7429606,99;5543047,16
+28BA1C50-03BD-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 176 im. Marii Konopnickiej w Krakowie;;;;lage_ohne_kapazitaet;1;7429651,35;5542222,31
+28BA1C50-03BE-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 28 Na Tęczowym Wzgórzu w Krakowie;;;;lage_ohne_kapazitaet;1;7429863,26;5542913,65
+28BA1C50-03C0-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 135 im. Księcia Kraka w Krakowie;;;;lage_ohne_kapazitaet;1;7431783,0;5542601,87
+28BA1C50-03E7-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 163 im. Heleny Bechlerowej w Krakowie;;;;lage_ohne_kapazitaet;1;7426223,08;5542456,4
+28BA1C50-03E8-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 33 w Krakowie;;;;lage_ohne_kapazitaet;1;7427137,76;5541615,16
+28BA1C50-03F9-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 92 Dworek Na Krzemionkach w Krakowie;;;;lage_ohne_kapazitaet;1;7424998,77;5545476,86
+28BA1C50-03FD-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 51 w Krakowie;;;;lage_ohne_kapazitaet;1;7425819,21;5543159,44
+28BA1C50-0411-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 58 w Krakowie;;;;lage_ohne_kapazitaet;1;7420971,73;5542562,42
+28BA1C50-0424-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 46 im. Carla Orffa w Krakowie;;;;lage_ohne_kapazitaet;1;7431833,88;5548339,92
+28BA1C50-0428-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 150 w Krakowie;;;;lage_ohne_kapazitaet;1;7429041,82;5542529,57
+28BA1C50-042F-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 112 im. Lucyny Krzemienieckiej w Krakowie;;;;lage_ohne_kapazitaet;1;7432814,58;5551455,5
+28BA1C50-0436-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 177 im. Czesława Janczarskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7429031,71;5551165,13
+28BA1C50-043A-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 123 Tęczowa Akademia Przedszkolaka w Krakowie;;;;lage_ohne_kapazitaet;1;7425918,56;5550125,01
+28BA1C50-0448-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 182 przy Źródełku w Krakowie;;;;lage_ohne_kapazitaet;1;7428729,39;5550174,67
+28BA1C50-0455-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 65 Perełka w Krakowie;;;;lage_ohne_kapazitaet;1;7426528,81;5551143,33
+28BA1C50-0456-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 178 w Krakowie;;;;lage_ohne_kapazitaet;1;7426013,32;5551127,08
+28BA1C50-0458-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 138 w Krakowie;;;;lage_ohne_kapazitaet;1;7423308,7;5550719,13
+28BA1C50-0459-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 175 w Krakowie;;;;lage_ohne_kapazitaet;1;7424795,6;5551303,15
+28BA1C50-045B-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 130 im. Stanisława Pagaczewskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7423063,49;5550987,41
+28BA1C50-0467-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Źródło - Przedszkole Fundacji Sternik - Kraków;;;;lage_ohne_kapazitaet;1;7421881,33;5550508,42
+28BA1C50-0475-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 107 Słoneczne Nutki w Krakowie;;;;lage_ohne_kapazitaet;1;7431533,32;5549470,6
+28BA1C50-0480-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Niepubliczne Przedszkole Misie Filipisie;;;;lage_ohne_kapazitaet;1;7429947,29;5548947,19
+28BA1C50-0486-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 185 Słoneczko w Krakowie;;;;lage_ohne_kapazitaet;1;7429094,36;5550007,41
+28BA1C50-0492-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 11 im. Misia Uszatka w Krakowie;;;;lage_ohne_kapazitaet;1;7427141,54;5545738,72
+28BA1C50-0493-8554-E053-CC2BA8C0F941;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 34 w Krakowie;;;;lage_ohne_kapazitaet;1;7427756,42;5546021,83
+df86ac71-64b7-11eb-a5d9-5404a6a68038;przedszkole;;bdot10k;Samorządowe Przedszkole Nr 95 im. Kornela Makuszyńskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7423001,76;5542760,91
+1973784f-64b8-11eb-b31a-5404a6a68038;szkola;;bdot10k;Szkoła Podstawowa Nr 117 im. Krakowskiej Kongregacji Kupieckiej w Krakowie;;;;lage_ohne_kapazitaet;1;7429002,8;5542397,71
+28BA1C50-0399-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 53 im. Jana Henryka Dąbrowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7421110,96;5542281,15
+28BA1C50-039A-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 26 im. Andrzeja Struga w Krakowie;;;;lage_ohne_kapazitaet;1;7423965,71;5545376,86
+28BA1C50-039B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Elektrycznych Nr 1 im. Powstańców Śląskich w Krakowie;;;;lage_ohne_kapazitaet;1;7426638,69;5543702,13
+28BA1C50-039C-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 55 im. Jarosława Iwaszkiewicza w Krakowie;;;;lage_ohne_kapazitaet;1;7425128,89;5542843,11
+28BA1C50-039E-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Kostka Publiczne Liceum Ogólnokształcące Jezuitów im. Św. Stanisława Kostki;;;;lage_ohne_kapazitaet;1;7426973,0;5542940,03
+28BA1C50-03A0-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 123 im. Gen. Józefa Bema w Krakowie;;;;lage_ohne_kapazitaet;1;7426984,76;5542698,48
+28BA1C50-03A2-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 149 im. Marszałka Józefa Piłsudskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7424788,14;5542108,14
+28BA1C50-03A5-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 164 im. bł. Franciszki Siedliskiej w Krakowie;;;;lage_ohne_kapazitaet;1;7425315,7;5541641,35
+28BA1C50-03A6-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 74 im. Stanisława Staszica w Krakowie;;;;lage_ohne_kapazitaet;1;7438670,42;5547430,7
+28BA1C50-03A7-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Społeczna Szkoła Podstawowa Nr 3 Społecznego Towarzystwa Oświatowego w Krakowie;;;;lage_ohne_kapazitaet;1;7429253,55;5550353,48
+28BA1C50-03A8-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 142 im. Tadeusza Kościuszki w Krakowie;;;;lage_ohne_kapazitaet;1;7442337,99;5546879,36
+28BA1C50-03A9-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 129 im. Kornela Makuszyńskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7432749,82;5551711,05
+28BA1C50-03AA-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Da Vinci Publiczna Szkoła Podstawowa w Krakowie, Da Vinci Społeczne Liceum Ogólnokształcące w Krakowie;;;;lage_ohne_kapazitaet;1;7432170,34;5551438,06
+28BA1C50-03AB-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 78 im. Piotra Michałowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7435224,29;5551426,86
+28BA1C50-03AC-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 78 im. Piotra Michałowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7437256,62;5551924,3
+28BA1C50-03AD-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Gastronomicznych Nr 1 im. Mjr. Henryka Sucharskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7430665,38;5550218,18
+28BA1C50-03AE-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 107 im. Tadeusza Boya-Żeleńskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7424246,27;5550919,34
+28BA1C50-03B0-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 40 im. św. Stanisława Biskupa i Męczennika w Krakowie;;;;lage_ohne_kapazitaet;1;7422292,82;5543845,73
+28BA1C50-03B3-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 158 im. Profesora Juliana Aleksandrowicza w Krakowie;;;;lage_ohne_kapazitaet;1;7422945,42;5544026,52
+28BA1C50-03B4-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 151 im. Uniwersytetu Jagiellońskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7422875,34;5544335,67
+28BA1C50-03B5-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Mechanicznych Nr 2 im. Kazimierza Górskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7423634,8;5544729,7
+28BA1C50-03B6-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Społeczna Szkoła Podstawowa Nr 5 Społecznego Towarzystwa Oświatowego w Krakowie;;;;lage_ohne_kapazitaet;1;7428640,74;5542553,81
+28BA1C50-03B8-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 10 w Krakowie;;;;lage_ohne_kapazitaet;1;7428727,39;5541631,61
+28BA1C50-03B9-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Specjalna Nr 121 im. Św. Franciszka z Asyżu, XXV Liceum Ogólnokształcące im. Stefana Żeromskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7429516,03;5543051,69
+28BA1C50-03BB-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 111 im. Wojska Polskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7429998,66;5542963,05
+28BA1C50-03BC-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 41 im. Jana Kochanowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7428856,73;5542895,77
+28BA1C50-03BF-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 124 im. Marii Skłodowskiej-Curie w Krakowie;;;;lage_ohne_kapazitaet;1;7431245,92;5542473,03
+28BA1C50-03C3-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 11 w Krakowie;;;;lage_ohne_kapazitaet;1;7429555,89;5542212,44
+28BA1C50-03C4-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ogólnokształcących Nr 9 w Krakowie;;;;lage_ohne_kapazitaet;1;7427385,23;5549757,82
+28BA1C50-03C5-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Nr 1 im. św. Rafała Kalinowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7427494,36;5549201,25
+28BA1C50-03C6-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Inżynierii Środowiska I Melioracji w Krakowie;;;;lage_ohne_kapazitaet;1;7427441,19;5549397,75
+28BA1C50-03C8-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ogólnokształcących Mistrzostwa Sportowego im. Mikołaja Kopernika w Krakowie;;;;lage_ohne_kapazitaet;1;7425780,07;5549120,2
+28BA1C50-03C9-8554-E053-CC2BA8C0F941;szkola;;bdot10k;XXIV Liceum Ogólnokształcące im. Jana Pawła II w Krakowie;;;;lage_ohne_kapazitaet;1;7425947,08;5548927,67
+28BA1C50-03CA-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 95 im. Władysława Broniewskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7425210,61;5549917,95
+28BA1C50-03CC-8554-E053-CC2BA8C0F941;szkola;;bdot10k;XIII Liceum Ogólnokształcące im. Bohaterów Westerplatte w Krakowie, Szkoła Podstawowa Nr 38 im. Bractwa Kurkowego w Krakowie;;;;lage_ohne_kapazitaet;1;7425872,45;5547985,39
+28BA1C50-03CE-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Katolickie Centrum Edukacyjne Caritas Archidiecezji Krakowskiej;;;;lage_ohne_kapazitaet;1;7424102,45;5548753,3
+28BA1C50-03CF-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Społeczna Szkoła Podstawowa Nr 7 Społecznego Towarzystwa Oświatowego w Krakowie;;;;lage_ohne_kapazitaet;1;7426100,89;5550006,79
+28BA1C50-03D0-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Przemysłu Spożywczego w Krakowie;;;;lage_ohne_kapazitaet;1;7426004,76;5550094,89
+28BA1C50-03D1-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 64 im. Tadeusza Kościuszki w Krakowie;;;;lage_ohne_kapazitaet;1;7426667,96;5550070,18
+28BA1C50-03D4-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 25 im. Tadeusza Kościuszki w Krakowie;;;;lage_ohne_kapazitaet;1;7423497,42;5545646,06
+28BA1C50-03D5-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ogólnokształcących Nr 8 w Krakowie;;;;lage_ohne_kapazitaet;1;7420052,98;5549627,71
+28BA1C50-03D6-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 153 im. Księdza Profesora Józefa Tischnera w Krakowie;;;;lage_ohne_kapazitaet;1;7420148,99;5549585,11
+28BA1C50-03D8-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ogólnokształcących Nr 7 w Krakowie;;;;lage_ohne_kapazitaet;1;7420892,64;5550057,97
+28BA1C50-03D9-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Łączności im. Obrońców Poczty Polskiej w Gdańsku w Krakowie;;;;lage_ohne_kapazitaet;1;7422768,62;5546177,13
+28BA1C50-03DB-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Geodezyjno-Drogowych I Gospodarki Wodnej im. Gabriela Narutowicza w Krakowie;;;;lage_ohne_kapazitaet;1;7420629,94;5549238,66
+28BA1C50-03DC-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 93 im. Lucjana Rydla w Krakowie;;;;lage_ohne_kapazitaet;1;7421292,68;5549224,42
+28BA1C50-03DD-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Budowlanych Nr 1 w Krakowie;;;;lage_ohne_kapazitaet;1;7420755,88;5549428,13
+28BA1C50-03DE-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Mistrzostwa Sportowego w Krakowie;;;;lage_ohne_kapazitaet;1;7420856,77;5549472,25
+28BA1C50-03E1-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 110 im. Księdza Jana Twardowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7422914,73;5546573,27
+28BA1C50-03E2-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Ośrodek Kształcenia Zawodowego Zakładu Doskonalenia Zawodowego w Krakowie;;;;lage_ohne_kapazitaet;1;7423421,88;5550225,82
+28BA1C50-03E4-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Prywatna Szkoła Podstawowa Salwator;;;;lage_ohne_kapazitaet;1;7422372,93;5546948,19
+28BA1C50-03E5-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ogólnokształcących Nr 18 w Krakowie;;;;lage_ohne_kapazitaet;1;7422424,3;5546984,16
+28BA1C50-03E6-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 27 im. Marii Konopnickiej w Krakowie;;;;lage_ohne_kapazitaet;1;7426509,19;5542254,46
+28BA1C50-03E9-8554-E053-CC2BA8C0F941;szkola;;bdot10k;XV Liceum Ogólnokształcące im. Marii Skłodowskiej-Curie w Krakowie;;;;lage_ohne_kapazitaet;1;7427356,78;5543386,44
+28BA1C50-03EA-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 61 im. Marszałka Józefa Piłsudskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7427640,51;5543646,23
+28BA1C50-03EB-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Specjalnych Nr 11 w Krakowie;;;;lage_ohne_kapazitaet;1;7427598,25;5543276,38
+28BA1C50-03EC-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 15 w Krakowie;;;;lage_ohne_kapazitaet;1;7427838,02;5545060,74
+28BA1C50-03ED-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 15 w Krakowie;;;;lage_ohne_kapazitaet;1;7428209,14;5544793,23
+28BA1C50-03EE-8554-E053-CC2BA8C0F941;szkola;;bdot10k;IV Liceum Ogólnokształcące im. Tadeusza Kościuszki w Krakowie;;;;lage_ohne_kapazitaet;1;7424530,84;5545520,15
+28BA1C50-03EF-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Specjalny Ośrodek Szkolno-Wychowawczy Nr 2 im. Janusza Korczaka w Krakowie;;;;lage_ohne_kapazitaet;1;7424323,8;5545013,59
+28BA1C50-03F0-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Plastycznych w Krakowie;;;;lage_ohne_kapazitaet;1;7422305,91;5547216,15
+28BA1C50-03F1-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 31 im. Dr. Henryka Jordana w Krakowie;;;;lage_ohne_kapazitaet;1;7422446,34;5547170,73
+28BA1C50-03F3-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 12 im. Janusza Korczaka w Krakowie;;;;lage_ohne_kapazitaet;1;7422173,31;5548685,35
+28BA1C50-03F5-8554-E053-CC2BA8C0F941;szkola;;bdot10k;VII Liceum Ogólnokształcące im. Zofii Nałkowskiej w Krakowie;;;;lage_ohne_kapazitaet;1;7421845,22;5548821,4
+28BA1C50-03FA-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 56 im. Tadeusza Rejtana w Krakowie;;;;lage_ohne_kapazitaet;1;7424178,25;5543284,76
+28BA1C50-03FB-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Nr 3 w Krakowie;;;;lage_ohne_kapazitaet;1;7424287,94;5542830,46
+28BA1C50-03FC-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Specjalny Ośrodek Szkolno-Wychowawczy Zgromadzenia Sióstr Felicjanek;;;;lage_ohne_kapazitaet;1;7424279,71;5542704,87
+28BA1C50-03FE-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 162 im. Prof. Władysława Szafera w Krakowie;;;;lage_ohne_kapazitaet;1;7425049,4;5541669,54
+28BA1C50-03FF-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Odzieżowych Nr 1 im. Stanisława Wyspiańskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7425858,35;5541584,87
+28BA1C50-0402-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 148 im. Polskich Noblistów w Krakowie;;;;lage_ohne_kapazitaet;1;7428020,42;5542745,65
+28BA1C50-0404-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Sportowymi Nr 5 im. Polskich Olimpijczyków w Krakowie;;;;lage_ohne_kapazitaet;1;7422318,44;5548719,95
+28BA1C50-0406-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Specjalnych Nr 4 w Krakowie;;;;lage_ohne_kapazitaet;1;7422411,63;5549467,26
+28BA1C50-040A-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 4 w Krakowie;;;;lage_ohne_kapazitaet;1;7422824,51;5549206,54
+28BA1C50-040B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 106 im. Artura Grottgera w Krakowie;;;;lage_ohne_kapazitaet;1;7422812,0;5549579,38
+28BA1C50-0412-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 97 im. Joachima Lelewela w Krakowie;;;;lage_ohne_kapazitaet;1;7422479,63;5541104,28
+28BA1C50-0413-8554-E053-CC2BA8C0F941;szkola;;bdot10k;V Liceum Ogólnokształcące im. Augusta Witkowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7423306,01;5547885,85
+28BA1C50-0414-8554-E053-CC2BA8C0F941;szkola;;bdot10k;II Liceum Ogólnokształcące im. Króla Jana III Sobieskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7423526,3;5548567,94
+28BA1C50-0415-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 7 im. Wojska Polskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7423707,33;5548709,97
+28BA1C50-0418-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 36 im. Henryka Sienkiewicza w Krakowie;;;;lage_ohne_kapazitaet;1;7422847,71;5549375,29
+28BA1C50-0419-8554-E053-CC2BA8C0F941;szkola;;bdot10k;IX Liceum Ogólnokształcące im. Zygmunta Wróblewskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7422641,5;5548630,73
+28BA1C50-041C-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Wolna Szkoła Waldorfska w Krakowie;;;;lage_ohne_kapazitaet;1;7422778,16;5541669,52
+28BA1C50-041D-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 49 im. Juliana Ursyna Niemcewicza w Krakowie;;;;lage_ohne_kapazitaet;1;7422870,83;5543076,49
+28BA1C50-041E-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 85 im. Ks. Kazimierza Jancarza w Krakowie;;;;lage_ohne_kapazitaet;1;7428422,42;5551731,67
+28BA1C50-0420-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 65 im. Czesława Janczarskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7430887,04;5545933,77
+28BA1C50-0421-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Specjalnych Nr 6 w Krakowie;;;;lage_ohne_kapazitaet;1;7432355,74;5548501,27
+28BA1C50-0426-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Mechanicznych Nr 1 im. Szczepana Humberta w Krakowie, Zespół Szkół Chemicznych im. Marii Skłodowskiej-Curie w Krakowie;;;;lage_ohne_kapazitaet;1;7423021,9;5547848,77
+28BA1C50-0429-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 124 im. Marii Skłodowskiej-Curie w Krakowie;;;;lage_ohne_kapazitaet;1;7431336,69;5542900,12
+28BA1C50-042A-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Specjalny Ośrodek Szkolno-Wychowawczy dla Dzieci Niewidomych I Słabowidzących im. Włodzimierza Dolańskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7423045,06;5546670,4
+28BA1C50-042B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;XIV Liceum Ogólnokształcące im. Mikołaja Kopernika w Krakowie;;;;lage_ohne_kapazitaet;1;7422258,94;5550684,24
+28BA1C50-042E-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 80 im. Wojciecha Bogusławskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7431448,49;5548549,53
+28BA1C50-0430-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 98 im. Henryka Sienkiewicza w Krakowie;;;;lage_ohne_kapazitaet;1;7432455,78;5551091,83
+28BA1C50-0431-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 77 im. Świętego Maksymiliana Marii Kolbego w Krakowie;;;;lage_ohne_kapazitaet;1;7428751,49;5551778,44
+28BA1C50-0432-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 144 im. Bohaterów Września 1939 w Krakowie;;;;lage_ohne_kapazitaet;1;7429026,84;5551768,11
+28BA1C50-0433-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Publiczne Salezjańskie Liceum Ogólnokształcące w Krakowie;;;;lage_ohne_kapazitaet;1;7429726,63;5551875,66
+28BA1C50-0434-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 89 im. Kornela Makuszyńskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7429740,17;5551980,04
+28BA1C50-0435-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Poligraficzno-Medialnych im. Zenona Klemensiewicza w Krakowie;;;;lage_ohne_kapazitaet;1;7428626,31;5551192,77
+28BA1C50-0437-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Zawodowych HTS w Krakowie;;;;lage_ohne_kapazitaet;1;7430113,39;5551028,51
+28BA1C50-0438-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 92 im. Bohaterów Westerplatte w Krakowie;;;;lage_ohne_kapazitaet;1;7429093,1;5550883,99
+28BA1C50-043B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 114 im. Arkadego Fiedlera w Krakowie;;;;lage_ohne_kapazitaet;1;7427266,65;5549144,27
+28BA1C50-043C-8554-E053-CC2BA8C0F941;szkola;;bdot10k;X Liceum Ogólnokształcące im. Komisji Edukacji Narodowej w Krakowie;;;;lage_ohne_kapazitaet;1;7424116,89;5548660,76
+28BA1C50-043D-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Aspirantów Państwowej Straży Pożarnej;;;;lage_ohne_kapazitaet;1;7430876,92;5549417,86
+28BA1C50-043F-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 13 w Krakowie;;;;lage_ohne_kapazitaet;1;7424687,0;5539193,99
+28BA1C50-0440-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 134 w Krakowie;;;;lage_ohne_kapazitaet;1;7422082,07;5539995,41
+28BA1C50-0441-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 8 w Krakowie;;;;lage_ohne_kapazitaet;1;7419174,22;5539633,53
+28BA1C50-0442-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 82 im. Świętej Jadwigi Królowej Polski w Krakowie;;;;lage_ohne_kapazitaet;1;7429362,11;5550986,1
+28BA1C50-0444-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 104 im. Jana Matejki w Krakowie;;;;lage_ohne_kapazitaet;1;7429607,4;5550809,33
+28BA1C50-0445-8554-E053-CC2BA8C0F941;szkola;;bdot10k;III Liceum Ogólnokształcące im. Jana Kochanowskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7429705,81;5550782,45
+28BA1C50-0446-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 101 im. Hansa Christiana Andersena w Krakowie;;;;lage_ohne_kapazitaet;1;7430095,23;5550679,46
+28BA1C50-0447-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Publiczna Szkoła Podstawowa Sióstr Salezjanek im. Błogosławionej Laury Vicu?A w Krakowie;;;;lage_ohne_kapazitaet;1;7429377,26;5550182,76
+28BA1C50-0449-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 126 im. Komisji Edukacji Narodowej w Krakowie;;;;lage_ohne_kapazitaet;1;7428357,49;5551105,15
+28BA1C50-044A-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 5 w Krakowie;;;;lage_ohne_kapazitaet;1;7427703,33;5550889,26
+28BA1C50-044B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ogólnokształcących Nr 13 w Krakowie;;;;lage_ohne_kapazitaet;1;7426340,11;5550640,9
+28BA1C50-044C-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 138 im. Polskich Wojsk Lotniczych w Krakowie;;;;lage_ohne_kapazitaet;1;7417503,44;5550539,71
+28BA1C50-044D-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 48 im. Szarych Szeregów w Krakowie;;;;lage_ohne_kapazitaet;1;7415827,64;5546024,81
+28BA1C50-0452-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Publiczna Szkoła Podstawowa im. Św. Józefa Kalasancjusza;;;;lage_ohne_kapazitaet;1;7416539,59;5549229,74
+28BA1C50-0454-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 2 im. Św. Wojciecha w Krakowie;;;;lage_ohne_kapazitaet;1;7426384,11;5551133,09
+28BA1C50-0457-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 15 im. Księdza Kardynała Karola Wojtyły w Krakowie;;;;lage_ohne_kapazitaet;1;7423329,23;5550653,2
+28BA1C50-045A-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 16 w Krakowie;;;;lage_ohne_kapazitaet;1;7424627,32;5551295,51
+28BA1C50-045C-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 21 im. Władysława Jagiełły w Krakowie;;;;lage_ohne_kapazitaet;1;7422966,72;5550976,57
+28BA1C50-045D-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 58 im. Tadeusza Kościuszki w Krakowie;;;;lage_ohne_kapazitaet;1;7423746,32;5551392,56
+28BA1C50-0465-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 72 im. Teofila Lenartowicza w Krakowie;;;;lage_ohne_kapazitaet;1;7418747,86;5548163,39
+28BA1C50-0466-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 7 w Krakowie;;;;lage_ohne_kapazitaet;1;7419246,76;5542877,36
+28BA1C50-0468-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 113 im. Leopolda Węgrzynowicza w Krakowie;;;;lage_ohne_kapazitaet;1;7422525,7;5550521,29
+28BA1C50-0469-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 2 w Krakowie;;;;lage_ohne_kapazitaet;1;7424472,02;5552307,78
+28BA1C50-046B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 119 im. Janiny Porazińskiej w Krakowie;;;;lage_ohne_kapazitaet;1;7421455,06;5550433,46
+28BA1C50-046D-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 50 im. Włodzimierza Tetmajera w Krakowie;;;;lage_ohne_kapazitaet;1;7420003,28;5550372,67
+28BA1C50-0470-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 14 w Krakowie;;;;lage_ohne_kapazitaet;1;7420178,57;5551709,42
+28BA1C50-0471-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 67 im. Władysława Łokietka w Krakowie;;;;lage_ohne_kapazitaet;1;7421740,56;5552869,94
+28BA1C50-0472-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Państwowych Szkół Muzycznych im. Mieczysława Karłowicza w Krakowie;;;;lage_ohne_kapazitaet;1;7431340,42;5548496,41
+28BA1C50-0473-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 91 im. Janusza Kusocińskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7430664,81;5549125,83
+28BA1C50-0474-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 105 im. Ludwiki Wawrzyńskiej w Krakowie;;;;lage_ohne_kapazitaet;1;7431435,42;5549484,09
+28BA1C50-0476-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Mechanicznych Nr 3 im. Generała Władysława Sikorskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7432065,63;5549392,62
+28BA1C50-0477-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Elektrycznych Nr 2 w Krakowie;;;;lage_ohne_kapazitaet;1;7431907,43;5549504,75
+28BA1C50-0478-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Zawodowych Nr 2 w Krakowie;;;;lage_ohne_kapazitaet;1;7431835,81;5549782,65
+28BA1C50-0479-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ogólnokształcących Sportowych Nr 2 w Krakowie;;;;lage_ohne_kapazitaet;1;7430899,68;5549739,05
+28BA1C50-047A-8554-E053-CC2BA8C0F941;szkola;;bdot10k;XI Liceum Ogólnokształcące im. Marii Dąbrowskiej w Krakowie;;;;lage_ohne_kapazitaet;1;7430766,94;5549880,92
+28BA1C50-047B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Specjalnych Nr 14 im. Prof. Dr Marii Grzegorzewskiej w Krakowie;;;;lage_ohne_kapazitaet;1;7431420,12;5550021,56
+28BA1C50-047C-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Pallotyńskich;;;;lage_ohne_kapazitaet;1;7431307,71;5550018,56
+28BA1C50-047D-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Publiczne Liceum Ogólnokształcące im. Królowej Apostołów w Krakowie;;;;lage_ohne_kapazitaet;1;7431824,1;5549987,47
+28BA1C50-047E-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 37 im. Juliana Tuwima w Krakowie;;;;lage_ohne_kapazitaet;1;7432250,07;5549033,21
+28BA1C50-0482-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Ekonomicznych Nr 2 im. Ignacego Daszyńskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7430232,0;5549478,52
+28BA1C50-0483-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 100 im. Adama Mickiewicza w Krakowie;;;;lage_ohne_kapazitaet;1;7429811,38;5549828,87
+28BA1C50-0484-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa im. Bogdana Jańskiego, Liceum Ogólnokształcące im. Bogdana Jańskiego, Szkoła Wyższa im. Bogdana Jańskiego w Warszawie Filia;;;;lage_ohne_kapazitaet;1;7429919,01;5549794,08
+28BA1C50-0485-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 52 im. Marii Dąbrowskiej, XXX Liceum Ogólnokształcące im. Świętego Brata Alberta - Adama Chmielowskiego;;;;lage_ohne_kapazitaet;1;7428883,01;5550154,83
+28BA1C50-0487-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 155 im. Św. Jadwigi Królowej w Krakowie;;;;lage_ohne_kapazitaet;1;7429033,68;5549642,24
+28BA1C50-0489-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 10 im. Marii Skłodowskiej-Curie w Krakowie;;;;lage_ohne_kapazitaet;1;7424892,35;5547082,44
+28BA1C50-048A-8554-E053-CC2BA8C0F941;szkola;;bdot10k;VIII Liceum Ogólnokształcące im. Stanisława Wyspiańskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7425217,01;5547457,22
+28BA1C50-048B-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Zespół Szkół Rzemiosła i Przedsiębiorczości im. ks. kard. Adama S. Sapiehy Małopolskiej Izby Rzemiosła i Przedsiębiorczości w Krakowie;;;;lage_ohne_kapazitaet;1;7425347,13;5547236,26
+28BA1C50-048D-8554-E053-CC2BA8C0F941;szkola;;bdot10k;XLIII Liceum Ogólnokształcące im. Zofii Chrzanowskiej w Krakowie;;;;lage_ohne_kapazitaet;1;7425425,85;5545741,21
+28BA1C50-048E-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 29 im. Jana Matejki w Krakowie;;;;lage_ohne_kapazitaet;1;7425197,87;5545626,48
+28BA1C50-048F-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa z Oddziałami Integracyjnymi Nr 22 im. Mjr. Henryka Sucharskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7424249,98;5546074,75
+28BA1C50-0490-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 39 im. Bartosza Głowackiego w Krakowie;;;;lage_ohne_kapazitaet;1;7426797,71;5547835,82
+28BA1C50-0491-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 18 im. św. Anny w Krakowie;;;;lage_ohne_kapazitaet;1;7427127,17;5547576,58
+28BA1C50-0494-8554-E053-CC2BA8C0F941;szkola;;bdot10k;Szkoła Podstawowa Nr 47 im. Stefana Czarnieckiego w Krakowie;;;;lage_ohne_kapazitaet;1;7427844,57;5546025,09
+28BA1C50-CE17-8554-E053-CC2BA8C0MR00;szkola;;bdot10k;Szkoła Podstawowa im. bł. Celiny Borzęckiej w Krakowie;;;;lage_ohne_kapazitaet;1;7425849,86;5543458,25
+b6f5c971-4555-11eb-9775-b8ca3aa2e5c2;szkola;;bdot10k;Szkoła Podstawowa Nr 54 im. Juliana Tuwima w Krakowie;;;;lage_ohne_kapazitaet;1;7418245,71;5544353,17
+b6f5c972-4555-11eb-9ce1-b8ca3aa2e5c2;szkola;;bdot10k;Specjalny Ośrodek Szkolno-Wychowawczy Nr 3 im. Kornela Makuszyńskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7421748,86;5545952,77
+d32167e1-4a90-11eb-8a54-480fcf3c9bd7;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 17 w Krakowie;;;;lage_ohne_kapazitaet;1;7426271,1;5543080,9
+d323b1d1-4a90-11eb-84a0-480fcf3c9bd7;szkola;;bdot10k;XII Liceum Ogólnokształcące im. Cypriana Kamila Norwida w Krakowie;;;;lage_ohne_kapazitaet;1;7430116,28;5549333,2
+d3253870-4a90-11eb-8bd0-480fcf3c9bd7;szkola;;bdot10k;Szkoła Podstawowa Nr 103 im. Konstantego Ildefonsa Gałczyńskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7430065,65;5549293,81
+d3253871-4a90-11eb-9f28-480fcf3c9bd7;szkola;;bdot10k;Liceum Ogólnokształcące Zakonu Pijarów im. Ks. Stanisława Konarskiego;;;;lage_ohne_kapazitaet;1;7426893,51;5550285,12
+d3253872-4a90-11eb-ba37-480fcf3c9bd7;szkola;;bdot10k;Szkoła Podstawowa Rajska Szkoła w Krakowie;;;;lage_ohne_kapazitaet;1;7426303,35;5539952,43
+d3253873-4a90-11eb-b90f-480fcf3c9bd7;szkola;;bdot10k;Społeczna Szkoła Podstawowa Nr 1 im. Józefa Piłsudskiego w Krakowie;;;;lage_ohne_kapazitaet;1;7421980,11;5540923,53
+d3253874-4a90-11eb-a423-480fcf3c9bd7;szkola;;bdot10k;Zespół Szkół Sióstr Salezjanek w Krakowie;;;;lage_ohne_kapazitaet;1;7430382,58;5550432,09
+d3253875-4a90-11eb-becd-480fcf3c9bd7;szkola;;bdot10k;Szkoła Podstawowa Nr 86 im. Powstańców Śląskich w Krakowie;;;;lage_ohne_kapazitaet;1;7430411,48;5550342,73
+df86ac70-64b7-11eb-9516-5404a6a68038;szkola;;bdot10k;Sternik Stowarzyszenie Wspierania Edukacji i Rodziny;;;;lage_ohne_kapazitaet;1;7421830,62;5550320,05
+df86ac72-64b7-11eb-82fc-5404a6a68038;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 9 w Krakowie;;;;lage_ohne_kapazitaet;1;7439670,59;5548491,62
+df86ac73-64b7-11eb-b6f3-5404a6a68038;szkola;;bdot10k;Szkoła Podstawowa Nr 32 im. Karola Chodkiewicza w Krakowie;;;;lage_ohne_kapazitaet;1;7421529,44;5547208,57
+df86ac74-64b7-11eb-b7a9-5404a6a68038;szkola;;bdot10k;Zespół Szkolno-Przedszkolny Nr 12 w Krakowie;;;;lage_ohne_kapazitaet;1;7425866,53;5551946,73
+28BA1C50-0498-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Park Zdrojowy IPR;;;;lage_ohne_kapazitaet;1;7423985,78;5545125,17
+28BA1C50-0499-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Scanmed Szpital św. Rafała;;;;lage_ohne_kapazitaet;1;7426553,61;5542095,89
+28BA1C50-049B-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital specjalistyczny im J. Babińskiego;;;;lage_ohne_kapazitaet;1;7419971,55;5541348,04
+28BA1C50-049C-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital im. L. Rydgiera;;;;lage_ohne_kapazitaet;1;7429775,37;5551228,72
+28BA1C50-049E-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital Miejski Specjalistyczny im.G.Narutowicza w Krakowie;;;;lage_ohne_kapazitaet;1;7424049,37;5550157,91
+28BA1C50-04A0-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital Specjalistyczny im. J. Dietla;;;;lage_ohne_kapazitaet;1;7422233,69;5547371,82
+28BA1C50-04A1-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital MSWiA;;;;lage_ohne_kapazitaet;1;7422162,32;5549012,56
+28BA1C50-04A2-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Instytut Onkologii im. Marii Skłodowskiej Curie;;;;lage_ohne_kapazitaet;1;7423159,11;5547778,94
+28BA1C50-04A3-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Wojskowy Szpital Kliniczny im. gen. Marcina Garlickiego;;;;lage_ohne_kapazitaet;1;7423701,08;5549576,63
+28BA1C50-04A5-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Uniwersytecki Szpital Dziecięcy w Krakowie;;;;lage_ohne_kapazitaet;1;7428423,69;5542188,51
+28BA1C50-04A7-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Uzdrowisko Kraków Swoszowice;;;;lage_ohne_kapazitaet;1;7423601,27;5540063,66
+28BA1C50-04A8-8554-E053-CC2BA8C0F941;szpital;;bdot10k;;;;;lage_ohne_kapazitaet;1;7423709,44;5540206,73
+28BA1C50-04AA-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Krakowskie Pogotowie RatunkoweKrakowskie Pogotowie Ratunkowe;;;;lage_ohne_kapazitaet;1;7424946,09;5547645,67
+28BA1C50-04AB-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Krakowski Szpital Specjalistyczny im. Jana Pawła II;;;;lage_ohne_kapazitaet;1;7423840,2;5551000,76
+28BA1C50-04AD-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital Specjalistyczny im. Stefana Żeromskiego;;;;lage_ohne_kapazitaet;1;7431720,67;5548108,88
+28BA1C50-04B0-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital Uniwersytecki w Krakowie;;;;lage_ohne_kapazitaet;1;7425084,29;5547747,19
+28BA1C50-04B1-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Wojewódzki Specjalistyczny Szpital Dziecięcy im. Św. Ludwika;;;;lage_ohne_kapazitaet;1;7425557,84;5547504,75
+28BA1C50-04B2-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Collegium Medicum UJ;;;;lage_ohne_kapazitaet;1;7424230,0;5546181,83
+28BA1C50-04B3-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Szpital św. Jana Grandego;;;;lage_ohne_kapazitaet;1;7424483,29;5546211,62
+28BA1C50-04B4-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Krakowski Szpital Specjalistyczny, Małopolskie Centralne Laboratorium Diagnostyki Prątka Gruźlicy, specjalistyczny Gabinet Okulistyczny, Miejskie Centrum Stomatologii Krakmed Spółka Lekarzy;;;;lage_ohne_kapazitaet;1;7427272,11;5549703,73
+28BA1C50-04B7-8554-E053-CC2BA8C0F941;szpital;;bdot10k;I Szpitalny Oddział Ratunkowy Centrum mazowsze Medycyny Ratunkowej i Katastrof, Szpital Uniwersytecki w Krakowie;;;;lage_ohne_kapazitaet;1;7425256,13;5548155,26
+28BA1C50-04B8-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Wojewódzki Specjalistyczny Szpital Dziecięcy im. Św. Ludwika;;;;lage_ohne_kapazitaet;1;7424844,16;5547985,27
+28BA1C50-04B9-8554-E053-CC2BA8C0F941;szpital;;bdot10k;CM UJ Oddział Kliniczny Kliniki Okulistyki;;;;lage_ohne_kapazitaet;1;7424948,98;5548004,94
+28BA1C50-04BB-8554-E053-CC2BA8C0F941;szpital;;bdot10k;Krakowskie Centrum Rehabilitacji i Ortopedii;;;;lage_ohne_kapazitaet;1;7418908,03;5548006,33
+1975e94f-64b8-11eb-85e1-5404a6a68038;zlobek;;bdot10k;Żłobek Samorządowy Nr 28;;;;lage_ohne_kapazitaet;1;7428897,86;5542430,25
+28BA1C50-03A4-8554-E053-CC2BA8C0F941;zlobek;;bdot10k;Żłobek Samorządowy Nr 32;;;;lage_ohne_kapazitaet;1;7425297,48;5541979,77

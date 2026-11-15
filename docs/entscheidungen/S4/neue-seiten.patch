@@ -1,0 +1,86 @@
+diff --git a/config/krakow.yaml b/config/krakow.yaml
+index 4027c82..09b1379 100644
+--- a/config/krakow.yaml
++++ b/config/krakow.yaml
+@@ -153,7 +153,7 @@ themen:
+ # Seiten (Dateiname ohne .html). Jede Seite hat eine Vorlage vorlagen/<seite>.html und erscheint in jeder
+ # Sprache. Neue Seiten nur über die Integration (Vertragsänderung), nicht im Paket.
+ seiten: [index, karta, dzielnica, porownanie, kamienice, kamienice-metoda, kamienice-dane,
+-         planer, planer-metoda, planer-dane, klimat, powietrze, mieszkania, punktualnosc, "404"]
++         planer, planer-metoda, planer-dane, klimat, powietrze, mieszkania, punktualnosc, metoda, dane, "404"]
+ 
+ # Kopfleiste: Hauptnavigation (obere Zeile) und Unterseiten je Rubrik (untere Zeile, html.kopf-zwei).
+ # Texte: seiten.<seite>.nav in texte/<lang>/seiten.js (Bindestrich im Seitennamen wird dort zu _).
+diff --git a/texte/de/seiten.js b/texte/de/seiten.js
+index 2e912ac..da291b0 100644
+--- a/texte/de/seiten.js
++++ b/texte/de/seiten.js
+@@ -46,4 +46,10 @@
+   T["seiten.404.h1"] = "Seite nicht gefunden";
+   T["seiten.404.beschreibung"] = "Unter dieser Adresse gibt es nichts. Es ist nur ein falscher Link.";
+   T["seiten.index.themen"] = "Themen";
++  T["seiten.metoda.nav"] = "Methode";
++  T["seiten.metoda.h1"] = "Methode und Grenzen";
++  T["seiten.metoda.beschreibung"] = "Wie der Atlas alle Themen rechnet, was er nicht zeigt und was noch nicht geprüft ist.";
++  T["seiten.dane.nav"] = "Daten";
++  T["seiten.dane.h1"] = "Daten, Quellen und Lizenzen";
++  T["seiten.dane.beschreibung"] = "Downloads (GeoPackage, CSV, QGIS), Lizenzen, Quellenvermerke und Zitierhinweis.";
+ })(window.KIEZ_TEXTE = window.KIEZ_TEXTE || {});
+diff --git a/texte/en/seiten.js b/texte/en/seiten.js
+index 11c56b7..b7d446d 100644
+--- a/texte/en/seiten.js
++++ b/texte/en/seiten.js
+@@ -46,4 +46,10 @@
+   T["seiten.404.h1"] = "Page not found";
+   T["seiten.404.beschreibung"] = "There is nothing at this address. It is just a broken link.";
+   T["seiten.index.themen"] = "Topics";
++  T["seiten.metoda.nav"] = "Method";
++  T["seiten.metoda.h1"] = "Methodology and limitations";
++  T["seiten.metoda.beschreibung"] = "How the atlas computes every topic, what it does not show and what has not been checked yet.";
++  T["seiten.dane.nav"] = "Data";
++  T["seiten.dane.h1"] = "Data, sources and licences";
++  T["seiten.dane.beschreibung"] = "Downloads (GeoPackage, CSV, QGIS), licences, source notices and how to cite.";
+ })(window.KIEZ_TEXTE = window.KIEZ_TEXTE || {});
+diff --git a/texte/pl/seiten.js b/texte/pl/seiten.js
+index 677a520..5103169 100644
+--- a/texte/pl/seiten.js
++++ b/texte/pl/seiten.js
+@@ -46,4 +46,10 @@
+   T["seiten.404.h1"] = "Nie znaleziono strony";
+   T["seiten.404.beschreibung"] = "Pod tym adresem nic nie ma. To tylko błędny link.";
+   T["seiten.index.themen"] = "Tematy";
++  T["seiten.metoda.nav"] = "Metodologia";
++  T["seiten.metoda.h1"] = "Metodologia i ograniczenia";
++  T["seiten.metoda.beschreibung"] = "Jak atlas liczy wszystkie tematy, czego nie pokazuje i czego jeszcze nie sprawdzono.";
++  T["seiten.dane.nav"] = "Dane";
++  T["seiten.dane.h1"] = "Dane, źródła i licencje";
++  T["seiten.dane.beschreibung"] = "Pliki do pobrania (GeoPackage, CSV, QGIS), licencje, noty o źródłach i sposób cytowania.";
+ })(window.KIEZ_TEXTE = window.KIEZ_TEXTE || {});
+diff --git a/vorlagen/dane.html b/vorlagen/dane.html
+new file mode 100644
+index 0000000..79c6321
+--- /dev/null
++++ b/vorlagen/dane.html
+@@ -0,0 +1,8 @@
++<!--seite
++daten: 
++texte: kern seiten
++robots: index
++-->
++<h1>{{t:seiten.dane.h1}}</h1>
++<p class="lede">{{t:seiten.dane.beschreibung}}</p>
++{{block:dane}}
+diff --git a/vorlagen/metoda.html b/vorlagen/metoda.html
+new file mode 100644
+index 0000000..b26aa6c
+--- /dev/null
++++ b/vorlagen/metoda.html
+@@ -0,0 +1,8 @@
++<!--seite
++daten: 
++texte: kern seiten
++robots: index
++-->
++<h1>{{t:seiten.metoda.h1}}</h1>
++<p class="lede">{{t:seiten.metoda.beschreibung}}</p>
++{{block:metoda}}

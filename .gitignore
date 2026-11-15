@@ -1,0 +1,9 @@
+.env
+rohdaten/
+.venv/
+node_modules
+.shots/
+__pycache__/
+*.pyc
+# Laufberichte der Skripte (Zählungen stehen in belege/), wie in kiezatlas-potsdam
+berichte/

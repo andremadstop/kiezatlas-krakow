@@ -1,0 +1,19 @@
+{
+  "name": "kiezatlas-krakow",
+  "version": "1.0.0",
+  "description": "Atlas der 18 Krakauer Stadtteile (dzielnice) aus offenen amtlichen Daten, mit Quelle bei jeder Zahl; Oberfläche polnisch, englisch und deutsch. Die Pakete hier dienen nur Prüfung und Auslieferung.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "esbuild": "0.25.12",
+    "gsap": "^3.15.1",
+    "maplibre-gl": "^4.7.1",
+    "playwright": "^1.64.1"
+  }
+}

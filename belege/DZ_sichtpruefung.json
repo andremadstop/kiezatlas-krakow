@@ -1,0 +1,249 @@
+{
+ "hinweis": "Ergebnis der zweiten Sichtprüfung (pruefen/DZ_protokoll.md, Nachtrag 3), Eingabe von Hand, nicht erzeugt. Je Punkt der Stichprobe belege/DZ_sichtpruefung_stichprobe.json: lage (ja/daneben/nein), ansicht (ja/nein/unklar).",
+ "datum": "2026-11-15",
+ "pruefer": "Andre",
+ "grundlage": "Ortofotomapa, Geoportal (GUGiK), WMS StandardResolution; Quelle je Punkt verdeckt",
+ "startwert": 20261114,
+ "antworten": [
+  {
+   "quelle": "osm",
+   "id": "n1500744003",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w111250379",
+   "lage": "nein",
+   "ansicht": "unklar"
+  },
+  {
+   "quelle": "osm",
+   "id": "w123993275",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w128616563",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w136657671",
+   "lage": "daneben",
+   "ansicht": "unklar"
+  },
+  {
+   "quelle": "osm",
+   "id": "w137276375",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w140560836",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w143916299",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w152301900",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w152330075",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w219172195",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w227963540",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w243432610",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w244542996",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w276339026",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w347660889",
+   "lage": "daneben",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w348252385",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w39357573",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w85151350",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "osm",
+   "id": "w911299568",
+   "lage": "daneben",
+   "ansicht": "unklar"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q11787595",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q11828765",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q122187417",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q125524675",
+   "lage": "daneben",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30161657",
+   "lage": "daneben",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30162015",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30162679",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30168587",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30168712",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30168851",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30169476",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30169866",
+   "lage": "ja",
+   "ansicht": "unklar"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30170057",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30171408",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30171746",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q30172017",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q3109262",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q3527492",
+   "lage": "ja",
+   "ansicht": "ja"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q8512319",
+   "lage": "daneben",
+   "ansicht": "unklar"
+  },
+  {
+   "quelle": "wd",
+   "id": "Q9294055",
+   "lage": "ja",
+   "ansicht": "ja"
+  }
+ ]
+}

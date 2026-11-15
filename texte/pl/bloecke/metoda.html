@@ -1,0 +1,83 @@
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/metoda.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="m-zasady">
+<h2>Zasady</h2>
+<p>Atlas korzysta wyłącznie z otwartych danych publicznych. Przy każdej liczbie podano jej źródło, a w <a class="link" href="https://github.com/andremadstop/kiezatlas-krakow">repozytorium</a> znajduje się skrypt, który ją oblicza, i zapis weryfikacji z obliczeniami (<code>belege/README.md</code>). Kontrole (<code>pruefen.sh</code>) działają bez sieci i bez bazy danych; z kodem każdą liczbę można więc sprawdzić samodzielnie.</p>
+<ul>
+<li>Wartość, której nie da się rzetelnie obliczyć, pozostaje pusta (<em>brak danych</em>) z podaniem przyczyny, zamiast zera.</li>
+<li>Oznaczenie <em>standard urzędowy</em> pojawia się tylko wtedy, gdy liczymy tak, jak przewiduje przepis; w innych przypadkach wartość jest <em>orientacyjna</em>.</li>
+<li>Dane przykładowe (wymyślone, tylko do budowy stron) są wyraźnie oznaczone na każdej stronie, która ich używa.</li>
+<li>Odległości i powierzchnie liczymy w układzie EPSG:2178.</li>
+</ul>
+</section>
+
+<section id="m-podzial">
+<h2>Podział miasta i ludność</h2>
+<p>Granice wszystkich dzielnic (<span data-feld="stadtteile_odbl:features">18</span>) pochodzą z OpenStreetMap (stan na <span data-feld="stadtteile_odbl:stand">12 listopada 2026</span>). Granice z miejskiego portalu MSIP opisano wprawdzie jako otwarte dane, ale regulamin portalu dopuszcza tylko użytek niekomercyjny bez dalszego udostępniania; przy takiej sprzeczności atlas przyjmuje węższe odczytanie i używa granic MSIP tylko wewnętrznie do kontroli geometrii. Dlatego wszystkie wartości przypisane do dzielnic według tych granic są udostępniane na licencji ODbL 1.0.</p>
+<p>Ludność miasta podaje Narodowy Spis Powszechny Ludności i Mieszkań 2021 (NSP 2021); liczba mieszkańców: <span data-feld="steckbrief:stadt.nsp.einwohner">800 653</span>, liczba rejonów statystycznych: <span data-feld="steckbrief:stadt.nsp.rejony">748</span>. Granic rejonów w podziale ze spisu nie udało się dotąd pozyskać, dlatego wartości NSP są podawane tylko dla miasta i czterech delegatur (dawnych dzielnic), a dla dzielnic pozostają puste.</p>
+<p>Dla dzielnic i mapy atlas używa siatki ludności Eurostatu ze spisu 2021 (komórki 1 km). Komórki w granicach miasta: <span data-feld="steckbrief:stadt.gitter.zellen">327</span>, mieszkańcy w nich: <span data-feld="steckbrief:stadt.gitter.einwohner">793 392</span>, różnica względem NSP: <span data-feld="steckbrief:stadt.gitter.abweichung_nsp_proz">-0,91%</span>. Komórka należy do tej dzielnicy, w której leży jej środek. Udziały grup wieku podajemy dopiero od <span data-feld="steckbrief:methode.mindestfallzahl">100</span> osób w komórce lub obszarze. Dla porównania liczymy też podział według udziału powierzchni; różnica między wynikami obu metod pokazuje niepewność przypisania na granicach i nie jest granicą błędu.</p>
+<p>Przypisanie dzielnic do czterech delegatur sprawdzono na podstawie udziałów powierzchni: każda dzielnica leży niemal w całości w delegaturze swojej grupy według BDOT10k. III Prądnik Czerwony (<span data-feld="steckbrief_dzielnice_odbl:zuordnung.ausnahmen.03.anteil_proz">98,53%</span>) i XV Mistrzejowice (<span data-feld="steckbrief_dzielnice_odbl:zuordnung.ausnahmen.15.anteil_proz">98,64%</span>) nieznacznie nie osiągają progu <span data-feld="steckbrief_dzielnice_odbl:zuordnung.schwelle_proz">99%</span>; ich reszta to wąski pas na styku granic delegatur i dzielnic, co potwierdza kontrola z granicami miejskimi, dlatego obie uznano za przypisane.</p>
+</section>
+
+<section id="m-budynki">
+<h2>Budynki i 3D</h2>
+<p>Budynki pochodzą z bazy BDOT10k (powiat 1261); liczba budynków: <span data-feld="gebaeude_kennzahlen:stadt.anzahl">90 563</span>, w tym mieszkalnych: <span data-feld="gebaeude_kennzahlen:stadt.wohngebaeude">61 199</span>. Każdy budynek trafia do dokładnie jednego obszaru przez punkt wewnątrz obrysu, nie przez środek ciężkości, który może leżeć poza budynkiem. Adnotacje o duplikatach (<span data-feld="gebaeude_kennzahlen:kontrolle.duplikat_vermerk">466</span>) są zliczane, nie usuwane, bo z otwartych danych nie wynika, która wersja jest właściwa. Wskaźniki obszaru podajemy od <span data-feld="gebaeude_kennzahlen:methode.mindestfallzahl">30</span> budynków.</p>
+<p>Widok 3D budynków jest na stronach Kamienice, Dostępność i Modernizacja, na życzenie (przycisk „Budynki 3D”). Wysokość budynku pochodzi z modeli LoD2 GUGiK; jeśli modelu brak, przyjmujemy kondygnacje × <span data-feld="gebaeude_kennzahlen:methode.geschoss_hoehe_m">3</span> m i oznaczamy wysokość jako szacowaną. Pochodzenie wysokości widać przy każdym budynku. Nota o źródle: <span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></p>
+</section>
+
+<section id="m-dostepnosc">
+<h2>Dostępność i częstotliwość kursowania</h2>
+<p>Dla każdej komórki 1 km liczymy odległość od jej środka do najbliższej placówki każdego rodzaju, raz w linii prostej, raz dojściem pieszym siecią dróg z OpenStreetMap. Przystanki dostają klasę częstotliwości z rozkładu jazdy ZTP. Szczegóły, progi i wyniki: <a class="link" href="planer-metoda.html">metodologia dostępności</a>.</p>
+</section>
+
+<section id="m-klimat">
+<h2>Klimat: zabudowa i zieleń</h2>
+<p>Pokrycie terenu pochodzi z klas BDOT10k. Udział zabudowy i terenów komunikacyjnych służy jako przybliżenie uszczelnienia gruntu; to nie jest pomiar i zawsze ma oznaczenie <em>orientacyjnie</em>. Wartość jest raczej zawyżona (część terenów zabudowy jest porośnięta); wielkości tego błędu nie zmierzono. W całym mieście zabudowa i tereny komunikacyjne zajmują <span data-feld="klimat:stadt.anteil.bebauung_verkehr">37,2%</span> powierzchni, zieleń i lasy <span data-feld="klimat:stadt.anteil.gruen_wald">47,2%</span>.</p>
+<p>Grunty orne są osobną klasą i nie liczą się jako zieleń, ogródki działkowe tak. Zieleń na mieszkańca podajemy tylko dla obszarów od <span data-feld="klimat:mindest_einwohner">1000</span> mieszkańców, nigdy dla pojedynczej komórki; dla miasta to <span data-feld="klimat:stadt.gruen_je_ew">194</span> m² na osobę. Miejska wyspa ciepła jest tylko wymieniona jako ograniczenie: brak dotąd temperatury powierzchni z wyraźnie otwartą licencją.</p>
+</section>
+
+<section id="m-powietrze">
+<h2>Jakość powietrza</h2>
+<p>Strona o powietrzu pokazuje roczne statystyki EEA z pomiarów GIOŚ (<span data-feld="powietrze:quelle.nazwa">EEA, Air Quality e-Reporting: Air quality annual statistics calculated by the EEA</span>), pobrane ręcznie, z oznaczeniem <em>orientacyjnie</em>, bo wartości roczne oblicza EEA, a nie GIOŚ. Eksport jest ograniczony do miasta Krakowa; stacji w okolicy jeszcze więc brakuje i porównanie z okolicą nie jest możliwe. Do tego dochodzą normy z rozporządzenia (<span data-feld="powietrze:grenzwerte.pm10_srednia.0.fundstelle">Dz.U. 2021 poz. 845, załącznik nr 1, lp. 7</span>: średnia roczna PM10 <span data-feld="powietrze:grenzwerte.pm10_srednia.0.wartosc">40</span> µg/m³) oraz cytat z uchwały antysmogowej, która weszła w życie <span data-feld="powietrze:kontekst.wejscie_w_zycie">1 września 2019</span>.</p>
+</section>
+
+<section id="m-mieszkania">
+<h2>Rynek mieszkaniowy</h2>
+<p>Strona o cenach mieszkań pokazuje z Rejestru cen nieruchomości (pobranego ręcznie z GUGiK) tylko medianę ceny za m² dla dzielnicy, roku i rynku, od <span data-feld="mieszkania_odbl:regeln.mindestfallzahl">10</span> transakcji, z liczbą transakcji; bez minimum, maksimum i pojedynczych transakcji, bo pojedynczy zakup można powiązać z osobą. W pierwszych latach plik prawie nigdzie nie podaje udziału w prawie, a przez kilka kolejnych lat większość transakcji nie ma położenia; szereg czasowy jest więc wiarygodny dopiero w nowszych latach, a wartości dla dzielnic jeszcze później. Lata podaje lista ograniczeń na stronie o rynku mieszkaniowym.</p>
+</section>
+
+<section id="m-punktualnosc">
+<h2>Punktualność komunikacji</h2>
+<p>Strona o punktualności nie zawiera jeszcze <strong>żadnych wartości</strong>. Planowanym źródłem są dane czasu rzeczywistego ZTP (GTFS-RT), zapisywane przez dłuższy okres. Licencji tych danych i czasu trwania zapisu jeszcze nie sprawdzono; bez tego wyjaśnienia strona zostanie usunięta. Rozkład jazdy (GTFS) służy dziś tylko do klas częstotliwości kursowania na przystankach, nie do punktualności.</p>
+</section>
+
+<section id="m-zabytki">
+<h2>Zabytki, kamienice i zasób ZBK</h2>
+<p>Kamienice i zabytki są w atlasie podzbiorem, nie spisem: bez lat budowy dla całych obszarów, tylko z klasami okresu budowy tam, gdzie źródło je podaje. Atlas zasobu Zarządu Budynków Komunalnych opiera się na wykazie budynków ZBK i na szacunkowej typologii bloków. Szczegóły: <a class="link" href="kamienice-metoda.html">metodologia kamienic</a>.</p>
+</section>
+
+<section id="m-mapa">
+<h2>Podkład mapowy</h2>
+<p>Podkład to własne kafle wektorowe z BDOT10k, bez OpenStreetMap, z czcionką Noto Sans; są udostępniane razem ze stronami. Przy otwieraniu atlasu nie jest wczytywana żadna zewnętrzna usługa. Nota: <span data-feld="grundkarte:stand">BDOT10k 1261 (Miasto Kraków), pliki z 2026-10-03</span>.</p>
+</section>
+
+<section id="m-ograniczenia">
+<h2>Ograniczenia</h2>
+<ul>
+<li><strong>Brak lat budowy.</strong> Siatka ludności nie zawiera roku budowy, a rok budowy w ewidencji gruntów i budynków jest płatny. Dlatego atlas nie pokazuje wieku zabudowy dla obszarów; okresy budowy występują tylko przy obiektach, dla których podaje je źródło.</li>
+<li><strong>Brak danych o ogrzewaniu.</strong> Centralna Ewidencja Emisyjności Budynków (CEEB) nie jest otwarta; strony o sposobie ogrzewania nie ma.</li>
+<li><strong>Ludność w siatce 1 km.</strong> Mapa i wartości dla dzielnic opierają się na komórkach 1 km przypisanych według środka; na granicach dzielnic to przybliżenie, a wartości NSP dla dzielnic czekają na granice rejonów statystycznych.</li>
+<li><strong>Typologia bloków to szacunek.</strong> Kryteria (kondygnacje, powierzchnia zabudowy, prostokątność, sąsiedztwo) dobrano z góry; na ortofotomapie losowa próba potwierdza blok mieszkalny w <span data-feld="sanierung:typologie.sichtpruefung.osiedle.ja">21</span> z <span data-feld="sanierung:typologie.sichtpruefung.osiedle.n">30</span> kandydatów na osiedlach blokowych (<span data-feld="sanierung:typologie.sichtpruefung.osiedle.quote">81%</span> rozstrzygniętych przypadków, niejasne <span data-feld="sanierung:typologie.sichtpruefung.osiedle.unklar">4</span>); technologii budowy nie sprawdzano. To kandydaci, nie spis budynków z wielkiej płyty, i nie wynika z nich żaden rok budowy ani zużycie energii.</li>
+<li>Granice dzielnic pochodzą z OpenStreetMap, nie z urzędu miasta.</li>
+<li>Położenie obiektów z OpenStreetMap ze znacznikiem <code>heritage</code> sprawdzono na ortofotomapie tylko na losowej próbie (n = <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.n">20</span>: <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.quote">80%</span> na obiekcie), nie dla każdego punktu; przypisania do budynku nie sprawdzano.</li>
+<li>Rejestr zabytków pochodzi na razie tylko z Wikidanych (część rejestru, położenie sprawdzone tylko na próbie: <span data-feld="denkmale:sichtpruefung.ergebnis.lage.quote">85%</span> na obiekcie); brakuje rejestru NID i gminnej ewidencji zabytków; w eksporcie EEA brakuje stacji pomiaru powietrza w okolicy.</li>
+<li>Szkoły pochodzą z BDOT10k bez liczby uczniów i bez podziału na typy; Rejestru Szkół i Placówek Oświatowych (RSPO) jeszcze nie włączono.</li>
+</ul>
+</section>
+
+<section id="m-niesprawdzone">
+<h2>Czego nie sprawdzono</h2>
+<p>Teksty polskie i angielskie nie zostały jeszcze przeczytane przez rodzimych użytkowników języka, terminy fachowe mają status propozycji. Nie sprawdzono: daty spisu NSP 2021 (stan na) w źródle urzędowym, przypisania dzielnic do delegatur w urzędowym wykazie miasta, licencji granic z OSM, modeli LoD2 i danych EEA w drodze opinii prawnej ani progu ochrony danych dla cen mieszkań i wykazu ZBK. Pełna lista (po niemiecku): <code>docs/entscheidungen.md</code> w <a class="link" href="https://github.com/andremadstop/kiezatlas-krakow">repozytorium</a>.</p>
+<p>Dane zebrali, obliczyli i sprawdzili agenci AI (Claude); rozstrzygał André Stiebitz. Każda decyzja z uzasadnieniem i odrzuconymi wariantami jest w <code>docs/entscheidungen.md</code>, droga od danych surowych do strony w <code>docs/rundgang.md</code> (oba pliki po niemiecku; polska i angielska wersja listy decyzji jeszcze nie powstała).</p>
+</section>
+
+<p class="odbl-vermerk"><small>Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krakau in Zahlen · Kiezatlas Kraków</title>
+<meta name="description" content="Ein Atlas der Krakauer Stadtteile aus offenen amtlichen Daten: Zahlen, Karten und eine Quelle bei jedem Wert.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/de/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Krakau in Zahlen · Kiezatlas Kraków">
+<meta property="og:description" content="Ein Atlas der Krakauer Stadtteile aus offenen amtlichen Daten: Zahlen, Karten und eine Quelle bei jedem Wert.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenfeld.css">
+<link rel="stylesheet" href="../stadtatlas.css">
+</head>
+<body class="textseite" data-seite="index">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html" aria-current="page"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Karte</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Stadtteile</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Mietshäuser</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Erreichbarkeit</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Themen</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Methode</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Sprache wählen">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../index.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/index.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/index.html" aria-current="true">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../index.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="../en/index.html">Also available in English</a> <button type="button" aria-label="Schließen" title="Schließen"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Beispieldaten auf einem Teil der Seite: Auf Abruf geladene Daten zeigen unechte Werte, die nur zum Bauen des Atlas dienen, und sind dort gekennzeichnet, wo sie erscheinen. Die übrigen Daten dieser Seite sind keine Beispieldaten." hidden>Beispieldaten: Diese Seite zeigt unechte Werte, die nur zum Bauen des Atlas dienen. Es sind keine Daten über Krakau.</p>
+</div>
+<h1>Krakau in Zahlen</h1>
+<p class="lede">Ein Atlas der Krakauer Stadtteile aus offenen amtlichen Daten. Fragen führen durch die Stadt, die Karte zeigt die Antwort, und jede Zahl steht mit ihrer Quelle da.</p>
+<dl id="ka-stadtzahlen" class="ka-stadtzahlen" aria-label="Krakau in Zahlen"></dl>
+<p class="ka-quelle">Alle Zahlen kommen aus den Datendateien des Atlas; die Quelle steht unter jeder Zahl.</p>
+
+<div class="ka-buehne">
+  <div class="ka-fragen">
+    <article class="ka-frage" data-ansicht="teile" id="ka-f-teile">
+      <h2>Woraus besteht Krakau?</h2>
+      <p class="ka-antwort" id="ka-a-teile"></p>
+      <p>Jeder Stadtteil hat einen eigenen Rat (Rada Dzielnicy). Die Farbe auf der Karte steht für den historischen Stadtbezirk; die römischen Ziffern sind amtlich.</p>
+      <p class="ka-quelle">Stadtteilgrenzen: © OpenStreetMap-Mitwirkende, ODbL 1.0. Fläche der Stadt: PRG in BDOT10k, Główny Urząd Geodezji i Kartografii.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="einwohner" id="ka-f-einwohner">
+      <h2>Wie viele Menschen wohnen in Krakau?</h2>
+      <p class="ka-antwort" id="ka-a-einwohner"></p>
+      <p>Die Gitterzellen sind 1 km breit und folgen nicht den Stadtteilgrenzen. Werte je Stadtteil sind deshalb Näherungen; der Steckbrief nennt auch eine zweite Zählweise.</p>
+      <p class="ka-quelle">Quelle: Główny Urząd Statystyczny, Narodowy Spis Powszechny Ludności i Mieszkań 2021; Eurostat, Census 2021 population grid (CC BY 4.0); eigene Auswertung.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="dichte" id="ka-f-dichte">
+      <h2>Wo wohnt man am dichtesten?</h2>
+      <p class="ka-antwort" id="ka-a-dichte"></p>
+      <p class="ka-quelle">Quelle: Eurostat, Census 2021 population grid (CC BY 4.0); Zelle nach ihrem Mittelpunkt einem Stadtteil zugeordnet; eigene Auswertung. Fläche des Stadtteils aus den Grenzen von OpenStreetMap (© OpenStreetMap-Mitwirkende, ODbL 1.0).</p>
+    </article>
+    <article class="ka-frage" data-ansicht="alter" id="ka-f-alter">
+      <h2>Wo wohnen die meisten älteren Menschen?</h2>
+      <p class="ka-antwort" id="ka-a-alter"></p>
+      <p>Die Karte zeigt Gitterzellen; graue Zellen haben zu wenige Einwohner für einen belastbaren Anteil.</p>
+      <p class="ka-quelle">Quelle: Eurostat, Census 2021 population grid (CC BY 4.0); Zelle nach ihrem Mittelpunkt einem Stadtteil zugeordnet; eigene Auswertung.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="gebaeude" id="ka-f-gebaeude">
+      <h2>Wie dicht ist Krakau bebaut?</h2>
+      <p class="ka-antwort" id="ka-a-gebaeude"></p>
+      <p>Gebäude in 3D (Höhe aus den LoD2-Modellen oder aus den Geschossen geschätzt) schaltet der Knopf „3D-Häuser“ auf diesen Seiten ein: <a class="link" href="kamienice.html">Mietshäuser</a>, <a class="link" href="planer.html">Erreichbarkeit</a>, <a class="link" href="modernizacja.html">Sanierung</a></p>
+      <p class="ka-quelle">Quelle: Baza Danych Obiektów Topograficznych (BDOT10k), Główny Urząd Geodezji i Kartografii; eigene Auswertung.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="takt" id="ka-f-takt">
+      <h2>Wie weit ist es zur Haltestelle mit mindestens zwei Abfahrten je Stunde?</h2>
+      <p class="ka-antwort" id="ka-a-takt">Daten werden geladen …</p>
+      <p>Haltestelle der Klasse I oder II: mindestens zwei Abfahrten je Stunde in der Morgenspitze, in der stärkeren Richtung (eigene Klassifikation, Klasse I ab sechs). Gemessen über das Fußwegenetz vom Mittelpunkt der 1-km-Zelle, nicht von jeder Adresse; genauer auf der Seite zur Erreichbarkeit. <a class="link" href="planer.html">Erreichbarkeit</a></p>
+      <p class="ka-quelle">Fußweg vom Mittelpunkt der Zelle über das Wegenetz aus OpenStreetMap (© OpenStreetMap-Mitwirkende, ODbL 1.0); Ziele: BDOT10k (GUGiK), OpenStreetMap, Fahrplan ZTP Kraków (GTFS, CC BY 4.0); eigene Auswertung.</p>
+    </article>
+    <article class="ka-frage" data-ansicht="luft" id="ka-f-luft">
+      <h2>Was atmet Krakau?</h2>
+      <p class="ka-antwort">Die Luftqualität messen die amtlichen Stationen des staatlichen Umweltmonitorings (GIOŚ). Die Seite zur Luft stellt die Jahresmittel vor und nach dem Inkrafttreten des Krakauer Antismog-Beschlusses gegenüber.</p>
+      <p class="ka-teaser">Die Jahreswerte stammen aus der Statistik der EEA für die Stationen in Krakau und dienen der Orientierung. <a class="link" href="powietrze.html">Luftqualität</a></p>
+    </article>
+    <article class="ka-frage" data-ansicht="zbk" id="ka-f-zbk">
+      <h2>Welche Gebäude verwaltet der ZBK?</h2>
+      <p class="ka-antwort" id="ka-a-zbk"></p>
+      <p id="ka-a-zbk-grenzen"></p>
+      <p class="ka-teaser">Die Typologie ist eine Schätzung ohne Baujahr und ohne Energiewerte. Liste, Eigentum und Typologie im Einzelnen zeigt die Seite: <a class="link" href="modernizacja.html">Wohnungsbestand und Sanierung</a></p>
+      <p class="ka-quelle">Quelle: Zarząd Budynków Komunalnych w Krakowie, Liste der Gebäude und Objekte in Verwaltung des ZBK (BIP Kraków); Typologie: BDOT10k, Główny Urząd Geodezji i Kartografii; eigene Auswertung.</p>
+    </article>
+  </div>
+  <div class="ka-buehne__karte">
+    <div class="kartenfeld"><div id="karte" role="region" aria-label="Karte von Krakau zu den Fragen"></div></div>
+    <div id="ka-buehne-legende" class="ka-buehne__legende fl-legende" aria-live="polite"></div>
+  </div>
+</div>
+
+<h2 id="dzielnice">18 Stadtteile</h2>
+<p>Alle Stadtteile in einer Tabelle. Ein Klick auf die Überschrift sortiert; der Name führt zum Steckbrief.</p>
+<div class="ka-tabelle-rahmen" role="region" tabindex="0" aria-label="18 Stadtteile">
+<table id="ka-register" class="ka-tabelle">
+  <caption>Einwohner, Dichte und Anteil 65+: Eurostat-Gitter, Zellen nach Mittelpunkt zugeordnet. Gebäude und Bebauungsdichte: BDOT10k (GUGiK). ZBK: Einträge nach dem Stadtteil laut Liste; in der Zeile der Stadt die Einträge in Krakau. Stadtteilgrenzen: © OpenStreetMap-Mitwirkende, ODbL 1.0. Einwohnerzahlen gerundet: ab 1000 auf volle Hundert, darunter auf Zehn.</caption>
+  <thead><tr>
+    <th scope="col"><button type="button" data-sort="nr">Stadtteil</button></th>
+    <th scope="col"><button type="button" data-sort="ew">Einwohner</button></th>
+    <th scope="col"><button type="button" data-sort="dichte">je km²</button></th>
+    <th scope="col"><button type="button" data-sort="65p">65+ (%)</button></th>
+    <th scope="col"><button type="button" data-sort="geb">Gebäude</button></th>
+    <th scope="col"><button type="button" data-sort="bebauung">Bebauung (%)</button></th>
+    <th scope="col"><button type="button" data-sort="zbk">ZBK</button></th>
+  </tr></thead>
+  <tbody></tbody>
+  <tfoot></tfoot>
+</table>
+</div>
+<noscript><ul class="teile-liste">
+  <li><a class="link" href="dzielnica.html#st=01">Stadtteil I Stare Miasto</a></li>
+  <li><a class="link" href="dzielnica.html#st=02">Stadtteil II Grzegórzki</a></li>
+  <li><a class="link" href="dzielnica.html#st=03">Stadtteil III Prądnik Czerwony</a></li>
+  <li><a class="link" href="dzielnica.html#st=04">Stadtteil IV Prądnik Biały</a></li>
+  <li><a class="link" href="dzielnica.html#st=05">Stadtteil V Krowodrza</a></li>
+  <li><a class="link" href="dzielnica.html#st=06">Stadtteil VI Bronowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=07">Stadtteil VII Zwierzyniec</a></li>
+  <li><a class="link" href="dzielnica.html#st=08">Stadtteil VIII Dębniki</a></li>
+  <li><a class="link" href="dzielnica.html#st=09">Stadtteil IX Łagiewniki-Borek Fałęcki</a></li>
+  <li><a class="link" href="dzielnica.html#st=10">Stadtteil X Swoszowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=11">Stadtteil XI Podgórze Duchackie</a></li>
+  <li><a class="link" href="dzielnica.html#st=12">Stadtteil XII Bieżanów-Prokocim</a></li>
+  <li><a class="link" href="dzielnica.html#st=13">Stadtteil XIII Podgórze</a></li>
+  <li><a class="link" href="dzielnica.html#st=14">Stadtteil XIV Czyżyny</a></li>
+  <li><a class="link" href="dzielnica.html#st=15">Stadtteil XV Mistrzejowice</a></li>
+  <li><a class="link" href="dzielnica.html#st=16">Stadtteil XVI Bieńczyce</a></li>
+  <li><a class="link" href="dzielnica.html#st=17">Stadtteil XVII Wzgórza Krzesławickie</a></li>
+  <li><a class="link" href="dzielnica.html#st=18">Stadtteil XVIII Nowa Huta</a></li>
+</ul></noscript>
+
+<h2 id="tematy">Themen</h2>
+<ul class="themenkarten">
+  <li><a href="kamienice.html"><span class="themenkarte__titel">Mietshäuser und Denkmale</span><span class="themenkarte__satz">Mietshäuser und Denkmale als Teilmenge: in OpenStreetMap gekennzeichnete Objekte, Komplexe aus BDOT10k und Objekte mit Registernummer aus Wikidata; das Register des NID fehlt noch.</span></a></li>
+  <li><a href="planer.html"><span class="themenkarte__titel">Erreichbarkeit und Takt</span><span class="themenkarte__satz">Fußwege zu Haltestellen, Schulen, Kitas und Grün sowie der Takt des Nahverkehrs.</span></a></li>
+  <li><a href="modernizacja.html"><span class="themenkarte__titel">Wohnungsbestand und Sanierung</span><span class="themenkarte__satz">Gebäude in der Verwaltung des städtischen ZBK, Plattenbau-Kandidaten (Schätzung), Höhen aus 3D-Modellen, mit Bezug zu Erreichbarkeit und Grün.</span></a></li>
+  <li><a href="klimat.html"><span class="themenkarte__titel">Klima: Bebauung und Grün</span><span class="themenkarte__satz">Bebauung und Verkehrsflächen (Näherung für Versiegelung) und Grün je Stadtteil, zur Orientierung.</span></a></li>
+  <li><a href="powietrze.html"><span class="themenkarte__titel">Luftqualität</span><span class="themenkarte__satz">Jahreswerte der Luftmessstationen in Krakau, berechnet von der EEA (zur Orientierung).</span></a></li>
+  <li><a href="mieszkania.html"><span class="themenkarte__titel">Wohnungsmarkt</span><span class="themenkarte__satz">Kaufpreise von Wohnungen, nur zusammengefasst veröffentlicht.</span></a></li>
+  <li><a href="porownanie.html"><span class="themenkarte__titel">Krakau und Potsdam</span><span class="themenkarte__satz">Zwei Städte mit derselben Methode verglichen, nur dort, wo die Definitionen wirklich gleich sind.</span></a></li>
+</ul>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Startseite</a> <a class="link" hreflang="de" href="https://souverain-systems.de/impressum/">Impressum</a> <a class="link" hreflang="de" href="https://souverain-systems.de/datenschutz/">Datenschutz</a></p>
+  <p class="fuss-seite__stand">Stand <span data-kiez-version>—</span>. Herausgeber: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Grafiken: CC BY 4.0. Daten: Lizenzen nach Quelle. <span class="fuss-seite__odbl">Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Fehler gefunden? Schreib uns: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/de/kern.js"></script>
+<script defer src="../texte/de/seiten.js"></script>
+<script defer src="../texte/de/karte.js"></script>
+<script defer src="../texte/de/erzaehlung.js"></script>
+<script defer src="../daten/stadtteile_uebersicht_odbl.js"></script>
+<script defer src="../daten/steckbrief.js"></script>
+<script defer src="../daten/steckbrief_dzielnice_odbl.js"></script>
+<script defer src="../daten/gebaeude_kennzahlen.js"></script>
+<script defer src="../daten/gebaeude_dzielnice_odbl.js"></script>
+<script defer src="../daten/sanierung.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenfeld.js"></script>
+<script defer src="../erzaehlung.js"></script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Denkmale aus OpenStreetMap (heritage, start_date)",
+ "description": "ODbL 1.0. Teilmenge, keine Flächenaussage zu Baujahren. Keine Kennung, keine Adresse, kein Name.",
+ "x-datei": "denkmale_odbl.js",
+ "x-global": "^KIEZ_DENKMALE_ODBL$",
+ "x-odbl": true,
+ "type": "object",
+ "required": [
+  "stand",
+  "teilmenge",
+  "flaechenaussage",
+  "vermerk",
+  "eingang",
+  "zaehlung",
+  "objekte",
+  "kamienice",
+  "ortsmarken"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "stand": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "fixture": {
+   "const": true
+  },
+  "teilmenge": {
+   "const": true
+  },
+  "flaechenaussage": {
+   "const": false
+  },
+  "vermerk": {
+   "type": "string",
+   "pattern": "ODbL"
+  },
+  "eingang": {
+   "anyOf": [
+    {
+     "type": "null"
+    },
+    {
+     "type": "object",
+     "required": [
+      "datei",
+      "sha256"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "datei": {
+       "type": "string"
+      },
+      "sha256": {
+       "type": "string",
+       "pattern": "^[0-9a-f]{64}$"
+      }
+     }
+    }
+   ]
+  },
+  "zaehlung": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "integer",
+    "minimum": 0
+   }
+  },
+  "sichtpruefung": {
+   "description": "Stand der Sichtprüfung am Luftbild (Prüfprotokoll Denkmale, Regel 7, Nachträge 3 und 4): geprueft false, solange kein Mensch die Stichprobe ausgewertet hat (startwert nennt die ausstehende Runde; die Seiten zeigen die Punkte dann als ungeprüft); geprueft true mit Datum, Art der Prüfung und Quoten aus belege/DZ_sichtpruefung.json. Die Quote gilt für die Ebene (Zufallsstichprobe), nicht für den einzelnen Punkt; Zuordnung zum Gebäude nicht geprüft.",
+   "anyOf": [
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "geprueft",
+      "stichprobe",
+      "startwert"
+     ],
+     "properties": {
+      "geprueft": {
+       "const": false
+      },
+      "stichprobe": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "startwert": {
+       "type": "integer"
+      }
+     }
+    },
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "geprueft",
+      "stichprobe",
+      "startwert",
+      "datum",
+      "pruefer_rolle",
+      "grundlage",
+      "ergebnis",
+      "gesamt"
+     ],
+     "properties": {
+      "geprueft": {
+       "const": true
+      },
+      "stichprobe": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "startwert": {
+       "type": "integer"
+      },
+      "datum": {
+       "type": "string",
+       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "pruefer_rolle": {
+       "enum": [
+        "sichtpruefung_luftbild"
+       ],
+       "description": "Art der Prüfung, kein Name (Prüfprotokoll Denkmale, Nachtrag 4)"
+      },
+      "grundlage": {
+       "enum": [
+        "ortofotomapa"
+       ]
+      },
+      "ergebnis": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "n",
+        "lage",
+        "ansicht"
+       ],
+       "description": "Ergebnis der Stichprobe der OSM-Punkte mit heritage",
+       "properties": {
+        "n": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "lage": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "ja",
+          "daneben",
+          "nein",
+          "quote",
+          "wilson95"
+         ],
+         "description": "Lage: Punkt steht auf dem Objekt (ja), knapp daneben, nicht dort (nein). quote = ja / alle in Prozent, eine Nachkommastelle; wilson95 = 95-%-Intervall nach Wilson in Prozent",
+         "properties": {
+          "ja": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "daneben": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "nein": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "quote": {
+           "type": [
+            "number",
+            "null"
+           ],
+           "minimum": 0,
+           "maximum": 100
+          },
+          "wilson95": {
+           "anyOf": [
+            {
+             "type": "null"
+            },
+            {
+             "type": "array",
+             "minItems": 2,
+             "maxItems": 2,
+             "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+             }
+            }
+           ]
+          }
+         }
+        },
+        "ansicht": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "ja",
+          "nein",
+          "unklar",
+          "entschieden",
+          "quote",
+          "wilson95"
+         ],
+         "description": "Ansicht: Luftbild zeigt ein Bauwerk oder eine Anlage, die zur Angabe passt. quote = ja / entschieden (ja + nein) in Prozent; unklar nicht im Nenner",
+         "properties": {
+          "ja": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "nein": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "unklar": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "entschieden": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "quote": {
+           "type": [
+            "number",
+            "null"
+           ],
+           "minimum": 0,
+           "maximum": 100
+          },
+          "wilson95": {
+           "anyOf": [
+            {
+             "type": "null"
+            },
+            {
+             "type": "array",
+             "minItems": 2,
+             "maxItems": 2,
+             "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+             }
+            }
+           ]
+          }
+         }
+        }
+       }
+      },
+      "gesamt": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "n",
+        "lage",
+        "ansicht"
+       ],
+       "description": "Ergebnis beider Stichproben zusammen (Wikidata und OSM, n = 40); nur in dieser Datei, weil es OSM-Punkte enthält",
+       "properties": {
+        "n": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "lage": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "ja",
+          "daneben",
+          "nein",
+          "quote",
+          "wilson95"
+         ],
+         "description": "Lage: Punkt steht auf dem Objekt (ja), knapp daneben, nicht dort (nein). quote = ja / alle in Prozent, eine Nachkommastelle; wilson95 = 95-%-Intervall nach Wilson in Prozent",
+         "properties": {
+          "ja": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "daneben": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "nein": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "quote": {
+           "type": [
+            "number",
+            "null"
+           ],
+           "minimum": 0,
+           "maximum": 100
+          },
+          "wilson95": {
+           "anyOf": [
+            {
+             "type": "null"
+            },
+            {
+             "type": "array",
+             "minItems": 2,
+             "maxItems": 2,
+             "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+             }
+            }
+           ]
+          }
+         }
+        },
+        "ansicht": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "ja",
+          "nein",
+          "unklar",
+          "entschieden",
+          "quote",
+          "wilson95"
+         ],
+         "description": "Ansicht: Luftbild zeigt ein Bauwerk oder eine Anlage, die zur Angabe passt. quote = ja / entschieden (ja + nein) in Prozent; unklar nicht im Nenner",
+         "properties": {
+          "ja": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "nein": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "unklar": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "entschieden": {
+           "type": "integer",
+           "minimum": 0
+          },
+          "quote": {
+           "type": [
+            "number",
+            "null"
+           ],
+           "minimum": 0,
+           "maximum": 100
+          },
+          "wilson95": {
+           "anyOf": [
+            {
+             "type": "null"
+            },
+            {
+             "type": "array",
+             "minItems": 2,
+             "maxItems": 2,
+             "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+             }
+            }
+           ]
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  "objekte": {
+   "type": "object",
+   "required": [
+    "type",
+    "features"
+   ],
+   "properties": {
+    "type": {
+     "const": "FeatureCollection"
+    },
+    "features": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "type",
+       "geometry",
+       "properties"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "type": {
+        "const": "Feature"
+       },
+       "geometry": {
+        "type": "object",
+        "required": [
+         "type",
+         "coordinates"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "type": {
+          "const": "Point"
+         },
+         "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+           "type": "number"
+          }
+         }
+        }
+       },
+       "properties": {
+        "type": "object",
+        "required": [
+         "h",
+         "ep",
+         "w",
+         "mfh",
+         "del"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "h": {
+          "type": "boolean",
+          "description": "Objekt trägt heritage=*"
+         },
+         "ep": {
+          "enum": [
+           "vor_1800",
+           "1800_1866",
+           "1867_1918",
+           "1919_1945",
+           "1946_1989",
+           "ab_1990",
+           null
+          ],
+          "description": "Bauzeitklasse; nie ein Einzeljahr (Datenschutzgrenze, pruefen/DZ_protokoll.md)"
+         },
+         "w": {
+          "type": [
+           "boolean",
+           "null"
+          ],
+          "description": "Gebäudetreffer ist Wohngebäude (FOBUD); null = kein Gebäudetreffer"
+         },
+         "mfh": {
+          "type": [
+           "boolean",
+           "null"
+          ],
+          "description": "Gebäudetreffer ist Mehrfamilienhaus (PFBUD); null = kein Gebäudetreffer"
+         },
+         "del": {
+          "type": [
+           "string",
+           "null"
+          ],
+          "description": "Delegatura (OT_ADJA_A, Name polnisch), null = keiner zugeordnet"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "kamienice": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "integer",
+    "minimum": 0
+   },
+   "description": "Mehrfamilienhäuser mit heritage=* je Delegatura"
+  },
+  "ortsmarken": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "schluessel",
+     "geometry",
+     "lage_geprueft",
+     "quelle"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "schluessel": {
+      "const": "kosciuszki_18"
+     },
+     "geometry": {
+      "anyOf": [
+       {
+        "type": "null"
+       },
+       {
+        "type": "object",
+        "required": [
+         "type",
+         "coordinates"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "type": {
+          "const": "Point"
+         },
+         "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+           "type": "number"
+          }
+         }
+        }
+       }
+      ]
+     },
+     "lage_geprueft": {
+      "type": "boolean"
+     },
+     "quelle": {
+      "enum": [
+       null,
+       "osm"
+      ]
+     }
+    }
+   }
+  }
+ }
+}

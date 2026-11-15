@@ -1,0 +1,88 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Zellen (Bestand)",
+ "x-datei": "zellen_odbl.js",
+ "x-odbl": true,
+ "x-global": "^KIEZ_ZELLEN$",
+ "x-eigentuemer": "02_auswerten.py (nach dem Paket Gliederung und Bevölkerung)",
+ "type": "object",
+ "required": [
+  "type",
+  "features"
+ ],
+ "properties": {
+  "type": {
+   "const": "FeatureCollection"
+  },
+  "features": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "type",
+     "geometry",
+     "properties"
+    ],
+    "properties": {
+     "type": {
+      "const": "Feature"
+     },
+     "geometry": {
+      "type": "object"
+     },
+     "properties": {
+      "type": "object",
+      "required": [
+       "id",
+       "st",
+       "ew"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "id": {
+        "type": "string",
+        "pattern": "^CRS3035RES(100|1000)m"
+       },
+       "st": {
+        "type": "string",
+        "pattern": "^\\d{2}$"
+       },
+       "ew": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "a_ges": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "q_u15": {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       "q_65p": {
+        "type": [
+         "number",
+         "null"
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "fixture": {
+   "type": "boolean"
+  },
+  "hinweis": {
+   "type": "string"
+  }
+ },
+ "description": "Zellen des Bevölkerungsgitters (INSPIRE-Kennung, EPSG:3035), Werte je Zelle. Merkmale vorläufig nach dem Eurostat-Gitter 2021 (1 km); welche tragen, bestätigt das Paket Gliederung und Bevölkerung als Vertragsänderung. Datenschutz: nur Zählwerte und Anteile, keine Adressen. Die Zuordnung st beruht auf den Grenzen der dzielnice aus OpenStreetMap; die Datei steht deshalb unter der ODbL 1.0 (Entscheidung vom 13.11.2026 zur Lizenzfolge, Variante a)."
+}

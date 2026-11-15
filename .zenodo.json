@@ -1,0 +1,41 @@
+{
+  "upload_type": "software",
+  "title": "Kiezatlas Kraków: dzielnice z otwartych danych publicznych / Kraków districts from open public data",
+  "description": "<p><strong>PL</strong> Przepis (kod, konfiguracja, kontrole i metoda) na atlas 18 dzielnic Krakowa z otwartych danych publicznych, z notą o źródle przy każdej liczbie. Interfejs po polsku, z wersją angielską i niemiecką. Dane: BDOT10k, modele 3D LoD2 GUGiK, NSP 2021, siatka Eurostat 2021, GTFS ZTP, OpenStreetMap, wykaz budynków ZBK, statystyki jakości powietrza EEA, Rejestr cen nieruchomości, Wikidane. Projekt otwarty, nie jest produktem: uczelnia lub inna instytucja może go uruchomić u siebie i rozwijać dalej. Uruchomienie: docs/uruchomienie.md; nowe miasto: docs/nowe-miasto.md; przekazanie: docs/przekazanie.md.</p><p><strong>EN</strong> Recipe (code, configuration, checks and method) for an atlas of the 18 districts of Kraków from open public data, with a source notice for every figure. Polish interface with English and German versions. Data: BDOT10k, GUGiK LoD2 building models, NSP 2021, Eurostat grid 2021, ZTP GTFS, OpenStreetMap, ZBK building list, EEA air quality statistics, Polish real estate price register, Wikidata. An open project, not a product: a university or another institution can run it and develop it further. Run it yourself: docs/running.md; new city: docs/new-city.md; handover: docs/przekazanie.md.</p><p>Apache-2.0 covers only the code and our own texts. Data in daten/ and daten/pobierz/ keep the licences of their sources (daten/LIZENZ.md, daten/pobierz/licencje.csv); parts from OpenStreetMap are only in *_odbl files (ODbL 1.0). GSAP (GreenSock Standard License, not open source) is not included; it is only needed for the optional Potsdam cross-check (see NOTICE). Code and texts were written with AI assistance (Claude).</p>",
+  "creators": [
+    {
+      "name": "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
+    },
+    {
+      "name": "Stiebitz, André",
+      "affiliation": "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
+    }
+  ],
+  "license": "Apache-2.0",
+  "access_right": "open",
+  "language": "pol",
+  "keywords": [
+    "Kraków",
+    "dzielnice",
+    "atlas miasta",
+    "otwarte dane",
+    "city atlas",
+    "open data",
+    "NSP 2021",
+    "BDOT10k",
+    "OpenStreetMap",
+    "GeoPackage",
+    "reproducibility"
+  ],
+  "notes": "Migawka danych surowych (tylko dane, które wolno dalej rozpowszechniać) to osobny rekord Zenodo (skripte/schnappschuss.py). / The raw-data snapshot (only data that may be redistributed) is a separate Zenodo record (skripte/schnappschuss.py).",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.24073612",
+      "relation": "requires",
+      "resource_type": "software",
+      "scheme": "doi"
+    }
+  ],
+  "version": "1.0.0",
+  "publication_date": "2026-11-15"
+}

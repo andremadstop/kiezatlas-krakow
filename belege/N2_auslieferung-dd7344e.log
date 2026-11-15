@@ -1,0 +1,459 @@
+# node pruefen/N2_auslieferung.mjs --deploy <probe>/kiezatlas-deploy/krakow/2026-11-14 — Commit dd7344e, 14.11.2026 (Deploy-Kopie aus belege/N2_deploy_probe-dd7344e.log)
+Entwicklungsserver: 18 3D-Dateien im Manifest von abgeleitet/gebaeude/2026-11-13-odbl
+
+1. 3D über den Entwicklungsserver
+  ok    Entwicklung planer.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung planer.html 1440 px: Knopf „Budynki 3D“ vorhanden
+  ok    Entwicklung planer.html 1440 px: nach dem Knopf Zoom 15.20, 10199 Gebäude geladen, 2243 gezeichnet, Dateien 01_odbl.js 02_odbl.js 03_odbl.js
+  ok    Entwicklung planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung planer.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung planer.html 390 px: Knopf „Budynki 3D“ vorhanden
+  ok    Entwicklung planer.html 390 px: nach dem Knopf Zoom 15.20, 13349 Gebäude geladen, 934 gezeichnet, Dateien 01_odbl.js 05_odbl.js 13_odbl.js
+  ok    Entwicklung planer.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung kamienice.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung kamienice.html 1440 px: Knopf „Budynki 3D“ vorhanden
+  ok    Entwicklung kamienice.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1419 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung kamienice.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung kamienice.html 390 px: Knopf „Budynki 3D“ vorhanden
+  ok    Entwicklung kamienice.html 390 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 501 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung kamienice.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung modernizacja.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung modernizacja.html 1440 px: Knopf „Budynki 3D“ vorhanden
+  ok    Entwicklung modernizacja.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1417 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung modernizacja.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung modernizacja.html 390 px: Knopf „Budynki 3D“ vorhanden
+  ok    Entwicklung modernizacja.html 390 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 500 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung modernizacja.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung en/planer.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung en/planer.html 1440 px: Knopf „3D buildings“ vorhanden
+  ok    Entwicklung en/planer.html 1440 px: nach dem Knopf Zoom 15.20, 10199 Gebäude geladen, 2243 gezeichnet, Dateien 01_odbl.js 02_odbl.js 03_odbl.js
+  ok    Entwicklung en/planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung en/planer.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung en/planer.html 390 px: Knopf „3D buildings“ vorhanden
+  ok    Entwicklung en/planer.html 390 px: nach dem Knopf Zoom 15.20, 13349 Gebäude geladen, 934 gezeichnet, Dateien 01_odbl.js 05_odbl.js 13_odbl.js
+  ok    Entwicklung en/planer.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung en/kamienice.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung en/kamienice.html 1440 px: Knopf „3D buildings“ vorhanden
+  ok    Entwicklung en/kamienice.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1419 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung en/kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung en/kamienice.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung en/kamienice.html 390 px: Knopf „3D buildings“ vorhanden
+  ok    Entwicklung en/kamienice.html 390 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 501 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung en/kamienice.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung en/modernizacja.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung en/modernizacja.html 1440 px: Knopf „3D buildings“ vorhanden
+  ok    Entwicklung en/modernizacja.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1417 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung en/modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung en/modernizacja.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung en/modernizacja.html 390 px: Knopf „3D buildings“ vorhanden
+  ok    Entwicklung en/modernizacja.html 390 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 500 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung en/modernizacja.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung de/planer.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung de/planer.html 1440 px: Knopf „3D-Häuser“ vorhanden
+  ok    Entwicklung de/planer.html 1440 px: nach dem Knopf Zoom 15.20, 10199 Gebäude geladen, 2243 gezeichnet, Dateien 01_odbl.js 02_odbl.js 03_odbl.js
+  ok    Entwicklung de/planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung de/planer.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung de/planer.html 390 px: Knopf „3D-Häuser“ vorhanden
+  ok    Entwicklung de/planer.html 390 px: nach dem Knopf Zoom 15.20, 13349 Gebäude geladen, 934 gezeichnet, Dateien 01_odbl.js 05_odbl.js 13_odbl.js
+  ok    Entwicklung de/planer.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung de/kamienice.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung de/kamienice.html 1440 px: Knopf „3D-Häuser“ vorhanden
+  ok    Entwicklung de/kamienice.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1419 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung de/kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung de/kamienice.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung de/kamienice.html 390 px: Knopf „3D-Häuser“ vorhanden
+  ok    Entwicklung de/kamienice.html 390 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 501 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung de/kamienice.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung de/modernizacja.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung de/modernizacja.html 1440 px: Knopf „3D-Häuser“ vorhanden
+  ok    Entwicklung de/modernizacja.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1417 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung de/modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Entwicklung de/modernizacja.html 390 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Entwicklung de/modernizacja.html 390 px: Knopf „3D-Häuser“ vorhanden
+  ok    Entwicklung de/modernizacja.html 390 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 500 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Entwicklung de/modernizacja.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+2. Deploy-Kopie
+  ok    Deploy-Kopie: kartenseite.js verkleinert
+  ok    Deploy-Kopie: 18 Dateien unter daten/gebaeude/
+  ok    Deploy planer.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy planer.html 1440 px: Knopf „Budynki 3D“ vorhanden
+  ok    Deploy planer.html 1440 px: nach dem Knopf Zoom 15.20, 10199 Gebäude geladen, 2243 gezeichnet, Dateien 01_odbl.js 02_odbl.js 03_odbl.js
+  ok    Deploy planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy kamienice.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy kamienice.html 1440 px: Knopf „Budynki 3D“ vorhanden
+  ok    Deploy kamienice.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1419 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Deploy kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy modernizacja.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy modernizacja.html 1440 px: Knopf „Budynki 3D“ vorhanden
+  ok    Deploy modernizacja.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1417 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Deploy modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy index.html: Grundkarte aus der Kopie (5 Kacheln abgerufen)
+  ok    Deploy index.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy en/planer.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy en/planer.html 1440 px: Knopf „3D buildings“ vorhanden
+  ok    Deploy en/planer.html 1440 px: nach dem Knopf Zoom 15.20, 10199 Gebäude geladen, 2243 gezeichnet, Dateien 01_odbl.js 02_odbl.js 03_odbl.js
+  ok    Deploy en/planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy en/kamienice.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy en/kamienice.html 1440 px: Knopf „3D buildings“ vorhanden
+  ok    Deploy en/kamienice.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1419 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Deploy en/kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy en/modernizacja.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy en/modernizacja.html 1440 px: Knopf „3D buildings“ vorhanden
+  ok    Deploy en/modernizacja.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1417 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Deploy en/modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy en/index.html: Grundkarte aus der Kopie (5 Kacheln abgerufen)
+  ok    Deploy en/index.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy de/planer.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy de/planer.html 1440 px: Knopf „3D-Häuser“ vorhanden
+  ok    Deploy de/planer.html 1440 px: nach dem Knopf Zoom 15.20, 10199 Gebäude geladen, 2243 gezeichnet, Dateien 01_odbl.js 02_odbl.js 03_odbl.js
+  ok    Deploy de/planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy de/kamienice.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy de/kamienice.html 1440 px: Knopf „3D-Häuser“ vorhanden
+  ok    Deploy de/kamienice.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1419 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Deploy de/kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy de/modernizacja.html 1440 px: vor dem Knopf keine Gebäudedatei angefragt
+  ok    Deploy de/modernizacja.html 1440 px: Knopf „3D-Häuser“ vorhanden
+  ok    Deploy de/modernizacja.html 1440 px: nach dem Knopf Zoom 15.20, 13648 Gebäude geladen, 1417 gezeichnet, Dateien 01_odbl.js 05_odbl.js 07_odbl.js
+  ok    Deploy de/modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Deploy de/index.html: Grundkarte aus der Kopie (5 Kacheln abgerufen)
+  ok    Deploy de/index.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+3. Kopfleiste
+  ok    Kopfleiste index.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste index.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste index.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste index.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste index.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste index.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste karta.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste karta.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste karta.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste karta.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste karta.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste karta.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste dzielnica.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste dzielnica.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste dzielnica.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste dzielnica.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste dzielnica.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste dzielnica.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste porownanie.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste porownanie.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste porownanie.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste porownanie.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste porownanie.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste porownanie.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste kamienice.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste kamienice.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice-metoda.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste kamienice-metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice-metoda.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste kamienice-metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice-metoda.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste kamienice-metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice-dane.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste kamienice-dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice-dane.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste kamienice-dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste kamienice-dane.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste kamienice-dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste planer.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste planer.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer-metoda.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste planer-metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer-metoda.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste planer-metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer-metoda.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste planer-metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer-dane.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste planer-dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer-dane.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste planer-dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste planer-dane.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste planer-dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste modernizacja.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste modernizacja.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste modernizacja.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste modernizacja.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste modernizacja.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste klimat.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste klimat.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste klimat.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste klimat.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste klimat.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste klimat.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste powietrze.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste powietrze.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste powietrze.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste powietrze.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste powietrze.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste powietrze.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste mieszkania.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste mieszkania.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste mieszkania.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste mieszkania.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste mieszkania.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste mieszkania.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste punktualnosc.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste punktualnosc.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste punktualnosc.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste punktualnosc.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste punktualnosc.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste punktualnosc.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste metoda.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste metoda.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste metoda.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste dane.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste dane.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste dane.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste 404.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste 404.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste 404.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste 404.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste 404.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste 404.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/index.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/index.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/index.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/index.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/index.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/index.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/karta.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/karta.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/karta.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/karta.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/karta.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/karta.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/dzielnica.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/dzielnica.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/dzielnica.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/dzielnica.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/dzielnica.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/dzielnica.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/porownanie.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/porownanie.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/porownanie.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/porownanie.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/porownanie.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/porownanie.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/kamienice.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/kamienice.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice-metoda.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/kamienice-metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice-metoda.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/kamienice-metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice-metoda.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/kamienice-metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice-dane.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/kamienice-dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice-dane.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/kamienice-dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/kamienice-dane.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/kamienice-dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/planer.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/planer.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer-metoda.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/planer-metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer-metoda.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/planer-metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer-metoda.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/planer-metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer-dane.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/planer-dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer-dane.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/planer-dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/planer-dane.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/planer-dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/modernizacja.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/modernizacja.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/modernizacja.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/modernizacja.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/modernizacja.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/klimat.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/klimat.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/klimat.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/klimat.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/klimat.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste en/klimat.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/powietrze.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/powietrze.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/powietrze.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/powietrze.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/powietrze.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/powietrze.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/mieszkania.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/mieszkania.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/mieszkania.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/mieszkania.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/mieszkania.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/mieszkania.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/punktualnosc.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/punktualnosc.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/punktualnosc.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/punktualnosc.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/punktualnosc.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/punktualnosc.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/metoda.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/metoda.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/metoda.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/dane.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/dane.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/dane.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/404.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/404.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/404.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/404.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste en/404.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste en/404.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/index.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/index.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/index.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/index.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/index.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/index.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/karta.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/karta.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/karta.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/karta.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/karta.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/karta.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/dzielnica.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/dzielnica.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/dzielnica.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/dzielnica.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/dzielnica.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/dzielnica.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/porownanie.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/porownanie.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/porownanie.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/porownanie.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/porownanie.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/porownanie.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/kamienice.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/kamienice.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/kamienice.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice-metoda.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/kamienice-metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice-metoda.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/kamienice-metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice-metoda.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/kamienice-metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice-dane.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/kamienice-dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice-dane.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/kamienice-dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/kamienice-dane.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/kamienice-dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/planer.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/planer.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/planer.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer-metoda.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/planer-metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer-metoda.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/planer-metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer-metoda.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/planer-metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer-dane.html 1440 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/planer-dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer-dane.html 390 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/planer-dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/planer-dane.html 360 px: 12 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/planer-dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/modernizacja.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/modernizacja.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/modernizacja.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/modernizacja.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/modernizacja.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/modernizacja.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/klimat.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/klimat.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/klimat.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/klimat.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/klimat.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD false)
+  ok    Kopfleiste de/klimat.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/powietrze.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/powietrze.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/powietrze.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/powietrze.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/powietrze.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/powietrze.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/mieszkania.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/mieszkania.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/mieszkania.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/mieszkania.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/mieszkania.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/mieszkania.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/punktualnosc.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/punktualnosc.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/punktualnosc.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/punktualnosc.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/punktualnosc.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/punktualnosc.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/metoda.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/metoda.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/metoda.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/metoda.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/metoda.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/metoda.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/dane.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/dane.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/dane.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/dane.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/dane.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/dane.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/404.html 1440 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/404.html 1440 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/404.html 390 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/404.html 390 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+  ok    Kopfleiste de/404.html 360 px: 9 Links ganz sichtbar, Überstand 0 px, Luftbild-Schalter 0 (LUFTBILD null)
+  ok    Kopfleiste de/404.html 360 px: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+4. Kerning der polnischen Sonderzeichen im Browser
+  ok    Barlow 400: 20 Paare kernen wie ihr Grundpaar (Schrift geladen: true); Beispiel ŁT -91.0 px = LT -91.0 px bei 1000 px; Grundpaar ohne Kerning (nur Hinweis): Tz Tz ZY
+  ok    Barlow 500: 20 Paare kernen wie ihr Grundpaar (Schrift geladen: true); Beispiel ŁT -88.0 px = LT -88.0 px bei 1000 px; Grundpaar ohne Kerning (nur Hinweis): Tz Tz ZY
+  ok    Barlow 600: 20 Paare kernen wie ihr Grundpaar (Schrift geladen: true); Beispiel ŁT -86.0 px = LT -86.0 px bei 1000 px; Grundpaar ohne Kerning (nur Hinweis): Tz Tz ZY
+  ok    Barlow Semi Condensed 500: 20 Paare kernen wie ihr Grundpaar (Schrift geladen: true); Beispiel ŁT -79.0 px = LT -79.0 px bei 1000 px; Grundpaar ohne Kerning (nur Hinweis): ZY
+  ok    Barlow Semi Condensed 600: 20 Paare kernen wie ihr Grundpaar (Schrift geladen: true); Beispiel ŁT -80.0 px = LT -80.0 px bei 1000 px; Grundpaar ohne Kerning (nur Hinweis): ZY
+  ok    Kerning-Messung index.html: keine Konsolenfehler, Fehlabrufe oder Fremdabrufe
+
+0 Befunde, 0 übersprungen
+Rückgabe 0

@@ -1,0 +1,707 @@
+/* Kiezatlas: Karte, Fragen, Register, Grenzfall.
+   Alle Zahlen kommen aus daten/*.js; hier steht keine Ergebniszahl von Hand. */
+(function () {
+"use strict";
+var K = window.KIEZ_KENNZAHLEN, ST = window.KIEZ_STADTTEILE, Z = window.KIEZ_ZELLEN;
+var A = window.KIEZ = {};                       // Seitenzustand für schaugrafik.js
+var T = window.KIEZ_THEMEN;                     // gemeinsamer Themenkern (themen.js)
+var fmt = T.fmt, fmt1 = T.fmt1;
+var NB = " ";
+var tt = KIEZ_I18N.t;
+var RUHIG = matchMedia("(prefers-reduced-motion: reduce)").matches;
+var SCHMAL = matchMedia("(max-width:860px)").matches;   // Kamera: Abstände und Zoom für eine schmale Karte
+// Karte oben, Text darunter (nur Handy hoch); breiter oder quer stehen Karte und Fragen nebeneinander (kopf.js)
+var GESTAPELT = matchMedia(window.KIEZ_GESTAPELT || "(max-width:599px)");
+var FEIN = matchMedia("(hover:hover) and (pointer:fine)").matches;
+var SCHWELLE = 1000;                            // Mindestgröße für Vergleiche von Anteilen (Methode, keine Ergebniszahl)
+
+function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function setze(feld, wert) { document.querySelectorAll('[data-feld="' + feld + '"]').forEach(function (n) { n.textContent = wert; }); }
+function q(feld, wert) { document.querySelectorAll('[data-q="' + feld + '"]').forEach(function (n) { n.textContent = wert; }); }
+var rundEw = T.rundEw, proz = T.proz, kachel = T.kachel, name = T.name, esc = T.esc;
+
+// ---------- Farben: ein Farbton je Stadtbezirk, heller und dunkler je Stadtteil (themen.js)
+var proBezirk = T.proBezirk, FARBE = T.FARBE, BEZIRKFARBE = T.BEZIRKFARBE, TEIL = T.TEIL;
+
+// ---------- Kopf: Stadtzahlen
+var stand = KIEZ_I18N.fmt.datum(K.stand_auswertung);
+setze("stand", stand);
+setze("import", K.stand_import ? KIEZ_I18N.fmt.zeit(K.stand_import, { dateStyle: "medium", timeStyle: "short" }) : tt("kern.k_a"));
+setze("anzahl-teile", String(ST.features.length));
+setze("nr-erste", ST.features[0].properties.nr);
+setze("nr-letzte", ST.features[ST.features.length - 1].properties.nr);
+setze("flaeche-stadt", fmt1.format(K.stadt.flaeche_km2));
+setze("zellen-stadt", fmt.format(K.stadt.zellen));
+(function () {
+  var box = document.getElementById("stadtzahlen"); if (box.children.length) return;
+  K.stadt.kacheln.forEach(function (k) {
+    var d = el("div"), dd = el("dd"), dt = el("dt", null, k.titel);
+    if (k.anzeige === "summe") { dd.textContent = tt("karte.rund_wert", { wert: rundEw(k.wert) }); dt.textContent = k.titel; }
+    else { dd.textContent = fmt1.format(k.wert); dd.appendChild(el("small", null, "%")); }
+    dd.title = k.quelle;
+    d.appendChild(dt); d.appendChild(dd); box.appendChild(d);
+  });
+})();
+
+// ---------- Themen der Karte (Themen, Klassen, Farben aus themen.js)
+var STUFEN = T.STUFEN, THEMEN = T.THEMEN, THEMA = T.THEMA, KLASSEN = T.KLASSEN;
+function werte(feld) { return Z.features.map(function (f) { return f.properties[feld]; }).filter(function (v) { return v != null && !isNaN(v); }).sort(function (a, b) { return a - b; }); }
+var farbe = T.farbe;
+
+// ---------- Kennzahlen für die Fragen (alles live)
+(function () {
+  var feats = Z.features.slice().sort(function (a, b) { return b.properties.ew - a.properties.ew; });
+  var top = feats[0].properties, ew = werte("ew");
+  q("ew-max-teil", name(top.st)); q("ew-max", T.rundEw(top.ew)); q("ew-median", fmt.format(ew[Math.floor(ew.length / 2)]));
+  q("schwelle", fmt.format(SCHWELLE));
+  var gross = Object.keys(K.stadtteile).filter(function (nr) { return kachel(K.stadtteile[nr], "einwohner").wert >= SCHWELLE; });
+  function extrem(id, max) {
+    return gross.slice().sort(function (a, b) { var x = kachel(K.stadtteile[a], id).wert, y = kachel(K.stadtteile[b], id).wert; return max ? y - x : x - y; })[0];
+  }
+  A.FRAGE = {};
+  var ah = extrem("65p", true), at = extrem("65p", false);
+  q("alt-hoch", name(ah)); q("alt-hoch-wert", proz(kachel(K.stadtteile[ah], "65p").wert));
+  q("alt-tief", name(at)); q("alt-tief-wert", proz(kachel(K.stadtteile[at], "65p").wert));
+  q("alt-stadt", proz(kachel(K.stadt, "65p").wert));
+  A.FRAGE.alt = ah;
+  var alle = Object.keys(K.stadtteile);
+  var kz = alle.slice().sort(function (a, b) { return (kachel(K.stadtteile[b], "u18").zaehler || 0) - (kachel(K.stadtteile[a], "u18").zaehler || 0); })[0];
+  var kk = kachel(K.stadtteile[kz], "u18");
+  q("kind-teil", name(kz)); q("kind-zahl", T.rundEw(kk.zaehler)); q("kind-nenner", T.rundEw(kk.nenner)); q("kind-anteil", proz(kk.wert));
+  var ka = extrem("u18", true);
+  q("kind-anteilig", ka === kz ? tt("karte.kind_auch", { schwelle: fmt.format(SCHWELLE) })
+    : tt("karte.kind_vorn", { name: name(ka), wert: proz(kachel(K.stadtteile[ka], "u18").wert), schwelle: fmt.format(SCHWELLE) }));
+  A.FRAGE.kind = kz;
+  var ab = extrem("altbau", true);
+  q("altbau-teil", name(ab)); q("altbau-wert", proz(kachel(K.stadtteile[ab], "altbau").wert)); q("altbau-stadt", proz(kachel(K.stadt, "altbau").wert));
+  A.FRAGE.altbau = ab;
+  var fh = extrem("fernwaerme", true), ft = extrem("fernwaerme", false);
+  q("fern-stadt", proz(kachel(K.stadt, "fernwaerme").wert));
+  q("fern-hoch", name(fh)); q("fern-hoch-wert", proz(kachel(K.stadtteile[fh], "fernwaerme").wert));
+  q("fern-tief", name(ft)); q("fern-tief-wert", proz(kachel(K.stadtteile[ft], "fernwaerme").wert));
+  A.FRAGE.fern = fh;
+})();
+
+// ---------- Geometrie-Helfer
+function inRing(x, y, r) { var c = false; for (var i = 0, j = r.length - 1; i < r.length; j = i++) { var xi = r[i][0], yi = r[i][1], xj = r[j][0], yj = r[j][1]; if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) c = !c; } return c; }
+var polys = T.polys, umriss = T.umriss, GANZ = T.GANZ;
+function inTeil(x, y, f) { return polys(f).some(function (p) { if (!inRing(x, y, p[0])) return false; for (var h = 1; h < p.length; h++) if (inRing(x, y, p[h])) return false; return true; }); }
+function welcherTeil(x, y) { for (var i = 0; i < ST.features.length; i++) if (inTeil(x, y, ST.features[i])) return ST.features[i].properties.nr; return null; }
+
+// ---------- Grenzfall: eine echte Beispielzelle aus den Daten finden
+var GZ = (function () {
+  var best = null;
+  Z.features.forEach(function (f) {
+    var p = f.properties; if (!p.ew || (best && p.ew <= best.p.ew)) return;
+    var own = TEIL[p.st], ring = f.geometry.coordinates[0];
+    for (var i = 0; i < 4; i++) {
+      if (!inTeil(ring[i][0], ring[i][1], own)) { var nb = welcherTeil(ring[i][0], ring[i][1]); if (nb && nb !== p.st) { best = { f: f, p: p, nach: nb }; } break; }
+    }
+  });
+  if (!best) return null;
+  var r = best.f.geometry.coordinates[0], N = 24, zahl = {}, mitte = {};
+  for (var a = 0; a < N; a++) for (var b = 0; b < N; b++) {
+    var u = (a + 0.5) / N, v = (b + 0.5) / N;
+    var x = (1 - u) * (1 - v) * r[0][0] + u * (1 - v) * r[1][0] + u * v * r[2][0] + (1 - u) * v * r[3][0];
+    var y = (1 - u) * (1 - v) * r[0][1] + u * (1 - v) * r[1][1] + u * v * r[2][1] + (1 - u) * v * r[3][1];
+    var t = welcherTeil(x, y) || "aussen"; zahl[t] = (zahl[t] || 0) + 1;
+    mitte[t] = mitte[t] || [0, 0]; mitte[t][0] += x; mitte[t][1] += y;
+  }
+  Object.keys(mitte).forEach(function (k) { mitte[k][0] /= zahl[k]; mitte[k][1] /= zahl[k]; });
+  var cx = (r[0][0] + r[1][0] + r[2][0] + r[3][0]) / 4, cy = (r[0][1] + r[1][1] + r[2][1] + r[3][1]) / 4;
+  best.anteil = {}; Object.keys(zahl).forEach(function (k) { best.anteil[k] = zahl[k] / (N * N); });
+  best.mitte = mitte; best.c = [cx, cy]; best.stichproben = N * N;
+  return best;
+})();
+A.GZ = GZ;
+if (GZ) {
+  q("gz-ew", fmt.format(GZ.p.ew)); q("gz-a", name(GZ.p.st)); q("gz-b", name(GZ.nach)); q("gz-eigner", name(GZ.p.st));
+}
+
+// =====================================================================
+// Karte
+// =====================================================================
+var LEER = { type: "FeatureCollection", features: [] };
+var GRENZ_DATEN = GZ ? { type: "FeatureCollection", features: [
+  { type: "Feature", geometry: GZ.f.geometry, properties: { art: "zelle" } },
+  { type: "Feature", geometry: { type: "Point", coordinates: GZ.c }, properties: { art: "mitte" } }] } : LEER;
+var Q_ZENSUS = 'Zensus 2022 © Statistische Ämter des Bundes und der Länder, <a href="https://www.govdata.de/dl-de/by-2-0">dl-de/by-2-0</a>, eigene Auswertung';
+var map = new maplibregl.Map({
+  container: "karte",
+  style: T.grundkarte({
+    version: 8,
+    sources: {
+      basemap: window.KIEZ_ORT.karte.grundkarte,
+      dop: window.KIEZ_ORT.karte.luftbild,
+      zellen: { type: "geojson", data: Z, attribution: Q_ZENSUS },
+      teile: { type: "geojson", data: ST, promoteId: "nr", attribution: window.KIEZ_ORT.karte.teile_attribution },
+      gebaeude: { type: "geojson", data: LEER, attribution: 'Gebäude © GeoBasis-DE/LGB, <a href="https://www.govdata.de/dl-de/by-2-0">dl-de/by-2-0</a> (Daten geändert)' },
+      grenze: { type: "geojson", data: GRENZ_DATEN }
+    },
+    layers: [
+      { id: "papier", type: "background", paint: { "background-color": "#e6e9e4" } },
+      { id: "basemap", type: "raster", source: "basemap", paint: { "raster-opacity": 0.6, "raster-saturation": -1, "raster-opacity-transition": { duration: 600 } } },
+      { id: "dop", type: "raster", source: "dop", layout: { visibility: "none" } },
+      { id: "teile-flaeche", type: "fill", source: "teile", paint: { "fill-color": ["get", "farbe"], "fill-opacity": 0.72, "fill-opacity-transition": { duration: 700 } } },
+      { id: "zellen-flach", type: "fill", source: "zellen", layout: { visibility: "none" }, paint: { "fill-color": "rgba(255,255,255,0.35)", "fill-outline-color": "rgba(19,33,42,0.55)" } },
+      { id: "zellen-2d", type: "fill", source: "zellen", layout: { visibility: "none" }, paint: { "fill-color": STUFEN[2], "fill-opacity": 0.85 } },
+      // zellen-3d: bleibt als Ebene bestehen, ist aber immer aus; keine Zellsäulen, 3D zeigt nur Häuser (Andre 07.11.)
+      { id: "zellen-3d", type: "fill-extrusion", source: "zellen", layout: { visibility: "none" },
+        paint: { "fill-extrusion-color": STUFEN[2], "fill-extrusion-height": 0, "fill-extrusion-opacity": 0.94, "fill-extrusion-vertical-gradient": true } },
+      { id: "gebaeude2d", type: "fill", source: "gebaeude", minzoom: 14, paint: { "fill-color": "#24363b", "fill-opacity": 0.4 } },
+      { id: "gebaeude3d", type: "fill-extrusion", source: "gebaeude", layout: { visibility: "none" },
+        paint: { "fill-extrusion-color": "#aebfbf", "fill-extrusion-height": ["get", "h"], "fill-extrusion-opacity": 0.95, "fill-extrusion-vertical-gradient": true } },
+      { id: "teile-linie", type: "line", source: "teile", paint: { "line-color": "#ffffff", "line-width": 1.2, "line-opacity": 0.9 } },
+      { id: "teile-grenze", type: "line", source: "teile", layout: { visibility: "none" }, paint: { "line-color": "#6a2c82", "line-width": 3 } },
+      { id: "teile-wahl", type: "line", source: "teile", paint: { "line-color": "#6a2c82", "line-width": ["case", ["boolean", ["feature-state", "gewaehlt"], false], 3.2, 0] } },
+      { id: "grenz-zelle", type: "line", source: "grenze", filter: ["==", ["get", "art"], "zelle"], layout: { visibility: "none" }, paint: { "line-color": "#13212a", "line-width": 3, "line-dasharray": [2, 1] } },
+      { id: "grenz-mitte", type: "circle", source: "grenze", filter: ["==", ["get", "art"], "mitte"], layout: { visibility: "none" }, paint: { "circle-radius": 7, "circle-color": "#13212a", "circle-stroke-color": "#fff", "circle-stroke-width": 2 } }
+    ]
+  }),
+  bounds: GANZ, fitBoundsOptions: { padding: SCHMAL ? 16 : 40 },
+  maxZoom: 19, maxPitch: 70, attributionControl: false, cooperativeGestures: !FEIN, scrollZoom: !FEIN, fadeDuration: RUHIG ? 0 : 300,
+  locale: KIEZ_I18N.karteLocale()
+});
+map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
+map.addControl(new maplibregl.GeolocateControl({ positionOptions: { enableHighAccuracy: false, timeout: 10000 }, trackUserLocation: false, showAccuracyCircle: false, fitBoundsOptions: { maxZoom: 15 } }), "top-right");   // „Wo bin ich?“ (Audit K30): Position bleibt im Browser
+map.addControl(new maplibregl.ScaleControl({ unit: "metric" }), "bottom-left");
+map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-right");
+window.KIEZ_KARTE = map;
+
+// Stadtteilnummern als leise Beschriftung (HTML, keine Glyphen-Server nötig)
+var nummern = ST.features.map(function (f) {
+  var e = el("div", "teilnr", f.properties.nr); e.setAttribute("aria-hidden", "true");
+  return new maplibregl.Marker({ element: e }).setLngLat([f.properties.lx, f.properties.ly]);
+});
+function zeigeNummern(an) { nummern.forEach(function (m) { if (an) m.addTo(map); else m.remove(); }); }
+
+// ---------- Zustand: eine Funktion für Fragen und freie Bedienung
+// selbst: 3D-Häuser hat der Nutzer selbst eingeschaltet (Schalter oder Knopf in Frage 4); dann stellen die Fragen
+// beim Weiterlesen nur noch das Thema ein, nicht Stadtteil, Kamera und 3D (wie auf den Bauzeiten, H3)
+var S = { nr: "", thema: "stadtteile", luftbild: false, geb3d: false, grenze: false, selbst: false };
+var bereit = false, wartend = null;
+function geladen() { return bereit; }
+
+function themaAnwenden(id) {
+  var t = THEMA[id], gitter = id !== "stadtteile";
+  map.setPaintProperty("teile-flaeche", "fill-opacity", gitter || S.grenze ? 0 : 0.72);
+  zeigeNummern(!gitter && !S.grenze);
+  // keine Zellsäulen mehr: Zellen liegen flach, die Farbe trägt den Wert; 3D gilt nur den Gebäuden. Mit 3D-Häusern
+  // bleiben die Zellen darunter sichtbar, heller (0,55 wie auf der freien Karte), damit Legende und Fragen stimmen
+  map.setLayoutProperty("zellen-3d", "visibility", "none");
+  map.setLayoutProperty("zellen-2d", "visibility", gitter && !S.grenze ? "visible" : "none");
+  map.setPaintProperty("zellen-2d", "fill-opacity", S.geb3d ? 0.55 : 0.85);
+  map.setLayoutProperty("zellen-flach", "visibility", S.grenze ? "visible" : "none");
+  if (gitter) {
+    map.setFilter("zellen-2d", ["!=", ["get", id], null]);
+    map.setPaintProperty("zellen-2d", "fill-color", farbe(t));
+  }
+  legende(t);
+  document.querySelectorAll('#thema input').forEach(function (r) { r.checked = r.value === id; });
+}
+
+function kamera(art, opt) {
+  opt = opt || {};
+  var pad = SCHMAL ? { top: 70, bottom: 70, left: 16, right: 16 } : { top: 90, bottom: 60, left: 40, right: 60 };
+  var pitch = opt.pitch != null ? opt.pitch : 0, bearing = opt.bearing || 0, ziel;
+  if (art === "stadt") ziel = map.cameraForBounds(GANZ, { padding: pad, bearing: bearing });
+  else if (art === "haus" && S.nr) ziel = { center: opt.mitte || dichteMitte(S.nr) || [TEIL[S.nr].properties.lx, TEIL[S.nr].properties.ly], zoom: SCHMAL ? HAUS_ZOOM_SCHMAL : HAUS_ZOOM };
+  else if (art === "teil" && S.nr) { ziel = map.cameraForBounds(umriss(TEIL[S.nr]), { padding: pad, maxZoom: opt.maxZoom || 15, bearing: bearing }); }
+  else if (art === "zelle" && GZ) ziel = { center: GZ.c, zoom: SCHMAL ? 15.6 : 16.4 };
+  if (!ziel) return;
+  if (opt.zoomPlus) ziel.zoom += opt.zoomPlus;
+  var cam = { center: ziel.center, zoom: ziel.zoom, pitch: pitch, bearing: bearing };
+  if (RUHIG) map.jumpTo(cam); else map.easeTo(Object.assign(cam, { duration: opt.dauer || 1500, easing: function (x) { return 1 - Math.pow(1 - x, 4); } }));
+}
+
+// 3D-Häuser wie auf Karte und Bauzeiten: nah heran (Zoom 16,2, Handy 15,6) in die dichtesten Zellen des Stadtteils
+// (Summe der Einwohner im Umkreis von rund 170 m), nicht auf seinen Namenspunkt; ohne Wahl die Innenstadt
+var HAUS_ZOOM = 16.2, HAUS_ZOOM_SCHMAL = 15.6, HAUS_ERSATZ = "41";
+function dichteMitte(nr) {
+  var m = [];
+  Z.features.forEach(function (f) { var p = f.properties, v = +p.ew; if (p.st === nr && v > 0) { var c = f.geometry.coordinates[0]; m.push([(c[0][0] + c[2][0]) / 2, (c[0][1] + c[2][1]) / 2, v]); } });
+  var best = null, max = 0;
+  m.forEach(function (a) { var s = 0; m.forEach(function (b) { if (Math.abs(a[0] - b[0]) < 0.0025 && Math.abs(a[1] - b[1]) < 0.0016) s += b[2]; }); if (s > max) { max = s; best = a; } });
+  return best ? [best[0], best[1]] : null;
+}
+// Stadtteil unter der Kartenmitte (die Fläche liegt immer in der Karte, auch bei Deckkraft 0)
+function teilInDerMitte() {
+  var c = map.project(map.getCenter()), t = map.queryRenderedFeatures(c, { layers: ["teile-flaeche"] });
+  return t.length ? t[0].properties.nr : "";
+}
+
+var gewaehlt = "";
+function waehle(nr) {
+  nr = nr || "";
+  if (gewaehlt && bereit) map.setFeatureState({ source: "teile", id: gewaehlt }, { gewaehlt: false });
+  gewaehlt = S.nr = nr;
+  if (gewaehlt && bereit) map.setFeatureState({ source: "teile", id: gewaehlt }, { gewaehlt: true });
+  zeigeZahlen(nr);
+  if (S.geb3d || (bereit && map.getZoom() >= 14)) gebaeudeLaden(nr);
+  legende(THEMA[S.thema]);
+}
+A.waehle = function (nr) { waehle(nr); };
+
+function gebaeudeLaden(nr) {
+  if (!bereit) return;
+  if (!nr) { map.getSource("gebaeude").setData(LEER); return; }
+  var v = "KIEZ_GEB_" + nr;
+  if (window[v]) { map.getSource("gebaeude").setData(window[v]); return; }
+  var s = document.createElement("script"); s.src = KIEZ_THEMEN.v("daten/gebaeude/" + nr + ".js");
+  s.onload = function () { if (gewaehlt === nr && window[v]) map.getSource("gebaeude").setData(window[v]); status(); };
+  document.body.appendChild(s);
+}
+
+function setzeLuftbild(an) {
+  S.luftbild = an; document.getElementById("luftbild").checked = an;
+  map.setLayoutProperty("dop", "visibility", an ? "visible" : "none");
+  T.grundLuft(map, an);
+}
+function setzeGebaeude3d(an) {
+  S.geb3d = an; document.getElementById("dreid").checked = an;
+  if (!an) S.selbst = false;
+  map.setLayoutProperty("gebaeude3d", "visibility", an ? "visible" : "none");
+  map.setLayoutProperty("gebaeude2d", "visibility", an ? "none" : "visible");
+  if (an) gebaeudeLaden(S.nr);
+  themaAnwenden(S.thema);
+}
+function setzeGrenze(an) {
+  S.grenze = an;
+  ["teile-grenze", "grenz-zelle", "grenz-mitte"].forEach(function (l) { map.setLayoutProperty(l, "visibility", an ? "visible" : "none"); });
+}
+
+// zustand({nr, thema, luftbild, geb3d, grenze, kamera, pitch, bearing})
+function zustand(z) {
+  if (!bereit) { wartend = z; return; }
+  if ("grenze" in z) setzeGrenze(!!z.grenze);
+  if ("luftbild" in z) setzeLuftbild(!!z.luftbild);
+  if ("nr" in z) waehle(z.nr);
+  if ("geb3d" in z && z.geb3d !== S.geb3d) { S.thema = z.thema || S.thema; setzeGebaeude3d(!!z.geb3d); }
+  if (z.thema) { S.thema = z.thema; themaAnwenden(z.thema); }
+  if (z.kamera) kamera(z.kamera, z);
+  status();
+}
+A.zustand = zustand;
+
+function status() {
+  var t = THEMA[S.thema], s = tt("karte.status", { thema: t.name }) + (S.nr ? tt("karte.status_wahl", { teil: S.nr + " " + name(S.nr) }) : tt("karte.status_ganz", { stadt: KIEZ_I18N.ort("stadt") })) +
+    (S.geb3d ? tt("karte.status_geb3d") : "") + (S.luftbild ? tt("karte.status_luft") : "") + (S.grenze ? tt("karte.status_grenze") : "") + ".";
+  document.getElementById("kartenstatus").textContent = s;
+}
+
+// ---------- Legende
+function legende(t) {
+  var L = document.getElementById("legende"); L.innerHTML = "";
+  L.appendChild(el("p", "legende__titel", S.grenze ? tt("karte.zelle_grenze") : t.name + (t.einheit ? " (" + t.einheit + ")" : "")));
+  var aus = el("p", "legende__auswahl");
+  if (S.nr) { aus.appendChild(document.createTextNode(tt("karte.ausgewaehlt"))); aus.appendChild(el("b", null, S.nr + " " + name(S.nr))); }
+  else aus.textContent = KIEZ_I18N.ort("ganze_stadt");
+  L.appendChild(aus);
+  if (S.grenze) {
+    L.appendChild(el("p", "legende__q", tt("karte.legende_grenze")));
+    return;
+  }
+  if (t.id === "stadtteile") {
+    var bz = el("div", "bezirke");
+    Object.keys(BEZIRKFARBE).forEach(function (b) { var s = el("span"), i = el("i"); i.style.background = BEZIRKFARBE[b]; s.appendChild(i); s.appendChild(document.createTextNode(tt("karte.bezirk", { b: b }))); bz.appendChild(s); });
+    L.appendChild(bz);
+    L.appendChild(el("p", "legende__q", tt("karte.farbton_bezirk") + " Stadtteile © Landeshauptstadt Potsdam, dl-de/zero-2-0."));
+    return;
+  }
+  var s = KLASSEN[t.id], st = el("div", "stufen");
+  st.setAttribute("aria-hidden", "true");
+  STUFEN.slice(0, s.grenzen.length + 1).forEach(function (f) { var x = el("span"); x.style.background = f; x.style.height = "100%"; st.appendChild(x); });
+  L.appendChild(st);
+  var m = el("div", "marken"), r = function (v) { return t.einheit === "Personen" ? fmt.format(Math.round(v)) : fmt1.format(v); };
+  m.appendChild(el("span", null, r(s.min))); s.grenzen.forEach(function (g) { m.appendChild(el("span", null, r(g))); }); m.appendChild(el("span", null, r(s.max)));
+  L.appendChild(m);
+  if (t.nenner) { var g = el("p", "legende__grau"); g.appendChild(el("i")); g.appendChild(document.createTextNode(t.nenner === "a_ges" ? tt("karte.grau_personen") : tt("karte.grau_wohnungen"))); L.appendChild(g); }
+  L.appendChild(el("p", "legende__q", (s.fest ? tt("karte.stufen_fest") : tt("karte.stufen_fuenftel")) + t.quelle + ", 15.05.2022."));
+}
+
+// ---------- Werkzeugleiste
+var themaBox = document.getElementById("thema");
+THEMEN.forEach(function (t) {
+  var l = el("label", "chip"), r = document.createElement("input");
+  r.type = "radio"; r.name = "thema"; r.value = t.id; r.checked = t.id === "stadtteile";
+  l.appendChild(r); l.appendChild(el("span", null, t.kurz)); l.title = t.name; themaBox.appendChild(l);
+});
+themaBox.addEventListener("change", function (e) {
+  var id = e.target.value, z = { thema: id, grenze: false };
+  zustand(z);
+});
+document.getElementById("luftbild").addEventListener("change", function (e) { zustand({ luftbild: e.target.checked }); });
+document.getElementById("dreid").addEventListener("change", function (e) {
+  var an = e.target.checked, z = { geb3d: an, grenze: false };
+  if (an) {
+    // ohne Wahl der Stadtteil unter der Kartenmitte (aus der Nähe, ab Zoom 13), sonst die Innenstadt (wie auf der Karte);
+    // liegt die Kartenmitte im Stadtteil, dorthin, sonst zu seinen dichtesten Zellen
+    var hier = map.getZoom() >= 13 ? teilInDerMitte() : "", nr = S.nr || hier || HAUS_ERSATZ;
+    if (!S.nr) z.nr = nr;
+    z.kamera = "haus"; z.pitch = 58; z.bearing = -20;
+    // nur neigen, wenn schon fast so nah wie das Ziel: die Fragen 3 und 5 enden bei Zoom 14, dort sind Häuser Krümel
+    var nah = (SCHMAL ? HAUS_ZOOM_SCHMAL : HAUS_ZOOM) - 0.5;
+    if (hier === nr) { var c = map.getCenter(); z.mitte = [c.lng, c.lat]; if (map.getZoom() >= nah) { delete z.kamera; if (map.getPitch() < 20) map.easeTo({ pitch: 58, duration: RUHIG ? 0 : 600 }); } }
+  }
+  zustand(z);
+  S.selbst = an;
+  // 3D aus: wieder von oben, die Zellen liegen flach (wie auf Karte und Bauzeiten)
+  if (!an && map.getPitch() > 0) map.jumpTo({ pitch: 0, bearing: 0 });
+});
+
+// ---------- Klicks in der Karte
+function zeile(t, a) { return "<tr><td>" + t + "</td><td>" + a + "</td></tr>"; }
+function zz(v) { return v == null ? tt("kern.k_a") : fmt.format(v); }
+var fenster = null;
+function oeffne(lngLat, breite, html) {
+  if (fenster) fenster.remove();
+  // focusAfterOpen aus (wie auf den Bauzeiten): der Fokus auf den Schließknopf scrollte die Seite, und die Geschichte sprang
+  // zur Frage darüber (Klick auf eine Zelle bei Frage 7 landete in Frage 6, Zoom 16,4)
+  fenster = new maplibregl.Popup({ maxWidth: breite, focusAfterOpen: false }).setLngLat(lngLat).setHTML(html).addTo(map);
+}
+// Doppelklick zoomt (So geht’s): das Fenster des ersten Klicks schließt beim Zoomen, der zweite Klick tut nichts
+map.on("zoomstart", function () { if (fenster) { fenster.remove(); fenster = null; } });
+map.on("click", function (e) {
+  if (e.originalEvent && e.originalEvent.detail > 1) return;
+  var lay = ["gebaeude3d", "gebaeude2d"].filter(function (l) { return map.getLayoutProperty(l, "visibility") !== "none"; });
+  var g = map.queryRenderedFeatures(e.point, { layers: lay });
+  if (g.length) {
+    var gp = g[0].properties;
+    oeffne(e.lngLat, "270px",
+      "<b>" + esc(gp.f || tt("karte.gebaeude")) + "</b><table class='pop-tab'>" +
+      zeile(tt("karte.geschosse"), gp.gs == null || gp.gs === "null" ? tt("kern.k_a") : esc(gp.gs)) +
+      zeile(tt("karte.hoehe"), fmt1.format(gp.h) + " m") + "</table>" +
+      "<div class='pop-q'>" + tt("karte.pop_hoehe", { herkunft: T.HQ[gp.hq] || tt("karte.herkunft_unbekannt") }) + " " + tt("karte.umriss") + " © GeoBasis-DE/LGB, dl-de/by-2-0</div>");
+    return;
+  }
+  var zl = ["zellen-2d", "zellen-flach"].filter(function (l) { return map.getLayoutProperty(l, "visibility") !== "none"; });
+  var c = zl.length ? map.queryRenderedFeatures(e.point, { layers: zl }) : [];
+  if (c.length) {
+    var p = c[0].properties, n = function (k) { var v = p[k]; return (v === undefined || v === "null" || v === null) ? null : Number(v); };
+    oeffne(e.lngLat, "290px",
+      "<b>" + tt("karte.zelle_titel") + "</b><br>" + esc(p.st + " " + name(p.st)) + "<table class='pop-tab'>" +
+      zeile(tt("karte.einwohner"), zz(n("ew"))) + zeile(tt("karte.d_alter"), n("d_alter") == null ? tt("kern.k_a") : fmt1.format(n("d_alter"))) +
+      zeile(tt("karte.u18"), proz(n("q_u18"))) + zeile(tt("karte.p65"), proz(n("q_65p"))) + zeile(tt("karte.wohnungen"), zz(n("w_ges"))) +
+      zeile(tt("karte.davon_vor1949"), proz(n("q_v1949"))) + zeile(tt("karte.mit_fern"), proz(n("q_fern"))) + "</table>" +
+      "<div class='pop-q'>Zensus 2022, 15.05.2022, © Statistische Ämter des Bundes und der Länder, dl-de/by-2-0. " + tt("karte.pop_geheim") + "</div>");
+    return;
+  }
+  var t = map.queryRenderedFeatures(e.point, { layers: ["teile-flaeche"] });
+  // 3D-Häuser an: ein Klick in den gewählten Stadtteil wählt ihn nicht ab (ohne Stadtteil stünden keine Häuser mehr, wie karte.js)
+  if (t.length) { var tn = t[0].properties.nr; if (tn !== gewaehlt) zustand({ nr: tn }); else if (!S.geb3d) zustand({ nr: "" }); }
+});
+var schild = document.getElementById("schild");
+map.on("mousemove", function (e) {
+  var t = map.queryRenderedFeatures(e.point, { layers: ["teile-flaeche"] });
+  map.getCanvas().style.cursor = t.length ? "pointer" : "";
+  if (t.length && FEIN) {
+    var nr = t[0].properties.nr;
+    schild.textContent = tt("karte.schild", { teil: nr + " " + name(nr), ew: rundEw(kachel(K.stadtteile[nr], "einwohner").wert) });
+    schild.style.left = e.point.x + "px"; schild.style.top = e.point.y + "px"; schild.style.display = "block";
+  } else schild.style.display = "none";
+});
+map.on("mouseout", function () { schild.style.display = "none"; });
+map.on("zoomend", function () { if (S.nr && map.getZoom() >= 14) gebaeudeLaden(S.nr); });
+
+map.on("load", function () {
+  bereit = true;
+  var att = document.querySelector(".maplibregl-ctrl-attrib"); if (att) att.classList.remove("maplibregl-compact-show");
+  map.setLight({ anchor: "viewport", position: [1.4, 200, 35], intensity: 0.38, color: "#ffffff" });
+  themaAnwenden("stadtteile");
+  waehle("");
+  if (wartend) { var w = wartend; wartend = null; zustand(w); }
+  status();
+  window.KIEZ_BEREIT = false;
+  map.once("idle", function () { window.KIEZ_BEREIT = true; });
+});
+
+// =====================================================================
+// Fragen: Schritte steuern die Karte
+// =====================================================================
+// Zellen liegen flach (keine Säulen, Andre 07.11.): die Fragen zeigen die Karte von oben, schräg nur mit 3D-Häusern
+var SCHRITTE = {
+  0: { nr: "", thema: "stadtteile", grenze: false, geb3d: false, luftbild: false, kamera: "stadt", pitch: 0, bearing: 0 },
+  1: { nr: "", thema: "ew", grenze: false, geb3d: false, luftbild: false, kamera: "stadt", pitch: 0, bearing: 0 },
+  2: { nr: A.FRAGE.alt, thema: "d_alter", grenze: false, geb3d: false, kamera: "stadt", pitch: 0, bearing: 0 },
+  3: { nr: A.FRAGE.kind, thema: "q_u18", grenze: false, geb3d: false, kamera: "teil", pitch: 0, bearing: 0, maxZoom: 14 },
+  4: { nr: A.FRAGE.altbau, thema: "q_v1949", grenze: false, geb3d: false, luftbild: false, kamera: "teil", pitch: 0, bearing: 0, maxZoom: 14.5 },
+  5: { nr: A.FRAGE.fern, thema: "q_fern", grenze: false, geb3d: false, kamera: "teil", pitch: 0, bearing: 0, maxZoom: 14 },
+  6: { nr: GZ ? GZ.p.st : "", thema: "stadtteile", grenze: true, geb3d: false, luftbild: false, kamera: "zelle", pitch: 0, bearing: 0 },
+  7: { nr: "", thema: "ew", grenze: false, geb3d: false, luftbild: false, kamera: "stadt", pitch: 0, bearing: 0 },
+  8: { nr: "", thema: "q_u18", grenze: false, geb3d: false, luftbild: false, kamera: "stadt", pitch: 0, bearing: 0 },
+  9: { nr: "", thema: "q_v1949", grenze: false, geb3d: false, luftbild: false, kamera: "stadt", pitch: 0, bearing: 0 },
+  10: { nr: "", thema: "ew", grenze: false, geb3d: false, kamera: "stadt", pitch: 0, bearing: 0 }
+};
+var aktiv = -1;
+function schritt(i, zwingen) {
+  if (i === aktiv && !zwingen) return;
+  aktiv = i;
+  document.querySelectorAll(".erzaehlung .frage").forEach(function (f) { f.classList.toggle("ist-aktiv", +f.dataset.schritt === i); });
+  if (!SCHRITTE[i]) return;
+  // 3D-Häuser selbst eingeschaltet: Häuser, Stadtteil und Kamera bleiben, die Frage färbt nur die Zellen
+  if (S.selbst) { zustand({ thema: SCHRITTE[i].thema, grenze: false }); return; }
+  zustand(Object.assign({}, SCHRITTE[i]));
+}
+A.schritt = schritt;
+document.querySelectorAll("[data-zeige]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var i = +b.dataset.zeige, z = Object.assign({}, SCHRITTE[i]);
+    if (b.dataset.gebaeude) { z.geb3d = true; z.kamera = "haus"; z.pitch = 58; z.bearing = -20; }
+    // „Luftbild einblenden“ schaltet nur das Luftbild; selbst eingeschaltete 3D-Häuser bleiben samt Stadtteil und Kamera stehen
+    if (b.dataset.luftbild) { z.luftbild = !S.luftbild; delete z.kamera; if (S.selbst) z = { luftbild: z.luftbild, thema: z.thema, grenze: false }; }
+    aktiv = i; zustand(z);
+    if (!b.dataset.luftbild) S.selbst = !!b.dataset.gebaeude;
+    if (GESTAPELT.matches) document.getElementById("buehne").scrollIntoView({ behavior: RUHIG ? "auto" : "smooth", block: "start" });
+  });
+});
+
+function scrollSteuerung() {
+  if (!window.ScrollTrigger) {         // ohne GSAP: Beobachter
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) schritt(+e.target.dataset.schritt); }); }, { rootMargin: "-45% 0px -45% 0px" });
+    document.querySelectorAll(".erzaehlung .frage").forEach(function (f) { io.observe(f); });
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  var linie = GESTAPELT.matches ? "top 78%" : "top 55%", ende = GESTAPELT.matches ? "bottom 78%" : "bottom 55%";
+  document.querySelectorAll(".erzaehlung .frage").forEach(function (f) {
+    ScrollTrigger.create({ trigger: f, start: linie, end: ende, onToggle: function (s) { if (s.isActive) schritt(+f.dataset.schritt); } });
+  });
+  // Kopfleiste: klappt seit 07.11. für alle Kartenseiten in kopf.js ein und aus
+  // aktuelle Rubrik in der Navigation
+  ["fragen", "stadtteile", "schaugrafik", "grenzfall", "methode"].forEach(function (id) {
+    var a = document.querySelector('.nav[href="#' + id + '"]'), z = document.getElementById(id);
+    if (!a || !z) return;
+    ScrollTrigger.create({ trigger: id === "fragen" ? ".fragen" : z, start: "top 50%", end: "bottom 50%", onToggle: function (s) { if (s.isActive) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); } });
+  });
+}
+
+// ---------- Ruhezustand: die schräge Stadt (seit 07.11. nur mit 3D-Häusern) dreht sich langsam, wenn niemand etwas tut
+(function () {
+  if (RUHIG || !FEIN || !window.gsap) return;
+  var letzte = performance.now(), basis = null, sichtbar = true, t0 = 0;
+  ["pointermove", "wheel", "keydown", "touchstart", "scroll"].forEach(function (ev) { addEventListener(ev, function () { letzte = performance.now(); basis = null; }, { passive: true }); });
+  new IntersectionObserver(function (es) { sichtbar = es[0].isIntersecting; }).observe(document.getElementById("buehne"));
+  gsap.ticker.add(function (t) {
+    if (!bereit || !sichtbar || document.hidden) return;
+    if (performance.now() - letzte < 2200 || map.isMoving() || map.getPitch() < 25) { basis = null; return; }
+    if (basis === null) { basis = map.getBearing(); t0 = t; }
+    map.setBearing(basis + Math.sin((t - t0) * 0.16) * 4);
+  });
+})();
+
+// =====================================================================
+// Steckbrief und Register
+// =====================================================================
+var sel = document.getElementById("gebiet");
+sel.appendChild(new Option(KIEZ_I18N.ort("ganze_stadt"), ""));
+ST.features.forEach(function (f) { sel.appendChild(new Option(f.properties.nr + " " + f.properties.name, f.properties.nr)); });
+sel.addEventListener("change", function () { ausListe(sel.value); });
+// Wahl aus Liste oder Register: mit 3D-Häusern zu den Häusern des Stadtteils (wie karte.js zuDenHaeusern); liegt die
+// Kartenmitte schon nah in ihm, bleibt die Kamera und wird nur geneigt
+function ausListe(nr) {
+  var z = { nr: nr };
+  if (S.geb3d && nr && bereit) {
+    var hier = map.getZoom() >= 13 ? teilInDerMitte() : "", p = map.getPitch() >= 20 ? map.getPitch() : 58;
+    if (map.getZoom() >= 14 && hier === nr) { if (map.getPitch() < 20) map.easeTo({ pitch: 58, duration: RUHIG ? 0 : 600 }); }
+    else { z.kamera = "haus"; z.pitch = p; z.bearing = map.getBearing(); if (hier === nr) { var c = map.getCenter(); z.mitte = [c.lng, c.lat]; } }
+  }
+  zustand(z);
+}
+var kurzQuelle = function (qq) { var m = qq.match(/\(([^)]+)\)\s*$/); return "Zensus 2022, " + (m ? m[1] : ""); };
+var TITEL = { alter: tt("karte.titel_alter"), baujahr: tt("karte.titel_baujahr"), heizung: tt("karte.titel_heizung"), energie: tt("karte.titel_energie") };
+A.TITEL = TITEL;
+
+function zeigeZahlen(nr) {
+  var G = nr ? K.stadtteile[nr] : K.stadt;
+  setze("name", nr ? G.name : KIEZ_I18N.ort("stadt"));
+  setze("art", nr ? tt("karte.art_teil", { nr: nr, amtlich: KIEZ_I18N.ort("stadt_amtlich") }) : tt("karte.art_stadt", { art: KIEZ_I18N.ort("stadt_art"), teile: tt("kern.dzielnice", { n: ST.features.length }) }));
+  setze("flaeche", fmt1.format(G.flaeche_km2));
+  setze("zellen", fmt.format(G.zellen));
+  setze("gebaeude", G.gebaeude && G.gebaeude.anzahl ? tt("karte.geb_alkis", { anzahl: fmt.format(G.gebaeude.anzahl), wohn: fmt.format(G.gebaeude.wohngebaeude) }) : tt("karte.geb_keine"));
+  sel.value = nr;
+  var box = document.getElementById("kacheln"); box.innerHTML = "";
+  G.kacheln.forEach(function (k) {
+    var d = el("div", "kachel"), z = el("div", "zahl");
+    if (k.anzeige === "summe") { d.appendChild(el("div", "vorsatz", tt("karte.rund"))); z.textContent = rundEw(k.wert); }
+    else if (k.wert == null) z.textContent = tt("kern.k_a");
+    else { z.textContent = fmt1.format(k.wert); z.appendChild(el("small", null, "%")); }
+    d.appendChild(z); d.appendChild(el("div", "titel-k", k.titel));
+    var qe = el("div", "quelle", kurzQuelle(k.quelle));
+    qe.title = k.quelle + (k.nenner ? tt("karte.zaehler_nenner", { zaehler: fmt.format(k.zaehler), nenner: fmt.format(k.nenner) }) : "");
+    d.appendChild(qe); box.appendChild(d);
+  });
+  var gp = (K.gegenprobe || {})[nr || "stadt"], gpEl = document.getElementById("gegenprobe"); gpEl.innerHTML = "";
+  if (gp) {
+    gpEl.appendChild(document.createTextNode(tt("karte.gegenprobe", { art: gp.art, stichtag: gp.stichtag, ew: fmt.format(gp.einwohner) })));
+    var a = el("a", null, gp.quelle); a.href = gp.url; gpEl.appendChild(a);
+    gpEl.appendChild(document.createTextNode(tt("karte.gegenprobe_ende")));
+  }
+  var vbox = document.getElementById("verteilungen"); vbox.innerHTML = "";
+  ["alter", "baujahr", "heizung", "energie"].forEach(function (key) {
+    var v = G.verteilungen[key], summe = v.insgesamt;
+    var klassen = v.werte.reduce(function (s, b) { return s + b[1]; }, 0);
+    var max = Math.max.apply(null, v.werte.map(function (w) { return w[1]; })) || 1;
+    var d = el("div", "vert");
+    d.appendChild(el("h4", null, TITEL[key]));
+    d.appendChild(el("p", "einheit", tt("karte.vert_summe", { einheit: v.einheit, summe: fmt.format(summe) }) + (klassen !== summe ? tt("karte.vert_klassen", { klassen: fmt.format(klassen) }) : "") + tt("karte.vert_anteile")));
+    var ul = el("ul", "balken");
+    v.werte.forEach(function (w) {
+      if ((key === "energie" || key === "heizung") && w[1] === 0) return;
+      var li = el("li"), l = el("span", "l"); l.appendChild(el("span", null, w[0])); l.appendChild(el("span", null, summe ? fmt1.format(100 * w[1] / summe) + NB + "%" : tt("kern.k_a")));
+      var b = el("span", "b"), i = el("i"); i.style.width = (100 * w[1] / max).toFixed(1) + "%"; b.appendChild(i); b.setAttribute("aria-hidden", "true");
+      li.appendChild(l); li.appendChild(b); ul.appendChild(li);
+    });
+    d.appendChild(ul); d.appendChild(el("p", "quelle", v.quelle)); vbox.appendChild(d);
+    if (window.gsap && !RUHIG) gsap.from(d.querySelectorAll(".b i"), { scaleX: 0, duration: 0.8, ease: "expo.out", stagger: 0.03 });
+  });
+  document.querySelectorAll(".zeile").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.nr === nr ? "true" : "false"); });
+}
+
+var SORT = [
+  { id: "nr", name: tt("karte.sort_nr"), kachel: "einwohner" },
+  { id: "einwohner", name: tt("karte.einwohner"), kachel: "einwohner" },
+  { id: "u18", name: tt("karte.u18"), kachel: "u18" },
+  { id: "65p", name: tt("karte.p65"), kachel: "65p" },
+  { id: "altbau", name: tt("karte.vor1949"), kachel: "altbau" },
+  { id: "fernwaerme", name: tt("karte.fernwaerme"), kachel: "fernwaerme" }
+];
+var sortBox = document.getElementById("sortierung");
+SORT.forEach(function (s, i) {
+  var l = el("label", "chip"), r = document.createElement("input");
+  r.type = "radio"; r.name = "sort"; r.value = s.id; r.checked = i === 0;
+  l.appendChild(r); l.appendChild(el("span", null, s.name)); sortBox.appendChild(l);
+});
+function zeileBau(nr, s, max) {
+  var k = kachel(K.stadtteile[nr], s.kachel), li = el("li"), b = el("button", "zeile"); b.type = "button"; b.dataset.nr = nr;
+  b.setAttribute("aria-pressed", nr === gewaehlt ? "true" : "false");
+  b.style.setProperty("--farbe", FARBE[nr]);
+  b.appendChild(el("span", "zeile__nr", nr)); b.appendChild(el("span", "zeile__name", name(nr)));
+  var bal = el("span", "zeile__balken"), i = el("i"); i.style.width = (k.wert == null ? 0 : 100 * k.wert / max).toFixed(1) + "%"; bal.appendChild(i); bal.setAttribute("aria-hidden", "true");
+  b.appendChild(bal);
+  var wert = el("span", "zeile__wert", k.anzeige === "summe" ? rundEw(k.wert) : proz(k.wert));
+  wert.appendChild(el("span", "nur-sr", k.anzeige === "summe" ? tt("karte.ew_gerundet") : " " + k.titel));
+  b.appendChild(wert);
+  b.addEventListener("click", function () { ausListe(nr === gewaehlt && !S.geb3d ? "" : nr); });
+  li.appendChild(b); return li;
+}
+function register(sortId) {
+  var s = SORT.filter(function (x) { return x.id === sortId; })[0], box = document.getElementById("teile"); box.innerHTML = "";
+  var nrs = Object.keys(K.stadtteile), max = Math.max.apply(null, nrs.map(function (n) { return kachel(K.stadtteile[n], s.kachel).wert || 0; })) || 1;
+  if (s.id === "nr") {
+    Object.keys(proBezirk).forEach(function (bz) {
+      var g = el("div", "bezirk"), h = el("p", "bezirk__kopf"), i = el("i"); i.style.background = BEZIRKFARBE[bz];
+      h.appendChild(i); h.appendChild(document.createTextNode(tt("karte.stadtbezirk", { b: bz }))); g.appendChild(h);
+      var ul = el("ul", "teile"); proBezirk[bz].forEach(function (nr) { ul.appendChild(zeileBau(nr, s, max)); }); g.appendChild(ul); box.appendChild(g);
+    });
+  } else {
+    var ul = el("ul", "teile");
+    nrs.sort(function (a, b) { return (kachel(K.stadtteile[b], s.kachel).wert || 0) - (kachel(K.stadtteile[a], s.kachel).wert || 0); })
+      .forEach(function (nr) { ul.appendChild(zeileBau(nr, s, max)); });
+    box.appendChild(ul);
+    if (window.gsap && !RUHIG) gsap.from(ul.querySelectorAll(".zeile__balken i"), { scaleX: 0, duration: 0.7, ease: "expo.out", stagger: 0.015 });
+  }
+}
+sortBox.addEventListener("change", function (e) { register(e.target.value); });
+register("nr");
+zeigeZahlen("");
+document.getElementById("sb-karte").addEventListener("click", function () {
+  aktiv = 10; zustand({ nr: S.nr, thema: S.thema === "stadtteile" ? "ew" : S.thema, grenze: false, kamera: S.nr ? "teil" : "stadt", pitch: 0, bearing: 0, maxZoom: 15 });
+  document.getElementById("buehne").scrollIntoView({ behavior: RUHIG ? "auto" : "smooth" });
+  document.getElementById("frage-10").scrollIntoView({ behavior: RUHIG ? "auto" : "smooth", block: "center" });
+});
+document.getElementById("sb-grafik").addEventListener("click", function () {
+  if (A.schauGebiet) A.schauGebiet(S.nr);
+  document.getElementById("schaugrafik").scrollIntoView({ behavior: RUHIG ? "auto" : "smooth" });
+});
+
+// =====================================================================
+// Grenzfall
+// =====================================================================
+(function () {
+  var gf = K.grenzfall, kern = document.getElementById("grenz-kern");
+  if (!gf) { kern.textContent = tt("karte.grenz_spaeter"); document.getElementById("grenz-mehr").hidden = true; return; }
+  var gs = gf.stadt, ab = function (a, b) { return b ? 100 * (b - a) / a : 0; };
+  var d = ab(gs.mittelpunkt, gs.flaechenanteilig);
+  kern.textContent = tt("karte.grenz_kern", { stadt: KIEZ_I18N.ort("ganze_stadt"), mp: fmt.format(gs.mittelpunkt), fl: fmt.format(gs.flaechenanteilig),
+    d: (d >= 0 ? "+" : "") + fmt1.format(d) + NB + "%", zellen: fmt.format(gs.grenzzellen), ew: fmt.format(gs.ew_in_grenzzellen),
+    aussen: fmt.format(gs.mittelpunkt_aussen_zellen), aussen_ew: fmt.format(gs.mittelpunkt_aussen_ew) });
+  var zeilen = Object.keys(gf.stadtteile).map(function (nr) { var g = gf.stadtteile[nr]; return { nr: nr, g: g, d: ab(g.mittelpunkt, g.flaechenanteilig) }; })
+    .filter(function (x) { return x.g.mittelpunkt > 0; }).sort(function (a, b) { return Math.abs(b.d) - Math.abs(a.d); });
+  if (zeilen.length) {
+    var gr = zeilen[0], gp = gr.g.flaechenanteilig - gr.g.mittelpunkt;
+    document.getElementById("grenz-lead").textContent = tt("karte.grenz_lead", { stadt: KIEZ_I18N.ort("stadt"), d: (d >= 0 ? "+" : "\u2212") + fmt1.format(Math.abs(d)) + NB + "%", name: name(gr.nr),
+      d_teil: (gr.d >= 0 ? "+" : "\u2212") + fmt1.format(Math.abs(gr.d)) + NB + "%", personen: fmt.format(Math.abs(gp)) });
+  }
+  var tb = document.querySelector("#grenz-tab tbody");
+  zeilen.forEach(function (x, i) {
+    var tr = el("tr"); if (i >= 8) tr.className = "zu";
+    var th = el("th", null, x.nr + " " + name(x.nr)); th.scope = "row"; tr.appendChild(th);
+    tr.appendChild(el("td", null, fmt.format(x.g.mittelpunkt)));
+    tr.appendChild(el("td", null, fmt.format(x.g.flaechenanteilig)));
+    tr.appendChild(el("td", x.d > 0 ? "pos" : x.d < 0 ? "neg" : "", (x.d >= 0 ? "+" : "−") + fmt1.format(Math.abs(x.d)) + NB + "%"));
+    var pd = x.g.flaechenanteilig - x.g.mittelpunkt;
+    tr.appendChild(el("td", null, (pd >= 0 ? "+" : "−") + fmt.format(Math.abs(pd))));
+    tr.appendChild(el("td", null, fmt.format(x.g.grenzzellen)));
+    tb.appendChild(tr);
+  });
+  var mehr = document.getElementById("grenz-mehr"), tab = document.getElementById("grenz-tab");
+  if (zeilen.length <= 8) mehr.hidden = true;
+  mehr.addEventListener("click", function () { var an = !tab.classList.contains("alle"); tab.classList.toggle("alle", an); mehr.setAttribute("aria-expanded", String(an)); mehr.textContent = an ? tt("karte.weniger") : tt("karte.alle_teile"); });
+})();
+
+// Beispielzelle als Zeichnung (SVG) aus den eigenen Geometrien
+(function () {
+  var box = document.getElementById("grenz-figur"), txt = document.getElementById("grenz-zelle-text"), cap = document.getElementById("grenz-cap");
+  if (!GZ) { box.hidden = true; return; }
+  var lat0 = GZ.c[1], kx = Math.cos(lat0 * Math.PI / 180) * 111320, ky = 110540, R = 105;   // Ausschnitt ± R Meter
+  function P(c) { return [((c[0] - GZ.c[0]) * kx + R).toFixed(1), (R - (c[1] - GZ.c[1]) * ky).toFixed(1)]; }
+  function pfad(f) { return polys(f).map(function (p) { return p.map(function (r) { return "M" + r.map(function (c) { return P(c).join(","); }).join("L") + "Z"; }).join(""); }).join(""); }
+  var zelle = "M" + GZ.f.geometry.coordinates[0].map(function (c) { return P(c).join(","); }).join("L") + "Z";
+  var A1 = GZ.p.st, B1 = GZ.nach, W = 2 * R;
+  var nachbarn = Z.features.filter(function (f) { var c = f.geometry.coordinates[0][0]; return Math.abs(c[0] - GZ.c[0]) * kx < R + 120 && Math.abs(c[1] - GZ.c[1]) * ky < R + 120 && f !== GZ.f; })
+    .map(function (f) { return "M" + f.geometry.coordinates[0].map(function (c) { return P(c).join(","); }).join("L") + "Z"; }).join("");
+  var tA = Math.round(100 * (GZ.anteil[A1] || 0)), tB = Math.round(100 * (GZ.anteil[B1] || 0));
+  var mA = P(GZ.mitte[A1] || GZ.c), mB = P(GZ.mitte[B1] || GZ.c), mc = P(GZ.c);
+  var svg = '<svg viewBox="0 0 ' + W + ' ' + W + '" role="img" aria-label="' + tt("karte.gz_aria", { a: esc(name(A1)), b: esc(name(B1)) }) + '">' +
+    '<defs><clipPath id="gz-clip"><path d="' + zelle + '"/></clipPath><pattern id="gz-raster" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" stroke="#cdd1cc" stroke-width=".4"/></pattern></defs>' +
+    '<rect width="' + W + '" height="' + W + '" fill="#fafbf8"/><rect width="' + W + '" height="' + W + '" fill="url(#gz-raster)"/>' +
+    '<path d="' + pfad(TEIL[A1]) + '" fill="' + FARBE[A1] + '" fill-opacity=".28" fill-rule="evenodd"/>' +
+    '<path d="' + pfad(TEIL[B1]) + '" fill="' + FARBE[B1] + '" fill-opacity=".28" fill-rule="evenodd"/>' +
+    '<path d="' + nachbarn + '" fill="none" stroke="#13212a" stroke-opacity=".35" stroke-width=".6"/>' +
+    '<g class="gz-ganz"><path d="' + zelle + '" fill="' + FARBE[A1] + '"/></g>' +
+    '<g class="gz-teil" clip-path="url(#gz-clip)" opacity="0"><path d="' + pfad(TEIL[A1]) + '" fill="' + FARBE[A1] + '" fill-rule="evenodd"/><path d="' + pfad(TEIL[B1]) + '" fill="' + FARBE[B1] + '" fill-rule="evenodd"/></g>' +
+    '<path d="' + zelle + '" fill="none" stroke="#13212a" stroke-width="1.6"/>' +
+    '<path d="' + pfad(TEIL[A1]) + '" fill="none" stroke="#6a2c82" stroke-width="2.2" fill-rule="evenodd"/>' +
+    '<g class="gz-mitte"><circle cx="' + mc[0] + '" cy="' + mc[1] + '" r="3.4" fill="#13212a" stroke="#fff" stroke-width="1.2"/></g>' +
+    '<g class="gz-teil" opacity="0" font-family="Barlow Semi Condensed, sans-serif" font-weight="600" font-size="9" fill="#13212a" text-anchor="middle">' +
+      '<text x="' + mA[0] + '" y="' + mA[1] + '" paint-order="stroke" stroke="#fff" stroke-width="2.5">' + tA + ' %</text>' +
+      '<text x="' + mB[0] + '" y="' + mB[1] + '" paint-order="stroke" stroke="#fff" stroke-width="2.5">' + tB + ' %</text></g>' +
+    '<g font-family="Barlow, sans-serif" font-size="6.6" fill="#13212a"><rect x="' + (W - 104) + '" y="' + (W - 34) + '" width="98" height="28" fill="#fafbf8" stroke="#cdd1cc" stroke-width=".5"/><rect x="' + (W - 99) + '" y="' + (W - 29) + '" width="7" height="7" fill="' + FARBE[A1] + '"/><text x="' + (W - 88) + '" y="' + (W - 23) + '">' + A1 + ' ' + esc(name(A1)) + '</text><rect x="' + (W - 99) + '" y="' + (W - 18) + '" width="7" height="7" fill="' + FARBE[B1] + '"/><text x="' + (W - 88) + '" y="' + (W - 12) + '">' + B1 + ' ' + esc(name(B1)) + '</text></g>' +
+    '<g font-family="Barlow, sans-serif" font-size="6.4" fill="#4f5d64"><line x1="8" y1="' + (W - 10) + '" x2="58" y2="' + (W - 10) + '" stroke="#13212a" stroke-width="1"/><text x="8" y="' + (W - 14) + '">50 m</text></g>' +
+    '</svg>';
+  box.innerHTML = svg;
+  cap.textContent = tt("karte.gz_cap", { stichproben: String(GZ.stichproben) }) + "Zensus 2022, © Statistische Ämter des Bundes und der Länder, dl-de/by-2-0; Stadtteile © Landeshauptstadt Potsdam, dl-de/zero-2-0.";
+  function modus(m) {
+    document.querySelectorAll(".umschalter__k").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.modus === m)); });
+    var fl = m === "flaeche";
+    box.querySelector(".gz-ganz").style.opacity = fl ? 0 : 1;
+    box.querySelectorAll(".gz-teil").forEach(function (g) { g.style.opacity = fl ? 1 : 0; });
+    box.querySelector(".gz-mitte").style.opacity = fl ? 0.35 : 1;
+    txt.textContent = fl
+      ? tt("karte.gz_flaeche", { ta: tA + NB + "%", a: name(A1), tb: tB + NB + "%", b: name(B1), ew: fmt.format(GZ.p.ew), xa: fmt.format(Math.round(GZ.p.ew * tA / 100)), xb: fmt.format(Math.round(GZ.p.ew * tB / 100)) })
+      : tt("karte.gz_mitte", { a: name(A1), ew: fmt.format(GZ.p.ew), b: name(B1) });
+  }
+  document.querySelectorAll(".umschalter__k").forEach(function (b) { b.addEventListener("click", function () { modus(b.dataset.modus); }); });
+  modus("mittelpunkt");
+})();
+
+// ---------- Titel: Zeilen richten sich auf (einmal), dann Fragen-Steuerung
+(function () {
+  if (window.gsap && !RUHIG) {
+    gsap.from(".titel__z > span", { yPercent: 105, duration: 1.1, ease: "expo.out", stagger: 0.08 });
+    gsap.from(".stadtzahlen div", { y: 14, autoAlpha: 0, duration: 0.8, ease: "expo.out", stagger: 0.05, delay: 0.25 });
+  }
+  scrollSteuerung();
+  schritt(0, true);
+})();
+})();

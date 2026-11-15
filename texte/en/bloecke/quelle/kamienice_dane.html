@@ -1,0 +1,34 @@
+<section id="kd-pliki">
+<h2>Data files of the topic</h2>
+<p>The atlas pages load data files from the atlas data folder; the same values are in the downloads below. Each file has a description of its fields as a JSON schema in the repository.</p>
+<ul class="quellen">
+<li><code>gebaeude_kennzahlen.js</code>: buildings of the city and the four delegatury from BDOT10k (number, use, storeys, footprint) with the origin of heights; data as of [[gebaeude_kennzahlen:stand_daten|datum]].</li>
+<li><code>gebaeude_dzielnice_odbl.js</code>: the same indicators by district (ODbL, because the assignment uses the OpenStreetMap boundaries).</li>
+<li><code>denkmale_bdot.js</code>: counts of multi-family buildings, complexes and buildings named “Kamienica …” from BDOT10k.</li>
+[[wenn denkmale_odbl:sichtpruefung.geprueft]]<li><code>denkmale_odbl.js</code>: OpenStreetMap objects with <code>heritage</code> or <code>start_date</code>; location of the objects tagged <code>heritage</code> checked on the orthophoto for a random sample (n = [[denkmale_odbl:sichtpruefung.ergebnis.n]], [[denkmale_odbl:sichtpruefung.datum|datum]]): on the object [[denkmale_odbl:sichtpruefung.ergebnis.lage.ja]], just beside it [[denkmale_odbl:sichtpruefung.ergebnis.lage.daneben]], away from it [[denkmale_odbl:sichtpruefung.ergebnis.lage.nein]], i.e. [[denkmale_odbl:sichtpruefung.ergebnis.lage.quote|anteil0]] on the object (Wilson 95% interval [[denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.0|anteil0]]–[[denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.1|anteil0]]), not for every single point (ODbL); as of [[denkmale_odbl:stand|datum]].</li>[[sonst]]<li><code>denkmale_odbl.js</code>: OpenStreetMap objects with <code>heritage</code> or <code>start_date</code>, location unchecked (ODbL); as of [[denkmale_odbl:stand|datum]].</li>[[ende]]
+[[wenn denkmale:sichtpruefung.geprueft]]<li><code>denkmale.js</code>: register of monuments, so far only the Wikidata part ([[denkmale:quellen.wd.vermerk|text]], as of [[denkmale:stand|datum]]): per point period of construction, residential use, multi-family building and delegatura, without identifiers and without names; location checked on the orthophoto for a random sample (n = [[denkmale:sichtpruefung.ergebnis.n]], [[denkmale:sichtpruefung.datum|datum]]): on the object [[denkmale:sichtpruefung.ergebnis.lage.ja]], just beside it [[denkmale:sichtpruefung.ergebnis.lage.daneben]], away from it [[denkmale:sichtpruefung.ergebnis.lage.nein]], i.e. [[denkmale:sichtpruefung.ergebnis.lage.quote|anteil0]] on the object (Wilson 95% interval [[denkmale:sichtpruefung.ergebnis.lage.wilson95.0|anteil0]]–[[denkmale:sichtpruefung.ergebnis.lage.wilson95.1|anteil0]]), not for every single point. The NID register and the gminna ewidencja zabytków are missing (manual download outstanding).</li>[[sonst]]<li><code>denkmale.js</code>: register of monuments, so far only the Wikidata part ([[denkmale:quellen.wd.vermerk|text]], as of [[denkmale:stand|datum]]): per point period of construction, residential use, multi-family building and delegatura, without identifiers and without names; location not checked. The NID register and the gminna ewidencja zabytków are missing (manual download outstanding).</li>[[ende]]
+<li><code>sanierung.js</code>: the ZBK list by type, ownership and district as listed, and the block typology by delegatura; list as of [[sanierung:stand|datum]].</li>
+<li><code>sanierung_odbl.js</code>: locations of ZBK buildings in public ownership and the typology by district (ODbL, because the addresses were looked up in OpenStreetMap).</li>
+</ul>
+<p>The building bodies for the 3D view (one file per district, ODbL) are kept outside the repository; the page loads them only when the 3D view is switched on. They are not part of the downloads.</p>
+</section>
+
+<section id="kd-pobierz">
+<h2>Downloads</h2>
+<ul class="quellen">
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: layers <code>miasto</code>, <code>delegatury</code>, <code>bdot_kompleksy</code>, <code>bdot_kamienica_nazwa</code>, <code>zbk_wykaz_dzielnice</code>.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a> (ODbL 1.0): layers <code>dzielnice</code>, <code>osm_heritage_start_date</code>, <code>zbk_budynki</code>, <code>zbk_typologia_dzielnice</code>.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: the same layers as CSV; in <code>csv_pl/</code> with a decimal comma for Polish-locale Excel.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/licencje.csv" download>licencje.csv</a>: licence and source notice for every layer.</li>
+</ul>
+</section>
+
+<section id="kd-noty">
+<h2>Source notices</h2>
+<ul class="quellen">
+<li>[[gebaeude_kennzahlen:quellen.bdot10k.vermerk|text]]</li>
+<li>[[gebaeude_kennzahlen:quellen.hoehen.vermerk|text]]</li>
+<li>© OpenStreetMap contributors, ODbL 1.0 (openstreetmap.org/copyright).</li>
+<li>[[sanierung:quellen.zbk.vermerk|text]] [[sanierung:quellen.zbk.odpowiedzialnosc|text]]</li>
+</ul>
+</section>

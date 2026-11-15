@@ -1,0 +1,366 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Klima: Bodenbedeckung der Stadt und der Delegaturen",
+ "description": "Flächenanteile der Bodenbedeckung nach BDOT10k (GUGiK) für die Gemeinde Kraków und die vier Delegaturen (Verwaltungseinheiten aus OT_ADJA_A, Schlüssel IDTERYTJED). Abzeichen immer orientierung: bebauung_verkehr ist eine Näherung, keine gemessene Versiegelung. gruen_je_ew = (gruen + wald) in m² je Einwohner, null mit Grund, solange die Einwohner Beispieldaten sind oder unter mindest_einwohner liegen. gruppe_nach_name: Gruppe der Ortskonfiguration mit gleichem Namen, keine geprüfte Zuordnung. Regeln: pruefen/dk_protokoll.md. Keine OpenStreetMap-Anteile.",
+ "x-datei": "klimat.js",
+ "x-global": "^KIEZ_KLIMAT$",
+ "x-eigentuemer": "skripte/35_klimat.py (Paket Klima)",
+ "type": "object",
+ "required": [
+  "stand_daten",
+  "quelle",
+  "abzeichen",
+  "klassen",
+  "abgeleitet",
+  "rechen_srid",
+  "mindest_einwohner",
+  "stadt",
+  "delegaturen"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "stand_daten": {
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "quelle": {
+   "$ref": "#/$defs/quelle"
+  },
+  "abzeichen": {
+   "enum": [
+    "orientierung"
+   ]
+  },
+  "klassen": {
+   "type": "array",
+   "minItems": 7,
+   "maxItems": 7,
+   "items": {
+    "enum": [
+     "bebauung",
+     "verkehr",
+     "gruen",
+     "wald",
+     "wasser",
+     "acker",
+     "sonstige"
+    ]
+   }
+  },
+  "abgeleitet": {
+   "type": "object",
+   "required": [
+    "bebauung_verkehr",
+    "gruen_wald"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "bebauung_verkehr": {
+     "type": "array",
+     "items": {
+      "enum": [
+       "bebauung",
+       "verkehr",
+       "gruen",
+       "wald",
+       "wasser",
+       "acker",
+       "sonstige"
+      ]
+     }
+    },
+    "gruen_wald": {
+     "type": "array",
+     "items": {
+      "enum": [
+       "bebauung",
+       "verkehr",
+       "gruen",
+       "wald",
+       "wasser",
+       "acker",
+       "sonstige"
+      ]
+     }
+    }
+   }
+  },
+  "rechen_srid": {
+   "type": "integer"
+  },
+  "befund": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "description": "Befunde nach pruefen/dk_protokoll.md; eine Datei mit befund wird nicht veröffentlicht."
+  },
+  "mindest_einwohner": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "stadt": {
+   "type": "object",
+   "required": [
+    "flaeche_ha",
+    "abdeckung",
+    "ha",
+    "anteil",
+    "teryt",
+    "gruen_je_ew"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "flaeche_ha": {
+     "type": "number",
+     "minimum": 0
+    },
+    "abdeckung": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100.5
+    },
+    "ha": {
+     "$ref": "#/$defs/ha"
+    },
+    "anteil": {
+     "$ref": "#/$defs/anteil"
+    },
+    "teryt": {
+     "type": "string",
+     "pattern": "^\\d{7}$"
+    },
+    "gruen_je_ew": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "gruen_je_ew_grund": {
+     "$ref": "#/$defs/gruen_grund"
+    }
+   }
+  },
+  "delegaturen": {
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "patternProperties": {
+    "^\\d{7}$": {
+     "type": "object",
+     "required": [
+      "flaeche_ha",
+      "abdeckung",
+      "ha",
+      "anteil",
+      "name",
+      "gruppe_nach_name"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "flaeche_ha": {
+       "type": "number",
+       "minimum": 0
+      },
+      "abdeckung": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0,
+       "maximum": 100.5
+      },
+      "ha": {
+       "$ref": "#/$defs/ha"
+      },
+      "anteil": {
+       "$ref": "#/$defs/anteil"
+      },
+      "name": {
+       "type": "string",
+       "minLength": 1
+      },
+      "gruppe_nach_name": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "ha": {
+   "type": "object",
+   "required": [
+    "bebauung",
+    "verkehr",
+    "gruen",
+    "wald",
+    "wasser",
+    "acker",
+    "sonstige"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "bebauung": {
+     "type": "number",
+     "minimum": 0
+    },
+    "verkehr": {
+     "type": "number",
+     "minimum": 0
+    },
+    "gruen": {
+     "type": "number",
+     "minimum": 0
+    },
+    "wald": {
+     "type": "number",
+     "minimum": 0
+    },
+    "wasser": {
+     "type": "number",
+     "minimum": 0
+    },
+    "acker": {
+     "type": "number",
+     "minimum": 0
+    },
+    "sonstige": {
+     "type": "number",
+     "minimum": 0
+    }
+   },
+   "description": "Klassenflächen in ha (0,1 ha gerundet) innerhalb der Einheit und der Stadtgrenze."
+  },
+  "anteil": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "required": [
+    "bebauung",
+    "verkehr",
+    "gruen",
+    "wald",
+    "wasser",
+    "acker",
+    "sonstige",
+    "bebauung_verkehr",
+    "gruen_wald"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "bebauung": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "verkehr": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "gruen": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "wald": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "wasser": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "acker": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "sonstige": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "bebauung_verkehr": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    },
+    "gruen_wald": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 100
+    }
+   },
+   "description": "Anteile in Prozent der Summe der Klassenflächen (0,1 Punkte gerundet); bebauung_verkehr und gruen_wald abgeleitet. null: Bezugsfläche zu klein (anteil_grund)."
+  },
+  "quelle": {
+   "type": "object",
+   "required": [
+    "quelle",
+    "vermerk",
+    "url"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "quelle": {
+     "type": "string",
+     "minLength": 1
+    },
+    "vermerk": {
+     "type": "string",
+     "minLength": 1
+    },
+    "url": {
+     "type": "string",
+     "pattern": "^https://"
+    }
+   }
+  },
+  "gruen_grund": {
+   "enum": [
+    "einwohner_beispieldaten",
+    "unter_mindestzahl"
+   ]
+  }
+ }
+}

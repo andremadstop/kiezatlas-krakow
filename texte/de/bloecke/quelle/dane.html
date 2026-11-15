@@ -1,0 +1,51 @@
+<section id="d-pobierz">
+<h2>Downloads</h2>
+<p>Alle Dateien erzeugt ein Skript aus denselben Datendateien, die die Seiten laden; kein Wert wird neu gerechnet. Luft und Wohnungspreise haben noch keine eigene Ebene (Liesmich, Abschnitt „Nicht im Export“).</p>
+<ul class="quellen">
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: GeoPackage ohne Daten aus OpenStreetMap (Stadt, delegatury, 1-km-Gitter, Bodenbedeckung, Einrichtungen aus der BDOT10k, Haltestellen, BDOT10k-Komplexe, ZBK-Liste je dzielnica).</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a>: GeoPackage mit den Grenzen der dzielnice und allem, was von ihnen abhängt, mit Fußwegen, Ärzten und Apotheken, OSM-Objekten mit Denkmalangabe und den Punkten des ZBK-Bestands. Ganze Datei: Open Database License 1.0.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.qgz" download>kiezatlas_krakow.qgz</a>: QGIS-Projekt mit Stilen; beide GeoPackages müssen im selben Ordner liegen.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: dieselben Ebenen als CSV, in zwei Fassungen.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/licencje.csv" download>licencje.csv</a>: Lizenz und wörtlicher Quellenvermerk je Ebene.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/pola.csv" download>pola.csv</a> und <a class="link" href="{{wurzel}}daten/pobierz/wartosci.csv" download>wartosci.csv</a>: Bedeutung jedes Felds und jedes kodierten Werts auf Polnisch, Englisch und Deutsch.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/LIESMICH.md">LIESMICH.md</a>: Beschreibung der Ebenen und Felder, Zeilenzahlen, Grenzen (auch <a class="link" hreflang="pl" href="{{wurzel}}daten/pobierz/CZYTAJ.md">auf Polnisch</a> und <a class="link" hreflang="en" href="{{wurzel}}daten/pobierz/README.md">auf Englisch</a>).</li>
+</ul>
+<p><strong>Dezimalkomma.</strong> Die Ordner <code>csv_pl/</code> und <code>csv_odbl_pl/</code> im Archiv haben ein Dezimalkomma und keinen Tausendertrenner; Excel und LibreOffice mit polnischer (oder deutscher) Ländereinstellung lesen die Zahlen so gleich als Zahlen. Die Ordner <code>csv/</code> und <code>csv_odbl/</code> haben einen Dezimalpunkt (für Programme und englische Einstellungen). Alle Dateien: UTF-8 mit BOM, Trennzeichen Semikolon, Koordinaten in EPSG:2178.</p>
+</section>
+
+<section id="d-licencje">
+<h2>Lizenzen</h2>
+<ul class="quellen">
+<li><strong>Dateien mit <code>_odbl</code> im Namen</strong> (im Atlas und in den Downloads) enthalten Daten aus OpenStreetMap oder Werte, die über die Grenzen aus OpenStreetMap einer dzielnica zugeordnet sind. Es gilt die Open Database License 1.0 mit dem Vermerk „© OpenStreetMap-Mitwirkende“ (openstreetmap.org/copyright). Wer sie verändert und weitergibt, gibt sie unter derselben Lizenz weiter.</li>
+<li><strong>BDOT10k, LoD2-Modelle, Register der Immobilienpreise</strong> (GUGiK): ohne Lizenz, mit Pflicht zur Quellenangabe (art. 40c ust. 3 i 5 des polnischen Geodäsiegesetzes, Prawo geodezyjne i kartograficzne).</li>
+<li><strong>Eurostat-Bevölkerungsgitter, GTFS-Fahrplan der ZTP</strong>: CC BY 4.0, mit Quellenvermerk und Hinweis auf Veränderungen.</li>
+<li><strong>NSP 2021 (GUS)</strong>: Kopieren mit Quellenangabe erlaubt.</li>
+<li><strong>ZBK-Liste</strong>: Weiterverwendung von Informationen des öffentlichen Sektors nach den Regeln der Gmina Miejska Kraków, mit Vermerk und Haftungsklausel.</li>
+<li><strong>Code und eigene Texte</strong>: Apache-2.0; Grafiken des Atlas: CC BY 4.0 mit der Bildzeile auf der Grafik.</li>
+</ul>
+<p>Die Quellenvermerke stehen unten wörtlich, in der Originalsprache.</p>
+</section>
+
+<section id="d-zrodla">
+<h2>Datenquellen</h2>
+<ul class="quellen">
+<li><strong>Bevölkerung, NSP 2021:</strong> [[steckbrief:quellen.nsp2021.quelle|text]]. Vermerk: „[[steckbrief:quellen.nsp2021.vermerk|text]]“.</li>
+<li><strong>Bevölkerungsgitter:</strong> Eurostat, Census 2021 population grid, [[steckbrief:quellen.eurostat2021.url|text]]. Vermerk: „[[steckbrief:quellen.eurostat2021.vermerk|text]]“</li>
+<li><strong>Gebäude und Grenzen der delegatury:</strong> [[gebaeude_kennzahlen:quellen.bdot10k.vermerk|text]] [[gebaeude_kennzahlen:quellen.delegatury.vermerk|text]].</li>
+<li><strong>Gebäudehöhen:</strong> [[gebaeude_kennzahlen:quellen.hoehen.vermerk|text]]</li>
+<li><strong>Einrichtungen:</strong> [[einrichtungen:quellen.bdot10k.vermerk|text]].</li>
+<li><strong>Fahrplan:</strong> [[haltestellen:quellen.ztp.vermerk|text]].</li>
+<li><strong>OpenStreetMap:</strong> © OpenStreetMap-Mitwirkende, ODbL 1.0 (openstreetmap.org/copyright); Auszug für die Wojewodschaft Kleinpolen, Stand [[stadtteile_odbl:stand|datum]].</li>
+<li><strong>ZBK-Liste:</strong> [[sanierung:quellen.zbk.vermerk|text]] Klausel: „[[sanierung:quellen.zbk.odpowiedzialnosc|text]]“</li>
+<li><strong>Grundkarte:</strong> BDOT10k, Główny Urząd Geodezji i Kartografii; [[grundkarte:stand|text]].</li>
+<li><strong>Schulwege:</strong> [[planer_odbl:quellen.prawo_oswiatowe.vermerk|text]].</li>
+<li><strong>Grenzwerte der Luftqualität:</strong> [[powietrze:grenzwerte.pm10_srednia.0.fundstelle|text]]. Beschluss gegen den Smog: [[powietrze:kontekst.akt|text]]. Messwerte: [[powietrze:quelle.nazwa|text]], Vermerk „EEA; Daten: GIOŚ“.</li>
+<li><strong>Wohnungspreise</strong>: [[mieszkania_odbl:quelle.vermerk|text]].</li>
+</ul>
+</section>
+
+<section id="d-cytuj">
+<h2>Zitieren</h2>
+<p>[[ort:zitierzeile.de|text]], mit dem Datenstand aus dem Seitenfuß. Für Downloads zusätzlich der Dateiname und die Quellenvermerke aus <code>licencje.csv</code>. Zitierangaben in maschinenlesbarer Form stehen in der Datei <code>CITATION.cff</code> im [[wenn konfig:repository]]<a class="link" href="[[konfig:repository|adresse]]">Repository</a>[[sonst]]Repository (noch nicht öffentlich, bis dahin auf Anfrage, Adresse unten)[[ende]]; eine DOI ist noch nicht vergeben.</p>
+<p>Fehler in Daten oder Text gefunden? Bitte eine Nachricht an <a class="link" href="mailto:{{meldeweg}}">{{meldeweg}}</a>.</p>
+</section>

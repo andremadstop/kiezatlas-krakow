@@ -1,0 +1,79 @@
+# Prüfungen ohne Rohdaten, ohne Datenbank, ohne Netz während der Prüfung und ohne Browser.
+# Spiegelt den Teil von ./pruefen.sh, der ohne $KIEZ_DATEN grün sein kann; die Prüfsummen der Rohdaten, die
+# Neurechnung aus den Rohdaten und die Browserprüfungen laufen nur lokal (docs/running.md, „Checks“).
+# Netz braucht nur die Vorbereitung (Pakete in den uv-Zwischenspeicher), danach läuft alles mit --offline.
+# Offen: Actions auf Commit-SHA festschreiben (docs/entscheidungen/O.md).
+name: pruefen
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  ohne-rohdaten:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      KIEZ_DATEN: ${{ github.workspace }}/../leer
+      UV_PYTHON_PREFERENCE: only-managed
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Werkzeuge vorbereiten (einziger Schritt mit Netz)
+        run: |
+          pipx install uv==0.11.3
+          mkdir -p "$KIEZ_DATEN"
+          uv run --python 3.13 --no-project --with-requirements requirements.txt python -c pass
+          uv run --python 3.13 --no-project --with-requirements requirements.txt --with-requirements requirements-schriften.txt python -c pass
+          uv run --python 3.13 --no-project --with-requirements requirements.txt --with-requirements requirements-pruefen.txt python -c pass
+      - name: Syntax JavaScript, Shell, Python
+        run: |
+          for d in *.js texte/*/*.js daten/ort.js pruefen/*.mjs; do node --check "$d"; done
+          for d in atlas.sh pruefen.sh skripte/*.sh pruefen/*.sh; do sh -n "$d"; done
+          uv run -q --offline --python 3.13 --no-project --with-requirements requirements.txt python -I -c 'import ast, sys; [ast.parse(open(d, encoding="utf-8").read(), d) for d in sys.argv[1:]]' skripte/*.py pruefen/*.py
+      - name: Gerüst, Seiten, Texte, Verträge, Belegschicht
+        run: |
+          PY="uv run -q --offline --python 3.13 --no-project --with-requirements requirements.txt python -I"
+          $PY pruefen/geruest.py
+          $PY skripte/31_ort.py --pruefen
+          $PY skripte/30_seiten.py --pruefen
+          $PY pruefen/texte.py
+          $PY pruefen/hreflang.py
+          $PY pruefen/daten.py
+          $PY pruefen/belege.py
+      - name: Schriften
+        run: uv run -q --offline --python 3.13 --no-project --with-requirements requirements.txt --with-requirements requirements-schriften.txt python -I pruefen/DF_schriften.py
+      - name: Datenpakete ohne Rohdaten
+        run: |
+          PY="uv run -q --offline --python 3.13 --no-project --with-requirements requirements.txt python -I"
+          sh skripte/12_osm.sh test
+          sh skripte/14b_fussweg.sh test
+          uv run -q --offline --python 3.13 --no-project --with-requirements requirements.txt --with-requirements requirements-pruefen.txt python -I -m pytest -q pruefen/d1_test_abruf.py
+          $PY pruefen/D4_bevoelkerung.py --ohne-rohdaten
+          $PY pruefen/D5_gebaeude.py --ohne-rohdaten
+          $PY pruefen/D6_versorgung.py
+          $PY pruefen/D7_powietrze.py --ohne-lauf
+          $PY pruefen/D8_grundkarte.py
+          $PY pruefen/dk_klimat.py
+          $PY pruefen/DW_mieszkania.py --ohne-lauf
+          $PY pruefen/DZ_denkmale.py
+          $PY pruefen/DS_sanierung.py
+          # skripte/32_powietrze.py und skripte/40_mieszkania.py --pruefen rechnen aus den Rohdaten (EEA, RCN;
+          # Handdownload) und laufen nur lokal in ./pruefen.sh
+      - name: Seitenpakete ohne Browser
+        run: |
+          PY="uv run -q --offline --python 3.13 --no-project --with-requirements requirements.txt python -I"
+          $PY pruefen/S2_zaehlungen.py --pruefen
+          $PY skripte/16_export_krakow.py --pruefen
+          $PY pruefen/S4_export.py
+          $PY skripte/16_bloecke_krakow.py --pruefen
+          $PY pruefen/S4_bloecke.py
+      - name: Kette im Trockenlauf meldet fehlende Rohdaten (Rückgabe 2 erwartet)
+        run: |
+          set +e
+          ./atlas.sh trocken --ohne-datenbank; rc=$?
+          test "$rc" -eq 2
+      - name: Prüfung vor Veröffentlichung
+        run: python3 -I skripte/oeffentlich_pruefen.py

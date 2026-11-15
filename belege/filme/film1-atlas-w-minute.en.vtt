@@ -1,0 +1,59 @@
+WEBVTT
+
+NOTE English translation of the Polish subtitles burned into the film.
+
+1
+00:00:00.001 --> 00:00:04.460
+The atlas in a minute. An atlas of Kraków's districts from open public data
+
+2
+00:00:04.460 --> 00:00:09.271
+Home page: the city's key figures, each with its source.
+
+3
+00:00:09.271 --> 00:00:14.283
+Questions lead through the city; the map shows the answer.
+
+4
+00:00:14.283 --> 00:00:19.497
+The map colours change with every question.
+
+5
+00:00:19.879 --> 00:00:24.285
+Map: all topics of the atlas on one map.
+
+6
+00:00:24.285 --> 00:00:29.092
+1 km grid layer: residents per grid cell.
+
+7
+00:00:29.092 --> 00:00:33.902
+District colours: building coverage.
+
+8
+00:00:33.902 --> 00:00:38.713
+Points: stops by service frequency class.
+
+9
+00:00:39.095 --> 00:00:43.902
+District profile: indicators, rank among districts and source.
+
+10
+00:00:43.902 --> 00:00:48.916
+A missing value means no data, not zero.
+
+11
+00:00:49.301 --> 00:00:54.106
+Comparison: Kraków and Potsdam, same grid, same method.
+
+12
+00:00:54.106 --> 00:00:58.916
+Only indicators with the same definition are compared.
+
+13
+00:00:58.916 --> 00:01:03.924
+The rest is listed separately: what is not compared and why.
+
+14
+00:01:03.924 --> 00:01:08.938
+Sources: GUS, Narodowy Spis Powszechny 2021; Eurostat, Census 2021 population grid (CC BY 4.0); BDOT10k, Główny Urząd Geodezji i Kartografii; Timetable: ZTP Kraków, GTFS (CC BY 4.0); District boundaries: © OpenStreetMap contributors (ODbL). Full source notes and licences: the „Dane” page.

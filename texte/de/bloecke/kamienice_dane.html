@@ -1,0 +1,37 @@
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/kamienice_dane.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="kd-pliki">
+<h2>Datendateien des Themas</h2>
+<p>Die Seiten des Atlas laden Datendateien aus dem Datenordner des Atlas; dieselben Werte stehen in den Downloads unten. Jede Datei hat im Repository eine Beschreibung ihrer Felder als JSON-Schema.</p>
+<ul class="quellen">
+<li><code>gebaeude_kennzahlen.js</code>: Gebäude der Stadt und der vier delegatury aus der BDOT10k (Zahl, Nutzung, Geschosse, Grundfläche) mit der Herkunft der Höhen; Datenstand <span data-feld="gebaeude_kennzahlen:stand_daten">18. Mai 2026</span>.</li>
+<li><code>gebaeude_dzielnice_odbl.js</code>: dieselben Kennzahlen je dzielnica (ODbL, weil die Zuordnung über die Grenzen aus OpenStreetMap läuft).</li>
+<li><code>denkmale_bdot.js</code>: Zählungen der Mehrfamilienhäuser, Komplexe und Gebäude mit dem Namen „Kamienica …“ aus der BDOT10k.</li>
+<li><code>denkmale_odbl.js</code>: OpenStreetMap-Objekte mit <code>heritage</code> oder <code>start_date</code>; Lage der Objekte mit <code>heritage</code> am Luftbild (Ortofotomapa) in einer Zufallsstichprobe geprüft (n = <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.n">20</span>, <span data-feld="denkmale_odbl:sichtpruefung.datum">15. November 2026</span>): auf dem Objekt <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.ja">16</span>, knapp daneben <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.daneben">3</span>, nicht dort <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.nein">1</span>, also <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.quote">80 %</span> auf dem Objekt (Wilson-Intervall 95 %: <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.0">58 %</span>–<span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.1">92 %</span>), nicht für jeden einzelnen Punkt (ODbL); Stand <span data-feld="denkmale_odbl:stand">12. November 2026</span>.</li>
+<li><code>denkmale.js</code>: Denkmalregister, bisher nur der Teil aus Wikidata (<span data-feld="denkmale:quellen.wd.vermerk">Wikidata, CC0 1.0</span>, Stand <span data-feld="denkmale:stand">14. November 2026</span>): je Punkt Bauzeitklasse, Wohnnutzung, Mehrfamilienhaus und Delegatura, ohne Kennung und ohne Namen; Lage am Luftbild (Ortofotomapa) in einer Zufallsstichprobe geprüft (n = <span data-feld="denkmale:sichtpruefung.ergebnis.n">20</span>, <span data-feld="denkmale:sichtpruefung.datum">15. November 2026</span>): auf dem Objekt <span data-feld="denkmale:sichtpruefung.ergebnis.lage.ja">17</span>, knapp daneben <span data-feld="denkmale:sichtpruefung.ergebnis.lage.daneben">3</span>, nicht dort <span data-feld="denkmale:sichtpruefung.ergebnis.lage.nein">0</span>, also <span data-feld="denkmale:sichtpruefung.ergebnis.lage.quote">85 %</span> auf dem Objekt (Wilson-Intervall 95 %: <span data-feld="denkmale:sichtpruefung.ergebnis.lage.wilson95.0">64 %</span>–<span data-feld="denkmale:sichtpruefung.ergebnis.lage.wilson95.1">95 %</span>), nicht für jeden einzelnen Punkt. NID-Register und gminna ewidencja zabytków fehlen (Handdownload steht aus).</li>
+<li><code>sanierung.js</code>: die ZBK-Liste nach Art, Eigentum und dzielnica laut Liste sowie die Typologie der Blöcke je delegatura; Stand der Liste <span data-feld="sanierung:stand">1. Dezember 2025</span>.</li>
+<li><code>sanierung_odbl.js</code>: Lage der ZBK-Gebäude in öffentlichem Eigentum und Typologie je dzielnica (ODbL, weil die Adressen in OpenStreetMap gesucht wurden).</li>
+</ul>
+<p>Die Gebäudekörper für die 3D-Ansicht (eine Datei je dzielnica, ODbL) liegen außerhalb des Repositorys; die Seite lädt sie erst, wenn die 3D-Ansicht eingeschaltet wird. In den Downloads sind sie nicht enthalten.</p>
+</section>
+
+<section id="kd-pobierz">
+<h2>Downloads</h2>
+<ul class="quellen">
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: Ebenen <code>miasto</code>, <code>delegatury</code>, <code>bdot_kompleksy</code>, <code>bdot_kamienica_nazwa</code>, <code>zbk_wykaz_dzielnice</code>.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a> (ODbL 1.0): Ebenen <code>dzielnice</code>, <code>osm_heritage_start_date</code>, <code>zbk_budynki</code>, <code>zbk_typologia_dzielnice</code>.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: dieselben Ebenen als CSV; in <code>csv_pl/</code> mit Dezimalkomma für Excel mit polnischer oder deutscher Einstellung.</li>
+<li><a class="link" href="{{wurzel}}daten/pobierz/licencje.csv" download>licencje.csv</a>: Lizenz und Quellenvermerk je Ebene.</li>
+</ul>
+</section>
+
+<section id="kd-noty">
+<h2>Quellenvermerke</h2>
+<ul class="quellen">
+<li><span data-feld="gebaeude_kennzahlen:quellen.bdot10k.vermerk" lang="pl">Źródło: Baza Danych Obiektów Topograficznych (BDOT10k), państwowy zasób geodezyjny i kartograficzny, Główny Urząd Geodezji i Kartografii; dane opracowane (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne, Dz.U. 2026 poz. 1389)</span></li>
+<li><span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk" lang="pl">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></li>
+<li>© OpenStreetMap-Mitwirkende, ODbL 1.0 (openstreetmap.org/copyright).</li>
+<li><span data-feld="sanierung:quellen.zbk.vermerk" lang="pl">Źródło: Zarząd Budynków Komunalnych w Krakowie, „Wykaz budynków i obiektów w zarządzie ZBK na dzień 2025-12-01”, Biuletyn Informacji Publicznej (https://www.bip.krakow.pl/?bip_id=32&amp;mmi=10127), załącznik nr 635620 z dnia 2025-12-18; data wytworzenia: 2025-12-18 (plik PDF), data pozyskania: 2026-11-13. Informacja przetworzona: odczyt tabeli z PDF, ujednolicenie rodzaju budynku i własności, zliczenia; plik nie zawiera adresów.</span> <span data-feld="sanierung:quellen.zbk.odpowiedzialnosc" lang="pl">Gmina Miejska Kraków nie ponosi odpowiedzialności za: szkody spowodowane pozyskaniem informacji sektora publicznego lub ponownym wykorzystywaniem informacji sektora publicznego, zamieszczonej na stronach BIP MK lub w innym miejskim serwisie internetowym, udostępnianej na wniosek lub pozyskanej w inny sposób, wykorzystywanej ponownie z naruszeniem warunków udostępniania lub ponownego wykorzystywania informacji sektora publicznego; szkody spowodowane przez dalsze udostępnienie informacji sektora publicznego przez podmioty ponownie ją wykorzystujące z naruszeniem przepisów prawa powszechnie obowiązującego, w tym dalsze udostępnianie informacji sektora publicznego z naruszeniem przepisów regulujących ich ochronę m.in. przepisów ustawy o prawie autorskim i prawach pokrewnych, ustawy o ochronie baz danych, przepisów o ochronie danych osobowych, ustawy o ochronie informacji niejawnych itd.</span></li>
+</ul>
+</section>
+
+<p class="odbl-vermerk"><small>Stadtteilgrenzen und darauf beruhende Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>

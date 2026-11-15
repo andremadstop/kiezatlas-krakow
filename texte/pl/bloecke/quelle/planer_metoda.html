@@ -1,0 +1,47 @@
+<section id="p-jednostki">
+<h2>Jednostki i mieszkańcy</h2>
+<p>Obliczenia dostępności opierają się na komórkach siatki ludności Eurostatu (1 km); mieszkańcy w granicach miasta: [[planer_fuss_odbl:gesamt.ew]]. Mieszkańcy komórki są umieszczeni w jej środku; to uproszczenie, bo w komórce mieszkańcy mogą być rozłożeni nierówno. Wartości dla dzielnicy powstają z komórek, których środek leży w dzielnicy (granice z OpenStreetMap), liczby mieszkańców są zaokrąglone do [[planer_odbl:rundung.ew]]. Wszystkie wskaźniki są <em>orientacyjne</em>.</p>
+</section>
+
+<section id="p-placowki">
+<h2>Placówki</h2>
+<p>Szkoły, przedszkola, żłobki, szpitale i parki pochodzą z bazy BDOT10k jako kompleksy zajmujące własny teren (tu reprezentowane przez punkt wewnątrz tego terenu). W granicach miasta: szkoły [[einrichtungen:features[properties.art=szkola,properties.in_stadt=true]|anzahl]], przedszkola [[einrichtungen:features[properties.art=przedszkole,properties.in_stadt=true]|anzahl]], żłobki [[einrichtungen:features[properties.art=zlobek,properties.in_stadt=true]|anzahl]], szpitale [[einrichtungen:features[properties.art=szpital,properties.in_stadt=true]|anzahl]], parki [[einrichtungen:features[properties.art=park,properties.in_stadt=true]|anzahl]]. BDOT10k nie rozróżnia typów szkół i nie podaje liczby miejsc ani liczby uczniów; przedszkola i żłobki w budynkach bez własnej działki w ogóle się w niej nie pojawiają. Dlatego wartości dla żłobków i przedszkoli nie oddają rzeczywistej sieci placówek. Rejestr Szkół i Placówek Oświatowych (RSPO) nie jest jeszcze włączony, bo jego licencji nie sprawdzono.</p>
+<p>Lekarze i apteki pochodzą z OpenStreetMap (lekarze: [[einrichtungen_odbl:features[properties.art=arzt]|anzahl]], apteki: [[einrichtungen_odbl:features[properties.art=apotheke]|anzahl]]), bez nazw; ich kompletności nie sprawdzono. Placówki tuż za granicą miasta są uwzględniane przy obliczaniu odległości, bo z obrzeży bywają najbliższe.</p>
+</section>
+
+<section id="p-odleglosc">
+<h2>Linia prosta i dojście piesze</h2>
+<p>Dla każdej komórki atlas podaje odległość od jej środka do najbliższej placówki danego rodzaju w metrach: w linii prostej (pliki bez OpenStreetMap) oraz dojściem pieszym siecią dróg z OpenStreetMap (pliki <code>_odbl</code>). Dojście piesze jest zawsze dłuższe od odległości w linii prostej lub jej równe i bliższe codziennemu doświadczeniu; pytania na stronach pokazują je zawsze, gdy jest dostępne.</p>
+</section>
+
+<section id="p-szkoly">
+<h2>Szkoła i przedszkole w zasięgu</h2>
+<p>Prawo oświatowe określa najdłuższą drogę dziecka do szkoły i przedszkola: [[richtwerte:bildung.szkola_podstawowa_droga.wortlaut|text]] ([[richtwerte:bildung.szkola_podstawowa_droga.seite|text]]). Dla przedszkola: [[richtwerte:bildung.przedszkole_droga.seite|text]], [[richtwerte:bildung.przedszkole_droga.wert_m]] m. Źródło: [[planer_odbl:quellen.prawo_oswiatowe.vermerk|text]].</p>
+<p>Przepis mówi o drodze do szkoły w obwodzie, w którym dziecko mieszka; atlas liczy drogę do najbliższej placówki dowolnego rodzaju. Dlatego to <em>wartość orientacyjna</em>, nie <em>standard urzędowy</em>. Wynik dla całego miasta (dojście piesze):</p>
+<ul>
+<li>szkoła w odległości do [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].richtwert.wert]] m: [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].wert|anteil0]] mieszkańców ([[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].zaehler]] z [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=szkola,richtwert.wert=3000].nenner]]);</li>
+<li>przedszkole w odległości do [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].richtwert.wert]] m: [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].wert|anteil0]] ([[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].zaehler]] z [[planer_fuss_odbl:gesamt.werte[kennzahl=anteil_in_radius,art=przedszkole].nenner]]).</li>
+</ul>
+</section>
+
+<section id="p-takt">
+<h2>Klasa częstotliwości kursowania</h2>
+<p>Przystanki i odjazdy pochodzą z rozkładu GTFS ZTP. Przystanek to wspólny rdzeń kodów słupków, jego położenie to średnia położeń słupków. Liczymy odjazdy w dzień roboczy [[haltestellen:stichtag|datum]] między [[haltestellen:fenster.0|text]] a [[haltestellen:fenster.1|text]], wszystkie linie razem, w kierunku z większą liczbą odjazdów, jako średnią na godzinę. Najmniejsza liczba odjazdów na godzinę: klasa I [[haltestellen:klassen.grenzen.I]], klasa II [[haltestellen:klassen.grenzen.II]], klasa III [[haltestellen:klassen.grenzen.III]]. Progi przejęto z atlasu Poczdamu, żeby oba miasta były porównywalne; w Polsce nie znaleziono dla nich normy, dlatego klasy są orientacyjne.</p>
+<p>Przystanki w granicach miasta: [[haltestellen:features[properties.in_stadt=true]|anzahl]], w tym klasa I: [[haltestellen:features[properties.taktklasse=I,properties.in_stadt=true]|anzahl]], klasa II: [[haltestellen:features[properties.taktklasse=II,properties.in_stadt=true]|anzahl]], klasa III: [[haltestellen:features[properties.taktklasse=III,properties.in_stadt=true]|anzahl]], poniżej klasy III: [[haltestellen:features[properties.taktklasse=unter III,properties.in_stadt=true]|anzahl]]. Przystanki do [[richtwerte:oepnv.messung.randpuffer_m]] m za granicą miasta też się liczą ([[haltestellen:features[properties.in_stadt=false]|anzahl]]).</p>
+<p>Udział mieszkańców, którzy mają przystanek klasy I lub II w odległości do [[richtwerte:planer.oepnv_radius_m.wert]] m (próg własny, bez normy): [[planer_fuss_odbl:gesamt.werte[kennzahl=oepnv_takt].wert|anteil0]] dojściem pieszym, [[planer_odbl:gesamt.werte[kennzahl=oepnv_takt].wert|anteil0]] w linii prostej.</p>
+</section>
+
+<section id="p-zielen">
+<h2>Zieleń w pobliżu</h2>
+<p>Parki to kompleksy BDOT10k „park lub skwer”, bez lasów i ogródków działkowych. Udział mieszkańców z parkiem w zasięgu dojścia pieszego (odległość graniczna jest ustalona w skrypcie obliczeniowym, bez normy; zapisy weryfikacji: <code>belege/README.md</code>): [[planer_fuss_odbl:gesamt.werte[kennzahl=gruen_in_radius].wert|anteil0]]; powierzchnia parków na mieszkańca w całym mieście to [[planer_odbl:gesamt.werte[kennzahl=gruen_m2_je_ew].wert|zahl1]] m².</p>
+</section>
+
+<section id="p-granice">
+<h2>Ograniczenia</h2>
+<ul>
+<li>Odległość do najbliższej placówki nie mówi nic o miejscach, obwodach szkolnych ani godzinach otwarcia.</li>
+<li>Komórka 1 km z mieszkańcami w środku zawyża lub zaniża drogę tych, którzy mieszkają na skraju komórki.</li>
+<li>Klasy częstotliwości odnoszą się do jednego dnia roboczego i porannego szczytu.</li>
+<li>Dane o sieci dróg pieszych i lekarzach z OpenStreetMap są tak kompletne, jak mapa w dniu pobrania.</li>
+</ul>
+</section>

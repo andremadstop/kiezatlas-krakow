@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Access and public transport · Kiezatlas Kraków</title>
+<meta name="description" content="Walking access to stops, schools, kindergartens and green space, and service frequency.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/planer.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/planer.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/planer.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/planer.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/planer.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Access and public transport · Kiezatlas Kraków">
+<meta property="og:description" content="Walking access to stops, schools, kindergartens and green space, and service frequency.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<link rel="stylesheet" href="../kartenseite.css">
+</head>
+<body class="textseite" data-seite="planer">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html" aria-current="page"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../planer.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/planer.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/planer.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Access and public transport">
+    <ul>
+      <li><a class="nav" href="planer.html" aria-current="page"><span>Access</span></a></li>
+      <li><a class="nav" href="planer-metoda.html"><span>Method</span></a></li>
+      <li><a class="nav" href="planer-dane.html"><span>Data</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../planer.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/planer.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Access and public transport</h1>
+<p class="lede">Walking access to stops, schools, kindergartens and green space, and service frequency.</p>
+<p class="ks-wahlhinweis" id="wahl-hinweis">For now the map only shows the district boundaries. Choose a question or a destination to colour the grid cells by distance. <a class="link" href="#fragen">Go to the questions</a></p>
+<section class="ks" aria-label="Access: map and panel">
+  <div class="ks__karte">
+    <div id="karte" role="region" aria-label="Access map of Kraków. Pan with the arrow keys, zoom with plus and minus."></div>
+    <div class="ks-werkzeug" id="werkzeug"></div>
+    <div class="ks-legende" id="legende" tabindex="0" role="region" aria-label="Legend" hidden></div>
+    <p class="nur-sr" id="kartenstatus" aria-live="polite"></p>
+  </div>
+  <div class="ks-blatt">
+    <div class="ks-block">
+      <h2>Questions</h2>
+      <ul class="ks-fragen" id="fragen"></ul>
+    </div>
+    <div class="ks-block">
+      <fieldset class="ks-chips" id="zu"></fieldset>
+      <div class="ks-knoepfe"><button class="knopf knopf--rand" type="button" id="halt-knopf" aria-pressed="false"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Stops by class</span></button></div>
+    </div>
+    <div class="ks-block" id="block-st">
+      <h2>District</h2>
+      <label class="ks-wahl"><span>Choose a district</span><select id="st-wahl"></select></label>
+      <div id="st-inhalt" aria-live="polite"></div>
+    </div>
+    <div class="ks-block">
+      <h2>All districts</h2>
+      <p class="ks-fuss">One indicator for every district and the whole city, with numerator and denominator.</p>
+      <button class="knopf knopf--rand" type="button" id="vg-laden"><span class="knopf__flut" aria-hidden="true"></span><span class="knopf__text">Show comparison</span></button>
+      <div id="vg-auswahl" hidden><label class="ks-wahl"><span>Indicator</span><select id="vg-kennzahl"></select></label></div>
+      <div id="vg-inhalt" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<h2>Limitations</h2>
+<ul class="ks-grenzen">
+  <li>Distance is measured from the centre of each 1 km grid cell to the nearest destination. All residents of a cell count as if they lived at its centre; within the cell the real route may be shorter or longer.</li>
+  <li>Walking routes follow the OpenStreetMap path network (nominal speed); the completeness of the network has not been checked. Destinations just beyond the city boundary count as well.</li>
+  <li>Schools, kindergartens, nurseries, hospitals and parks come from BDOT10k, which only contains facilities with their own site. Many kindergartens and nurseries are missing; the school and kindergarten register (RSPO) is not yet included.</li>
+  <li>Doctors, pharmacies, supermarkets, playgrounds and care homes come from OpenStreetMap, without names; completeness not checked.</li>
+  <li>The service frequency class is our own classification based on one day&#x27;s timetable, not a Polish standard. The Polish term (klasa częstotliwości kursowania) is a proposal still to be agreed.</li>
+  <li>The reference values of the Education Law concern the route to the catchment-area school. Here the route to the nearest facility of any type is measured, so no indicator carries the status “official standard”.</li>
+</ul>
+<h2>Sources</h2>
+<ul class="ks-quellen">
+  <li>Timetable: ZTP Kraków, GTFS, CC BY 4.0, dane zmienione (opracowanie własne).</li>
+  <li>Facilities and parks: Główny Urząd Geodezji i Kartografii, BDOT10k (PZGiK), dane zmienione (opracowanie własne).</li>
+  <li>Path network, doctors, pharmacies, supermarkets, playgrounds, care homes and district boundaries: © OpenStreetMap contributors, ODbL 1.0.</li>
+  <li>Residents per cell: Eurostat, Census 2021 population grid (1 km), CC BY 4.0.</li>
+  <li>Reference values: Education Law (Prawo oświatowe, consolidated text in Dziennik Ustaw).</li>
+</ul>
+<p>More: <a class="link" href="planer-metoda.html">Access: method</a> · <a class="link" href="planer-dane.html">Access: data</a> · <a class="link" href="modernizacja.html">Housing stock and retrofit</a></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../texte/en/planer.js"></script>
+<script defer src="../daten/stadtteile_odbl.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+<script defer src="../vendor/maplibre-gl.js"></script>
+<script defer src="../daten/grundkarte.js"></script>
+<script defer src="../themen.js"></script>
+<script defer src="../kartenseite.js"></script>
+<script defer src="../erreichbarkeit.js"></script>
+</body>
+</html>

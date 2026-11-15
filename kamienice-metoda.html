@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pl" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kamienice: metodologia · Kiezatlas Kraków</title>
+<meta name="description" content="Jak powstaje warstwa kamienic i zabytków: źródła, przypisanie, ograniczenia.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/kamienice-metoda.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/kamienice-metoda.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/kamienice-metoda.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/kamienice-metoda.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/kamienice-metoda.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kamienice: metodologia · Kiezatlas Kraków">
+<meta property="og:description" content="Jak powstaje warstwa kamienic i zabytków: źródła, przypisanie, ograniczenia.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="atlas.css">
+<link rel="stylesheet" href="rahmen.css">
+</head>
+<body class="textseite" data-seite="kamienice-metoda">
+<a class="sprung" href="#inhalt">Przejdź do treści</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Nawigacja">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Start</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Mapa</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Dzielnice</span></a></li>
+        <li><a class="nav" href="kamienice.html" aria-current="true"><span>Kamienice</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Dostępność</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Tematy</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Metodologia</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Wybór języka">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="kamienice-metoda.html" aria-current="true">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="en/kamienice-metoda.html">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="de/kamienice-metoda.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Kamienice i zabytki">
+    <ul>
+      <li><a class="nav" href="kamienice.html"><span>Kamienice</span></a></li>
+      <li><a class="nav" href="kamienice-metoda.html" aria-current="page"><span>Metodologia</span></a></li>
+      <li><a class="nav" href="kamienice-dane.html"><span>Dane</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="en" hreflang="en" lang="en" data-schliessen="Close" href="en/kamienice-metoda.html">Also available in English</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="de/kamienice-metoda.html">Auch auf Deutsch</a> <button type="button" aria-label="Zamknij" title="Zamknij"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Dane przykładowe w części strony: dane wczytane na żądanie pokazują fikcyjne wartości, które służą wyłącznie do budowy atlasu, i są oznaczone tam, gdzie się pojawiają. Pozostałe dane na tej stronie nie są przykładowe." hidden>Dane przykładowe: ta strona pokazuje fikcyjne wartości, które służą wyłącznie do budowy atlasu. Nie są to dane o Krakowie.</p>
+</div>
+<h1>Kamienice: metodologia</h1>
+<p class="lede">Jak powstaje warstwa kamienic i zabytków: źródła, przypisanie, ograniczenia.</p>
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/kamienice_metoda.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="k-budynki">
+<h2>Budynki z BDOT10k</h2>
+<p>Podstawą jest warstwa budynków bazy BDOT10k (stan najnowszej wersji obiektów: <span data-feld="gebaeude_kennzahlen:stand_daten">18 maja 2026</span>). Liczba budynków w mieście: <span data-feld="gebaeude_kennzahlen:stadt.anzahl">90 563</span>; mieszkalne: <span data-feld="gebaeude_kennzahlen:stadt.wohngebaeude">61 199</span>, w tym jednorodzinne <span data-feld="gebaeude_kennzahlen:stadt.wohn_art.ein">46 817</span> i wielorodzinne <span data-feld="gebaeude_kennzahlen:stadt.wohn_art.mehr">13 739</span>. Mediana liczby kondygnacji budynków mieszkalnych: <span data-feld="gebaeude_kennzahlen:stadt.geschosse_median_wohn">2</span>. Budynki zajmują <span data-feld="gebaeude_kennzahlen:stadt.bebauungsdichte.wert">7,1%</span> powierzchni miasta.</p>
+<p>Każdy budynek należy do dokładnie jednego obszaru: decyduje punkt wewnątrz obrysu. Kontrola: <span data-feld="gebaeude_kennzahlen:kontrolle.in_stadt">90 563</span> z <span data-feld="gebaeude_kennzahlen:kontrolle.datensaetze">90 563</span> rekordów leży w mieście, każdy w jednej delegaturze. Przybliżona powierzchnia kondygnacji (powierzchnia obrysu × liczba kondygnacji) jest tylko <em>orientacyjna</em>, bo BDOT10k nie podaje powierzchni użytkowej.</p>
+<p>Widok 3D włącza przycisk „Budynki 3D” na mapie (od dużego przybliżenia, tylko dzielnice w kadrze). Wysokość budynku pochodzi z modeli LoD2, a jeśli modelu brak: kondygnacje × <span data-feld="gebaeude_kennzahlen:methode.geschoss_hoehe_m">3</span> m, z oznaczeniem szacunku. Kolor i okno po kliknięciu podają pochodzenie wysokości przy każdym budynku. Nota o źródle wysokości: <span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></p>
+</section>
+
+<section id="k-kamienica">
+<h2>Co atlas nazywa kamienicą</h2>
+<p>Kamienica to w atlasie budynek wielorodzinny według BDOT10k, który ma związek z zabytkiem: wpis w rejestrze zabytków przypisany do budynku albo obiekt OpenStreetMap ze znacznikiem <code>heritage</code> w obrysie lub tuż obok. Budynek o nazwie „Kamienica …” w BDOT10k jest liczony osobno ze względu na nazwę (takich budynków: <span data-feld="denkmale_bdot:zaehlung.namensbezug">28</span>). Budynki wielorodzinne w BDOT10k: <span data-feld="denkmale_bdot:zaehlung.mehrfamilienhaeuser">13 739</span>.</p>
+<p>To zawsze <strong>podzbiór</strong>: atlas nie twierdzi, ile kamienic jest w dzielnicy, i nie pokazuje lat budowy dla obszarów. Rok budowy w ewidencji jest płatny, a siatka ludności go nie zawiera. Okres budowy pojawia się tylko w klasach, nigdy jako pojedynczy rok, i tylko tam, gdzie podaje go źródło.</p>
+</section>
+
+<section id="k-zabytki">
+<h2>Zabytki: rejestr i OpenStreetMap</h2>
+<p>Rejestr zabytków NID i gminna ewidencja zabytków wymagają ręcznego pobrania, które jeszcze nie nastąpiło. Z rejestru dostępna jest więc tylko część zawarta w Wikidanych (stan <span data-feld="denkmale:stand">14 listopada 2026</span>): obiekty z numerem polskiego rejestru zabytków położone w Krakowie. Odczytane obiekty: <span data-feld="denkmale:zaehlung.wd.zeilen">1909</span>. Obiekty o tym samym numerze tworzą jeden punkt o współrzędnych pierwszego obiektu (połączone: <span data-feld="denkmale:zaehlung.wd.doppelt_ueber_nummer">684</span>), bez współrzędnych: <span data-feld="denkmale:zaehlung.wd.ohne_lage">9</span>, poza granicą miasta: <span data-feld="denkmale:zaehlung.wd.ausserhalb_stadt">2</span>. Liczba pozostałych punktów w mieście: <span data-feld="denkmale:zaehlung.wd.in_stadt">1214</span>, w tym przypisanych do budynku BDOT10k: <span data-feld="denkmale:zaehlung.wd.treffer_gebaeude">1125</span>, w budynku wielorodzinnym: <span data-feld="denkmale:zaehlung.wd.davon_mfh">571</span>. Położenie pochodzi ze współrzędnych w Wikidanych i zostało sprawdzone na ortofotomapie na losowej próbie (n = <span data-feld="denkmale:sichtpruefung.ergebnis.n">20</span>, <span data-feld="denkmale:sichtpruefung.datum">15 listopada 2026</span>): na obiekcie <span data-feld="denkmale:sichtpruefung.ergebnis.lage.ja">17</span>, tuż obok <span data-feld="denkmale:sichtpruefung.ergebnis.lage.daneben">3</span>, poza obiektem <span data-feld="denkmale:sichtpruefung.ergebnis.lage.nein">0</span>, czyli <span data-feld="denkmale:sichtpruefung.ergebnis.lage.quote">85%</span> na obiekcie (95-procentowy przedział ufności, metoda Wilsona: <span data-feld="denkmale:sichtpruefung.ergebnis.lage.wilson95.0">64%</span>–<span data-feld="denkmale:sichtpruefung.ergebnis.lage.wilson95.1">95%</span>); obiekt na ortofotomapie pasuje do opisu w <span data-feld="denkmale:sichtpruefung.ergebnis.ansicht.ja">18</span> z <span data-feld="denkmale:sichtpruefung.ergebnis.ansicht.entschieden">18</span> rozstrzygniętych przypadków (niejasne: <span data-feld="denkmale:sichtpruefung.ergebnis.ansicht.unklar">2</span>). Wynik dotyczy warstwy, nie każdego punktu z osobna. Ta strona podaje liczby według delegatur; punkty pokazuje strona „Mapa” jako osobną warstwę, oddzielnie od OpenStreetMap. Wikidane nie są pobierane automatycznie, bo plik robots.txt usługi zapytań zabrania tego programom; dane pochodzą z ręcznego pobrania.</p>
+<p>Z wyciągu OpenStreetMap (stan na <span data-feld="denkmale_odbl:stand">12 listopada 2026</span>) atlas bierze obiekty ze znacznikiem <code>heritage</code> lub <code>start_date</code>: łącznie <span data-feld="denkmale_odbl:zaehlung.objekte">929</span>, z <code>heritage</code> <span data-feld="denkmale_odbl:zaehlung.mit_heritage">184</span>, z <code>start_date</code> <span data-feld="denkmale_odbl:zaehlung.mit_start_date">822</span>, z czytelnym okresem budowy <span data-feld="denkmale_odbl:zaehlung.bauzeit_lesbar">767</span>. Obiekty przypisane do budynku BDOT10k: <span data-feld="denkmale_odbl:zaehlung.treffer_gebaeude">441</span>, w tym budynki wielorodzinne <span data-feld="denkmale_odbl:zaehlung.davon_mfh">102</span>. Położenie obiektów ze znacznikiem <code>heritage</code> zostało sprawdzone na ortofotomapie na losowej próbie (n = <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.n">20</span>, <span data-feld="denkmale_odbl:sichtpruefung.datum">15 listopada 2026</span>): na obiekcie <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.ja">16</span>, tuż obok <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.daneben">3</span>, poza obiektem <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.nein">1</span>, czyli <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.quote">80%</span> na obiekcie (95-procentowy przedział ufności, metoda Wilsona: <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.0">58%</span>–<span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.1">92%</span>); obiekt na ortofotomapie pasuje do opisu w <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.ansicht.ja">17</span> z <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.ansicht.entschieden">17</span> rozstrzygniętych przypadków (niejasne: <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.ansicht.unklar">3</span>); obie warstwy razem: <span data-feld="denkmale_odbl:sichtpruefung.gesamt.lage.ja">33</span> z <span data-feld="denkmale_odbl:sichtpruefung.gesamt.n">40</span> na obiekcie, <span data-feld="denkmale_odbl:sichtpruefung.gesamt.lage.quote">83%</span>. Wynik dotyczy warstwy, nie każdego punktu z osobna; reguła oceny została ustalona przed liczeniem („obok” nie liczy się jako „na obiekcie”). Przypisania do budynku nie sprawdzano.</p>
+<p>Kompleksy BDOT10k (forty, zespoły zabudowy, muzea, miejsca pamięci) są pokazane jako topografia, nie jako zabytki z rejestru: forty <span data-feld="denkmale_bdot:zaehlung.komplexe.twierdza">38</span>, zespoły zabudowy <span data-feld="denkmale_bdot:zaehlung.komplexe.zabudowa">17</span>, muzea <span data-feld="denkmale_bdot:zaehlung.komplexe.muzeum">3</span>, miejsca pamięci <span data-feld="denkmale_bdot:zaehlung.komplexe.pamiec">1</span>.</p>
+</section>
+
+<section id="k-zbk">
+<h2>Atlas zasobu ZBK</h2>
+<p>Źródłem jest „Wykaz budynków i obiektów w zarządzie ZBK” ze stanem na <span data-feld="sanierung:stand">1 grudnia 2025</span>, opublikowany w Biuletynie Informacji Publicznej Krakowa jako PDF. Liczba pozycji: <span data-feld="sanierung:liste.eintraege">508</span>, w tym poza Krakowem (Wieliczka): <span data-feld="sanierung:liste.miejscowosc.wieliczka">8</span>. Własność według wykazu: gmina <span data-feld="sanierung:liste.je_eigentum.gmina">410</span>, Skarb Państwa <span data-feld="sanierung:liste.je_eigentum.skarb_panstwa">34</span>, mieszana, wyłącznie publiczna <span data-feld="sanierung:liste.je_eigentum.publiczne_mieszane">4</span>, z udziałem osób prywatnych <span data-feld="sanierung:liste.je_eigentum.z_prywatnymi">46</span>, prywatna <span data-feld="sanierung:liste.je_eigentum.prywatne">14</span>. Informację ponownie wykorzystujemy na warunkach Gminy Miejskiej Kraków; nota i klauzula odpowiedzialności są w danych i w plikach do pobrania.</p>
+<p><strong>Ochrona danych.</strong> W plikach nie ma adresów, numerów pozycji ani identyfikatorów budynków. Punkt na mapie dostaje tylko budynek w całości publiczny (gmina, Skarb Państwa, mieszana, wyłącznie publiczna), bez samoistnego posiadania i bez domów jednorodzinnych; takich punktów jest <span data-feld="sanierung_odbl:punkte.features">126</span>. Pozostałe pozycje są tylko liczone według dzielnicy, bo punkt przy domu z udziałem prywatnym łączyłby adres z własnością konkretnej osoby.</p>
+<p><strong>Położenie.</strong> Adresy z wykazu odszukano w adresach OpenStreetMap: odnaleziono <span data-feld="sanierung_odbl:verortung.je_klasse.verortet">398</span> z <span data-feld="sanierung_odbl:verortung.in_krakow">500</span> pozycji w Krakowie, czyli <span data-feld="sanierung_odbl:verortung.quote">79,6%</span> (95-procentowy przedział ufności Wilsona: <span data-feld="sanierung_odbl:verortung.wilson95.0">75,8%</span>–<span data-feld="sanierung_odbl:verortung.wilson95.1">82,9%</span>). Kontrola: dzielnica z wykazu zgadza się z dzielnicą punktu w <span data-feld="sanierung_odbl:gegenprobe_dzielnica.gleich">398</span> z <span data-feld="sanierung_odbl:gegenprobe_dzielnica.n">406</span> przypadków. Ponieważ położenie pochodzi z OpenStreetMap, wszystkie punkty są w plikach <code>_odbl</code>.</p>
+</section>
+
+<section id="k-typologia">
+<h2>Typologia bloków (szacunek)</h2>
+<p>Kandydatów na bloki wielorodzinne wybiera reguła ustalona przed obliczeniem, tylko z danych BDOT10k: budynek wielorodzinny eksploatowany (kategoria istnienia w BDOT10k); liczba kondygnacji co najmniej <span data-feld="sanierung:typologie.kriterien.geschosse_min">4</span>; powierzchnia obrysu co najmniej <span data-feld="sanierung:typologie.kriterien.flaeche_min_m2">250</span> m²; prostokątność co najmniej <span data-feld="sanierung:typologie.kriterien.rechteckigkeit_min">0,85</span>. Blok na osiedlu blokowym to kandydat, wokół którego w promieniu <span data-feld="sanierung:typologie.kriterien.umkreis_m">150</span> m liczba innych kandydatów wynosi co najmniej <span data-feld="sanierung:typologie.kriterien.nachbarn_min">9</span>. W całym mieście: budynki wielorodzinne <span data-feld="sanierung:typologie.stadt.mfh">13 573</span>, kandydaci na bloki <span data-feld="sanierung:typologie.stadt.blok">3341</span>, w tym na osiedlach blokowych <span data-feld="sanierung:typologie.stadt.osiedle">943</span>.</p>
+<p>To <strong>szacunek</strong>, nie spis budynków z wielkiej płyty: nie zawiera roku budowy ani zużycia energii. Na ortofotomapie (ocena z <span data-feld="sanierung:typologie.sichtpruefung.datum">14 listopada 2026</span>) sprawdzono losową próbę, i to tylko, czy widać blok mieszkalny, a nie technologię budowy: z <span data-feld="sanierung:typologie.sichtpruefung.osiedle.n">30</span> kandydatów na osiedlach blokowych tak <span data-feld="sanierung:typologie.sichtpruefung.osiedle.ja">21</span>, nie <span data-feld="sanierung:typologie.sichtpruefung.osiedle.nein">5</span>, niejasne <span data-feld="sanierung:typologie.sichtpruefung.osiedle.unklar">4</span>, czyli <span data-feld="sanierung:typologie.sichtpruefung.osiedle.quote">81%</span> rozstrzygniętych przypadków (95-procentowy przedział ufności, metoda Wilsona: <span data-feld="sanierung:typologie.sichtpruefung.osiedle.wilson95.0">62%</span>–<span data-feld="sanierung:typologie.sichtpruefung.osiedle.wilson95.1">91%</span>); dla kontroli <span data-feld="sanierung:typologie.sichtpruefung.kein_kandidat.n">10</span> budynków wielorodzinnych o co najmniej <span data-feld="sanierung:typologie.kriterien.geschosse_min">4</span> kondygnacjach spoza kandydatów: tak <span data-feld="sanierung:typologie.sichtpruefung.kein_kandidat.ja">4</span>, nie <span data-feld="sanierung:typologie.sichtpruefung.kein_kandidat.nein">4</span>, niejasne <span data-feld="sanierung:typologie.sichtpruefung.kein_kandidat.unklar">2</span>. Literatura podana tylko bibliograficznie: Barnaś, Jeleński, Nowak-Ocłoń, Racoń-Leja i in., <span data-feld="sanierung:typologie.literatur.zeitschrift">Energy</span>, DOI <span data-feld="sanierung:typologie.literatur.doi">10.1016/j.energy.2022.125774</span>. Atlas nie sprawdzał treści tego artykułu i nie używa z niego żadnych liczb ani danych.</p>
+</section>
+
+<p class="odbl-vermerk"><small>Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Strona główna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/nota-prawna/">Nota prawna</a> <a class="link" hreflang="pl" href="https://souverain-systems.de/pl/polityka-prywatnosci/">Polityka prywatności</a></p>
+  <p class="fuss-seite__stand">Stan <span data-kiez-version>—</span>. Wydawca: Stiebitz Souverain Systems UG (haftungsbeschränkt). Kod: Apache-2.0. Grafiki: CC BY 4.0. Dane: licencje według źródeł. <span class="fuss-seite__odbl">Granice dzielnic i dane na nich oparte: © autorzy OpenStreetMap, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Widzisz błąd? Napisz do nas: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="daten/ort.js"></script>
+<script defer src="i18n.js"></script>
+<script defer src="texte/pl/kern.js"></script>
+<script defer src="texte/pl/seiten.js"></script>
+<script defer src="kopf.js"></script>
+<script defer src="rahmen.js"></script>
+</body>
+</html>

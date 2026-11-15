@@ -1,0 +1,48 @@
+<!--seite
+daten: daten/mieszkania_odbl.js
+texte: kern seiten mieszkania
+robots: index
+css: themenseite.css
+skripte: themenseite.js seite_mieszkania.js
+-->
+<h1>{{t:seiten.mieszkania.h1}}</h1>
+<p class="lede">{{t:seiten.mieszkania.beschreibung}}</p>
+<aside class="ts-beispiel" id="m-beispiel" role="note" hidden></aside>
+<div class="ts-merke">
+  <p>{{t:mieszkania.hinweis_art}}</p>
+  <p id="m-datenschutz"></p>
+</div>
+
+<section class="ts-abschnitt">
+  <h2 id="m-h-dzielnice">{{t:mieszkania.h.dzielnice}}</h2>
+  <div class="ts-knoepfe" id="m-rok"></div>
+  <div class="ts-knoepfe" id="m-rynek"></div>
+  <div class="ts-beispielzone">
+    <ul class="ts-zahlen" id="m-stadt"></ul>
+    <div id="m-dzielnice"></div>
+  </div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="m-h-przebieg">{{t:mieszkania.h.przebieg}}</h2>
+  <figure class="ts-abbildung" id="m-wykres"><div class="ts-zeichnung"></div><figcaption></figcaption></figure>
+  <div id="m-legende"></div>
+  <div class="ts-beispielzone" id="m-jahre"></div>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="m-h-granice">{{t:mieszkania.h.granice}}</h2>
+  <ul class="ts-grenzen" id="m-grenzen">
+    <li>{{t:mieszkania.hinweis_art}}</li>
+    <li>{{t:mieszkania.hinweis_brutto}}</li>
+    <li>{{t:mieszkania.g.sklad}}</li>
+    <li>{{t:mieszkania.g.kompletnosc}}</li>
+    <li>{{t:mieszkania.g.granice}}</li>
+  </ul>
+</section>
+
+<section class="ts-abschnitt">
+  <h2 id="m-h-zrodla">{{t:mieszkania.h.zrodla}}</h2>
+  <dl class="ts-quellen" id="m-quellen"></dl>
+</section>
+{{block:mieszkania}}

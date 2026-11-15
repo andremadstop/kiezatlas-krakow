@@ -1,0 +1,104 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Vergleich Kraków–Potsdam: Kennzahlen gleicher Definition",
+ "description": "Bevölkerung, Altersgruppen, Fläche und Dichte beider Städte aus demselben Datensatz (Eurostat Census 2021 population grid, 1 km, CC BY 4.0) mit derselben Zuordnung (Mittelpunkt der Zelle in der Stadt). Nur Stadtwerte, keine Werte je Stadtteil (Grenzen Krakaus unter ODbL, Zellgröße für Stadtteile zu grob). Anteile erst ab der Mindestfallzahl, sonst null. Erzeugt von skripte/41_porownanie.py. Vorschlag des Pakets Seiten Erzählung, Karte, Steckbrief, Vergleich; Vertrag bei der Integration.",
+ "x-datei": "porownanie.js",
+ "x-global": "^KIEZ_POROWNANIE$",
+ "x-odbl": false,
+ "x-eigentuemer": "skripte/41_porownanie.py (Paket Seiten Erzählung, Karte, Steckbrief, Vergleich)",
+ "type": "object",
+ "required": ["stand_auswertung", "vergleich", "quellen", "methode", "staedte", "kontrolle"],
+ "additionalProperties": false,
+ "properties": {
+  "stand_auswertung": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+  "vergleich": {"type": "object", "required": ["gleicher_datensatz", "gleiche_merkmale", "stichtage_gleich"], "additionalProperties": false, "description": "Verglichen werden nur Kennzahlen gleicher Definition: derselbe Datensatz (Eurostat Census 2021 population grid, 1 km), dieselben Merkmale, dieselbe Zuordnung (methode.gitter_zuordnung); stichtage_gleich sagt, ob die Stichtage der beiden Gitter übereinstimmen", "properties": {"gleicher_datensatz": {"const": true}, "gleiche_merkmale": {"const": true}, "stichtage_gleich": {"type": "boolean"}}},
+  "fixture": {"const": true},
+  "quellen": {
+   "type": "object",
+   "required": ["eurostat_pl", "eurostat_de", "flaeche_krakow", "grenze_potsdam"],
+   "additionalProperties": false,
+   "properties": {
+    "eurostat_pl": {"$ref": "#/$defs/gitterquelle"},
+    "eurostat_de": {"$ref": "#/$defs/gitterquelle"},
+    "flaeche_krakow": {
+     "type": "object", "required": ["quelle", "vermerk"], "additionalProperties": false,
+     "properties": {"quelle": {"type": "string", "minLength": 1}, "vermerk": {"type": "string", "minLength": 1}}
+    },
+    "grenze_potsdam": {
+     "type": "object", "required": ["quelle", "lizenz", "commit", "stand", "sha256"], "additionalProperties": false,
+     "properties": {
+      "quelle": {"type": "string", "minLength": 1},
+      "lizenz": {"const": "dl-de/zero-2-0"},
+      "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+      "stand": {"type": "string", "minLength": 1},
+      "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+     }
+    }
+   }
+  },
+  "methode": {
+   "type": "object",
+   "required": ["gitter_zuordnung", "mindestfallzahl", "gitter_srid", "flaeche_potsdam_srid"],
+   "additionalProperties": false,
+   "properties": {
+    "gitter_zuordnung": {"enum": ["mittelpunkt"]},
+    "mindestfallzahl": {"type": "integer", "minimum": 100},
+    "gitter_srid": {"const": 3035},
+    "flaeche_potsdam_srid": {"const": 3035}
+   }
+  },
+  "staedte": {
+   "type": "object",
+   "required": ["krakow", "potsdam"],
+   "additionalProperties": false,
+   "properties": {"krakow": {"$ref": "#/$defs/stadt"}, "potsdam": {"$ref": "#/$defs/stadt"}}
+  },
+  "kontrolle": {
+   "type": "object",
+   "required": ["potsdam_zellen_im_rahmen", "potsdam_zellen_mittelpunkt", "potsdam_zellen_ohne_altersangabe", "potsdam_flaeche_atlas_km2", "potsdam_flaeche_abweichung_proz"],
+   "additionalProperties": false,
+   "properties": {
+    "potsdam_zellen_im_rahmen": {"type": "integer", "minimum": 0},
+    "potsdam_zellen_mittelpunkt": {"type": "integer", "minimum": 1},
+    "potsdam_zellen_ohne_altersangabe": {"type": "integer", "minimum": 0},
+    "potsdam_flaeche_atlas_km2": {"type": "number", "exclusiveMinimum": 0},
+    "potsdam_flaeche_abweichung_proz": {"type": "number", "minimum": -0.5, "maximum": 0.5}
+   }
+  }
+ },
+ "$defs": {
+  "gitterquelle": {
+   "type": "object",
+   "required": ["quelle", "url", "lizenz", "vermerk", "stichtag", "stichtag_geprueft"],
+   "additionalProperties": false,
+   "properties": {
+    "quelle": {"type": "string", "minLength": 1},
+    "url": {"type": "string", "pattern": "^https://"},
+    "lizenz": {"const": "CC BY 4.0"},
+    "vermerk": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "stichtag": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "stichtag_geprueft": {"type": "boolean"}
+   }
+  },
+  "anteil": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+  "stadt": {
+   "type": "object",
+   "required": ["zellen", "einwohner", "u15", "a15_64", "a65p", "a_ges", "q_u15", "q_15_64", "q_65p", "flaeche_km2", "dichte"],
+   "additionalProperties": false,
+   "properties": {
+    "zellen": {"type": "integer", "minimum": 1},
+    "einwohner": {"type": "integer", "minimum": 0},
+    "u15": {"type": "integer", "minimum": 0},
+    "a15_64": {"type": "integer", "minimum": 0},
+    "a65p": {"type": "integer", "minimum": 0},
+    "a_ges": {"type": "integer", "minimum": 0},
+    "q_u15": {"$ref": "#/$defs/anteil"},
+    "q_15_64": {"$ref": "#/$defs/anteil"},
+    "q_65p": {"$ref": "#/$defs/anteil"},
+    "flaeche_km2": {"type": "number", "exclusiveMinimum": 0},
+    "dichte": {"type": ["integer", "null"], "minimum": 0}
+   }
+  }
+ }
+}

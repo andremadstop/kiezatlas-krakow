@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" class="kopf-zwei">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tenements: data · Kiezatlas Kraków</title>
+<meta name="description" content="Downloads and licences of the tenement and monument layer.">
+<link rel="alternate" hreflang="pl" href="https://souverain-systems.de/kiezatlas/krakow/kamienice-dane.html">
+<link rel="alternate" hreflang="en" href="https://souverain-systems.de/kiezatlas/krakow/en/kamienice-dane.html">
+<link rel="alternate" hreflang="de" href="https://souverain-systems.de/kiezatlas/krakow/de/kamienice-dane.html">
+<link rel="alternate" hreflang="x-default" href="https://souverain-systems.de/kiezatlas/krakow/kamienice-dane.html">
+<link rel="canonical" href="https://souverain-systems.de/kiezatlas/krakow/en/kamienice-dane.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tenements: data · Kiezatlas Kraków">
+<meta property="og:description" content="Downloads and licences of the tenement and monument layer.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="theme-color" content="#f1f2ee">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../atlas.css">
+<link rel="stylesheet" href="../rahmen.css">
+</head>
+<body class="textseite" data-seite="kamienice-dane">
+<a class="sprung" href="#inhalt">Skip to content</a>
+
+<header class="kopfleiste">
+  <div class="kopfleiste__zeile">
+    <a class="marke" href="index.html"><span class="marke__zeichen" aria-hidden="true"></span>Kiezatlas Kraków</a>
+    <nav class="kopf-haupt" aria-label="Navigation">
+      <ul>
+        <li><a class="nav" href="index.html"><span>Home</span></a></li>
+        <li><a class="nav" href="karta.html"><span>Map</span></a></li>
+        <li><a class="nav" href="dzielnica.html"><span>Districts</span></a></li>
+        <li><a class="nav" href="kamienice.html" aria-current="true"><span>Tenements</span></a></li>
+        <li><a class="nav" href="planer.html"><span>Access</span></a></li>
+        <li><a class="nav" href="index.html#tematy"><span>Topics</span></a></li>
+        <li><a class="nav" href="metoda.html"><span>Method</span></a></li>
+      </ul>
+    </nav>
+    <nav class="sprachen" aria-label="Choose language">
+      <ul>
+        <li><a data-sprache="pl" hreflang="pl" lang="pl" title="Polski" href="../kamienice-dane.html">PL</a></li>
+        <li><a data-sprache="en" hreflang="en" lang="en" title="English" href="../en/kamienice-dane.html" aria-current="true">EN</a></li>
+        <li><a data-sprache="de" hreflang="de" lang="de" title="Deutsch" href="../de/kamienice-dane.html">DE</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="kopf-unter" aria-label="Tenement houses and monuments">
+    <ul>
+      <li><a class="nav" href="kamienice.html"><span>Tenements</span></a></li>
+      <li><a class="nav" href="kamienice-metoda.html"><span>Method</span></a></li>
+      <li><a class="nav" href="kamienice-dane.html" aria-current="page"><span>Data</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inhalt">
+<div class="hinweise">
+  <p id="sprachhinweis" class="sprachhinweis" hidden><a class="link" data-sprache="pl" hreflang="pl" lang="pl" data-schliessen="Zamknij" href="../kamienice-dane.html">Strona dostępna również po polsku</a> <a class="link" data-sprache="de" hreflang="de" lang="de" data-schliessen="Schließen" href="../de/kamienice-dane.html">Auch auf Deutsch</a> <button type="button" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></p>
+  <p id="beispieldaten" class="beispieldaten" role="note" data-nachgeladen="Sample data on part of this page: data loaded on demand show made-up values used only to build the atlas and are marked where they appear. The other data on this page are not sample data." hidden>Sample data: this page shows made-up values used only to build the atlas. They are not data about Kraków.</p>
+</div>
+<h1>Tenements: data</h1>
+<p class="lede">Downloads and licences of the tenement and monument layer.</p>
+<!-- erzeugt von skripte/16_bloecke_krakow.py aus quelle/kamienice_dane.html; nicht von Hand ändern, Zahlen kommen aus daten/ -->
+<section id="kd-pliki">
+<h2>Data files of the topic</h2>
+<p>The atlas pages load data files from the atlas data folder; the same values are in the downloads below. Each file has a description of its fields as a JSON schema in the repository.</p>
+<ul class="quellen">
+<li><code>gebaeude_kennzahlen.js</code>: buildings of the city and the four delegatury from BDOT10k (number, use, storeys, footprint) with the origin of heights; data as of <span data-feld="gebaeude_kennzahlen:stand_daten">18 May 2026</span>.</li>
+<li><code>gebaeude_dzielnice_odbl.js</code>: the same indicators by district (ODbL, because the assignment uses the OpenStreetMap boundaries).</li>
+<li><code>denkmale_bdot.js</code>: counts of multi-family buildings, complexes and buildings named “Kamienica …” from BDOT10k.</li>
+<li><code>denkmale_odbl.js</code>: OpenStreetMap objects with <code>heritage</code> or <code>start_date</code>; location of the objects tagged <code>heritage</code> checked on the orthophoto for a random sample (n = <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.n">20</span>, <span data-feld="denkmale_odbl:sichtpruefung.datum">15 November 2026</span>): on the object <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.ja">16</span>, just beside it <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.daneben">3</span>, away from it <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.nein">1</span>, i.e. <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.quote">80%</span> on the object (Wilson 95% interval <span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.0">58%</span>–<span data-feld="denkmale_odbl:sichtpruefung.ergebnis.lage.wilson95.1">92%</span>), not for every single point (ODbL); as of <span data-feld="denkmale_odbl:stand">12 November 2026</span>.</li>
+<li><code>denkmale.js</code>: register of monuments, so far only the Wikidata part (<span data-feld="denkmale:quellen.wd.vermerk">Wikidata, CC0 1.0</span>, as of <span data-feld="denkmale:stand">14 November 2026</span>): per point period of construction, residential use, multi-family building and delegatura, without identifiers and without names; location checked on the orthophoto for a random sample (n = <span data-feld="denkmale:sichtpruefung.ergebnis.n">20</span>, <span data-feld="denkmale:sichtpruefung.datum">15 November 2026</span>): on the object <span data-feld="denkmale:sichtpruefung.ergebnis.lage.ja">17</span>, just beside it <span data-feld="denkmale:sichtpruefung.ergebnis.lage.daneben">3</span>, away from it <span data-feld="denkmale:sichtpruefung.ergebnis.lage.nein">0</span>, i.e. <span data-feld="denkmale:sichtpruefung.ergebnis.lage.quote">85%</span> on the object (Wilson 95% interval <span data-feld="denkmale:sichtpruefung.ergebnis.lage.wilson95.0">64%</span>–<span data-feld="denkmale:sichtpruefung.ergebnis.lage.wilson95.1">95%</span>), not for every single point. The NID register and the gminna ewidencja zabytków are missing (manual download outstanding).</li>
+<li><code>sanierung.js</code>: the ZBK list by type, ownership and district as listed, and the block typology by delegatura; list as of <span data-feld="sanierung:stand">1 December 2025</span>.</li>
+<li><code>sanierung_odbl.js</code>: locations of ZBK buildings in public ownership and the typology by district (ODbL, because the addresses were looked up in OpenStreetMap).</li>
+</ul>
+<p>The building bodies for the 3D view (one file per district, ODbL) are kept outside the repository; the page loads them only when the 3D view is switched on. They are not part of the downloads.</p>
+</section>
+
+<section id="kd-pobierz">
+<h2>Downloads</h2>
+<ul class="quellen">
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow.gpkg" download>kiezatlas_krakow.gpkg</a>: layers <code>miasto</code>, <code>delegatury</code>, <code>bdot_kompleksy</code>, <code>bdot_kamienica_nazwa</code>, <code>zbk_wykaz_dzielnice</code>.</li>
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow_odbl.gpkg" download>kiezatlas_krakow_odbl.gpkg</a> (ODbL 1.0): layers <code>dzielnice</code>, <code>osm_heritage_start_date</code>, <code>zbk_budynki</code>, <code>zbk_typologia_dzielnice</code>.</li>
+<li><a class="link" href="../daten/pobierz/kiezatlas_krakow_csv.zip" download>kiezatlas_krakow_csv.zip</a>: the same layers as CSV; in <code>csv_pl/</code> with a decimal comma for Polish-locale Excel.</li>
+<li><a class="link" href="../daten/pobierz/licencje.csv" download>licencje.csv</a>: licence and source notice for every layer.</li>
+</ul>
+</section>
+
+<section id="kd-noty">
+<h2>Source notices</h2>
+<ul class="quellen">
+<li><span data-feld="gebaeude_kennzahlen:quellen.bdot10k.vermerk" lang="pl">Źródło: Baza Danych Obiektów Topograficznych (BDOT10k), państwowy zasób geodezyjny i kartograficzny, Główny Urząd Geodezji i Kartografii; dane opracowane (art. 40c ust. 3 ustawy Prawo geodezyjne i kartograficzne, Dz.U. 2026 poz. 1389)</span></li>
+<li><span data-feld="gebaeude_kennzahlen:quellen.hoehen.vermerk" lang="pl">Wysokości: Modele 3D budynków (LoD2, stan 2017), Główny Urząd Geodezji i Kartografii. „Modele 3D budynków są dostępne bezpłatnie i możliwe do dowolnego wykorzystania.” (https://www.geoportal.gov.pl/pl/dane/inne-dane/modele-3d-budynkow/)</span></li>
+<li>© OpenStreetMap contributors, ODbL 1.0 (openstreetmap.org/copyright).</li>
+<li><span data-feld="sanierung:quellen.zbk.vermerk" lang="pl">Źródło: Zarząd Budynków Komunalnych w Krakowie, „Wykaz budynków i obiektów w zarządzie ZBK na dzień 2025-12-01”, Biuletyn Informacji Publicznej (https://www.bip.krakow.pl/?bip_id=32&amp;mmi=10127), załącznik nr 635620 z dnia 2025-12-18; data wytworzenia: 2025-12-18 (plik PDF), data pozyskania: 2026-11-13. Informacja przetworzona: odczyt tabeli z PDF, ujednolicenie rodzaju budynku i własności, zliczenia; plik nie zawiera adresów.</span> <span data-feld="sanierung:quellen.zbk.odpowiedzialnosc" lang="pl">Gmina Miejska Kraków nie ponosi odpowiedzialności za: szkody spowodowane pozyskaniem informacji sektora publicznego lub ponownym wykorzystywaniem informacji sektora publicznego, zamieszczonej na stronach BIP MK lub w innym miejskim serwisie internetowym, udostępnianej na wniosek lub pozyskanej w inny sposób, wykorzystywanej ponownie z naruszeniem warunków udostępniania lub ponownego wykorzystywania informacji sektora publicznego; szkody spowodowane przez dalsze udostępnienie informacji sektora publicznego przez podmioty ponownie ją wykorzystujące z naruszeniem przepisów prawa powszechnie obowiązującego, w tym dalsze udostępnianie informacji sektora publicznego z naruszeniem przepisów regulujących ich ochronę m.in. przepisów ustawy o prawie autorskim i prawach pokrewnych, ustawy o ochronie baz danych, przepisów o ochronie danych osobowych, ustawy o ochronie informacji niejawnych itd.</span></li>
+</ul>
+</section>
+
+<p class="odbl-vermerk"><small>District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</small></p>
+</main>
+
+<footer class="fuss-seite">
+  <p class="fuss-seite__links"><a class="link" href="index.html">Home</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/imprint/">Legal notice</a> <a class="link" hreflang="en" href="https://souverain-systems.de/en/privacy/">Privacy policy</a></p>
+  <p class="fuss-seite__stand">Status <span data-kiez-version>—</span>. Publisher: Stiebitz Souverain Systems UG (haftungsbeschränkt). Code: Apache-2.0. Graphics: CC BY 4.0. Data: licences as stated by each source. <span class="fuss-seite__odbl">District boundaries and data based on them: © OpenStreetMap contributors, ODbL 1.0: <a class="link" href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>.</span> Found an error? Write to us: <a class="link" href="mailto:kontakt@souverain-systems.de">kontakt@souverain-systems.de</a></p>
+</footer>
+
+<script defer src="../daten/ort.js"></script>
+<script defer src="../i18n.js"></script>
+<script defer src="../texte/en/kern.js"></script>
+<script defer src="../texte/en/seiten.js"></script>
+<script defer src="../kopf.js"></script>
+<script defer src="../rahmen.js"></script>
+</body>
+</html>
