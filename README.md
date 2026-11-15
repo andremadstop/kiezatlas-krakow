@@ -112,7 +112,9 @@ Hochschule: [`docs/przekazanie.md`](docs/przekazanie.md) (PL/EN).
 | GSAP (`vendor/`) | GreenSock Standard License, keine Open-Source-Lizenz; nur für die Gegenprobe Potsdam | [`NOTICE`](NOTICE) |
 | Schriften Barlow (`fonts/`), Kartenschrift Noto Sans (Auslieferung) | SIL Open Font License 1.1 | [`fonts/OFL.txt`](fonts/OFL.txt), [`NOTICE`](NOTICE) |
 
-Zitieren: [`CITATION.cff`](CITATION.cff) (gültig nach CFF 1.2.0), Zenodo: [`.zenodo.json`](.zenodo.json) (noch ohne
-DOI). Öffentliche Repositorys archiviert Software Heritage; die Kennung (SWHID) kann nach der Archivierung in
-`CITATION.cff` (`identifiers`) eingetragen werden. Änderungen: [`CHANGELOG.md`](CHANGELOG.md). Vor einer
+Zitieren: [`CITATION.cff`](CITATION.cff) (gültig nach CFF 1.2.0), Zenodo: DOI
+[10.5281/zenodo.24254005](https://doi.org/10.5281/zenodo.24254005) (alle Versionen; Version 1.0.0:
+[10.5281/zenodo.24254006](https://doi.org/10.5281/zenodo.24254006)), Metadaten in [`.zenodo.json`](.zenodo.json);
+der Rohdaten-Schnappschuss folgt. Öffentliche Repositorys archiviert Software Heritage; die Kennung (SWHID) kann
+nach der Archivierung in `CITATION.cff` (`identifiers`) eingetragen werden. Änderungen: [`CHANGELOG.md`](CHANGELOG.md). Vor einer
 Veröffentlichung: `./atlas.sh oeffentlich` (Arbeitsbaum) und `./atlas.sh oeffentlich --historie` (Git-Historie).

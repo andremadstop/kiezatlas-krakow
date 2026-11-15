@@ -15,9 +15,9 @@ Stan: 14.11.2026.
 - **Liczenie** odbywa się na osobnym komputerze z Dockerem (PostGIS) i danymi surowymi w `$KIEZ_DATEN`; po
   przeliczeniu baza nie jest potrzebna.
 - **Archiwum**: kod w publicznym repozytorium <https://github.com/andremadstop/kiezatlas-krakow> (publiczne
-  repozytoria archiwizuje Software Heritage), wersje jako tagi, rekord Zenodo z DOI dla każdej wersji (`.zenodo.json`,
-  DOI jeszcze nie ma) i osobno migawka danych surowych (`skripte/schnappschuss.py`). UG może w każdej chwili wyłączyć
-  swój serwer bez utraty czegokolwiek.
+  repozytoria archiwizuje Software Heritage), wersje jako tagi, rekord Zenodo z DOI dla każdej wersji (`.zenodo.json`;
+  DOI 10.5281/zenodo.24254005 dla wszystkich wersji, 10.5281/zenodo.24254006 dla 1.0.0) i osobno migawka danych
+  surowych (`skripte/schnappschuss.py`). UG może w każdej chwili wyłączyć swój serwer bez utraty czegokolwiek.
 - **Otwarta przeszkoda:** migawka danych surowych nie ma jeszcze rekordu Zenodo ani DOI; przed przekazaniem wydawca
   musi ją opublikować (`uruchomienie.md`, ramka na początku). Repozytoria są publiczne (Apache-2.0, sprawdzone
   15.11.2026): Kiezatlas Kraków <https://github.com/andremadstop/kiezatlas-krakow>, Geodaten-Import-Pipeline
@@ -98,7 +98,8 @@ zgłoszeń w `daten/pobierz/`).
 - **Computing** happens on a separate machine with Docker (PostGIS) and raw data in `$KIEZ_DATEN`; afterwards the
   database is not needed.
 - **Archive**: code in a public repository <https://github.com/andremadstop/kiezatlas-krakow> (Software Heritage
-  archives public repositories), versions as tags, a Zenodo record with a DOI per version (`.zenodo.json`; no DOI yet)
+  archives public repositories), versions as tags, a Zenodo record with a DOI per version (`.zenodo.json`;
+  DOI 10.5281/zenodo.24254005 for all versions, 10.5281/zenodo.24254006 for 1.0.0)
   and a separate raw-data snapshot (`skripte/schnappschuss.py`). The UG can switch off its server at any time without
   anything being lost.
 - **Open obstacle:** the raw-data snapshot has no Zenodo record or DOI yet; the publisher has to publish it before the

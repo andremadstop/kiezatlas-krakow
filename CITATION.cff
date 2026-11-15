@@ -31,6 +31,11 @@ contact:
     email: kontakt@souverain-systems.de
 url: "https://souverain-systems.de/kiezatlas/krakow/"
 repository-code: "https://github.com/andremadstop/kiezatlas-krakow"
+doi: 10.5281/zenodo.24254005
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24254006
+    description: "Version 1.0.0"
 version: "1.0.0"
 date-released: "2026-11-15"
 license: Apache-2.0

@@ -4,6 +4,13 @@ Je veröffentlichtem Stand ein Abschnitt und ein Git-Tag, ab 1.0.0 `v<Version>` 
 
 ## Unveröffentlicht
 
+- DOI eingetragen (Zenodo): Konzept-DOI 10.5281/zenodo.24254005 (alle Versionen), Versions-DOI
+  10.5281/zenodo.24254006 (1.0.0).
+  `CITATION.cff` (`doi`, `identifiers`), README, `docs/przekazanie.md`; in `config/krakow.yaml` neuer Schlüssel `doi`
+  (die Datenseite in pl, en, de nennt und verlinkt die DOI daraus, ohne ihn gilt der alte Satz) und die DOI in der
+  `zitierzeile` (Grafiken und Druck über `daten/ort.js`; die Downloads sind unverändert). Der Rohdaten-Schnappschuss
+  hat noch keinen Zenodo-Eintrag; `.zenodo.json` bekommt die Verknüpfung mit ihm.
+
 ## 1.0.0 (15.11.2026)
 
 Erste öffentliche Fassung: bereinigter Export ohne Arbeitshistorie (KR50; Lesehilfe und Ersetzungen in `docs/export.md` des Exports). Alle 18 Seiten mit echten Daten, Prüfstand `d5f70c0` grün (65 Prüfungen, 60 grün, 0 mit Befund, 5 übersprungen mit Grund; `belege/pruefstand-20261115-d5f70c0/pruefen.log`). `CITATION.cff` und `.zenodo.json` mit Version 1.0.0; DOI noch nicht vergeben. Bildschirmfotos unter `belege/` stehen unter CC BY 4.0 mit den Vermerken BDOT10k und OpenStreetMap (`belege/README.md`). Die Prüfungen der CI laufen ohne Rohdaten; `pruefen/D7_powietrze.py` hat dafür wie `pruefen/DW_mieszkania.py` den Schalter `--ohne-lauf`.

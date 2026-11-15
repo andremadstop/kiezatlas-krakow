@@ -47,9 +47,9 @@ stadt_art:                        # Art der Gemeinde ohne Namen, z. B. „Stadt,
   en: "City"
   de: "Stadt"
 zitierzeile:                      # Bildzeile für Grafiken und Zitate (Druck, Schaugrafik)
-  pl: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow"
-  en: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow"
-  de: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow"
+  pl: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow, DOI 10.5281/zenodo.24254005"
+  en: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow, DOI 10.5281/zenodo.24254005"
+  de: "Kiezatlas Kraków, Stiebitz Souverain Systems UG (haftungsbeschränkt), souverain-systems.de/kiezatlas/krakow, DOI 10.5281/zenodo.24254005"
 herausgeber: "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
 meldeweg: "kontakt@souverain-systems.de"
 # Rechtstexte der Herausgeberin je Sprache (Seitenfuß, vorlagen/_rahmen.html über {{ort:impressum}} und {{ort:datenschutz}}).
@@ -66,6 +66,9 @@ datenschutz:
 # Datenseite „Repository“ darauf und lassen den Satz „noch nicht öffentlich, auf Anfrage“ weg
 # (skripte/16_bloecke_krakow.py, danach skripte/30_seiten.py); leer (null, etwa in einem Fork) gilt der Satz wieder.
 repository: "https://github.com/andremadstop/kiezatlas-krakow"
+# DOI des Atlas bei Zenodo als https-Adresse (Konzept-DOI, gilt für alle Versionen; seit 15.11.2026). Gesetzt nennt
+# die Datenseite sie mit Link; leer (null, etwa in einem Fork) gilt der Satz „DOI noch nicht vergeben“.
+doi: "https://doi.org/10.5281/zenodo.24254005"
 
 # Kartenausschnitt: gerundete Rahmenwerte für den Start der Karte, keine Messwerte. Die genaue Stadtgrenze
 # kommt mit den Stadtteilgrenzen (daten/stadtteile_odbl.js).
