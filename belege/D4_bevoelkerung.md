@@ -10,8 +10,9 @@ Erzeugt von `skripte/02_bevoelkerung.py`; nicht von Hand ändern. `skripte/02_be
 | `2026-11-13/02_zensus/PL_PD_3035_GPKG.zip` | 19.867.756 | `293af7549bbf44138ae3c29ab6c62064bae0078edf750b12fb26cd1b77df46c4` |
 | `2026-11-13/02_zensus/ludnosc_w_rejonach_statystycznych_i_obwodach_spisowych_nsp_2021.xlsx` | 27.012.607 | `72bcef42c30f307249097cd03657d7f46ec06b1203cf82122d9a7415e49c4ce8` |
 | `eingang/malopolskie-261112.osm.pbf` | 203.717.015 | `525d0d227cb9c876c4df02278e7fac870f0825ab0ae2c7228af6dc5c9e0f5a7e` |
+| `eingang/gus_brec/AreaStatisticalUnit_12.zip` | 26.482.011 | `d6de48e2d821019d11260d71f90cf8cda3fa18e6bd15b4aab3a7f3239fe59c34` |
 
-Prüfsummen beim Abruf: `2026-11-13/HERKUNFT.md` und `2026-11-13/02_zensus/HERKUNFT.md` (Machbarkeitsprobe), Handdownload OSM: `eingang/HERKUNFT.md` und `eingang/SHA256SUMS`; zum Nachprüfen in `belege/rohdaten-D4-2026-11-13.sha256`.
+Prüfsummen beim Abruf: `2026-11-13/HERKUNFT.md` und `2026-11-13/02_zensus/HERKUNFT.md` (Machbarkeitsprobe), Handdownload OSM: `eingang/HERKUNFT.md` und `eingang/SHA256SUMS`, Handdownload GUS BREC: `eingang/gus_brec/HERKUNFT.md`; zum Nachprüfen in `belege/rohdaten-D4-2026-11-13.sha256`.
 
 ## Schritt 1: Stadt und historische Stadtbezirke (BDOT10k `OT_ADJA_A`)
 
@@ -123,7 +124,10 @@ Der Unterschied zwischen Gitter und NSP mischt drei Dinge, die sich hier nicht t
 
 ## Schritt 5: rejony → dzielnica
 
-- Nicht gerechnet: Geometrie der rejony statystyczne fehlt: Handdownload GUS „Jednostki statystyczne 2021“ (eingang/rejony_statystyczne.*) steht aus.
+- Quelle `eingang/gus_brec/AreaStatisticalUnit_12.zip`, Sätze 749, Kennungsfeld `thematicId (sechsstellig, exakt)`, zugeordnet 748.
+- obwody in der Geometrie: 4.614 (Tabelle: 4.592); Σ Fläche der rejony 326,84 km² (Stadt 326,86 km²).
+- rejony der Geometrie ohne Zeile in der Tabelle (keine Werte, nicht zugeordnet; ob unbewohnt, ist nicht geprüft): 390570 (delegatura 1261029).
+- rejony mit mehr als 5 % Fläche in einer anderen dzielnica: 42 (390052, 390562, 390610, 390620, 391050, 391060, 391080, 391411, 391462, 391600, 391621, 391631, 391641, 391682, 392032, 392370, 392582, 392620, 392696, 392840, 392860, 393091, 393172, 393211, 393230, 393241, 393242, 393252, 393274, 393370, 393400, 393772, 393791, 393801, 393810, 393850, 393861, 393882, 393883, 394451 …).
 
 ## Regeln des Prüfprotokolls
 
@@ -156,6 +160,15 @@ Der Unterschied zwischen Gitter und NSP mischt drei Dinge, die sich hier nicht t
 | Regel 8: Gitter Kraków-Nowa Huta gegen NSP höchstens ±5 % | ja | -2,69 % |
 | Gitter: jede Zelle mit Mittelpunkt in der Stadt liegt in genau einer dzielnica | ja | 0 Zellen ohne dzielnica |
 | Gitter: Zellen mit Mittelpunkt in den dzielnice = Zellen mit Mittelpunkt in der Stadt (gleiche IDs) | ja | 327 / 327 Zellen, 0 nur über die dzielnice |
+| Regel 11: jeder rejon der Tabelle hat eine Geometrie | ja | 0 ohne Geometrie |
+| Regel 11 (Rückrichtung): rejony der Geometrie ohne Tabellenzeile höchstens 2 von 1000 | ja | 1 von 749 (390570) |
+| Regel 11: delegatura der Geometrie = delegatura der Tabelle | ja | 0 abweichend |
+| Plausibilität: Σ Fläche der rejony gegen die Stadtfläche (BDOT10k) höchstens ±1 % | ja | -0,01 % |
+| Regel 11: Σ rejony über alle dzielnice = Stadt | ja | 800653 / 800653 |
+| Karte je rejon: Σ Einwohner = Stadt (NSP) | ja | 800653 / 800653 |
+| Karte je rejon: jede Kennung der Tabelle genau einmal | ja | 749 Flächen, 749 Kennungen |
+| Karte je rejon: kein Anteil unter 100 Personen | ja | 4 rejony unter 100, 0 mit Anteil |
+| Karte je rejon: Differenzprobe, kein unterdrückter Anteil eingrenzbar | ja | 0 eingrenzbar |
 | Regel 10: Gleichungen der NSP-Tabelle (oben) | ja | 25 von 25 |
 
 Befunde, die das Schreiben sperren: 0.
@@ -166,6 +179,7 @@ Regel 4: 2 dzielnice unter 99 % mit dokumentierter Ausnahme (Entscheidung vom 13
 
 - `daten/kennzahlen_odbl.js`
 - `daten/kennzahlen_odbl.json`
+- `daten/rejony.js`
 - `daten/stadtteile_odbl.js`
 - `daten/steckbrief.js`
 - `daten/steckbrief_dzielnice_odbl.js`
@@ -177,6 +191,6 @@ Regel 4: 2 dzielnice unter 99 % mit dokumentierter Ausnahme (Entscheidung vom 13
 - Das Gitter hat 1 km Weite; je dzielnica fallen nur wenige Zellen ganz hinein. Die Spanne zwischen Mittelpunkt- und Flächenanteilsregel ist das Maß der Unschärfe, keine Fehlergrenze.
 - Altersgruppen sind zwischen den Quellen nicht gleich geschnitten: Gitter unter 15 / 15–64 / 65 und älter, NSP 10-Jahres-Gruppen und ökonomische Gruppen (vor, im, nach dem Erwerbsalter, Grenzen nach Geschlecht verschieden). Sie werden nicht ineinander umgerechnet.
 - Regel 4 vergleicht mit den delegatury der BDOT10k (aus PRG); ob deren Grenzen die amtliche Gruppierung der dzielnice abbilden, ist nicht amtlich geprüft. Die Reste von III und XV gelten nach der Gegenprobe mit den städtischen Grenzen als Grenzsplitter (Entscheidung vom 13.11.2026).
-- NSP-Werte je dzielnica fehlen, solange die Geometrie der rejony fehlt (Handdownload, Ausgabe 2021 laut `eingang/HERKUNFT.md` nicht gefunden; Lizenz der Geometrie nicht geprüft).
+- NSP je dzielnica ist die Summe der rejony mit innerem Punkt in der dzielnica (Schritt 5); rejony an den Grenzen zählen ganz zu einer dzielnica. Lizenz der Geometrie: Feed INSPIRE des GUS (`quellen-D4.md`).
 - Lizenz des Eurostat-Gitters in der strengsten Lesart (CC BY 4.0); Bestätigung durch Eurostat offen.
 - Gemeldete Einwohner der Stadt (BIP Kraków) sind ein anderes Konzept und werden nicht verwendet (Lizenzangabe fehlt).

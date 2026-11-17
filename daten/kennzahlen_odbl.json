@@ -7,6 +7,11 @@
    "lizenz": "z podaniem źródła (warunki GUS)",
    "vermerk": "Główny Urząd Statystyczny: nie ma zastrzeżeń co do kopiowania plików i stron oraz dokonywania wydruków, w tym do własnych opracowań, pod warunkiem, że będzie podane ich źródło"
   },
+  "gus_brec2021": {
+   "quelle": "Główny Urząd Statystyczny, Jednostki statystyczne 2021 (BREC), województwo małopolskie (AreaStatisticalUnit_12.zip, EPSG:4258)",
+   "lizenz": "Brak warunków dostępu i użytkowania (Feed INSPIRE GUS, <rights>)",
+   "vermerk": "Brak warunków dostępu i użytkowania; Brak ograniczeń w publicznym dostępie"
+  },
   "eurostat2021": {
    "quelle": "Eurostat, Census 2021 population grid, Poland, 1 km (PL_PD_3035_GPKG.zip)",
    "lizenz": "CC BY 4.0",

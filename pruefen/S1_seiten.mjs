@@ -17,6 +17,7 @@
 //
 // Aufruf: node pruefen/S1_seiten.mjs [--ziel KACHELORDNER]   Rückgabe 0 = grün, 1 = Befund.
 import { chromium } from "playwright";
+import { readFileSync } from "node:fs";
 import { starten } from "../skripte/entwicklung_server.mjs";
 
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
@@ -172,6 +173,23 @@ for (const [lang, o] of SPRACHEN) {
     await sauber(s2, `${lang}/karta mit Hash`);
     await s2.ctx.close();
     await schmal(o + "karta.html#thema=fuss:szkola&pkt=zbk", `${lang}/karta mit Ebenen`);
+    // Volkszählung je rejon (daten/rejony.js, nachgeladen): Ebene, Legende mit GUS-Quelle, Mindestfallzahl eingehalten
+    {
+      const s3 = await seite(o + "karta.html#thema=spis:q_60p");
+      await s3.page.waitForFunction(() => window.KIEZ_REJONY && !document.getElementById("ka-leg-zelle").hidden, null, { timeout: 15000 }).catch(() => {});
+      const r = await s3.page.evaluate(() => {
+        const R = window.KIEZ_REJONY, f = (R && R.features) || [];
+        return { n: f.length, ew: f.reduce((a, x) => a + (x.properties.ew || 0), 0),
+          klein: f.filter((x) => x.properties.ew != null && x.properties.ew < 100 && (x.properties.q_u20 != null || x.properties.q_60p != null || x.properties.q_nach != null)).length,
+          leg: document.getElementById("ka-leg-zelle").innerText, wahl: document.getElementById("ka-zelle").value };
+      });
+      const sbText = readFileSync(new URL("../daten/steckbrief.js", import.meta.url), "utf8");
+      const stadt = JSON.parse(sbText.slice(sbText.indexOf("{"), sbText.lastIndexOf("}") + 1)).stadt.nsp.einwohner;
+      pruef(r.n > 700 && r.ew === stadt && r.klein === 0 && r.wahl === "spis:q_60p" && /Główny Urząd Statystyczny/.test(r.leg) && !SCHLUESSEL.test(r.leg),
+        `${lang}/karta: Ebene je rejon (${r.n} Flächen, Σ ${r.ew} = Stadt ${stadt}, ${r.klein} Anteile unter 100 Personen, Legende mit GUS-Quelle)`);
+      await sauber(s3, `${lang}/karta mit rejony`);
+      await s3.ctx.close();
+    }
   }
 
   console.log(`\n[${lang}] dzielnica`);
@@ -188,12 +206,15 @@ for (const [lang, o] of SPRACHEN) {
           gruppen: document.querySelectorAll("#ka-sb-werte .ka-gruppe-titel").length, karten: karten.length,
           mitQuelle: karten.filter((k) => (k.querySelector(".ka-quelle") || {}).textContent?.length > 10).length,
           mitRang: karten.filter((k) => k.querySelector(".ka-rang")).length, nsp: document.querySelectorAll("#ka-sb-nsp .ka-wert").length,
+          // NSP je dzielnica (Summe der rejony) vor den Werten der delegatura: erste Zahl = Einwohner aus steckbrief_dzielnice_odbl.js
+          nspDz: (((window.KIEZ_STECKBRIEF_DZIELNICE || {}).stadtteile || {})[location.hash.slice(4)] || {}).nsp || null,
+          ersteZahl: ((document.querySelector("#ka-sb-nsp .ka-zahl") || {}).textContent || "").replace(/\D/g, ""),
           text: document.getElementById("ka-sb-werte").innerText + document.getElementById("ka-sb-nsp").innerText };
       });
       const ort = await s.page.evaluate((nr) => window.KIEZ_ORT.gliederung.teile.find((t) => t.nr === nr), nr);
-      const ok = r.ziffer === ort.roemisch && r.name === ort.name && r.wahl === nr && r.gruppen === 4 && r.karten >= 12 && r.mitQuelle === r.karten && r.mitRang >= 10 && r.nsp === 4 && !KAPUTT.test(r.text) && !SCHLUESSEL.test(r.text);
+      const ok = r.ziffer === ort.roemisch && r.name === ort.name && r.wahl === nr && r.gruppen === 4 && r.karten >= 12 && r.mitQuelle === r.karten && r.mitRang >= 10 && r.nsp === (r.nspDz ? 8 : 4) && (!r.nspDz || r.ersteZahl === String(r.nspDz.einwohner)) && !KAPUTT.test(r.text) && !SCHLUESSEL.test(r.text);
       alle.push(ok);
-      pruef(ok, `${lang}/dzielnica #st=${nr}: ${r.ziffer} ${r.name}, ${r.karten} Kennzahlen (mit Quelle ${r.mitQuelle}, mit Rang ${r.mitRang}), Delegatur-Werte ${r.nsp}`);
+      pruef(ok, `${lang}/dzielnica #st=${nr}: ${r.ziffer} ${r.name}, ${r.karten} Kennzahlen (mit Quelle ${r.mitQuelle}, mit Rang ${r.mitRang}), NSP-Werte ${r.nsp}${r.nspDz ? ` (dzielnica ${r.ersteZahl}, Summe von ${r.nspDz.rejony} rejony, dazu delegatura)` : " (nur delegatura)"}`);
     }
     pruef(alle.filter(Boolean).length === 18, `${lang}/dzielnica: Steckbrief für alle 18 dzielnice`);
     const druck = await s.page.evaluate(() => [...document.styleSheets].some((sh) => { try { return [...sh.cssRules].some((r) => r.media && /print/.test(r.media.mediaText)); } catch { return false; } }));

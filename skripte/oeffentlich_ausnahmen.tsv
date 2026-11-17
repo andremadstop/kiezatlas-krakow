@@ -32,3 +32,4 @@ plankennung	pruefen/A6_test_pfade.py	^P\d$	ausnahme	Variablenname im Potsdamer T
 lizenz	belege/*.png	*	ausnahme	Bildschirmfotos und Vorschaubilder eigener Seiten: CC BY 4.0 mit den Vermerken BDOT10k und OpenStreetMap (ODbL, Produced Work), Zeile oben in belege/README.md (KR50)
 lizenz	belege/filme/*.mp4	*	ausnahme	Filme aus eigenen Seiten (skripte/filme.mjs): CC BY 4.0 wie die Bildschirmfotos, mit den Vermerken der Quellentafel (OpenStreetMap als Produced Work der ODbL); Zeile in belege/README.md und belege/filme/README.md (KR63, Vorschlag)
 lizenz	belege/filme/*.webm	*	ausnahme	Filme aus eigenen Seiten (skripte/filme.mjs): CC BY 4.0 wie die Bildschirmfotos, mit den Vermerken der Quellentafel (OpenStreetMap als Produced Work der ODbL); Zeile in belege/README.md und belege/filme/README.md (KR63, Vorschlag)
+lizenz	MASCHINE.lock	*	ausnahme	Text (Prüfsummen der Maschinendateien), Apache-2.0 wie der Code

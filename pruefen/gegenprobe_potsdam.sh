@@ -45,12 +45,23 @@ echo "Wegwerf-Ordner: $W"
 for r in basis umgebaut; do
   mkdir -p "$W/$r" && git -C "$POTSDAM" archive HEAD | tar -x -C "$W/$r" || exit 1
 done
+# GSAP liegt seit 16.11.2026 nicht mehr im Potsdamer Repo (git archive enthält es nicht); beide Wurzeln bekommen
+# dieselben Dateien aus dem Potsdamer vendor/ (skripte/vendor_holen.sh), damit die Prüfung den ausgelieferten Stand sieht.
+for r in basis umgebaut; do
+  for f in gsap.min.js ScrollTrigger.min.js; do
+    if [ -f "$POTSDAM/vendor/$f" ]; then cp "$POTSDAM/vendor/$f" "$W/$r/vendor/$f" || exit 1
+    else echo "Hinweis: $POTSDAM/vendor/$f fehlt (sh skripte/vendor_holen.sh in kiezatlas-potsdam), beide Wurzeln ohne GSAP"; fi
+  done
+done
 ln -s "$POTSDAM/node_modules" "$W/basis/node_modules"
 ln -s "$HIER/node_modules" "$W/umgebaut/node_modules"
 
 # --- umgebaut: Code aus diesem Repo
 U="$W/umgebaut"
 cp "$HIER"/*.js "$HIER"/*.css "$U/" || exit 1
+# Potsdams Seiten laden ein einziges atlas.css; seit der Trennung in der Maschine (KR70) sind das basis.css + atlas.css
+# in dieser Reihenfolge (zusammen dasselbe Stylesheet wie vorher, nur die Kopfkommentare anders).
+cat "$HIER/basis.css" "$HIER/atlas.css" > "$U/atlas.css" || exit 1
 rm -rf "$U/skripte" && cp -r "$HIER/skripte" "$U/skripte"
 cp "$HIER"/pruefen/*.py "$U/pruefen/"
 mkdir -p "$U/pruefen/gegenprobe_potsdam" "$U/texte/de"

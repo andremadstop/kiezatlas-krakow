@@ -7,7 +7,8 @@ Liest (unter $KIEZ_DATEN, Beschreibung und Lizenzen in quellen-D4.md):
   2026-11-13/02_zensus/PL_PD_3035_GPKG.zip  Eurostat Census-Gitter 2021, 1 km (CC BY 4.0)
   2026-11-13/02_zensus/ludnosc_w_rejonach_…nsp_2021.xlsx   GUS NSP 2021 je rejon statystyczny (Quellenangabe)
   eingang/osm_dzielnice_krakow.geojson oder eingang/*.osm.pbf     Grenzen der 18 dzielnice (ODbL), Handdownload
-  eingang/rejony_statystyczne.*            Geometrie der 748 rejony (GUS), Handdownload
+  eingang/gus_brec/AreaStatisticalUnit_12.zip   Geometrie der rejony (GUS BREC 2021), Handdownload; ersatzweise
+                                           eingang/rejony_statystyczne.*
 
 Schreibt:
   daten/steckbrief.js       immer: echte Werte für Stadt und delegatury; je dzielnica die Werte, deren Eingang da
@@ -58,6 +59,18 @@ QUELLEN = {
                    "wydruków, w tym do własnych opracowań, pod warunkiem, że będzie podane ich źródło",
         "fundstelle": "https://stat.gov.pl/copyright",
         "stichtag": STICHTAG_NSP,
+        "stichtag_geprueft": False,
+    },
+    "gus_brec2021": {
+        "quelle": "Główny Urząd Statystyczny, Jednostki statystyczne 2021 (BREC), województwo małopolskie "
+                  "(AreaStatisticalUnit_12.zip, EPSG:4258)",   # Zuordnung rejon → dzielnica und Karte je rejon (rejony.js)
+        "url": "https://geo.stat.gov.pl/atom-web/download/?fileId=1e3a84d8b090978da04ee01a42296680"
+               "&name=AreaStatisticalUnit_12.zip",
+        "lizenz": "Brak warunków dostępu i użytkowania (Feed INSPIRE GUS, <rights>)",
+        "vermerk": "Brak warunków dostępu i użytkowania; Brak ograniczeń w publicznym dostępie",
+        "fundstelle": "https://geo.stat.gov.pl/atom-web/atom/SU?spatial_dataset_identifier_code=SU.BREC.2021"
+                      "&spatial_dataset_identifier_namespace=http://geo.stat.gov.pl/id/dataset/PL.ZIPGUS.312",
+        "stichtag": None,
         "stichtag_geprueft": False,
     },
     "eurostat2021": {
@@ -123,6 +136,11 @@ KOPF_KENNZAHLEN = ("/* Kennzahlen je dzielnica und Stadt, erzeugt von skripte/02
                    "kennzahlen_odbl.json). Einwohner: Eurostat, Census 2021 population grid (CC BY 4.0); Grenzen der "
                    "dzielnice: © OpenStreetMap-Mitwirkende, Open Database License 1.0 "
                    "(https://opendatacommons.org/licenses/odbl/1-0/). Die Datei als Ganzes steht unter der ODbL 1.0. ODbL */\n")
+KOPF_REJONY = ("/* rejony statystyczne Krakaus mit Werten des NSP 2021, erzeugt von skripte/02_bevoelkerung.py. Grenzen: "
+               "Główny Urząd Statystyczny, Jednostki statystyczne 2021 (BREC), „Brak warunków dostępu i użytkowania; "
+               "Brak ograniczeń w publicznym dostępie“; Einwohner und Altersanteile: Główny Urząd Statystyczny, NSP 2021 "
+               "(„Ludność w rejonach statystycznych i obwodach spisowych …“), Kopieren mit Quellenangabe. Anteile erst ab "
+               "100 Personen, in ganzen Prozent. */\n")
 KOPF_ODBL = ("/* Grenzen der dzielnice Krakaus, erzeugt von skripte/02_bevoelkerung.py. © OpenStreetMap-Mitwirkende, "
              "Open Database License 1.0 (https://opendatacommons.org/licenses/odbl/1-0/). ODbL */\n")
 KOPF_DZ_ODBL = ("/* Steckbrief je dzielnica, erzeugt von skripte/02_bevoelkerung.py. Grenzen: © OpenStreetMap-Mitwirkende, "
@@ -139,6 +157,7 @@ SEITENDATEN_AUS_OSM = True
 # Gruppenzuordnung (Regel 4) als Zahlen: Schwelle und die Anteile der dokumentierten Ausnahmen
 # (skripte/raum_bevoelkerung.py AUSNAHMEN_REGEL4, Entscheidung vom 13.11.2026)
 ZUORDNUNG_SCHWELLE_PROZ = 99
+REJON_VEREINFACHUNG_M = 5.0   # Kartengeometrie der rejony (gemeinsame Grenzen bleiben gemeinsam)
 
 
 # ------------------------------------------------------------------------------------------- Bausteine
@@ -154,6 +173,85 @@ def nsp_block(w: dict, rejony: int | None = None) -> dict:
     if rejony is not None:
         b["rejony"] = rejony
     return b
+
+
+def ganz_prozent(z: int, n: int) -> int:
+    """Anteil in ganzen Prozent, halbe aufgerundet, exakt ganzzahlig gerechnet."""
+    return (200 * z + n) // (2 * n)
+
+
+REJON_ANTEILE = {"q_u20": ("a0_9", "a10_19"), "q_60p": ("a60_69", "a70_79", "a80p"), "q_nach": ("oek_nach",)}
+
+
+def rejony_karte(nsp, geo: dict, info: dict, rejon_zu: dict, gruppe_von: dict) -> tuple[dict, list]:
+    """Karte je rejon (Prüfprotokoll D4, Änderung 17.11.2026 nachmittags): Einwohner, Fläche, Dichte, drei Anteile ab
+    100 Personen; dazu die Kontrollen (Summe = Stadt, Kennungen, Mindestfallzahl, Differenzprobe)."""
+    alle = dict(geo)
+    alle.update(info.get("geo_ohne_zeile") or {})
+    karte = rb.grenzen_vereinfachen(alle, REJON_VEREINFACHUNG_M)
+    feats, regeln = [], []
+    for rid in sorted(alle):
+        fl = rb.flaeche_km2(alle[rid])          # Dichte aus der ungerundeten Fläche (kleine rejony < 0,01 km²)
+        w = nsp.rejony.get(rid)
+        p = {"id": rid, "dg": info["delegatura_geo"][rid], "km2": round(fl, 3)}
+        if w is None:
+            p.update({"ew": None, "dichte": None, "q_u20": None, "q_60p": None, "q_nach": None, "ohne_zeile": True})
+        else:
+            p.update({"ew": w["ogolem"], "dichte": round(w["ogolem"] / fl) if fl > 0 else None})
+            # ganze Prozent: mit einer Nachkommastelle verriete der Anteil bei ~1.000 Personen den Zähler fast genau,
+            # und die Differenzprobe grenzte unterdrückte Zähler über die Summe je dzielnica ein (Lauf 17.11.2026)
+            p.update({q: (None if w["ogolem"] < rb.MINDESTFALLZAHL else ganz_prozent(sum(w[f] for f in felder), w["ogolem"]))
+                      for q, felder in REJON_ANTEILE.items()})
+        feats.append({"type": "Feature", "properties": p, "geometry": rb.runden_geom(karte[rid])})
+    summe = sum(f["properties"]["ew"] or 0 for f in feats)
+    regeln.append(("Karte je rejon: Σ Einwohner = Stadt (NSP)", summe == nsp.stadt["ogolem"],
+                   f"{summe} / {nsp.stadt['ogolem']}"))
+    ids = [f["properties"]["id"] for f in feats]
+    regeln.append(("Karte je rejon: jede Kennung der Tabelle genau einmal",
+                   len(ids) == len(set(ids)) and set(nsp.rejony) <= set(ids), f"{len(ids)} Flächen, {len(set(ids))} Kennungen"))
+    zu_klein = [f["properties"] for f in feats if f["properties"]["ew"] is not None and f["properties"]["ew"] < rb.MINDESTFALLZAHL]
+    verletzt = [p["id"] for p in zu_klein if any(p[q] is not None for q in REJON_ANTEILE)]
+    regeln.append((f"Karte je rejon: kein Anteil unter {rb.MINDESTFALLZAHL} Personen", not verletzt,
+                   f"{len(zu_klein)} rejony unter {rb.MINDESTFALLZAHL}, {len(verletzt)} mit Anteil"))
+    # Differenzprobe: Spanne des unterdrückten Zählers aus der Summe je dzielnica bzw. delegatura
+    def spanne(p, q):
+        if p["ew"] is None:
+            return 0, 0
+        if p[q] is None:
+            return 0, p["ew"]
+        # q = ganz_prozent(c, n) ⇔ (2q−1)·n ≤ 200·c < (2q+1)·n
+        n = p["ew"]
+        return max(0, -((-(2 * p[q] - 1) * n) // 200)), min(n, ((2 * p[q] + 1) * n - 1) // 200)
+    # Veröffentlichte Summen: je dzielnica, je delegatura, Stadt; dazu (strenger) die Kreuzmengen aus Gruppe der
+    # dzielnica und delegatura, weil sich Differenzen der beiden Summen auf diese Mengen beziehen
+    gruppen = {"dzielnica": {}, "delegatura": {}, "stadt": {}, "gruppe×delegatura": {}}
+    for f in feats:
+        p = f["properties"]
+        if p["id"] in rejon_zu:
+            gruppen["dzielnica"].setdefault(rejon_zu[p["id"]], []).append(p)
+            gruppen["gruppe×delegatura"].setdefault(f"{gruppe_von[rejon_zu[p['id']]]}/{p['dg']}", []).append(p)
+        gruppen["delegatura"].setdefault(p["dg"], []).append(p)
+        gruppen["stadt"].setdefault("1261", []).append(p)
+    enge = []
+    for ebene, g in gruppen.items():
+        for schl, ps in g.items():
+            for q, felder in REJON_ANTEILE.items():
+                gesamt = sum(sum(nsp.rejony[p["id"]][f] for f in felder) for p in ps if p["ew"] is not None)
+                for p in ps:
+                    if p["ew"] is None or p[q] is not None:
+                        continue
+                    lo = gesamt - sum(spanne(o, q)[1] for o in ps if o is not p)
+                    hi = gesamt - sum(spanne(o, q)[0] for o in ps if o is not p)
+                    if max(lo, 0) > 0 or min(hi, p["ew"]) < p["ew"]:
+                        enge.append(f"{p['id']} {q} über {ebene} {schl}: {max(lo, 0)}–{min(hi, p['ew'])} von {p['ew']}")
+    regeln.append(("Karte je rejon: Differenzprobe, kein unterdrückter Anteil eingrenzbar", not enge,
+                   f"{len(enge)} eingrenzbar" + (f" ({'; '.join(enge[:5])})" if enge else "")))
+    fc = {"type": "FeatureCollection", "stand_auswertung": STAND,
+          "quellen": {k: QUELLEN[k] for k in ("nsp2021", "gus_brec2021")},
+          "methode": {"mindestfallzahl": rb.MINDESTFALLZAHL, "vereinfachung_m": REJON_VEREINFACHUNG_M,
+                      "flaechen_srid": ort_konfig.RECHEN_SRID},
+          "features": feats}
+    return fc, regeln
 
 
 def gitter_block(s: dict, nsp_ew: int | None) -> dict:
@@ -223,6 +321,7 @@ def rechnen(konfig: dict, dzielnice_ersatz=None) -> dict:
     # dzielnice (wenn Grenzen da)
     teile = konfig["gliederung"]["teile"]
     s_dz, m_dz, rejon_zu, schneider, rejon_info, rejon_grund = {}, {}, None, [], {}, None
+    rejony_fc = None
     if gl.dzielnice:
         m_dz, a_dz = rb.gitter_zuordnen(zellen, {nr: e.geom for nr, e in gl.dzielnice.items()})
         s_dz = rb.summen_gitter(zellen, m_dz, a_dz)
@@ -235,16 +334,30 @@ def rechnen(konfig: dict, dzielnice_ersatz=None) -> dict:
         regeln.append(("Gitter: Zellen mit Mittelpunkt in den dzielnice = Zellen mit Mittelpunkt in der Stadt (gleiche IDs)",
                        not nur_dz and set(m_dz) == set(m_stadt),
                        f"{len(m_dz)} / {len(m_stadt)} Zellen, {len(nur_dz)} nur über die dzielnice"))
-        geo, rq, rejon_grund, rejon_info = rb.rejony_aus_eingang(set(nsp.rejony))
+        geo, rq, rejon_grund, rejon_info = rb.rejony_aus_eingang(set(nsp.rejony), nsp)
         if geo is not None:
             fehlend = sorted(set(nsp.rejony) - set(geo))
             regeln.append(("Regel 11: jeder rejon der Tabelle hat eine Geometrie", not fehlend,
                            f"{len(fehlend)} ohne Geometrie"))
+            if "ohne_zeile" in rejon_info:      # GUS BREC 2021 (Änderung 17.11.2026)
+                oz, n = rejon_info["ohne_zeile"], rejon_info["saetze"]
+                regeln.append(("Regel 11 (Rückrichtung): rejony der Geometrie ohne Tabellenzeile höchstens "
+                               f"{rejon_info['ohne_zeile_max']} von 1000", len(oz) <= rb.BREC_OHNE_ZEILE_MAX * n,
+                               f"{len(oz)} von {n}" + (f" ({', '.join(k for k, _l in oz)})" if oz else "")))
+                regeln.append(("Regel 11: delegatura der Geometrie = delegatura der Tabelle",
+                               not rejon_info["falsche_delegatura"], f"{len(rejon_info['falsche_delegatura'])} abweichend"))
+                stadt_fl = rb.flaeche_km2(gl.stadt.geom)
+                abw_fl = (rejon_info["flaeche_km2"] - stadt_fl) / stadt_fl * 100
+                regeln.append(("Plausibilität: Σ Fläche der rejony gegen die Stadtfläche (BDOT10k) höchstens ±1 %",
+                               abs(abw_fl) <= 1.0, _p(abw_fl)))
             rejon_zu, schneider = rb.rejony_zuordnen(geo, gl.dzielnice)
             rejon_info["quelle"] = rq
             summe = sum(nsp.rejony[r]["ogolem"] for r in rejon_zu)
             regeln.append(("Regel 11: Σ rejony über alle dzielnice = Stadt", summe == nsp.stadt["ogolem"],
                            f"{summe} / {nsp.stadt['ogolem']}"))
+            rejony_fc, regeln_rejony = rejony_karte(nsp, geo, rejon_info, rejon_zu,
+                                                    {t["nr"]: t["gruppe"] for t in konfig["gliederung"]["teile"]})
+            regeln += regeln_rejony
     else:
         rejon_grund = "Geometrie der rejony erst nach den Grenzen der dzielnice verwendbar"
 
@@ -294,6 +407,13 @@ def rechnen(konfig: dict, dzielnice_ersatz=None) -> dict:
                                                           / s["einwohner"] * 100, 1) if s["einwohner"] else None)},
                          "dichte_gitter": dichte(s["einwohner"], km2),
                          "nsp": None, "nsp_grund": grund(rejon_grund) or "nsp_erst_ueber_rejony"})
+            if rejon_zu is not None:       # NSP je dzielnica als Summe der zugeordneten rejony (Regel 11)
+                rs = [nsp.rejony[r] for r, z in rejon_zu.items() if z == nr]
+                w = summe_nsp(rs)
+                del echt["nsp_grund"]
+                echt.update({"nsp": nsp_block(w, len(rs)), "nsp_weg": "rejony", "dichte_nsp": dichte(w["ogolem"], km2)})
+                echt["gitter"]["abweichung_nsp_proz"] = (round((s["einwohner"] - w["ogolem"]) / w["ogolem"] * 100, 2)
+                                                         if w["ogolem"] else None)
             del echt["teryt"]
             dz_odbl[nr] = echt
             eintrag.update({"flaeche_km2": None, "flaeche_quelle": None, "gitter": None, "gitter_grund": GRUND_KR3,
@@ -323,9 +443,11 @@ def rechnen(konfig: dict, dzielnice_ersatz=None) -> dict:
         dz = {"stand_auswertung": STAND, "stand_osm": gl.zaehlung.get("dzielnice_stand_osm"),
               "quelle_grenzen": gl.dzielnice_quelle,
               "vergleich": "flaechenanteil", "spanne_ist_fehlergrenze": False,
-              "quellen": {k: QUELLEN[k] for k in ("eurostat2021",)},
+              "quellen": {k: QUELLEN[k] for k in (("eurostat2021", "nsp2021", "gus_brec2021") if rejon_zu is not None
+                                                  else ("eurostat2021",))},
               "lizenz": "ODbL 1.0 (https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap-Mitwirkende; "
-                        "Eurostat, CC BY 4.0",
+                        "Eurostat, CC BY 4.0" + ("; Główny Urząd Statystyczny (NSP 2021, BREC 2021), z podaniem źródła"
+                                                 if rejon_zu is not None else ""),
               "methode": {"gitter_zuordnung": "mittelpunkt", "mindestfallzahl": rb.MINDESTFALLZAHL,
                           "flaechen_srid": ort_konfig.RECHEN_SRID, "gitter_srid": rb.GITTER_SRID},
               "zuordnung_geprueft": not befunde_r4,
@@ -337,6 +459,9 @@ def rechnen(konfig: dict, dzielnice_ersatz=None) -> dict:
                             "zellen_summe_dzielnice": sum(v["gitter"]["zellen"] for v in dz_odbl.values())},
               "stadtteile": dz_odbl}
         dateien["steckbrief_dzielnice_odbl.js"] = rb.js_datei(KOPF_DZ_ODBL, "KIEZ_STECKBRIEF_DZIELNICE", dz)
+
+    if rejony_fc is not None and dzielnice_ersatz is None:
+        dateien["rejony.js"] = rb.js_datei(KOPF_REJONY, "KIEZ_REJONY", rejony_fc)
 
     # ---- Vertragsdateien der Seiten, nur mit echten Grenzen und nach der Entscheidung zu KR3
     if gl.dzielnice and voll:
@@ -433,11 +558,14 @@ def beleg(e: dict, konfig: dict) -> str:
     L += ["## Eingaben", "", "| Datei (unter `$KIEZ_DATEN`) | Bytes | SHA256 |", "|---|---|---|"]
     osm_rel = (f"eingang/{gl.zaehlung['dzielnice_datei']}" if gl.dzielnice and gl.zaehlung.get("dzielnice_datei")
                else None)
-    for rel in (rb.BDOT_ZIP, rb.GITTER_ZIP, rb.NSP_XLSX) + ((osm_rel,) if osm_rel else ()):
+    brec_rel = (e["rejon_info"].get("quelle") or "")[len("eingang/"):] if e["rejon_zu"] is not None else ""
+    brec_rel = f"eingang/{brec_rel}" if brec_rel == rb.BREC_ZIP else None
+    for rel in (rb.BDOT_ZIP, rb.GITTER_ZIP, rb.NSP_XLSX) + ((osm_rel,) if osm_rel else ()) + ((brec_rel,) if brec_rel else ()):
         p = d / rel
         L.append(f"| `{rel}` | {_z(p.stat().st_size)} | `{rb.sha256(p)}` |")
     L += ["", "Prüfsummen beim Abruf: `2026-11-13/HERKUNFT.md` und `2026-11-13/02_zensus/HERKUNFT.md` (Machbarkeitsprobe)"
           + (", Handdownload OSM: `eingang/HERKUNFT.md` und `eingang/SHA256SUMS`" if osm_rel else "")
+          + (", Handdownload GUS BREC: `eingang/gus_brec/HERKUNFT.md`" if brec_rel else "")
           + "; zum Nachprüfen in `belege/rohdaten-D4-2026-11-13.sha256`.", ""]
 
     L += ["## Schritt 1: Stadt und historische Stadtbezirke (BDOT10k `OT_ADJA_A`)", "",
@@ -509,8 +637,16 @@ def beleg(e: dict, konfig: dict) -> str:
         L.append("")
     L += ["## Schritt 5: rejony → dzielnica", ""]
     if e["rejon_zu"] is not None:
-        L += [f"- Quelle `{e['rejon_info'].get('quelle')}`, Sätze {_z(e['rejon_info'].get('saetze'))}, Kennungsfeld "
-              f"`{e['rejon_info'].get('kennungsfeld')}`, zugeordnet {_z(len(e['rejon_zu']))}.",
+        ri = e["rejon_info"]
+        L += [f"- Quelle `{ri.get('quelle')}`, Sätze {_z(ri.get('saetze'))}, Kennungsfeld "
+              f"`{ri.get('kennungsfeld')}`, zugeordnet {_z(len(e['rejon_zu']))}."]
+        if "ohne_zeile" in ri:
+            fl = f"{ri['flaeche_km2']:.2f}".replace(".", ",")
+            L += [f"- obwody in der Geometrie: {_z(ri['obwody_geometrie'])} (Tabelle: {_z(e['nsp'].obwody_zahl)}); "
+                  f"Σ Fläche der rejony {fl} km² (Stadt {str(e['stadt_km2']).replace('.', ',')} km²).",
+                  "- rejony der Geometrie ohne Zeile in der Tabelle (keine Werte, nicht zugeordnet; ob unbewohnt, ist "
+                  "nicht geprüft): " + (", ".join(f"{k} (delegatura {l})" for k, l in ri["ohne_zeile"]) or "keine") + "."]
+        L += [
               f"- rejony mit mehr als 5 % Fläche in einer anderen dzielnica: {_z(len(e['schneider']))}"
               + (f" ({', '.join(e['schneider'][:40])}{' …' if len(e['schneider']) > 40 else ''})" if e["schneider"] else "")
               + "."]
@@ -564,8 +700,9 @@ def beleg(e: dict, konfig: dict) -> str:
            "- Regel 4 vergleicht mit den delegatury der BDOT10k (aus PRG); ob deren Grenzen die amtliche Gruppierung "
            "der dzielnice abbilden, ist nicht amtlich geprüft. Die Reste von III und XV gelten nach der Gegenprobe mit "
            "den städtischen Grenzen als Grenzsplitter (Entscheidung vom 13.11.2026)."),
-          "- NSP-Werte je dzielnica fehlen, solange die Geometrie der rejony fehlt (Handdownload, Ausgabe 2021 laut "
-          "`eingang/HERKUNFT.md` nicht gefunden; Lizenz der Geometrie nicht geprüft).",
+          ("- NSP-Werte je dzielnica fehlen, solange die Geometrie der rejony fehlt." if e["rejon_zu"] is None else
+           "- NSP je dzielnica ist die Summe der rejony mit innerem Punkt in der dzielnica (Schritt 5); rejony an den "
+           "Grenzen zählen ganz zu einer dzielnica. Lizenz der Geometrie: Feed INSPIRE des GUS (`quellen-D4.md`)."),
           "- Lizenz des Eurostat-Gitters in der strengsten Lesart (CC BY 4.0); Bestätigung durch Eurostat offen.",
           "- Gemeldete Einwohner der Stadt (BIP Kraków) sind ein anderes Konzept und werden nicht verwendet "
           "(Lizenzangabe fehlt).", ""]

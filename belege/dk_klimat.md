@@ -9,7 +9,7 @@ Erzeugt von `skripte/35_klimat.py` (nicht von Hand ändern; `--pruefen` vergleic
 | `$KIEZ_DATEN/2026-11-13/03_gebaeude/1261_SHP.zip` | `68b6ff47ed37184960a3abffecc34b6341d5433bb589b74dea062a4a19e2701d` |
 | `$KIEZ_DATEN/2026-11-13/10_statistik/bip_dok242410_mieszkancy_dzielnice_2025.html` (nur Gegenprobe) | `297b2944c3b24eba2e61abeec85c9e0a0ab704fb6d5c7936f7268c7e20095c69` |
 | `daten/stadtteile_odbl.js` | `561dd8d8923cbb51e4876da74bc14ecd774b6f2e8ca20b78746c5238f47ef89e` |
-| `daten/kennzahlen_odbl.json` | `3fc554829c050ec8da41bc321cfddae4c2222de4f7e8b1cf43120466a3d33186` |
+| `daten/kennzahlen_odbl.json` | `29392de541ab6279239604d39176051f5ba3f73ffbf6f55e4f40bd49eab2b86a` |
 
 Stand der BDOT10k-Dateien laut Zip-Verzeichnis: 2026-10-03. Koordinatensystem der Dateien: ETRF2000-PL / CS92; gerechnet in ETRS89 / Poland CS2000 zone 7 (EPSG:2178). Werkzeuge: Python 3.13.12, shapely 2.2.0 (GEOS 3.14.1), pyproj 3.8.0 (PROJ 9.8.1), numpy 2.5.4.
 

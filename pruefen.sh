@@ -91,6 +91,7 @@ echo "Werkzeuge: $(uv --version), node $(node --version), Python $($UV python -c
 pruef "Syntax JavaScript (node --check)" js_syntax
 pruef "Syntax Shell (sh -n)" sh_syntax
 pruef "Syntax Python (ast)" py_syntax
+pruef "Maschine unverändert zum festen Commit (skripte/maschine.py pruefen, MASCHINE.lock)" py skripte/maschine.py pruefen
 pruef "Gerüst: Ortskonfiguration, Rechen-SRID, keine Plankennungen (pruefen/geruest.py)" py pruefen/geruest.py
 pruef "ort.js aktuell (skripte/31_ort.py --pruefen)" py skripte/31_ort.py --pruefen
 pruef "Seiten aktuell, pl/en/de (skripte/30_seiten.py --pruefen)" py skripte/30_seiten.py --pruefen

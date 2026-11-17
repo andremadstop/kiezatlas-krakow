@@ -58,7 +58,7 @@ RCN-Datei fehlen erst der Anteil, dann die Lage).
 Denkmalregister: nur Wikidata (Teilmenge des Registers), NID-Register und gminna ewidencja fehlen. Die Lage der
 Registerpunkte und der OSM-Objekte mit `heritage` ist am Luftbild nur in einer Zufallsstichprobe von 40 Punkten geprüft
 (33 auf dem Objekt, 6 knapp daneben, 1 nicht dort; `belege/DZ_denkmale_lauf.md`), nicht je Punkt; die Zuordnung zum
-Gebäude ist ungeprüft. Nicht belegt sind außerdem NSP-Werte je dzielnica (die Geometrie der rejony fehlt) und die
+Gebäude ist ungeprüft. Nicht belegt ist außerdem die
 Typologie der Plattenbauten (Schätzung). Die Zuordnung der dzielnice zu den historischen Stadtbezirken ist nur gegen die
 delegatury der BDOT10k geprüft ([`docs/entscheidungen.md`](docs/entscheidungen.md), KR17).
 

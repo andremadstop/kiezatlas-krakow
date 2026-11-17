@@ -1,0 +1,213 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "rejony statystyczne mit Werten des NSP 2021",
+ "description": "Je rejon statystyczny (GUS, 748 mit Tabellenzeile, dazu einer ohne): Grenze (GUS BREC 2021, für die Karte vereinfacht), Einwohner, Fläche, Dichte und drei Altersanteile in ganzen Prozent, Anteile erst ab der Mindestfallzahl (Prüfprotokoll D4, Änderungen vom 17.11.2026). Ohne Bezug zu den Grenzen der dzielnice. Erzeugt von skripte/02_bevoelkerung.py.",
+ "x-datei": "rejony.js",
+ "x-global": "^KIEZ_REJONY$",
+ "x-eigentuemer": "skripte/02_bevoelkerung.py (Paket Gliederung und Bevölkerung)",
+ "type": "object",
+ "required": [
+  "type",
+  "stand_auswertung",
+  "quellen",
+  "methode",
+  "features"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "type": {
+   "const": "FeatureCollection"
+  },
+  "stand_auswertung": {
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "quellen": {
+   "type": "object",
+   "required": [
+    "nsp2021",
+    "gus_brec2021"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "nsp2021": {
+     "$ref": "#/$defs/quelle"
+    },
+    "gus_brec2021": {
+     "$ref": "#/$defs/quelle"
+    }
+   }
+  },
+  "methode": {
+   "type": "object",
+   "required": [
+    "mindestfallzahl",
+    "vereinfachung_m",
+    "flaechen_srid"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "mindestfallzahl": {
+     "const": 100
+    },
+    "vereinfachung_m": {
+     "type": "number",
+     "minimum": 0
+    },
+    "flaechen_srid": {
+     "type": "integer"
+    }
+   }
+  },
+  "features": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "type",
+     "geometry",
+     "properties"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "type": {
+      "const": "Feature"
+     },
+     "geometry": {
+      "type": "object",
+      "required": [
+       "type",
+       "coordinates"
+      ],
+      "properties": {
+       "type": {
+        "enum": [
+         "Polygon",
+         "MultiPolygon"
+        ]
+       }
+      }
+     },
+     "properties": {
+      "type": "object",
+      "required": [
+       "id",
+       "dg",
+       "km2",
+       "ew",
+       "dichte",
+       "q_u20",
+       "q_60p",
+       "q_nach"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "id": {
+        "type": "string",
+        "pattern": "^\\d{6}$",
+        "description": "Kennung des rejon statystyczny (sechs Ziffern)"
+       },
+       "dg": {
+        "enum": [
+         "1261029",
+         "1261039",
+         "1261049",
+         "1261059"
+        ],
+        "description": "delegatura laut GUS (LocationString)"
+       },
+       "km2": {
+        "type": "number",
+        "minimum": 0
+       },
+       "ew": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "minimum": 0,
+        "description": "Einwohner NSP 2021; null nur bei ohne_zeile"
+       },
+       "dichte": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "minimum": 0
+       },
+       "q_u20": {
+        "$ref": "#/$defs/anteil"
+       },
+       "q_60p": {
+        "$ref": "#/$defs/anteil"
+       },
+       "q_nach": {
+        "$ref": "#/$defs/anteil"
+       },
+       "ohne_zeile": {
+        "const": true,
+        "description": "rejon der Geometrie ohne Zeile in der NSP-Tabelle"
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "anteil": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "minimum": 0,
+   "maximum": 100
+  },
+  "quelle": {
+   "type": "object",
+   "required": [
+    "quelle",
+    "url",
+    "lizenz",
+    "vermerk",
+    "fundstelle",
+    "stichtag",
+    "stichtag_geprueft"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "quelle": {
+     "type": "string",
+     "minLength": 1
+    },
+    "url": {
+     "type": "string",
+     "pattern": "^https://"
+    },
+    "lizenz": {
+     "type": "string",
+     "minLength": 1
+    },
+    "vermerk": {
+     "type": "string",
+     "minLength": 1
+    },
+    "fundstelle": {
+     "type": "string",
+     "pattern": "^https://"
+    },
+    "stichtag": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "stichtag_geprueft": {
+     "type": "boolean"
+    }
+   }
+  }
+ }
+}

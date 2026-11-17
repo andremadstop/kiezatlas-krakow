@@ -21,6 +21,7 @@ Data state: built from the atlas data files (`daten/` folder), latest date in th
 | `delegatury`: Four delegatury (historic boroughs) | `kiezatlas_krakow.gpkg` | none | 4 | `steckbrief`, `gebaeude_kennzahlen`, `klimat`, `sanierung`, `denkmale_bdot` |
 | `siatka_1km`: 1 km grid: population and straight-line distances | `kiezatlas_krakow.gpkg` | polygon | 327 | `zellen_odbl`, `erreichbar` |
 | `siatka_1km_pokrycie`: 1 km grid: land cover | `kiezatlas_krakow.gpkg` | polygon | 397 | `klimat_zellen` |
+| `rejony_statystyczne`: Statistical areas: population from NSP 2021 | `kiezatlas_krakow.gpkg` | multipolygon | 749 | `rejony` |
 | `placowki_bdot`: Facilities from BDOT10k | `kiezatlas_krakow.gpkg` | point | 321 | `einrichtungen` |
 | `przystanki`: Stops with frequency class | `kiezatlas_krakow.gpkg` | point | 944 | `haltestellen` |
 | `bdot_kompleksy`: BDOT10k complexes (museums, forts, building ensembles) | `kiezatlas_krakow.gpkg` | polygon | 59 | `denkmale_bdot` |
@@ -332,6 +333,21 @@ Not yet a layer of their own in the export (real data, only as atlas files in th
 | `anteil_gruen_wald` | BDOT10k: share of the land cover total: green space and woodland together, % |
 | `wkt` | geometry as WKT in EPSG:2178 |
 
+### `rejony_statystyczne`
+
+| Field | Meaning |
+|---|---|
+| `rejon` | GUS statistical area identifier (6 digits) |
+| `delegatura_teryt` | TERYT code of the delegatura according to GUS |
+| `nsp_einwohner` | NSP 2021: residents of the area; empty = no row in the census table |
+| `flaeche_km2` | area, km² |
+| `dichte_nsp` | population density from NSP 2021, residents per km² |
+| `nsp_q_u20` | NSP 2021: share under 20, whole %; empty below 100 people |
+| `nsp_q_60p` | NSP 2021: share aged 60 and over, whole %; empty below 100 people |
+| `nsp_q_nach` | NSP 2021: share of post-working age, whole %; empty below 100 people |
+| `ohne_zeile` | 1 = area without a row in the census table (no values) |
+| `wkt` | geometry as WKT in EPSG:2178 |
+
 ### `placowki_bdot`
 
 | Field | Meaning |
@@ -438,8 +454,27 @@ Not yet a layer of their own in the export (real data, only as atlas files in th
 | `gitter_zellen_beruehrt` | number of cells that lie at least partly in the unit |
 | `gitter_spanne_proz` | difference between the area rule and the centre rule, % (blur at the boundaries, not an error) |
 | `dichte_gitter` | population density from the Eurostat grid, residents per km² |
-| `nsp` | NSP 2021 for the district: empty (see nsp_grund) |
-| `nsp_grund` | reason why NSP 2021 values are missing |
+| `nsp_einwohner` | NSP 2021: residents |
+| `nsp_maenner` | NSP 2021: men |
+| `nsp_frauen` | NSP 2021: women |
+| `nsp_alter_10_a0_9` | NSP 2021: residents aged 0–9 |
+| `nsp_alter_10_a10_19` | NSP 2021: residents aged 10–19 |
+| `nsp_alter_10_a20_29` | NSP 2021: residents aged 20–29 |
+| `nsp_alter_10_a30_39` | NSP 2021: residents aged 30–39 |
+| `nsp_alter_10_a40_49` | NSP 2021: residents aged 40–49 |
+| `nsp_alter_10_a50_59` | NSP 2021: residents aged 50–59 |
+| `nsp_alter_10_a60_69` | NSP 2021: residents aged 60–69 |
+| `nsp_alter_10_a70_79` | NSP 2021: residents aged 70–79 |
+| `nsp_alter_10_a80p` | NSP 2021: residents aged 80 and over |
+| `nsp_oekonomisch_vor` | NSP 2021: residents of pre-working age |
+| `nsp_oekonomisch_erwerb` | NSP 2021: residents of working age |
+| `nsp_oekonomisch_nach` | NSP 2021: residents of post-working age |
+| `nsp_q_u20` | NSP 2021: share of residents under 20, % |
+| `nsp_q_60p` | NSP 2021: share of residents aged 60 and over, % |
+| `nsp_q_nach` | NSP 2021: share of residents of post-working age, % |
+| `nsp_rejony` | NSP 2021: number of statistical areas (rejony statystyczne) |
+| `nsp_weg` | where the NSP 2021 values come from |
+| `dichte_nsp` | population density from NSP 2021, residents per km² |
 | `geb_anzahl` | BDOT10k: buildings (OT_BUBD_A) with their inner point in the unit, all statuses |
 | `geb_zustand_eksploatowany` | BDOT10k: buildings with status: in use (eksploatowany) |
 | `geb_zustand_w_budowie` | BDOT10k: buildings with status: under construction (w budowie) |
@@ -653,7 +688,7 @@ Not yet a layer of their own in the export (real data, only as atlas files in th
 | `ep` | `1946_1989` | 1946–1989 |
 | `ep` | `ab_1990` | from 1990 |
 | `ep` | `vor_1800` | before 1800 |
-| `nsp_grund` | `rejony_geometrie_fehlt` | boundaries of the statistical areas are missing: the manual download of GUS “Jednostki statystyczne 2021” is still pending |
+| `nsp_weg` | `rejony` | sum of statistical areas |
 | `kennzahl` | `anteil_in_radius` | share of residents with a facility within the radius of the official standard (richtwert_wert), % |
 | `kennzahl` | `ew_je_einrichtung` | residents per facility |
 | `kennzahl` | `gruen_in_radius` | share of residents with a park or square within 500 m walking, % |

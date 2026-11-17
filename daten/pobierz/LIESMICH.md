@@ -21,6 +21,7 @@ Datenstand: erzeugt aus den Datendateien des Atlas (Ordner `daten/`), jüngstes 
 | `delegatury`: Vier delegatury (historische Stadtbezirke) | `kiezatlas_krakow.gpkg` | keine | 4 | `steckbrief`, `gebaeude_kennzahlen`, `klimat`, `sanierung`, `denkmale_bdot` |
 | `siatka_1km`: 1-km-Gitter: Einwohner und Luftlinie | `kiezatlas_krakow.gpkg` | polygon | 327 | `zellen_odbl`, `erreichbar` |
 | `siatka_1km_pokrycie`: 1-km-Gitter: Bodenbedeckung | `kiezatlas_krakow.gpkg` | polygon | 397 | `klimat_zellen` |
+| `rejony_statystyczne`: Statistische Bezirke (rejony): Bevölkerung nach NSP 2021 | `kiezatlas_krakow.gpkg` | multipolygon | 749 | `rejony` |
 | `placowki_bdot`: Einrichtungen aus BDOT10k | `kiezatlas_krakow.gpkg` | point | 321 | `einrichtungen` |
 | `przystanki`: Haltestellen mit Taktklasse | `kiezatlas_krakow.gpkg` | point | 944 | `haltestellen` |
 | `bdot_kompleksy`: BDOT10k-Komplexe (Museen, Forts, Bauensembles) | `kiezatlas_krakow.gpkg` | polygon | 59 | `denkmale_bdot` |
@@ -332,6 +333,21 @@ Noch ohne eigene Ebene im Export sind (echte Daten, nur als Atlas-Dateien im Ord
 | `anteil_gruen_wald` | BDOT10k: Anteil an der Summe der Bodenbedeckung: Grün und Wald zusammen, % |
 | `wkt` | Geometrie als WKT in EPSG:2178 |
 
+### `rejony_statystyczne`
+
+| Feld | Bedeutung |
+|---|---|
+| `rejon` | Kennung des statistischen Bezirks des GUS (6 Ziffern) |
+| `delegatura_teryt` | TERYT-Kennung der delegatura laut GUS |
+| `nsp_einwohner` | NSP 2021: Einwohner des Bezirks; leer = keine Zeile in der Zensustabelle |
+| `flaeche_km2` | Fläche, km² |
+| `dichte_nsp` | Einwohnerdichte nach NSP 2021, Einwohner je km² |
+| `nsp_q_u20` | NSP 2021: Anteil unter 20 Jahren, ganze %; leer unter 100 Personen |
+| `nsp_q_60p` | NSP 2021: Anteil ab 60 Jahren, ganze %; leer unter 100 Personen |
+| `nsp_q_nach` | NSP 2021: Anteil im nacherwerbsfähigen Alter, ganze %; leer unter 100 Personen |
+| `ohne_zeile` | 1 = Bezirk ohne Zeile in der Zensustabelle (ohne Werte) |
+| `wkt` | Geometrie als WKT in EPSG:2178 |
+
 ### `placowki_bdot`
 
 | Feld | Bedeutung |
@@ -438,8 +454,27 @@ Noch ohne eigene Ebene im Export sind (echte Daten, nur als Atlas-Dateien im Ord
 | `gitter_zellen_beruehrt` | Zahl der Zellen, die wenigstens teilweise in der Einheit liegen |
 | `gitter_spanne_proz` | Spanne zwischen Flächenanteil und Mittelpunkt, % (Unschärfe an den Grenzen, kein Fehler) |
 | `dichte_gitter` | Einwohnerdichte nach Eurostat-Gitter, Einwohner je km² |
-| `nsp` | NSP 2021 je dzielnica: leer (siehe nsp_grund) |
-| `nsp_grund` | Grund für fehlende Werte aus dem NSP 2021 |
+| `nsp_einwohner` | NSP 2021: Einwohner |
+| `nsp_maenner` | NSP 2021: Männer |
+| `nsp_frauen` | NSP 2021: Frauen |
+| `nsp_alter_10_a0_9` | NSP 2021: Einwohner von 0 bis 9 Jahren |
+| `nsp_alter_10_a10_19` | NSP 2021: Einwohner von 10 bis 19 Jahren |
+| `nsp_alter_10_a20_29` | NSP 2021: Einwohner von 20 bis 29 Jahren |
+| `nsp_alter_10_a30_39` | NSP 2021: Einwohner von 30 bis 39 Jahren |
+| `nsp_alter_10_a40_49` | NSP 2021: Einwohner von 40 bis 49 Jahren |
+| `nsp_alter_10_a50_59` | NSP 2021: Einwohner von 50 bis 59 Jahren |
+| `nsp_alter_10_a60_69` | NSP 2021: Einwohner von 60 bis 69 Jahren |
+| `nsp_alter_10_a70_79` | NSP 2021: Einwohner von 70 bis 79 Jahren |
+| `nsp_alter_10_a80p` | NSP 2021: Einwohner ab 80 Jahren |
+| `nsp_oekonomisch_vor` | NSP 2021: Einwohner im vorerwerbsfähigen Alter |
+| `nsp_oekonomisch_erwerb` | NSP 2021: Einwohner im erwerbsfähigen Alter |
+| `nsp_oekonomisch_nach` | NSP 2021: Einwohner im nacherwerbsfähigen Alter |
+| `nsp_q_u20` | NSP 2021: Anteil unter 20 Jahren, % |
+| `nsp_q_60p` | NSP 2021: Anteil ab 60 Jahren, % |
+| `nsp_q_nach` | NSP 2021: Anteil im nacherwerbsfähigen Alter, % |
+| `nsp_rejony` | NSP 2021: Zahl der rejony statystyczne |
+| `nsp_weg` | Herkunft der Werte aus dem NSP 2021 |
+| `dichte_nsp` | Einwohnerdichte nach NSP 2021, Einwohner je km² |
 | `geb_anzahl` | BDOT10k: Gebäude (OT_BUBD_A) mit innerem Punkt in der Einheit, jeder Bestandsstatus |
 | `geb_zustand_eksploatowany` | BDOT10k: Gebäude mit Bestandsstatus: in Nutzung (eksploatowany) |
 | `geb_zustand_w_budowie` | BDOT10k: Gebäude mit Bestandsstatus: im Bau (w budowie) |
@@ -653,7 +688,7 @@ Noch ohne eigene Ebene im Export sind (echte Daten, nur als Atlas-Dateien im Ord
 | `ep` | `1946_1989` | 1946–1989 |
 | `ep` | `ab_1990` | ab 1990 |
 | `ep` | `vor_1800` | vor 1800 |
-| `nsp_grund` | `rejony_geometrie_fehlt` | Geometrie der rejony statystyczne fehlt: Handdownload GUS „Jednostki statystyczne 2021“ steht aus |
+| `nsp_weg` | `rejony` | Summe der rejony statystyczne |
 | `kennzahl` | `anteil_in_radius` | Anteil der Einwohner mit Einrichtung im Radius der amtlichen Vorgabe (richtwert_wert), % |
 | `kennzahl` | `ew_je_einrichtung` | Einwohner je Einrichtung |
 | `kennzahl` | `gruen_in_radius` | Anteil der Einwohner mit Park oder Grünanlage in 500 m Fußweg, % |

@@ -106,6 +106,11 @@ class Erzeuger:
         self.vorbereitung = [str(s) for s in self.k.get("in_vorbereitung") or []]
         # Rubriken: Punkte der Hauptnavigation ohne eigene Seite (Ziel, Textschlüssel, Seiten der Übersicht)
         self.rubriken: dict = self.k.get("rubriken") or {}
+        # Seitenstile der Stadt (Ortskonfiguration stile:), geladen nach basis.css und vor rahmen.css
+        self.stile = [str(s) for s in self.k.get("stile", ["atlas.css"])]
+        for s in self.stile:
+            if not (WURZEL / s).is_file():
+                raise Fehler(f"stile: {s} gibt es nicht")
         for s in [*self.unter, *self.vorbereitung, *(x for r in self.rubriken.values() for x in r.get("karten", []))]:
             if s not in self.seiten:
                 raise Fehler(f"unterseiten/in_vorbereitung/rubriken: Seite {s} steht nicht in seiten")
@@ -249,6 +254,8 @@ class Erzeuger:
         skripte.append(f'<script defer src="{w}rahmen.js"></script>')
         skripte += [f'<script defer src="{w}{d}"></script>' for d in kopf["skripte"]]
         css = "".join(f'<link rel="stylesheet" href="{w}{d}">\n' for d in kopf["css"])
+        # Seitenstile der Stadt zwischen Grundgestaltung (basis.css) und Rahmen (rahmen.css); ohne Angabe atlas.css
+        stile = "".join(f'<link rel="stylesheet" href="{w}{d}">\n' for d in self.stile)
         werte = {
             "lang": lang, "seite": seite, "titel": html.escape(titel), "wurzel": w, "wurzel_sprache": "",
             "beschreibung": self.t(lang, f"seiten.{k}.beschreibung"),
@@ -256,7 +263,7 @@ class Erzeuger:
             "sprachlinks": "\n".join(links), "og_locale": "\n".join(og), "css": css,
             "html_klasse": ' class="kopf-zwei"' if unter else "", "body_klasse": "textseite",
             "navigation": "\n".join(nav), "unternavigation": unter, "sprachwahl": "\n".join(wahl),
-            "sprachhinweis": " ".join(hinweis), "skripte": "\n".join(skripte) + "\n",
+            "sprachhinweis": " ".join(hinweis), "skripte": "\n".join(skripte) + "\n", "stile": stile,
             "herausgeber": html.escape(self.k["herausgeber"]), "meldeweg": html.escape(self.k["meldeweg"]),
         }
         werte["inhalt"] = self.ersetzen(inhalt.strip(), lang, werte)

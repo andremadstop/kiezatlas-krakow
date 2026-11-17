@@ -18,6 +18,7 @@
 <meta property="og:locale:alternate" content="en_GB">
 <meta name="theme-color" content="#f1f2ee">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../basis.css">
 <link rel="stylesheet" href="../atlas.css">
 <link rel="stylesheet" href="../rahmen.css">
 <link rel="stylesheet" href="../vendor/maplibre-gl.css">
@@ -63,11 +64,12 @@
   <div class="ka-bedienung">
     <p class="ka-wahl"><label for="ka-teil">Stadtteil</label>
       <select id="ka-teil"><option value="">Ganz Krakau</option></select></p>
-    <p class="ka-wahl"><label for="ka-zelle">Ebene im 1-km-Gitter</label>
+    <p class="ka-wahl"><label for="ka-zelle">Ebene (1-km-Gitter oder statistische Bezirke)</label>
       <select id="ka-zelle">
         <option value="">keine</option>
         <optgroup data-gruppe="gitter" label="Bevölkerung (Eurostat)"></optgroup>
         <optgroup data-gruppe="fuss" label="Fußweg zum nächsten Ziel"></optgroup>
+        <optgroup data-gruppe="spis" label="Volkszählung 2021 je statistischem Bezirk (GUS)"></optgroup>
         <optgroup data-gruppe="klima" label="Flächennutzung (BDOT10k)"></optgroup>
       </select></p>
     <fieldset id="ka-dz" class="ka-feld">

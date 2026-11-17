@@ -1,7 +1,7 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "title": "Steckbrief je dzielnica aus den OSM-Grenzen (ODbL)",
- "description": "Einwohner, Altersgruppen (Gitter), Fläche und Dichte je dzielnica, gerechnet mit den Grenzen der dzielnice aus OpenStreetMap und dem Eurostat-Gitter 2021 (1 km, Mittelpunktregel, dazu Flächenanteil und Spanne als Maß der Unschärfe). Solange nicht entschieden ist, ob aus OSM-Grenzen abgeleitete Werte unter die ODbL fallen (KR3), stehen sie nur hier, in einer Datei mit _odbl im Namen; daten/steckbrief.js trägt für die dzielnice null mit Grund. NSP-Werte je dzielnica erst mit der Geometrie der rejony (bis dahin null mit Grund). Datenschutz: Anteile erst ab der Mindestfallzahl. Erzeugt von skripte/02_bevoelkerung.py.",
+ "description": "Einwohner, Altersgruppen (Gitter), Fläche und Dichte je dzielnica, gerechnet mit den Grenzen der dzielnice aus OpenStreetMap und dem Eurostat-Gitter 2021 (1 km, Mittelpunktregel, dazu Flächenanteil und Spanne als Maß der Unschärfe). Aus OSM-Grenzen abgeleitete Werte stehen nur hier, in einer Datei mit _odbl im Namen (Entscheidung zu KR3, Variante a); daten/steckbrief.js trägt für die dzielnice null mit Grund. NSP 2021 je dzielnica als Summe der rejony statystyczne (Geometrie GUS BREC 2021, Zuordnung über einen inneren Punkt); ohne Geometrie null mit Grund. Datenschutz: Anteile erst ab der Mindestfallzahl. Erzeugt von skripte/02_bevoelkerung.py.",
  "x-datei": "steckbrief_dzielnice_odbl.js",
  "x-global": "^KIEZ_STECKBRIEF_DZIELNICE$",
  "x-odbl": true,
@@ -66,6 +66,32 @@
   },
   "anteil": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
   "zahl": {"type": "integer", "minimum": 0},
+  "nsp": {
+   "type": "object",
+   "required": ["einwohner", "maenner", "frauen", "alter_10", "oekonomisch", "q_u20", "q_60p", "q_nach"],
+   "additionalProperties": false,
+   "properties": {
+    "einwohner": {"$ref": "#/$defs/zahl"},
+    "maenner": {"$ref": "#/$defs/zahl"},
+    "frauen": {"$ref": "#/$defs/zahl"},
+    "alter_10": {
+     "type": "object",
+     "required": ["a0_9", "a10_19", "a20_29", "a30_39", "a40_49", "a50_59", "a60_69", "a70_79", "a80p"],
+     "additionalProperties": false,
+     "patternProperties": {"^a\\d": {"$ref": "#/$defs/zahl"}}
+    },
+    "oekonomisch": {
+     "type": "object",
+     "required": ["vor", "erwerb", "nach"],
+     "additionalProperties": false,
+     "properties": {"vor": {"$ref": "#/$defs/zahl"}, "erwerb": {"$ref": "#/$defs/zahl"}, "nach": {"$ref": "#/$defs/zahl"}}
+    },
+    "q_u20": {"$ref": "#/$defs/anteil"},
+    "q_60p": {"$ref": "#/$defs/anteil"},
+    "q_nach": {"$ref": "#/$defs/anteil"},
+    "rejony": {"type": "integer", "minimum": 1}
+   }
+  },
   "gitter": {
    "type": "object",
    "required": ["zellen", "zellen_beruehrt", "einwohner", "u15", "a15_64", "a65p", "a_ges", "q_u15", "q_65p", "einwohner_flaechenanteil", "spanne_proz", "abweichung_nsp_proz"],
@@ -97,7 +123,9 @@
     "flaeche_km2": {"type": "number", "minimum": 0},
     "gitter": {"$ref": "#/$defs/gitter"},
     "dichte_gitter": {"type": ["integer", "null"], "minimum": 0},
-    "nsp": {"type": "null"},
+    "nsp": {"anyOf": [{"$ref": "#/$defs/nsp"}, {"type": "null"}], "description": "NSP 2021 als Summe der rejony statystyczne mit innerem Punkt in der dzielnica (GUS BREC 2021); null mit nsp_grund, solange die Geometrie fehlt"},
+    "nsp_weg": {"enum": ["rejony"]},
+    "dichte_nsp": {"type": ["integer", "null"], "minimum": 0},
     "nsp_grund": {"enum": ["rejony_geometrie_fehlt", "rejony_erst_mit_dzielnice", "nsp_erst_ueber_rejony", "dzielnice_grenzen_fehlen", "nicht_angefordert", "grenzen_odbl"], "description": "Grund als Schlüssel: rejony_geometrie_fehlt = Geometrie der rejony statystyczne fehlt (Handdownload GUS „Jednostki statystyczne 2021“ ausstehend); rejony_erst_mit_dzielnice = Geometrie der rejony erst mit den Grenzen der dzielnice verwendbar; nsp_erst_ueber_rejony = NSP je dzielnica erst über die rejony; dzielnice_grenzen_fehlen = Grenzen der dzielnice fehlen; nicht_angefordert = nicht angefordert; grenzen_odbl = aus den OSM-Grenzen abgeleitet, steht deshalb nur in steckbrief_dzielnice_odbl.js (KR13, KR28)"}
    }
   }

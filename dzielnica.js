@@ -147,23 +147,35 @@ function zeichnen(nr) {
     });
     liste.appendChild(feld);
   });
-  // NSP 2021: nur je Delegatur (historischer Stadtbezirk); je dzielnica fehlt die Geometrie der rejony statystyczne
+  // NSP 2021: je dzielnica als Summe der rejony statystyczne (steckbrief_dzielnice_odbl.js), dazu die delegatura
   var nsp = document.getElementById("ka-sb-nsp"); nsp.textContent = "";
-  var gd = SB && SB.gruppen[t.gruppe];
-  nsp.appendChild(el("h3", "ka-gruppe-titel", tt("erzaehlung.sb_gruppe_nsp")));
-  nsp.appendChild(el("p", null, tt("erzaehlung.sb_nsp_fehlt")));
-  if (gd && gd.nsp) {
+  var gd = SB && SB.gruppen[t.gruppe], dd = SD && SD.stadtteile && SD.stadtteile[nr];
+  function nspFeld(w, fuer) {
     var tab = el("div", "ka-werte");
-    [[tt("erzaehlung.sb_nsp_ew"), fmt.format(gd.nsp.einwohner), ""],
-     [tt("erzaehlung.sb_nsp_u20"), fmt1.format(gd.nsp.q_u20), PZ],
-     [tt("erzaehlung.sb_nsp_60p"), fmt1.format(gd.nsp.q_60p), PZ],
-     [tt("erzaehlung.sb_nsp_nach"), fmt1.format(gd.nsp.q_nach), PZ]].forEach(function (z) {
+    [[tt("erzaehlung.sb_nsp_ew"), w.einwohner, fmt, ""],
+     [tt("erzaehlung.sb_nsp_u20"), w.q_u20, fmt1, PZ],
+     [tt("erzaehlung.sb_nsp_60p"), w.q_60p, fmt1, PZ],
+     [tt("erzaehlung.sb_nsp_nach"), w.q_nach, fmt1, PZ]].forEach(function (z) {
       var c = el("div", "ka-wert"); c.appendChild(el("h4", null, z[0]));
-      var n = el("span", "ka-zahl", z[1]); if (z[2]) n.appendChild(el("small", null, z[2].trim())); c.appendChild(n);
-      c.appendChild(el("p", "ka-vergleich", tt("erzaehlung.sb_nsp_fuer", { name: gd.name }))); tab.appendChild(c);
+      var n = el("span", "ka-zahl", z[1] == null ? tt("kern.k_a") : z[2].format(z[1]));
+      if (z[1] != null && z[3]) n.appendChild(el("small", null, z[3].trim()));
+      c.appendChild(n); c.appendChild(el("p", "ka-vergleich", fuer)); tab.appendChild(c);
     });
-    nsp.appendChild(tab);
+    return tab;
+  }
+  if (dd && dd.nsp) {
+    nsp.appendChild(el("h3", "ka-gruppe-titel", tt("erzaehlung.sb_gruppe_nsp_dz")));
+    nsp.appendChild(el("p", null, tt("erzaehlung.sb_nsp_dz_einleitung", { n: fmt.format(dd.nsp.rejony) })));
+    nsp.appendChild(nspFeld(dd.nsp, tt("erzaehlung.sb_nsp_dz_fuer", { name: t.name })));
+    if (gd && gd.nsp) nsp.appendChild(nspFeld(gd.nsp, tt("erzaehlung.sb_nsp_fuer", { name: gd.name })));
+  } else {
+    nsp.appendChild(el("h3", "ka-gruppe-titel", tt("erzaehlung.sb_gruppe_nsp")));
+    nsp.appendChild(el("p", null, tt("erzaehlung.sb_nsp_fehlt")));
+    if (gd && gd.nsp) nsp.appendChild(nspFeld(gd.nsp, tt("erzaehlung.sb_nsp_fuer", { name: gd.name })));
+  }
+  if (gd && gd.nsp) {
     nsp.appendChild(el("p", "ka-quelle", SB.quellen.nsp2021.vermerk));
+    if (dd && dd.nsp && SD.quellen.gus_brec2021) nsp.appendChild(el("p", "ka-quelle", tt("erzaehlung.sb_nsp_quelle_rejony")));
     nsp.appendChild(el("p", "ka-quelle", tt("erzaehlung.sb_nsp_stichtag", { datum: I18N.fmt.datum(SB.quellen.nsp2021.stichtag) })));
   }
   document.title = I18N.sprachwert(t.anzeige) + " · " + I18N.ort("name");

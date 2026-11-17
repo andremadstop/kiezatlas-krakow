@@ -99,6 +99,7 @@ ihrer Abnahme; sie stehen als Vorschlag der Integration, Verbleib aller Abnahme-
 | KR67 | Version 1.0.0 als bereinigter Export: ein Commit, Rollenadresse, Werkzeug der Herausgeberin nicht im Export | 15.11.2026, Vorschlag; Veröffentlichung bei Andre |
 | KR68 | `./pruefen.sh` ohne Rohdaten: Luft und Wohnungsmarkt prüfen die Dateien, Neurechnung übersprungen | 15.11.2026, Vorschlag |
 | KR69 | Repositorys öffentlich (Atlas, Pipeline mit Commit und DOI, Potsdam); `repository` gesetzt, offen nur der Schnappschuss | 15.11.2026, geprüft |
+| KR70 | Gemeinsame Kiezatlas-Maschine in eigenem Repository (`kiezatlas`); Kraków enthält eine Kopie zu festem Commit (`MASCHINE.txt`, `MASCHINE.lock`, `skripte/maschine.py`, Prüfschritt in `pruefen.sh`). Maschinendateien werden hier nicht von Hand geändert. Erste Fassung byte-gleich mit dem Stand e7c85ca, ausgelieferte Seiten unverändert | 16.11.2026, Andre (ein Code für alle Städte, eigenes Repository) |
 
 ## KR1: Rechen-Koordinatensystem EPSG:2178
 
@@ -1483,6 +1484,26 @@ Stand: Prüfung der Integration (15.11.2026). Herkunft: Zweig Repository-Adresse
   Prüfmuster „interner Tag“); Commit und DOI genügen.
 - **Neu prüfen, wenn:** `PIPELINE_SOLL` sich ändert (dann neue Pipeline-Version mit eigener DOI eintragen) oder ein
   Repository umzieht.
+
+
+## KR70: Gemeinsame Kiezatlas-Maschine (16.11.2026)
+
+Stand: 16.11.2026. Entscheidung der Herausgeberin: ein Code für alle Städte, in einem eigenen Repository.
+
+- **Anlass:** Der Code dieses Atlas zeigt nachweislich auch Potsdam (Gegenprobe, 0 Abweichungen). Ohne gemeinsamen Ort
+  entstehen Verbesserungen je Stadt doppelt, und die Städte laufen auseinander.
+- **Entscheidung:** Der ortsunabhängige Teil liegt im eigenen Repository `kiezatlas` (die Maschine). Kraków enthält
+  eine Kopie zu festem Commit: `MASCHINE.txt` nennt die Dateien, `MASCHINE.lock` Commit und SHA256 je Datei,
+  `skripte/maschine.py` holt und prüft, `pruefen.sh` prüft die Kopie. Maschinendateien werden hier nicht von Hand
+  geändert. Erste Fassung byte-gleich mit e7c85ca (16 Dateien: Laufzeit-Module, Seitenrahmen, Seitengenerator);
+  keine ausgelieferte Datei hat sich geändert (Deploy-Liste 619 Dateien, keine davon im Diff).
+- **Begründung:** Eine Kopie hält dieses Repository und jedes Archiv (Zenodo) für sich allein vollständig, so wie es
+  das offene Rezept verlangt; der feste Commit macht jede Stadt nachrechenbar. Adressen und DOI bleiben unverändert.
+- **Verworfen:** Maschine in diesem Repository mit Potsdam als zweiter Konfiguration (ein Repository mit Stadtnamen
+  für mehrere Städte); Potsdam zieht die Maschine aus Kraków (Kraków bliebe Sonderfall); Maschine ohne Kopie nur zur
+  Laufzeit nachladen (Archiv unvollständig).
+- **Neu prüfen, wenn:** eine Stadt eine Maschinendatei ändern muss, die für die anderen nicht passt, oder die Kopie
+  so groß wird, dass sie die Prüfungen der Städte verlangsamt.
 
 ## Nie sprawdzono / Nicht geprüft sind …
 

@@ -31,8 +31,8 @@ Mitgelieferte Fremdbestandteile (vendor/, fonts/; Kartenschrift nur in der Ausli
 - GSAP 3.15.1 mit ScrollTrigger (GreenSock Standard „No Charge“ License, https://gsap.com/standard-license) ist
   NICHT Teil dieses öffentlichen Repositorys: keine Open-Source-Lizenz, Weitergabe nicht geprüft. Keine Krakauer
   Seite lädt GSAP; gebraucht wird es nur vom unveränderten Potsdamer Modul atlas.js für die Gegenprobe Potsdam
-  (pruefen/gegenprobe_potsdam.sh). Wer sie laufen lässt, holt es selbst: npm pack gsap@3.15.1, aus dem Paket
-  dist/gsap.min.js und dist/ScrollTrigger.min.js nach vendor/ legen. skripte/deploy_kopie.py liefert beide nie aus.
+  (pruefen/gegenprobe_potsdam.sh). Sie nimmt es aus dem vendor/-Ordner des Potsdamer Repos, wo
+  sh skripte/vendor_holen.sh es aus dem npm-Paket gsap@3.15.1 ablegt; fehlt es, laufen beide Seiten der Probe ohne GSAP. skripte/deploy_kopie.py liefert beide nie aus.
 - Barlow und Barlow Semi Condensed, Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow),
   SIL Open Font License 1.1 (fonts/OFL.txt). Bezogen als npm-Pakete @fontsource/barlow und
   @fontsource/barlow-semi-condensed 5.3.0; je Schnitt die Teilmengen latin und latin-ext zu einer Datei

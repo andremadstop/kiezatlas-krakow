@@ -253,6 +253,16 @@ siatka_1km_pokrycie;anteil_sonstige;BDOT10k: udział w sumie klas pokrycia teren
 siatka_1km_pokrycie;anteil_bebauung_verkehr;BDOT10k: udział w sumie klas pokrycia terenu: zabudowa i tereny komunikacyjne razem, %;BDOT10k: share of the land cover total: built-up and transport land together, %;BDOT10k: Anteil an der Summe der Bodenbedeckung: Bebauung und Verkehr zusammen, %
 siatka_1km_pokrycie;anteil_gruen_wald;BDOT10k: udział w sumie klas pokrycia terenu: zieleń i lasy razem, %;BDOT10k: share of the land cover total: green space and woodland together, %;BDOT10k: Anteil an der Summe der Bodenbedeckung: Grün und Wald zusammen, %
 siatka_1km_pokrycie;wkt;geometria jako WKT w EPSG:2178;geometry as WKT in EPSG:2178;Geometrie als WKT in EPSG:2178
+rejony_statystyczne;rejon;identyfikator rejonu statystycznego GUS (6 cyfr);GUS statistical area identifier (6 digits);Kennung des statistischen Bezirks des GUS (6 Ziffern)
+rejony_statystyczne;delegatura_teryt;kod TERYT delegatury według GUS;TERYT code of the delegatura according to GUS;TERYT-Kennung der delegatura laut GUS
+rejony_statystyczne;nsp_einwohner;"NSP 2021: liczba mieszkańców rejonu; puste = brak wiersza w tabeli spisu";"NSP 2021: residents of the area; empty = no row in the census table";"NSP 2021: Einwohner des Bezirks; leer = keine Zeile in der Zensustabelle"
+rejony_statystyczne;flaeche_km2;powierzchnia, km²;area, km²;Fläche, km²
+rejony_statystyczne;dichte_nsp;gęstość zaludnienia według NSP 2021, mieszkańcy na km²;population density from NSP 2021, residents per km²;Einwohnerdichte nach NSP 2021, Einwohner je km²
+rejony_statystyczne;nsp_q_u20;"NSP 2021: udział osób poniżej 20 lat, pełne %; puste poniżej 100 osób";"NSP 2021: share under 20, whole %; empty below 100 people";"NSP 2021: Anteil unter 20 Jahren, ganze %; leer unter 100 Personen"
+rejony_statystyczne;nsp_q_60p;"NSP 2021: udział osób w wieku 60 lat i więcej, pełne %; puste poniżej 100 osób";"NSP 2021: share aged 60 and over, whole %; empty below 100 people";"NSP 2021: Anteil ab 60 Jahren, ganze %; leer unter 100 Personen"
+rejony_statystyczne;nsp_q_nach;"NSP 2021: udział osób w wieku poprodukcyjnym, pełne %; puste poniżej 100 osób";"NSP 2021: share of post-working age, whole %; empty below 100 people";"NSP 2021: Anteil im nacherwerbsfähigen Alter, ganze %; leer unter 100 Personen"
+rejony_statystyczne;ohne_zeile;1 = rejon bez wiersza w tabeli spisu (bez wartości);1 = area without a row in the census table (no values);1 = Bezirk ohne Zeile in der Zensustabelle (ohne Werte)
+rejony_statystyczne;wkt;geometria jako WKT w EPSG:2178;geometry as WKT in EPSG:2178;Geometrie als WKT in EPSG:2178
 placowki_bdot;id;identyfikator obiektu w BDOT10k (LOKALNYID);object identifier in BDOT10k (LOKALNYID);Objektkennung in BDOT10k (LOKALNYID)
 placowki_bdot;art;rodzaj placówki;type of facility;Art der Einrichtung
 placowki_bdot;unterart;podtyp: puste (BDOT10k go nie podaje);subtype: empty (not in BDOT10k);Unterart: leer (nicht in BDOT10k)
@@ -325,8 +335,27 @@ dzielnice;gitter_abweichung_nsp_proz;"różnica liczby mieszkańców z siatki wz
 dzielnice;gitter_zellen_beruehrt;liczba komórek, które choćby częściowo leżą w jednostce;number of cells that lie at least partly in the unit;Zahl der Zellen, die wenigstens teilweise in der Einheit liegen
 dzielnice;gitter_spanne_proz;różnica między wynikami przypisania według powierzchni i według środka, % (miara niepewności na granicach, nie błąd);difference between the area rule and the centre rule, % (blur at the boundaries, not an error);Spanne zwischen Flächenanteil und Mittelpunkt, % (Unschärfe an den Grenzen, kein Fehler)
 dzielnice;dichte_gitter;gęstość zaludnienia według siatki Eurostatu, mieszkańcy na km²;population density from the Eurostat grid, residents per km²;Einwohnerdichte nach Eurostat-Gitter, Einwohner je km²
-dzielnice;nsp;NSP 2021 dla dzielnicy: puste (zob. nsp_grund);NSP 2021 for the district: empty (see nsp_grund);NSP 2021 je dzielnica: leer (siehe nsp_grund)
-dzielnice;nsp_grund;powód braku wartości NSP 2021;reason why NSP 2021 values are missing;Grund für fehlende Werte aus dem NSP 2021
+dzielnice;nsp_einwohner;NSP 2021: liczba mieszkańców;NSP 2021: residents;NSP 2021: Einwohner
+dzielnice;nsp_maenner;NSP 2021: mężczyźni;NSP 2021: men;NSP 2021: Männer
+dzielnice;nsp_frauen;NSP 2021: kobiety;NSP 2021: women;NSP 2021: Frauen
+dzielnice;nsp_alter_10_a0_9;NSP 2021: mieszkańcy w wieku 0–9 lat;NSP 2021: residents aged 0–9;NSP 2021: Einwohner von 0 bis 9 Jahren
+dzielnice;nsp_alter_10_a10_19;NSP 2021: mieszkańcy w wieku 10–19 lat;NSP 2021: residents aged 10–19;NSP 2021: Einwohner von 10 bis 19 Jahren
+dzielnice;nsp_alter_10_a20_29;NSP 2021: mieszkańcy w wieku 20–29 lat;NSP 2021: residents aged 20–29;NSP 2021: Einwohner von 20 bis 29 Jahren
+dzielnice;nsp_alter_10_a30_39;NSP 2021: mieszkańcy w wieku 30–39 lat;NSP 2021: residents aged 30–39;NSP 2021: Einwohner von 30 bis 39 Jahren
+dzielnice;nsp_alter_10_a40_49;NSP 2021: mieszkańcy w wieku 40–49 lat;NSP 2021: residents aged 40–49;NSP 2021: Einwohner von 40 bis 49 Jahren
+dzielnice;nsp_alter_10_a50_59;NSP 2021: mieszkańcy w wieku 50–59 lat;NSP 2021: residents aged 50–59;NSP 2021: Einwohner von 50 bis 59 Jahren
+dzielnice;nsp_alter_10_a60_69;NSP 2021: mieszkańcy w wieku 60–69 lat;NSP 2021: residents aged 60–69;NSP 2021: Einwohner von 60 bis 69 Jahren
+dzielnice;nsp_alter_10_a70_79;NSP 2021: mieszkańcy w wieku 70–79 lat;NSP 2021: residents aged 70–79;NSP 2021: Einwohner von 70 bis 79 Jahren
+dzielnice;nsp_alter_10_a80p;NSP 2021: mieszkańcy w wieku 80 lat i więcej;NSP 2021: residents aged 80 and over;NSP 2021: Einwohner ab 80 Jahren
+dzielnice;nsp_oekonomisch_vor;NSP 2021: mieszkańcy w wieku przedprodukcyjnym;NSP 2021: residents of pre-working age;NSP 2021: Einwohner im vorerwerbsfähigen Alter
+dzielnice;nsp_oekonomisch_erwerb;NSP 2021: mieszkańcy w wieku produkcyjnym;NSP 2021: residents of working age;NSP 2021: Einwohner im erwerbsfähigen Alter
+dzielnice;nsp_oekonomisch_nach;NSP 2021: mieszkańcy w wieku poprodukcyjnym;NSP 2021: residents of post-working age;NSP 2021: Einwohner im nacherwerbsfähigen Alter
+dzielnice;nsp_q_u20;NSP 2021: udział mieszkańców poniżej 20 lat, %;NSP 2021: share of residents under 20, %;NSP 2021: Anteil unter 20 Jahren, %
+dzielnice;nsp_q_60p;NSP 2021: udział mieszkańców w wieku 60 lat i więcej, %;NSP 2021: share of residents aged 60 and over, %;NSP 2021: Anteil ab 60 Jahren, %
+dzielnice;nsp_q_nach;NSP 2021: udział mieszkańców w wieku poprodukcyjnym, %;NSP 2021: share of residents of post-working age, %;NSP 2021: Anteil im nacherwerbsfähigen Alter, %
+dzielnice;nsp_rejony;NSP 2021: liczba rejonów statystycznych;NSP 2021: number of statistical areas (rejony statystyczne);NSP 2021: Zahl der rejony statystyczne
+dzielnice;nsp_weg;skąd pochodzą wartości NSP 2021;where the NSP 2021 values come from;Herkunft der Werte aus dem NSP 2021
+dzielnice;dichte_nsp;gęstość zaludnienia według NSP 2021, mieszkańcy na km²;population density from NSP 2021, residents per km²;Einwohnerdichte nach NSP 2021, Einwohner je km²
 dzielnice;geb_anzahl;BDOT10k: budynki (OT_BUBD_A) z punktem wewnętrznym w jednostce, wszystkie kategorie istnienia;BDOT10k: buildings (OT_BUBD_A) with their inner point in the unit, all statuses;BDOT10k: Gebäude (OT_BUBD_A) mit innerem Punkt in der Einheit, jeder Bestandsstatus
 dzielnice;geb_zustand_eksploatowany;BDOT10k: budynki o kategorii istnienia: eksploatowany;BDOT10k: buildings with status: in use (eksploatowany);BDOT10k: Gebäude mit Bestandsstatus: in Nutzung (eksploatowany)
 dzielnice;geb_zustand_w_budowie;BDOT10k: budynki o kategorii istnienia: w budowie;BDOT10k: buildings with status: under construction (w budowie);BDOT10k: Gebäude mit Bestandsstatus: im Bau (w budowie)

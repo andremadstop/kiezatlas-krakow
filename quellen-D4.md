@@ -38,11 +38,17 @@ Die Prüfsummen der Rohdateien stehen in `belege/rohdaten-D4-2026-11-13.sha256` 
 |---|---|---|---|
 | `*.osm.pbf` (genau eine; liegen mehrere da, bricht das Skript ab; jetzt `malopolskie-261112.osm.pbf`) | OSM-PBF, zlib; Grenzrelationen `boundary=administrative`, `admin_level=9`, römische Ziffer in `ref`, `official_name` („dzielnica X Swoszowice“) oder `name` | **da** (13.11.2026) | `skripte/raum_bevoelkerung.py`, `osm_pbf_kandidaten` |
 | ersatzweise `osm_dzielnice_krakow.geojson` (hat Vorrang vor der PBF) | GeoJSON FeatureCollection in EPSG:4326, Polygon/MultiPolygon, Tags flach oder verschachtelt (`properties.tags`, Format von osmtogeojson); dieselben Tags wie oben | nicht nötig | `osm_geojson_kandidaten` |
-| `rejony_statystyczne.zip` / `.shp` / `.gpkg` / `.geojson` / `.gml` | Geometrie der 748 rejony statystyczne (GUS „Jednostki statystyczne“, Ausgabe 2021); ein Feld, dessen Werte auf die sechsstelligen Kennungen der NSP-Tabelle enden (das Skript sucht es selbst, mindestens 90 % Treffer); Koordinatensystem aus .prj, GeoPackage oder GeoJSON-`crs` | **fehlt**: laut `eingang/HERKUNFT.md` Ausgabe 2021 nicht gefunden, INSPIRE-Feed zeigt Stand 2014, geo.stat.gov.pl antwortet 401 | `rejony_aus_eingang` |
+| `gus_brec/AreaStatisticalUnit_12.zip` (hat Vorrang) | GUS, Jednostki statystyczne 2021 (BREC), Woiwodschaft 12, INSPIRE-GML (`AreaStatisticalUnit_12.xml`, EPSG:4258, Breite vor Länge); rejon = `thematicId` mit genau sechs Ziffern und `LocationString` einer der vier delegatury (Prüfprotokoll D4, Änderung 17.11.2026) | **da** (17.11.2026, Handdownload; 749 rejony, davon 748 in der Tabelle) | `rejony_aus_brec` |
+| ersatzweise `rejony_statystyczne.zip` / `.shp` / `.gpkg` / `.geojson` / `.gml` | Geometrie der 748 rejony statystyczne (GUS „Jednostki statystyczne“, Ausgabe 2021); ein Feld, dessen Werte auf die sechsstelligen Kennungen der NSP-Tabelle enden (das Skript sucht es selbst, mindestens 90 % Treffer); Koordinatensystem aus .prj, GeoPackage oder GeoJSON-`crs` | nicht nötig | `rejony_aus_eingang` |
 
-Lizenz der rejony-Geometrie: **nicht geprüft** (Machbarkeitsbericht, Zeile 1b). Bevor NSP-Werte je dzielnica aus
-den rejony ausgeliefert werden, muss die Lizenz der gelieferten Datei mit wörtlicher Fundstelle hier stehen; bis
-dahin STOPP für diese Quelle, die NSP-Felder je dzielnica bleiben `null` mit Grund.
+Lizenz der rejony-Geometrie (geprüft 17.11.2026): Der INSPIRE-Feed des GUS
+(https://geo.stat.gov.pl/atom-web/atom/SU?spatial_dataset_identifier_code=SU.BREC.2021&spatial_dataset_identifier_namespace=http://geo.stat.gov.pl/id/dataset/PL.ZIPGUS.312,
+Element `<rights>`) nennt wörtlich „Brak warunków dostępu i użytkowania; Brak ograniczeń w publicznym dostępie“.
+Die Geometrie dient der Zuordnung rejon → dzielnica und, für die Karte vereinfacht, der Karte je rejon (`daten/rejony.js`,
+Regel 12 in der Fassung vom 17.11.2026 nachmittags); ausgeliefert werden die Summen des NSP je dzielnica und die
+Werte je rejon, mit dem Vermerk des GUS zur Tabelle. Der STOPP aus der Machbarkeitsprobe (Zeile 1b)
+ist damit aufgehoben. Die Werte je dzielnica hängen an den OSM-Grenzen und stehen deshalb in
+`daten/steckbrief_dzielnice_odbl.js` (ODbL, Regel 15).
 
 Nicht gebraucht für dieses Paket: GUS-1-km-Gitter (das Eurostat-Gitter deckt dieselben Zählungen, Lizenz klarer),
 LoD1/LoD2, NID, RSPO.

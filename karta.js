@@ -43,12 +43,14 @@ var FUSS_TEXT = {
 var FUSS_GRENZEN = [500, 1000, 1500, 2500];               // Meter, Methode (Legende nennt sie)
 var PROZ_GRENZEN = [20, 40, 60, 80];                      // Prozent, wie die Zellthemen (themen.js)
 var KLIMA = { bebauung_verkehr: tt("erzaehlung.klima_bebauung_verkehr"), gruen_wald: tt("erzaehlung.klima_gruen_wald") };
+// Volkszählung je rejon statystyczny (daten/rejony.js, GUS): Dichte und drei Altersanteile in ganzen Prozent
+var SPIS = { dichte: tt("erzaehlung.spis_dichte"), q_u20: tt("erzaehlung.spis_q_u20"), q_60p: tt("erzaehlung.spis_q_60p"), q_nach: tt("erzaehlung.spis_q_nach") };
 var legZelle = document.getElementById("ka-leg-zelle"), legTeile = document.getElementById("ka-leg-teile"), legPunkte = document.getElementById("ka-leg-punkte");
 
 function themaTeile(t) { var p = t.split(":"); return { art: p.length > 1 ? p[0] : "gitter", id: p.length > 1 ? p[1] : t }; }
 function gitterQuelle() { return tt("erzaehlung.quelle_gitter"); }
 function zellebene(t) {
-  ["zellen-flaeche", "klimat-flaeche"].forEach(function (id) { if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", "none"); });
+  ["zellen-flaeche", "klimat-flaeche", "rejony-flaeche"].forEach(function (id) { if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", "none"); });
   legZelle.textContent = ""; legZelle.hidden = true;
   if (!t) return;
   var x = themaTeile(t);
@@ -64,6 +66,21 @@ function zellebene(t) {
       if (!liste) return;
       KF.zellWerte(map, liste, FUSS_GRENZEN);
       KF.legende(legZelle, tt("erzaehlung.leg_fuss", { ziel: FUSS_TEXT[x.id] || x.id }), FUSS_GRENZEN, { einheit: NB + "m", grau: tt("erzaehlung.leg_grau_fuss"), quelle: tt("erzaehlung.quelle_fuss") });
+      legZelle.hidden = false;
+    });
+  } else if (x.art === "spis") {
+    KF.laden("daten/rejony.js", "KIEZ_REJONY", function (d) {
+      if (!d || !SPIS[x.id]) return;
+      if (!map.getSource("rejony")) {
+        map.addSource("rejony", { type: "geojson", data: d, attribution: tt("erzaehlung.bildzeile_spis") });
+        map.addLayer({ id: "rejony-flaeche", type: "fill", source: "rejony", paint: { "fill-opacity": 0.72, "fill-outline-color": "rgba(255,255,255,.6)" } }, "teile-flaeche");
+      }
+      var g = KF.quintile(d.features.map(function (f) { return f.properties[x.id]; }));
+      map.setPaintProperty("rejony-flaeche", "fill-color", KF.stufen(["get", x.id], g));
+      map.setLayoutProperty("rejony-flaeche", "visibility", "visible");
+      var proz = x.id !== "dichte";
+      KF.legende(legZelle, SPIS[x.id], g, { einheit: proz ? PZ : NB + tt("erzaehlung.einheit_ew_km2"),
+        grau: tt(proz ? "erzaehlung.leg_grau_spis" : "erzaehlung.leg_grau_spis_ew", { n: fmt.format(d.methode.mindestfallzahl) }), quelle: spisQuelle(d) });
       legZelle.hidden = false;
     });
   } else if (x.art === "klima") {
@@ -87,6 +104,8 @@ function zellebene(t) {
     });
   }
 }
+// Quellenzeile der rejony: beide GUS-Quellen mit ihrem Vermerk
+function spisQuelle(d) { return tt("erzaehlung.quelle_spis", { vermerk: d.quellen.nsp2021.vermerk }); }
 // Fußwege in Zellreihenfolge: Register von themen.js (prüft Anzahl, erste und letzte Zelle gegen zellen_odbl.js)
 T.ebenen.registrieren({ id: "erreichbar_fuss", global: "KIEZ_ERREICHBAR_FUSS" });
 
@@ -254,6 +273,21 @@ map.on("click", function (e) {
         + zeile(tt("erzaehlung.pop_flaeche_stadt"), fmt1.format(+kz.properties.flaeche) + NB + "ha") + quelle(window.KIEZ_KLIMAT_ZELLEN.quelle.vermerk);
     }
   }
+  if (!h && map.getLayer("rejony-flaeche") && map.getLayoutProperty("rejony-flaeche", "visibility") !== "none") {
+    var rz = map.queryRenderedFeatures(e.point, { layers: ["rejony-flaeche"] })[0];
+    if (rz) {
+      var rp = rz.properties, leer = function (v) { return v == null || v === "null"; };
+      h = "<p class='ka-pop-t'>" + esc(tt("erzaehlung.pop_rejon", { id: rp.id })) + "</p>";
+      if (rp.ohne_zeile) h += "<p class='ka-pop-h'>" + esc(tt("erzaehlung.pop_rejon_ohne_zeile")) + "</p>";
+      else {
+        h += zeile(tt("erzaehlung.pop_ew_spis"), fmt.format(+rp.ew)) + zeile(SPIS.dichte, leer(rp.dichte) ? tt("kern.k_a") : fmt.format(+rp.dichte) + NB + tt("erzaehlung.einheit_ew_km2"));
+        ["q_u20", "q_60p", "q_nach"].forEach(function (q) {
+          h += zeile(SPIS[q], leer(rp[q]) ? tt("erzaehlung.pop_zu_wenige", { n: fmt.format(window.KIEZ_REJONY.methode.mindestfallzahl) }) : fmt.format(+rp[q]) + PZ);
+        });
+      }
+      h += zeile(tt("erzaehlung.pop_flaeche"), (+rp.km2 < 0.1 ? I18N.fmt.zahl(+rp.km2, 3) : fmt1.format(+rp.km2)) + NB + "km²") + quelle(spisQuelle(window.KIEZ_REJONY));
+    }
+  }
   if (!h && map.getLayoutProperty("zellen-flaeche", "visibility") !== "none") {
     var z = map.queryRenderedFeatures(e.point, { layers: ["zellen-flaeche"] })[0];
     if (z) {
@@ -306,6 +340,7 @@ var zellWahl = document.getElementById("ka-zelle");
 function zellWahlFuellen() {
   T.THEMEN.slice(1).forEach(function (th) { var o = el("option", null, th.name); o.value = th.h; zellWahl.querySelector('optgroup[data-gruppe="gitter"]').appendChild(o); });
   FUSS.forEach(function (id) { var o = el("option", null, FUSS_TEXT[id]); o.value = "fuss:" + id; zellWahl.querySelector('optgroup[data-gruppe="fuss"]').appendChild(o); });
+  Object.keys(SPIS).forEach(function (id) { var o = el("option", null, SPIS[id]); o.value = "spis:" + id; zellWahl.querySelector('optgroup[data-gruppe="spis"]').appendChild(o); });
   Object.keys(KLIMA).forEach(function (id) { var o = el("option", null, KLIMA[id]); o.value = "klima:" + id; zellWahl.querySelector('optgroup[data-gruppe="klima"]').appendChild(o); });
 }
 zellWahlFuellen();

@@ -33,7 +33,7 @@ rejestr_zabytkow;ep;1919_1945;1919–1945;1919–1945;1919–1945
 rejestr_zabytkow;ep;1946_1989;1946–1989;1946–1989;1946–1989
 rejestr_zabytkow;ep;ab_1990;od 1990;from 1990;ab 1990
 rejestr_zabytkow;ep;vor_1800;przed 1800;before 1800;vor 1800
-dzielnice;nsp_grund;rejony_geometrie_fehlt;brak granic rejonów statystycznych: ręczne pobranie GUS „Jednostki statystyczne 2021” jeszcze nie nastąpiło;boundaries of the statistical areas are missing: the manual download of GUS “Jednostki statystyczne 2021” is still pending;Geometrie der rejony statystyczne fehlt: Handdownload GUS „Jednostki statystyczne 2021“ steht aus
+dzielnice;nsp_weg;rejony;suma rejonów statystycznych;sum of statistical areas;Summe der rejony statystyczne
 dzielnice;geb_bebauungsdichte_anzeige;anteil;pokazywane jako udział w %;shown as a share in %;als Anteil in % gezeigt
 dzielnice;geb_geschossflaeche_naeherung_abzeichen;orientacyjnie;orientacyjnie;for orientation;Orientierung
 dostepnosc;kennzahl;anteil_in_radius;udział mieszkańców z placówką w promieniu ze standardu urzędowego (richtwert_wert), %;share of residents with a facility within the radius of the official standard (richtwert_wert), %;Anteil der Einwohner mit Einrichtung im Radius der amtlichen Vorgabe (richtwert_wert), %

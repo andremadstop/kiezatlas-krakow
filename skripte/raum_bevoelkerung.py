@@ -8,7 +8,8 @@ Eingänge (Pfade relativ zu $KIEZ_DATEN, Standard ../kiezatlas-daten/krakow; Bes
   2026-11-13/03_gebaeude/1261_SHP.zip     BDOT10k Powiat 1261, Schicht OT_ADJA_A (Stadt und vier delegatury)
   2026-11-13/02_zensus/PL_PD_3035_GPKG.zip Eurostat Census-Gitter 2021, Polen, 1 km
   2026-11-13/02_zensus/ludnosc_w_rejonach_statystycznych_i_obwodach_spisowych_nsp_2021.xlsx   GUS NSP 2021
-  eingang/                                Handdownloads (OSM-Grenzen der dzielnice, Geometrie der rejony)
+  eingang/                                Handdownloads (OSM-Grenzen der dzielnice, Geometrie der rejony aus
+                                          gus_brec/AreaStatisticalUnit_12.zip)
 
 Koordinatensysteme: Flächen in rechen_srid (skripte/ort_konfig.py), Gitterzuordnung in EPSG:3035 (INSPIRE-Gitter,
 flächentreu), Ausgabe für die Seiten in EPSG:4326 auf 5 Stellen. Das System der BDOT10k-Dateien steht in der .prj
@@ -733,11 +734,79 @@ def _gml_polygone(pfad: Path) -> list[tuple[dict, object, CRS]]:
     return aus
 
 
-def rejony_aus_eingang(nsp_ids: set[str]) -> tuple[dict[str, object] | None, str | None, str | None, dict]:
-    """Geometrie der rejony aus eingang/rejony_statystyczne.* (zip mit SHP, .gpkg, .geojson, .gml); Kennungsfeld wird
-    über die Übereinstimmung mit den 6-stelligen Kennungen der NSP-Tabelle gefunden. Rückgabe (rejon -> Geometrie
-    in 4326, Quelle, Grund wenn nicht da, Zählungen)."""
+BREC_ZIP = "gus_brec/AreaStatisticalUnit_12.zip"     # GUS BREC 2021, Woiwodschaft 12 (INSPIRE Statistical Units)
+BREC_XML = "AreaStatisticalUnit_12.xml"
+BREC_DELEGATURY = ("1261029", "1261039", "1261049", "1261059")
+BREC_RAHMEN = (19.7, 49.9, 20.3, 50.2)              # Plausibilität: Mittelpunkt jedes rejon (Länge, Breite)
+BREC_OHNE_ZEILE_MAX = 0.002                          # höchstens 2 von 1000 rejony ohne Zeile in der Tabelle
+
+
+def rejony_aus_brec(pfad: Path, nsp: "Nsp") -> tuple[dict[str, object], dict]:
+    """Geometrie der rejony aus der GUS-Datei BREC 2021 (Prüfprotokoll D4, Änderung 17.11.2026): LocationString =
+    eine der vier delegatury, thematicId mit genau sechs Ziffern (exakt verglichen), MultiSurface mit Löchern in
+    EPSG:4258 (Breite vor Länge) nach 4326. Liest die XML im Strom. Rückgabe (rejon der Tabelle -> Geometrie, Zählungen
+    mit den rejony ohne Tabellenzeile)."""
+    sv, gml = "{http://inspire.ec.europa.eu/schemas/su-vector/4.0}", "{http://www.opengis.net/gml/3.2}"
+    b2 = "{http://inspire.ec.europa.eu/schemas/base2/2.0}"
+    nach_4326 = _tr(4258, 4326)
+    roh: dict[str, tuple[str, object]] = {}
+    obwody = 0
+
+    def ringe(polygon) -> Polygon:
+        aussen = polygon.find(f"{gml}exterior//{gml}posList")
+        innen = polygon.findall(f"{gml}interior//{gml}posList")
+
+        def punkte(pl):
+            z = list(map(float, pl.text.split()))
+            return list(zip(z[1::2], z[0::2]))          # (Länge, Breite)
+        return Polygon(punkte(aussen), [punkte(i) for i in innen])
+
+    with zipfile.ZipFile(pfad) as z, z.open(BREC_XML) as f:
+        for _ev, el in ET.iterparse(f):
+            if el.tag != sv + "AreaStatisticalUnit":
+                continue
+            loc = el.findtext(f"{gml}location/{gml}LocationString")
+            ken = (el.findtext(f"{sv}thematicId/{b2}ThematicIdentifier/{b2}identifier") or "").strip()
+            if loc in BREC_DELEGATURY:
+                if re.fullmatch(r"\d{6}", ken):
+                    ms = el.findall(f".//{gml}MultiSurface")
+                    if len(ms) != 1 or ms[0].get("srsName", "").rsplit("/", 1)[-1] != "4258":
+                        raise Abbruch(f"{BREC_XML}: rejon {ken} ohne genau eine MultiSurface in EPSG:4258")
+                    polys = [ringe(p) for p in ms[0].iter(gml + "Polygon")]
+                    g = polys[0] if len(polys) == 1 else MultiPolygon(polys)
+                    if ken in roh:
+                        raise Abbruch(f"{BREC_XML}: rejon {ken} doppelt")
+                    roh[ken] = (loc, transform(nach_4326, g))
+                elif re.fullmatch(r"\d{7}", ken):
+                    obwody += 1
+            el.clear()
+    if not roh:
+        raise Abbruch(f"{BREC_XML}: keine rejony für Kraków gelesen")
+    l0, b0, l1, b1 = BREC_RAHMEN
+    ausserhalb = [k for k, (_l, g) in roh.items() if not (l0 <= g.centroid.x <= l1 and b0 <= g.centroid.y <= b1)]
+    if ausserhalb:
+        raise Abbruch(f"{BREC_XML}: Mittelpunkt außerhalb des Rahmens von Kraków: {sorted(ausserhalb)[:10]}")
+    falsche_deleg = sorted(k for k, (l, _g) in roh.items() if k in nsp.rejony and nsp.rejony[k]["delegatura"] != l)
+    ohne_zeile = sorted((k, l) for k, (l, _g) in roh.items() if k not in nsp.rejony)
+    rc = _tr(4326, rechen_crs())
+    info = {"saetze": len(roh), "obwody_geometrie": obwody, "kennungsfeld": "thematicId (sechsstellig, exakt)",
+            "treffer": sum(1 for k in roh if k in nsp.rejony), "ohne_zeile": ohne_zeile,
+            "ohne_zeile_max": int(BREC_OHNE_ZEILE_MAX * 1000), "falsche_delegatura": falsche_deleg,
+            "flaeche_km2": sum(transform(rc, g).area for _l, g in roh.values()) / 1e6,
+            "geo_ohne_zeile": {k: g for k, (_l, g) in roh.items() if k not in nsp.rejony},
+            "delegatura_geo": {k: l for k, (l, _g) in roh.items()}}
+    return {k: g for k, (_l, g) in roh.items() if k in nsp.rejony}, info
+
+
+def rejony_aus_eingang(nsp_ids: set[str], nsp: "Nsp | None" = None
+                       ) -> tuple[dict[str, object] | None, str | None, str | None, dict]:
+    """Geometrie der rejony: zuerst GUS BREC 2021 (eingang/gus_brec/, braucht nsp), sonst eingang/rejony_statystyczne.*
+    (zip mit SHP, .gpkg, .geojson, .gml; Kennungsfeld über die Übereinstimmung mit den 6-stelligen Kennungen der
+    NSP-Tabelle). Rückgabe (rejon -> Geometrie in 4326, Quelle, Grund wenn nicht da, Zählungen)."""
     ein = eingang_ordner()
+    if nsp is not None and (ein / BREC_ZIP).is_file():
+        geo, info = rejony_aus_brec(ein / BREC_ZIP, nsp)
+        return geo, f"eingang/{BREC_ZIP}", None, info
     kand = sorted(p for p in ein.glob("rejony_statystyczne*") if p.suffix.lower() in
                   (".zip", ".gpkg", ".geojson", ".json", ".gml", ".shp")) if ein.is_dir() else []
     if not kand:

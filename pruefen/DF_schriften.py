@@ -1,7 +1,7 @@
 """Prüfung Schriften: alle polnischen Sonderzeichen in jeder ausgelieferten Schrift (maschinell mit fontTools).
 
 Prüft ohne Netz:
-  1. Jede Schriftdatei, die atlas.css, rahmen.css oder skripte/16_export.py per @font-face einbindet, liegt unter
+  1. Jede Schriftdatei, die basis.css, atlas.css, rahmen.css oder skripte/16_export.py per @font-face einbindet, liegt unter
      fonts/; kein @font-face teilt eine Schrift per unicode-range auf (dann wäre die Datei allein nicht das, was der
      Browser für einen Schnitt bekommt, und die Prüfung je Datei reichte nicht).
   2. In jeder dieser Dateien und in jeder Data-URI aus fonts/einbettung.js (Schaugrafik) hat jedes der 18 Zeichen
@@ -31,7 +31,7 @@ from fontTools.ttLib import TTFont
 
 WURZEL = Path(__file__).resolve().parent.parent
 POLNISCH = "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
-EINBINDER = ("atlas.css", "rahmen.css", "skripte/16_export.py")
+EINBINDER = ("basis.css", "atlas.css", "rahmen.css", "skripte/16_export.py")
 BEFUNDE: list[str] = []
 
 

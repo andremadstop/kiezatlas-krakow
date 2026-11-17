@@ -11,7 +11,7 @@
 //      Sprachnavigation liegt ganz im Bild und in der Kopfleiste, kein seitlicher Überstand der Seite; kein
 //      sichtbarer Luftbild-Schalter (Kraków hat kein Luftbild).
 //   4. Kerning der polnischen Sonderzeichen im Textsatz des Browsers (skripte/schriften.py überträgt die Werte der
-//      Grundbuchstaben): je Schrift und Schnitt aus atlas.css ist der Kerning-Betrag eines Paars mit Sonderzeichen
+//      Grundbuchstaben): je Schrift und Schnitt aus basis.css ist der Kerning-Betrag eines Paars mit Sonderzeichen
 //      (Breite des Paars minus Breite der Einzelzeichen, 1000 px Schriftgrad, lang="pl") gleich dem des Grundpaars,
 //      und das Grundpaar kernt (Betrag ungleich 0).
 //

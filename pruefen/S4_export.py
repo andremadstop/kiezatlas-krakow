@@ -346,6 +346,7 @@ HERKUNFT = {
     "miasto": ["steckbrief", "gebaeude_kennzahlen", "klimat", "sanierung"],
     "delegatury": ["steckbrief", "gebaeude_kennzahlen", "klimat", "sanierung", "denkmale_bdot"],
     "siatka_1km": ["zellen_odbl", "erreichbar"], "siatka_1km_pokrycie": ["klimat_zellen"],
+    "rejony_statystyczne": ["rejony"],
     "placowki_bdot": ["einrichtungen"], "przystanki": ["haltestellen"], "bdot_kompleksy": ["denkmale_bdot"],
     "bdot_kamienica_nazwa": ["denkmale_bdot"], "rejestr_zabytkow": ["denkmale"], "zbk_wykaz_dzielnice": ["sanierung"],
     "dzielnice": ["stadtteile_odbl", "steckbrief_dzielnice_odbl", "gebaeude_dzielnice_odbl", "klimat_stadtteile_odbl"],
@@ -365,7 +366,7 @@ QUELLE_MUSTER = {
     "ZBK": re.compile(r"Zarząd Budynków Komunalnych"), "Wikidata": re.compile(r"Wikidata"),
 }
 SCHLUESSEL_QUELLE = {"bdot10k": "GUGiK", "bdot": "GUGiK", "delegatury": "GUGiK", "hoehen": "GUGiK", "lod2": "GUGiK",
-                     "ztp": "ZTP", "osm": "OpenStreetMap", "eurostat2021": "Eurostat", "nsp2021": "GUS",
+                     "ztp": "ZTP", "osm": "OpenStreetMap", "eurostat2021": "Eurostat", "nsp2021": "GUS", "gus_brec2021": "GUS",
                      "prawo_oswiatowe": "Prawo oświatowe", "zbk": "ZBK",
                      "wd": "Wikidata"}
 
@@ -377,7 +378,6 @@ QUELLE_AUSNAHMEN = {
     ("zbk_typologia_dzielnice", "ZBK"): "aus sanierung_odbl.js nur die Typologie je dzielnica (BDOT10k, OSM-Grenzen)",
     ("zbk_wykaz_dzielnice", "GUGiK"): "nur Zählungen der ZBK-Liste je dzielnica laut Liste, ohne Gebäudeverknüpfung",
     ("siatka_1km", "OpenStreetMap"): "aus zellen_odbl.js nur Eurostat-Werte ohne st (Lesart in docs/entscheidungen/S4.md, S4-6)",
-    ("dzielnice", "GUS"): "Felder nsp und nsp_grund ohne NSP-Wert (leer mit Grund)",
 }
 
 

@@ -10,7 +10,7 @@
 //    net::ERR_ABORTED bei kacheln/*.pbf, nur gezählt), kein Abruf außerhalb 127.0.0.1.
 // 2. Dieselbe Prüfseite per file://: keine eigene Grundkarte (MapLibre lädt dort keine Kacheln), aber auch kein
 //    Fehler; die übrige Karte wird gezeichnet.
-// 3. Schriften im Browser: Für jede Schrift aus atlas.css wird „ąćęłńóśźżĄĆĘŁŃÓŚŹŻ“ einmal mit Ersatz monospace
+// 3. Schriften im Browser: Für jede Schrift aus basis.css (Grundgestaltung der Maschine) wird „ąćęłńóśźżĄĆĘŁŃÓŚŹŻ“ einmal mit Ersatz monospace
 //    und einmal mit Ersatz serif gemessen. Gleiche Breite heißt: kein Zeichen fiel auf die Ersatzschrift zurück.
 // 4. Alle erzeugten Seiten (pl, en, de) über HTTP ohne Konsolenfehler; lädt eine Seite themen.js, muss sie
 //    vorher daten/grundkarte.js laden (sonst zeigt sie eine Rasterebene auf einer Vektorquelle).
@@ -42,7 +42,7 @@ const pruef = (ok, text) => { console.log((ok ? "  ok    " : "  BEFUND ") + text
 
 // Prüfseite; vor = Pfad zur Atlas-Wurzel ("", "../" oder eine file://-URL mit / am Ende)
 const PROBE = (vor, lang) => `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><title>Probe</title>
-<link rel="stylesheet" href="${vor}vendor/maplibre-gl.css"><link rel="stylesheet" href="${vor}atlas.css">
+<link rel="stylesheet" href="${vor}vendor/maplibre-gl.css"><link rel="stylesheet" href="${vor}basis.css"><link rel="stylesheet" href="${vor}atlas.css">
 <style>html,body{margin:0;height:100%}#karte{position:absolute;inset:0}</style></head><body><div id="karte"></div>
 <script src="${vor}daten/ort.js"></script><script src="${vor}i18n.js"></script>
 <script src="${vor}texte/${lang}/kern.js"></script><script src="${vor}daten/kennzahlen_odbl.js"></script>
@@ -164,7 +164,7 @@ console.log("3. Schriften im Browser: polnische Sonderzeichen ohne Ersatzschrift
 {
   const s = await neueSeite();
   await s.page.goto(HTTP + "index.html");
-  const faces = [...fs.readFileSync(path.join(WURZEL, "atlas.css"), "utf8").matchAll(/@font-face\{font-family:"([^"]+)";src:url\(([^)]+)\)[^}]*font-weight:(\d+)/g)].map((m) => [m[1], m[3], m[2]]);
+  const faces = [...fs.readFileSync(path.join(WURZEL, "basis.css"), "utf8").matchAll(/@font-face\{font-family:"([^"]+)";src:url\(([^)]+)\)[^}]*font-weight:(\d+)/g)].map((m) => [m[1], m[3], m[2]]);
   const r = await s.page.evaluate(async ([faces, text]) => {
     const aus = [];
     for (const [fam, w] of faces) {
@@ -177,7 +177,7 @@ console.log("3. Schriften im Browser: polnische Sonderzeichen ohne Ersatzschrift
     }
     return aus;
   }, [faces, POLNISCH]);
-  pruef(r.length === 5, `${r.length} Schriften aus atlas.css gemessen`);
+  pruef(r.length === 5, `${r.length} Schriften aus basis.css gemessen`);
   for (const x of r) pruef(x.geladen && Math.abs(x.a - x.b) < 0.01 && Math.abs(x.a - x.m) > 1,
     `${x.fam} ${x.w}: Breite mit Ersatz monospace ${x.a.toFixed(2)} px = mit Ersatz serif ${x.b.toFixed(2)} px (nur monospace: ${x.m.toFixed(2)} px)`);
   sauber(s, "index.html (Schriften)");

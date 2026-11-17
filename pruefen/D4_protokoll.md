@@ -100,3 +100,76 @@ bleiben stehen; diese Punkte ändern ihre Folgen.
   `steckbrief_dzielnice_odbl.js` und `kennzahlen_odbl.*`. `SEITENDATEN_AUS_OSM = True`.
 - **Prüfung:** `pruefen/D4_bevoelkerung.py`, Teil C, prüft beides: ohne Grenzen alle vier Seitendateien Beispieldaten,
   mit Grenzen alle vier echt und die drei `_odbl`-Skripte mit ODbL-Vermerk im Kopf; die alten Namen gibt es nicht.
+
+## Änderung 17.11.2026 (Geometrie der rejony, vor dem ersten Lauf mit ihr)
+
+Festgelegt, bevor `skripte/02_bevoelkerung.py` die Geometrie der rejony zum ersten Mal gelesen hat. Die Regeln 10 bis 15
+bleiben stehen; diese Punkte legen Quelle, Lesart und den Umgang mit einer Abweichung fest.
+
+**Offengelegt:** Beim Festlegen waren bekannt (Zählung ohne Rechnung je dzielnica): In der GUS-Datei tragen 749
+Einheiten in Kraków eine sechsstellige Kennung mit `lowers` (rejony) und 4.614 eine siebenstellige mit `uppers`
+(obwody). 748 der 749 rejony stehen in der NSP-Tabelle, jeweils mit derselben delegatura wie `LocationString`; der
+rejon 390570 (Krowodrza, laut `areaValue` 0,22 km², ein obwód) hat keine Zeile. Die Tabelle hat 4.592 obwody, also 22
+weniger als die Geometrie. Die Summe von `areaValue` über die 749 rejony ist 326,43 km².
+
+- **Quelle:** GUS, Bazy Rejonów Statystycznych i Obwodów Spisowych 2021 (BREC), INSPIRE-Thema Statistical Units,
+  Woiwodschaft 12, Handdownload `eingang/gus_brec/AreaStatisticalUnit_12.zip` (Herkunft und Prüfsumme in
+  `eingang/gus_brec/HERKUNFT.md`). Der Leser liest diese Datei unverändert; es gibt keine abgeleitete Zwischendatei.
+- **Lesart:** Kraków = `gml:LocationString` gleich 1261029, 1261039, 1261049 oder 1261059. rejon = `thematicId`
+  mit genau sechs Ziffern, die Kennung wird exakt verglichen (kein Abschneiden; ein siebenstelliger obwód darf nie
+  als rejon gelesen werden). Geometrie aus `gml:MultiSurface` mit allen `Polygon`en samt Löchern, EPSG:4258 mit
+  Breite vor Länge, umgerechnet nach EPSG:4326.
+- **Plausibilität (Befund, wenn verletzt):** Mittelpunkt jedes rejon im Rahmen 19,7–20,3 °O und 49,9–50,2 °N; Σ
+  Fläche der rejony gegen die Stadtfläche aus BDOT10k höchstens 1 % Abweichung; jede Kennung genau einmal.
+- **Regel 11, Rückrichtung:** Ein rejon der Geometrie ohne Zeile in der Tabelle ist kein Befund, wenn er höchstens
+  2 von 1000 rejony betrifft (heute 1 von 749); er bekommt keine Werte, wird mit Nummer und delegatura im Beleg
+  genannt und zählt nicht zur Zuordnung. Mehr solche rejony, oder einer, dessen `LocationString` nicht zur
+  delegatura passt, ist ein Befund. Dass ein fehlender rejon unbewohnt ist, wird nicht behauptet (nicht geprüft).
+- **Regel 12 bleibt:** Die Geometrie der rejony dient nur der Summe je dzielnica; weder Geometrie noch Werte je rejon
+  werden ausgeliefert. Eine Darstellung je rejon wäre eine Änderung dieser Regel und ist hier nicht vorgesehen.
+
+## Änderung 17.11.2026, nachmittags (Karte je rejon, Entscheidung Andre)
+
+Festgelegt, bevor eine Datei mit Werten je rejon geschrieben wurde. Anlass: Hinweis aus der Hochschule (Mail vom
+16.11.2026), die NSP-Tabellen über die Kennung an die Grenzen der rejony zu hängen, um feiner als das 1-km-Gitter zu
+werden. Andre hat am 17.11.2026 entschieden, die Karte je rejon zu bauen.
+
+**Offengelegt:** Bekannt waren beim Festlegen die Zählungen aus dem Abschnitt davor (749 rejony in der Geometrie, 748 in
+der Tabelle) und aus dem Beleg D4: kleinster rejon 9 Personen, größter rejon und Zahl der rejony unter 100 Personen
+stehen in `belege/D4_bevoelkerung.md`, Schritt 3.
+
+- **Regel 12 neu:** Werte je obwód werden nie ausgeliefert. Je rejon statystyczny werden ausgeliefert: Einwohner
+  (NSP 2021, wie vom GUS selbst je rejon veröffentlicht), Fläche, Dichte und die Anteile unter 20, ab 60 und im
+  nacherwerbsfähigen Alter. Keine weiteren Merkmale je rejon (keine Geschlechter, keine einzelnen Altersgruppen).
+  Begründung: Der GUS veröffentlicht diese Zahlen je rejon offen; die Karte zeigt nichts, was nicht schon amtlich
+  öffentlich ist, und bleibt bei den Anteilen strenger als die Quelle.
+- **Regel 13 je rejon:** Anteile nur ab 100 Personen im rejon, sonst `null` (auf der Karte grau, „zu wenige
+  Personen“). Die Einwohnerzahl selbst steht immer, auch unter 100.
+- **Rejon ohne Tabellenzeile** (heute 390570): mit Geometrie, Einwohner `null`, Kennzeichen `ohne_zeile`.
+- **Kontrollen (Befund, wenn verletzt):** Σ Einwohner über die rejony der Datei = Stadt (NSP) exakt; jede Kennung
+  der Tabelle genau einmal; kein Anteil bei weniger als 100 Personen; Differenzprobe je unterdrücktem rejon und
+  Anteil: Aus dem Zähler der dzielnica (Summe in `steckbrief_dzielnice_odbl.js`) minus den Zählern der übrigen
+  rejony derselben dzielnica, die sich aus Anteil (auf 0,1 gerundet) und Einwohnern nur als Spanne ergeben, folgt eine
+  Spanne für den unterdrückten Zähler. Ist diese Spanne enger als 0 bis Einwohner des rejon, ist das ein Befund.
+- **Lizenz:** Die Datei hängt nicht an OSM (Grenzen GUS BREC, Werte GUS NSP) und trägt kein `_odbl`; Vermerke beider
+  GUS-Quellen im Kopf.
+
+## Änderung 17.11.2026, nach dem ersten Lauf der Karte je rejon
+
+**Offengelegt:** Festgelegt nach dem ersten Lauf. Die Differenzprobe aus dem Abschnitt davor schlug an: Mit Anteilen auf
+eine Nachkommastelle ließen sich 15 unterdrückte Zähler der vier rejony unter 100 Personen über die Summe je dzielnica
+eingrenzen, einer genau (bei rund 1.000 Personen entspricht 0,1 % etwa einer Person). Es wurde nichts ausgeliefert.
+
+- **Anteile je rejon in ganzen Prozent** (kaufmännisch gerundet), nicht auf 0,1. Die Differenzprobe rechnet
+  entsprechend mit ±0,5 Prozentpunkten. Die Regel selbst (Befund, wenn eine Spanne enger ist als 0 bis Einwohner)
+  bleibt unverändert.
+
+## Nachtrag 17.11.2026, nach dem Review der Karte je rejon
+
+- **Geltung:** Die Fassung „Regel 12 neu“ (Abschnitt „Karte je rejon“) ersetzt Regel 12 oben und den Punkt „Regel 12
+  bleibt“ im Abschnitt „Geometrie der rejony“; beide Texte bleiben als Verlauf stehen.
+- **Differenzprobe strenger:** zusätzlich gegen die Stadt und gegen die Kreuzmengen aus Gruppe der dzielnica und
+  delegatura (Differenzen zwischen den Summen je dzielnica und je delegatura beziehen sich auf diese Mengen). Die
+  Spanne wird ganzzahlig und rechts offen gerechnet (q = ganze Prozent ⇔ (2q−1)·n ≤ 200·Zähler < (2q+1)·n). Der
+  Review fand keinen rückrechenbaren Wert; die Erweiterung schließt die Lücke für künftige Daten.
+- **Dichte je rejon** aus der ungerundeten Fläche; Fläche in der Datei auf 0,001 km².

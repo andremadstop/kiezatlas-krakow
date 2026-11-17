@@ -1,6 +1,6 @@
 """Ortskonfiguration für Skripte: liest config/<ort>.yaml und stellt das Rechen-Koordinatensystem bereit.
 
-Welche Datei gilt: $KIEZ_CONFIG (Pfad), sonst config/krakow.yaml. Für die Gegenprobe Potsdam zeigt
+Welche Datei gilt: $KIEZ_CONFIG (Pfad), sonst die einzige Ortskonfiguration unter config/, sonst config/krakow.yaml. Für die Gegenprobe Potsdam zeigt
 KIEZ_CONFIG auf pruefen/gegenprobe_potsdam/ort.yaml.
 
   RECHEN_SRID   EPSG-Code, in dem Abstände und Flächen gerechnet werden (Schlüssel rechen_srid)
@@ -25,14 +25,19 @@ WURZEL = Path(__file__).resolve().parent.parent
 SRS_NAMEN = {
     2178: "ETRS89 / Poland CS2000 zone 7",
     2180: "ETRS89 / Poland CS92",
+    25832: "ETRS89 / UTM zone 32N",
     25833: "ETRS89 / UTM zone 33N",
     25834: "ETRS89 / UTM zone 34N",
 }
 
 
 def pfad() -> Path:
+    """$KIEZ_CONFIG, sonst die einzige Ortskonfiguration unter config/ (ohne richtwerte.yaml), sonst config/krakow.yaml."""
     p = os.environ.get("KIEZ_CONFIG")
-    return Path(p).resolve() if p else WURZEL / "config" / "krakow.yaml"
+    if p:
+        return Path(p).resolve()
+    orte = sorted(x for x in (WURZEL / "config").glob("*.yaml") if x.name != "richtwerte.yaml")
+    return orte[0] if len(orte) == 1 else WURZEL / "config" / "krakow.yaml"
 
 
 @lru_cache(maxsize=None)

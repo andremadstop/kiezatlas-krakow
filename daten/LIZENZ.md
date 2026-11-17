@@ -19,7 +19,8 @@ Handdownloads gerechnet. Quellen, Vermerke im Original und Wege: `QUELLEN.md`.
 | `zellen_odbl.js` | Zellen des Eurostat-Gitters (1 km) mit Einwohnern, Altersanteilen und Zuordnung `st` | ODbL 1.0 (Zuordnung über die OSM-Grenzen); Einwohner Eurostat, CC BY 4.0 |
 | `kennzahlen_odbl.js`, `kennzahlen_odbl.json` | Kennzahlen je dzielnica und Stadt | ODbL 1.0; Einwohner Eurostat, CC BY 4.0; Vermerk im Kopf bzw. Feld `lizenz` |
 | `steckbrief.js` | Stadt und vier delegatury: NSP 2021, Gitter, Fläche, Dichte; dzielnice `null` mit Grund | Quellenangaben GUS, Eurostat (CC BY 4.0), GUGiK (BDOT10k/PRG); keine OSM-Werte |
-| `steckbrief_dzielnice_odbl.js` | je dzielnica: Fläche, Gitter, Dichte, OSM-Kennung | ODbL 1.0; Einwohner Eurostat, CC BY 4.0 |
+| `steckbrief_dzielnice_odbl.js` | je dzielnica: Fläche, Gitter, Dichte, OSM-Kennung; NSP 2021 als Summe der rejony | ODbL 1.0; Einwohner Eurostat, CC BY 4.0; NSP und Grenzen der rejony GUS, Quellenangabe |
+| `rejony.js` | je rejon statystyczny: Grenze, Einwohner, Fläche, Dichte, drei Altersanteile (ganze Prozent, ab 100 Personen) | Grenzen GUS BREC 2021 („Brak warunków dostępu i użytkowania“), Werte GUS NSP 2021, Quellenangabe; keine OSM-Werte |
 | `gebaeude_kennzahlen.js` | Gebäude der Stadt und der delegatury mit Höhenherkunft | BDOT10k, Quellenangabe nach art. 40c ust. 3 Prawo geodezyjne i kartograficzne; Höhen GUGiK LoD2 (Stand 2017) mit wörtlicher Freigabe im Feld `quellen.hoehen.vermerk` |
 | `gebaeude_dzielnice_odbl.js` | Gebäude je dzielnica | ODbL 1.0 (Zuordnung); BDOT10k und LoD2 wie oben |
 | `gebaeude/<nr>_odbl.js` (außerhalb des Repos, `kiezatlas-daten/krakow/abgeleitet/gebaeude/2026-11-13-odbl/`, Stand und Manifest in `config/gebaeude_3d.json`) | Grundrisse für 3D je dzielnica mit Höhe und Herkunft `hq` | ODbL 1.0 (Aufteilung); BDOT10k und LoD2 wie oben |

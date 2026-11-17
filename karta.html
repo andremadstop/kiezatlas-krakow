@@ -18,6 +18,7 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta name="theme-color" content="#f1f2ee">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="basis.css">
 <link rel="stylesheet" href="atlas.css">
 <link rel="stylesheet" href="rahmen.css">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
@@ -63,11 +64,12 @@
   <div class="ka-bedienung">
     <p class="ka-wahl"><label for="ka-teil">Dzielnica</label>
       <select id="ka-teil"><option value="">Cały Kraków</option></select></p>
-    <p class="ka-wahl"><label for="ka-zelle">Warstwa siatki 1 km</label>
+    <p class="ka-wahl"><label for="ka-zelle">Warstwa (siatka 1 km lub rejony statystyczne)</label>
       <select id="ka-zelle">
         <option value="">brak</option>
         <optgroup data-gruppe="gitter" label="Ludność (Eurostat)"></optgroup>
         <optgroup data-gruppe="fuss" label="Dojście piesze do najbliższego celu"></optgroup>
+        <optgroup data-gruppe="spis" label="Spis 2021 według rejonów statystycznych (GUS)"></optgroup>
         <optgroup data-gruppe="klima" label="Pokrycie terenu (BDOT10k)"></optgroup>
       </select></p>
     <fieldset id="ka-dz" class="ka-feld">

@@ -21,6 +21,7 @@ Stan danych: wyliczono z plików atlasu (katalog `daten/`), ostatnia data w dany
 | `delegatury`: Cztery delegatury (dawne dzielnice) | `kiezatlas_krakow.gpkg` | bez | 4 | `steckbrief`, `gebaeude_kennzahlen`, `klimat`, `sanierung`, `denkmale_bdot` |
 | `siatka_1km`: Siatka 1 km: ludność i odległości w linii prostej | `kiezatlas_krakow.gpkg` | polygon | 327 | `zellen_odbl`, `erreichbar` |
 | `siatka_1km_pokrycie`: Siatka 1 km: pokrycie terenu | `kiezatlas_krakow.gpkg` | polygon | 397 | `klimat_zellen` |
+| `rejony_statystyczne`: Rejony statystyczne: ludność według NSP 2021 | `kiezatlas_krakow.gpkg` | multipolygon | 749 | `rejony` |
 | `placowki_bdot`: Placówki z BDOT10k | `kiezatlas_krakow.gpkg` | point | 321 | `einrichtungen` |
 | `przystanki`: Przystanki z klasą częstotliwości | `kiezatlas_krakow.gpkg` | point | 944 | `haltestellen` |
 | `bdot_kompleksy`: Kompleksy BDOT10k (muzea, forty, zespoły zabudowy) | `kiezatlas_krakow.gpkg` | polygon | 59 | `denkmale_bdot` |
@@ -332,6 +333,21 @@ Bez własnej warstwy w eksporcie są jeszcze (dane rzeczywiste, tylko jako pliki
 | `anteil_gruen_wald` | BDOT10k: udział w sumie klas pokrycia terenu: zieleń i lasy razem, % |
 | `wkt` | geometria jako WKT w EPSG:2178 |
 
+### `rejony_statystyczne`
+
+| Pole | Znaczenie |
+|---|---|
+| `rejon` | identyfikator rejonu statystycznego GUS (6 cyfr) |
+| `delegatura_teryt` | kod TERYT delegatury według GUS |
+| `nsp_einwohner` | NSP 2021: liczba mieszkańców rejonu; puste = brak wiersza w tabeli spisu |
+| `flaeche_km2` | powierzchnia, km² |
+| `dichte_nsp` | gęstość zaludnienia według NSP 2021, mieszkańcy na km² |
+| `nsp_q_u20` | NSP 2021: udział osób poniżej 20 lat, pełne %; puste poniżej 100 osób |
+| `nsp_q_60p` | NSP 2021: udział osób w wieku 60 lat i więcej, pełne %; puste poniżej 100 osób |
+| `nsp_q_nach` | NSP 2021: udział osób w wieku poprodukcyjnym, pełne %; puste poniżej 100 osób |
+| `ohne_zeile` | 1 = rejon bez wiersza w tabeli spisu (bez wartości) |
+| `wkt` | geometria jako WKT w EPSG:2178 |
+
 ### `placowki_bdot`
 
 | Pole | Znaczenie |
@@ -438,8 +454,27 @@ Bez własnej warstwy w eksporcie są jeszcze (dane rzeczywiste, tylko jako pliki
 | `gitter_zellen_beruehrt` | liczba komórek, które choćby częściowo leżą w jednostce |
 | `gitter_spanne_proz` | różnica między wynikami przypisania według powierzchni i według środka, % (miara niepewności na granicach, nie błąd) |
 | `dichte_gitter` | gęstość zaludnienia według siatki Eurostatu, mieszkańcy na km² |
-| `nsp` | NSP 2021 dla dzielnicy: puste (zob. nsp_grund) |
-| `nsp_grund` | powód braku wartości NSP 2021 |
+| `nsp_einwohner` | NSP 2021: liczba mieszkańców |
+| `nsp_maenner` | NSP 2021: mężczyźni |
+| `nsp_frauen` | NSP 2021: kobiety |
+| `nsp_alter_10_a0_9` | NSP 2021: mieszkańcy w wieku 0–9 lat |
+| `nsp_alter_10_a10_19` | NSP 2021: mieszkańcy w wieku 10–19 lat |
+| `nsp_alter_10_a20_29` | NSP 2021: mieszkańcy w wieku 20–29 lat |
+| `nsp_alter_10_a30_39` | NSP 2021: mieszkańcy w wieku 30–39 lat |
+| `nsp_alter_10_a40_49` | NSP 2021: mieszkańcy w wieku 40–49 lat |
+| `nsp_alter_10_a50_59` | NSP 2021: mieszkańcy w wieku 50–59 lat |
+| `nsp_alter_10_a60_69` | NSP 2021: mieszkańcy w wieku 60–69 lat |
+| `nsp_alter_10_a70_79` | NSP 2021: mieszkańcy w wieku 70–79 lat |
+| `nsp_alter_10_a80p` | NSP 2021: mieszkańcy w wieku 80 lat i więcej |
+| `nsp_oekonomisch_vor` | NSP 2021: mieszkańcy w wieku przedprodukcyjnym |
+| `nsp_oekonomisch_erwerb` | NSP 2021: mieszkańcy w wieku produkcyjnym |
+| `nsp_oekonomisch_nach` | NSP 2021: mieszkańcy w wieku poprodukcyjnym |
+| `nsp_q_u20` | NSP 2021: udział mieszkańców poniżej 20 lat, % |
+| `nsp_q_60p` | NSP 2021: udział mieszkańców w wieku 60 lat i więcej, % |
+| `nsp_q_nach` | NSP 2021: udział mieszkańców w wieku poprodukcyjnym, % |
+| `nsp_rejony` | NSP 2021: liczba rejonów statystycznych |
+| `nsp_weg` | skąd pochodzą wartości NSP 2021 |
+| `dichte_nsp` | gęstość zaludnienia według NSP 2021, mieszkańcy na km² |
 | `geb_anzahl` | BDOT10k: budynki (OT_BUBD_A) z punktem wewnętrznym w jednostce, wszystkie kategorie istnienia |
 | `geb_zustand_eksploatowany` | BDOT10k: budynki o kategorii istnienia: eksploatowany |
 | `geb_zustand_w_budowie` | BDOT10k: budynki o kategorii istnienia: w budowie |
@@ -653,7 +688,7 @@ Bez własnej warstwy w eksporcie są jeszcze (dane rzeczywiste, tylko jako pliki
 | `ep` | `1946_1989` | 1946–1989 |
 | `ep` | `ab_1990` | od 1990 |
 | `ep` | `vor_1800` | przed 1800 |
-| `nsp_grund` | `rejony_geometrie_fehlt` | brak granic rejonów statystycznych: ręczne pobranie GUS „Jednostki statystyczne 2021” jeszcze nie nastąpiło |
+| `nsp_weg` | `rejony` | suma rejonów statystycznych |
 | `kennzahl` | `anteil_in_radius` | udział mieszkańców z placówką w promieniu ze standardu urzędowego (richtwert_wert), % |
 | `kennzahl` | `ew_je_einrichtung` | mieszkańcy na jedną placówkę |
 | `kennzahl` | `gruen_in_radius` | udział mieszkańców z parkiem lub skwerem w odległości 500 m dojścia pieszego, % |

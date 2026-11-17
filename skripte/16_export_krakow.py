@@ -317,6 +317,9 @@ def vermerke(D: Daten) -> dict[str, tuple[str, str, str]]:
     v = {
         "nsp": (GUS, sb["nsp2021"]["quelle"], sb["nsp2021"]["vermerk"]),
         "eurostat": (eu["lizenz"], f"{eu_name} ({eu['url']})", eu["vermerk"]),
+        **({"brec": (q_brec["lizenz"], f"{q_brec['quelle']} ({q_brec['fundstelle']})", q_brec["vermerk"])}
+           if (q_brec := D.d["rejony"]["quellen"].get("gus_brec2021") if "rejony" in D.d else
+               D["steckbrief_dzielnice_odbl"]["quellen"].get("gus_brec2021")) else {}),
         "bdot_prg": (BDOT, sb["bdot10k"]["quelle"], sb["bdot10k"]["vermerk"]),
         "bdot_geb": (BDOT, gk["bdot10k"]["vermerk"]),
         "delegatury": (BDOT, gk["delegatury"]["vermerk"]),
@@ -345,6 +348,8 @@ T = {  # Titel je Ebene: pl, en, de
     "siatka_1km": ("Siatka 1 km: ludność i odległości w linii prostej", "1 km grid: population and straight-line distances",
               "1-km-Gitter: Einwohner und Luftlinie"),
     "siatka_1km_pokrycie": ("Siatka 1 km: pokrycie terenu", "1 km grid: land cover", "1-km-Gitter: Bodenbedeckung"),
+    "rejony_statystyczne": ("Rejony statystyczne: ludność według NSP 2021", "Statistical areas: population from NSP 2021",
+                            "Statistische Bezirke (rejony): Bevölkerung nach NSP 2021"),
     "placowki_bdot": ("Placówki z BDOT10k", "Facilities from BDOT10k", "Einrichtungen aus BDOT10k"),
     "przystanki": ("Przystanki z klasą częstotliwości", "Stops with frequency class", "Haltestellen mit Taktklasse"),
     "bdot_kompleksy": ("Kompleksy BDOT10k (muzea, forty, zespoły zabudowy)",
@@ -457,6 +462,17 @@ def ebenen_bauen(D: Daten, geo: Geo) -> list[Ebene]:
     E.append(Ebene("siatka_1km_pokrycie", titel("siatka_1km_pokrycie"), "POLYGON", zeilen, geom, ["klimat_zellen"],
                    v("bdot_klimat"), False))
 
+    # rejony statystyczne (GUS): Grenzen BREC 2021, Werte NSP 2021, ohne OSM (Prüfprotokoll D4, 17.11.2026)
+    zeilen, geom = [], []
+    for f in D["rejony"]["features"]:
+        p = f["properties"]
+        zeilen.append([("rejon", p["id"]), ("delegatura_teryt", p["dg"]), ("nsp_einwohner", p["ew"]), ("flaeche_km2", p["km2"]),
+                       ("dichte_nsp", p["dichte"]), ("nsp_q_u20", p["q_u20"]), ("nsp_q_60p", p["q_60p"]),
+                       ("nsp_q_nach", p["q_nach"]), ("ohne_zeile", bool(p.get("ohne_zeile")))])
+        geom.append(geo.zeile(geo.aus_geojson(f["geometry"], multi=True)))
+    E.append(Ebene("rejony_statystyczne", titel("rejony_statystyczne"), "MULTIPOLYGON", zeilen, geom, ["rejony"],
+                   v("nsp", "brec"), False))
+
     for name, datei, weg, ver, ohne in (
         ("placowki_bdot", "einrichtungen", ("features",), ("bdot_einr",), ()),
         ("przystanki", "haltestellen", ("features",), ("ztp", "bdot_prg"), ("st",)),
@@ -504,7 +520,8 @@ def ebenen_bauen(D: Daten, geo: Geo) -> list[Ebene]:
         geom.append(geo.zeile(geo.aus_geojson(f["geometry"], multi=True)))
     E.append(Ebene("dzielnice", titel("dzielnice"), "MULTIPOLYGON", zeilen, geom,
                    ["stadtteile_odbl", "steckbrief_dzielnice_odbl", "gebaeude_dzielnice_odbl", "klimat_stadtteile_odbl"],
-                   v("osm", "eurostat", "bdot_geb", "lod2", "bdot_klimat"), True))
+                   v("osm", "eurostat", *(("nsp", "brec") if any(sd[n].get("nsp") for n in sd) else ()),
+                     "bdot_geb", "lod2", "bdot_klimat"), True))
 
     ef = D["erreichbar_fuss_odbl"]
     if (ef["anzahl"], ef["erste_id"], ef["letzte_id"]) != (len(ids), ids[0], ids[-1]):
@@ -632,6 +649,8 @@ def stile(E: list[Ebene]) -> dict[str, str]:
             s[e.name] = _qml(_einzeln(_flaeche("0", None, AKZENT, 0.4)), '"rzymska" || \' \' || "nazwa"')
         elif e.name in ("siatka_1km", "zelle_odbl"):
             s[e.name] = _qml(_abgestuft("ew", [0, 100, 1000, 2500, 5000, 1e7]))
+        elif e.name == "rejony_statystyczne":
+            s[e.name] = _qml(_abgestuft("dichte_nsp", [0, 1000, 3000, 6000, 10000, 1e7]))
         elif e.name == "siatka_1km_pokrycie":
             s[e.name] = _qml(_abgestuft("anteil_bebauung", [0, 20, 40, 60, 80, 100.01]))
         elif e.name == "przystanki":

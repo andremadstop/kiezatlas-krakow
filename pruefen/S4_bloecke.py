@@ -43,6 +43,7 @@ ERLAUBT = [
     (r"LoD[12]\b", "Detailstufen der Gebäudemodelle"),
     (r"\bPM10\b|\bPM2[,.]5\b|\bNO2\b", "Schadstoffnamen"),
     (r"\b(NSP|Census|census|spisu?|Zensus|Mieszkań) 2021\b", "Name der Volkszählung und des Gitters"),
+    (r"Jednostki statystyczne 2021", "Name des GUS-Datensatzes der rejony statystyczne (BREC)"),
     (r"EPSG:\d{4,5}", "Kennung des Koordinatensystems"),
     (r"CC BY 4\.0|ODbL 1\.0|Open Database License 1\.0|OFL 1\.1|Apache-2\.0|UTF-8", "Namen von Lizenzen und Zeichensatz"),
     (r"\bsiatka_1km(_odbl|_pokrycie)?\b", "Namen der Ebenen in den Downloads"),

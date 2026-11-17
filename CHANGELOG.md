@@ -4,6 +4,36 @@ Je veröffentlichtem Stand ein Abschnitt und ein Git-Tag, ab 1.0.0 `v<Version>` 
 
 ## Unveröffentlicht
 
+(nichts)
+
+## 1.1.0 (17.11.2026)
+
+### Volkszählung je statistischem Bezirk (17.11.2026)
+
+- Grenzen der rejony statystyczne aus dem GUS-Datensatz „Jednostki statystyczne 2021“ (BREC, INSPIRE), gelesen direkt
+  aus der Datei des Downloaddienstes (`skripte/raum_bevoelkerung.py`, `rejony_aus_brec`). 748 von 749 rejony haben
+  eine Zeile in der NSP-Tabelle; der eine ohne Zeile bekommt keine Werte. Regeln vor dem ersten Lauf in
+  `pruefen/D4_protokoll.md` (Änderungen vom 17.11.2026), Beleg `belege/D4_bevoelkerung.md`.
+- NSP 2021 je dzielnica als Summe der rejony (Zuordnung über einen inneren Punkt); Σ über alle dzielnice = Stadt
+  (800.653). Steckbrief der dzielnica zeigt die Werte des Stadtteils und darunter die der delegatura.
+- Neue Kartenebene „Volkszählung 2021 je statistischem Bezirk“ (`daten/rejony.js`): Einwohner je km² und drei
+  Altersanteile je rejon, Anteile in ganzen Prozent und erst ab 100 Personen. Die Differenzprobe (Rückrechnung
+  unterdrückter Werte über die Summen je dzielnica, delegatura, Stadt und ihre Kreuzmengen) ist Teil der Rechnung;
+  sie schlug mit Anteilen auf eine Nachkommastelle an, deshalb ganze Prozent.
+- Downloads: Ebene `rejony_statystyczne` im GeoPackage ohne OSM-Anteil und als CSV; NSP-Spalten je dzielnica in der
+  ODbL-Ebene `dzielnice`.
+- Methoden- und Datenseite (pl, en, de) beschreiben Verfahren und Quelle.
+
+### Gemeinsamer Kern mit anderen Städten (16.11.2026)
+
+- Laufzeit-Module, Seitenrahmen und Seitengenerator kommen als Kopie zu festem Commit aus dem gemeinsamen
+  Kiezatlas-Kern (`MASCHINE.txt`, `MASCHINE.lock`, `skripte/maschine.py`; KR70). In diesem Repository werden diese
+  Dateien nicht von Hand geändert; `pruefen.sh` prüft ihre Prüfsummen.
+- Grundgestaltung (`basis.css`) getrennt von den Seitenstilen (`atlas.css`); ausgelieferte Seiten unverändert im
+  Aussehen.
+
+### DOI eingetragen (15.11.2026)
+
 - DOI eingetragen (Zenodo): Konzept-DOI 10.5281/zenodo.24254005 (alle Versionen), Versions-DOI
   10.5281/zenodo.24254006 (1.0.0).
   `CITATION.cff` (`doi`, `identifiers`), README, `docs/przekazanie.md`; in `config/krakow.yaml` neuer Schlüssel `doi`

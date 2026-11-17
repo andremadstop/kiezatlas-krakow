@@ -52,7 +52,7 @@ Stan: 14.11.2026.
 | BDOT10k, powiat 1261 | nie sprawdzono | raz w roku | nowa suma w `skripte/27_grundkarte.py` (`BDOT_SHA256`) |
 | Modele 3D LoD2 (stan 2017), LoD1 2024 | LoD1 2024 jeszcze nie pobrany | gdy pojawi się LoD1 dla powiatu | pobranie ręczne |
 | Siatka Eurostat 2021 | wydanie spisu 2021 | przy następnym spisie | nie sprawdzono, kiedy |
-| NSP 2021 (GUS) | wydanie spisu 2021 | przy następnym spisie | geometria rejonów nadal brakuje |
+| NSP 2021 (GUS) | wydanie spisu 2021 | przy następnym spisie | granice rejonów: GUS BREC 2021 (pobranie ręczne 17.11.2026), przypisanie rejon → dzielnica i mapa rejonów (`daten/rejony.js`) |
 | GTFS ZTP | plik obowiązuje około tygodnia (`feed_version` 20261109_20261114) | przed każdym przeliczeniem | dzień odniesienia `stichtag` w `config/richtwerte.yaml` musi leżeć w okresie ważności pliku |
 | Lista budynków ZBK | wydanie „na dzień 2025-12-01“ | raz w roku | dane osobowe tylko w pliku surowym; publikowane są tylko klasy (uzasadnienie w `docs/entscheidungen.md`) |
 | EEA, statystyki roczne jakości powietrza | roczne | raz w roku | pobrane ręcznie 14.11.2026 (instrukcja w `quellen-D7.md`); eksport obejmuje tylko stacje w Krakowie |
