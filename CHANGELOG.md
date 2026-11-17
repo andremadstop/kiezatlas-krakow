@@ -4,6 +4,7 @@ Je veröffentlichtem Stand ein Abschnitt und ein Git-Tag, ab 1.0.0 `v<Version>` 
 
 ## Unveröffentlicht
 
+- Versions-DOI 1.1.0 eingetragen: 10.5281/zenodo.24306257 (`CITATION.cff`, README).
 - Karte in en und de: nachgeladene Ebenen (Fußwege, Flächennutzung, Volkszählung je rejon) luden auf der Website aus
   `<lang>/daten/` statt aus `daten/` und blieben leer. Ursache: Die Deploy-Kopie hängt `?v=` an den Verweis auf
   `daten/ort.js`, `kartenfeld.js` erkannte daran die Wurzel nicht. Behoben im gemeinsamen Kern (Maschine e05b7bf);

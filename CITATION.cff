@@ -36,6 +36,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.24254006
     description: "Version 1.0.0"
+  - type: doi
+    value: 10.5281/zenodo.24306257
+    description: "Version 1.1.0"
 version: "1.1.0"
 date-released: "2026-11-17"
 license: Apache-2.0
