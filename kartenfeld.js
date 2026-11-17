@@ -15,8 +15,12 @@ var LEER = { type: "FeatureCollection", features: [] };
 
 // Weg zur Atlas-Wurzel (Seiten in en/ und de/ liegen eine Ebene tiefer): aus dem Verweis auf daten/ort.js
 var WURZEL = (function () {
-  var s = document.querySelector('script[src$="daten/ort.js"]');
-  return s ? s.getAttribute("src").replace(/daten\/ort\.js$/, "") : "";
+  // Die Deploy-Kopie hängt ?v=<Stand> an (skripte/deploy_kopie.py); ohne Abfrageteil vergleichen, sonst laden die
+  // Sprachordner nachgeladene Dateien relativ zu sich selbst (en/daten/… → 404)
+  var s = [].slice.call(document.querySelectorAll('script[src*="daten/ort.js"]')).filter(function (x) {
+    return /(^|\/)daten\/ort\.js(\?[^#]*)?$/.test(x.getAttribute("src"));
+  })[0];
+  return s ? s.getAttribute("src").replace(/daten\/ort\.js(\?[^#]*)?$/, "") : "";
 })();
 function pfad(rel) { return WURZEL + rel; }
 // Datei nachladen (per <script>, läuft auch über file://); danach Kennzeichnung Beispieldaten neu prüfen

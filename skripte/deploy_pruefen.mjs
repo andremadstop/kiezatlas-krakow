@@ -230,6 +230,25 @@ try {
       `${PRAEFIX}${u}: Status ${o.status}, lang=${z.lang}, Stylesheets ${z.css}, Dateien nicht 200: ${kaputt.length}, Fehler ${o.fehler.length}`);
     await o.ctx.close();
   }
+  // Nachgeladene Ebenen (kartenfeld.js lädt per Pfad ab der Wurzel): in jeder Sprache aus dem Wurzelordner daten/,
+  // nicht aus <lang>/daten/ (Fehler bis 17.11.2026: ?v= am Verweis auf daten/ort.js verdeckte die Wurzel)
+  console.log("\nNachgeladene Ebenen der Karte (je Sprache)");
+  const NACH = [["spis:dichte", "daten/rejony.js"], ["klima:gruen_wald", "daten/klimat_zellen.js"], ["fuss:szkola", "daten/erreichbar_fuss_odbl.js"]];
+  for (const l of ORT.sprachen) {
+    const pre = l === ORT.sprachen[0] ? "" : l + "/";
+    if (!seiten.includes(pre + "karta.html")) continue;
+    for (const [thema, datei] of NACH) {
+      if (!fs.existsSync(path.join(KOPIE, datei))) continue;
+      const o = await oeffnen(browser, HOST + "/", BASIS + pre + "karta.html#thema=" + thema);
+      await o.page.waitForFunction(() => !document.getElementById("ka-leg-zelle").hidden, null, { timeout: 20000 }).catch(() => {});
+      const geladen = o.eigen.filter((e) => e.url.split("?")[0] === BASIS + datei && e.status === 200).length;
+      const kaputt = o.eigen.filter((e) => e.status !== 200 && !e.url.startsWith(BASIS + pre + "karta.html"));
+      const leg = await o.page.evaluate(() => !document.getElementById("ka-leg-zelle").hidden);
+      pruef(geladen === 1 && !kaputt.length && leg && !o.fehler.length,
+        `[${l}] karta #thema=${thema}: ${datei} aus der Wurzel geladen ${geladen}×, nicht 200: ${kaputt.length}${kaputt.length ? " " + kaputt[0].url : ""}, Legende ${leg ? "da" : "fehlt"}`);
+      await o.ctx.close();
+    }
+  }
 } finally { await browser.close(); srv.close(); }
 
 console.log("\nStartgewicht (JavaScript bis zur Ruhe; gz9 = gzip -9 je Datei, live = Stufe 9 ab 1024 Byte, heute = Stufe 6)");
